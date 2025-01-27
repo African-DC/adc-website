@@ -179,9 +179,20 @@ export function ServicesGrid() {
   return (
     <section className="py-20 bg-[#f2f2f2]">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-[#ff942b] to-orange-600 bg-clip-text text-transparent font-['Open_Sans']">
-          Nos Services
-        </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-[#ff942b] to-orange-600 bg-clip-text text-transparent font-['Open_Sans']">
+            Nos Services
+          </h2>
+          <p className="text-center text-gray-600 mb-20 max-w-2xl mx-auto">
+            Des solutions et formations personnalisées pour vous et vos
+            entreprises prospères
+          </p>
+        </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service) => (
             <div key={service.title} className={service.className}>

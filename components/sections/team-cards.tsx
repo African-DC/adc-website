@@ -80,14 +80,19 @@ export function TeamCards() {
   return (
     <section className="py-32 bg-[#f2f2f2]">
       <div className="max-w-7xl mx-auto px-4">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl font-bold text-center mb-16 font-['Open_Sans'] bg-clip-text text-transparent bg-gradient-to-r from-neutral-800 to-neutral-600"
         >
-          Notre Équipe
-        </motion.h2>
+          <motion.h2 className="text-4xl text-[#ff942b] md:text-5xl font-bold text-center mb-4 font-['Open_Sans'] bg-clip-text bg-gradient-to-r from-neutral-800 to-neutral-600">
+            Notre Équipe
+          </motion.h2>
+          <motion.p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
+            Des membres professionnels prêts à aider votre entreprise
+          </motion.p>
+        </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
           {team.map((member, index) => (
             <motion.div

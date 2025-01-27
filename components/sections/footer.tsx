@@ -38,12 +38,12 @@ export function Footer() {
             <div className="bg-white rounded-xl p-4 inline-block mb-6">
               <Image
                 src="/img/logoadc.png"
-                alt="Africa Digit Consulting"
+                alt="African Digit Consulting"
                 width={200}
                 height={80}
               />
             </div>
-            <p className="text-white/90 mb-6">
+            <p className="text-white/90 mb-6 font-['Open_Sans']">
               Votre partenaire de confiance pour la transformation digitale en
               Afrique. Expertise, innovation et solutions sur mesure pour votre
               succès numérique.
@@ -96,7 +96,9 @@ export function Footer() {
             }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h3 className="text-xl font-bold mb-6 text-white">Nos Services</h3>
+            <h3 className="text-xl font-bold mb-6 text-white font-['Open_Sans']">
+              Nos Services
+            </h3>
             <ul className="space-y-4">
               <motion.li variants={fadeInUp}>
                 <Link
@@ -145,7 +147,9 @@ export function Footer() {
             }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <h3 className="text-xl font-bold mb-6 text-white">Contact</h3>
+            <h3 className="text-xl font-bold mb-6 text-white font-['Open_Sans']">
+              Contact
+            </h3>
             <ul className="space-y-4">
               <motion.li
                 variants={fadeInUp}
@@ -177,7 +181,7 @@ export function Footer() {
           }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <p className="text-center text-white/80">
+          <p className="text-center text-white/80 font-['Open_Sans']">
             © {new Date().getFullYear()} Africa Digit Consulting. Tous droits
             réservés.
           </p>

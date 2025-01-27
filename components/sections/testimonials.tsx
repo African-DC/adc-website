@@ -56,7 +56,7 @@ export function TestimonialsSection() {
   return (
     <div className="bg-[#f2f2f2]">
       <div className="max-w-7xl mx-auto px-4 py-32 font-['Open_Sans']">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-[#ff942b] to-orange-600 bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-[#ff942b] to-orange-600 bg-clip-text text-transparent font-['Open_Sans']">
           Ce que nos clients disent
         </h2>
         <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
@@ -126,13 +126,13 @@ export function TestimonialsSection() {
                 ease: "easeInOut",
               }}
             >
-              <h3 className="text-2xl font-bold text-gray-900">
+              <h3 className="text-2xl font-bold text-gray-900 font-['Open_Sans']">
                 {testimonials[active].name}
               </h3>
-              <p className="text-sm text-[#ff942b]">
+              <p className="text-sm text-[#ff942b] font-['Open_Sans']">
                 {testimonials[active].designation}
               </p>
-              <motion.p className="text-lg text-gray-600 mt-8">
+              <motion.p className="text-lg text-gray-600 mt-8 font-['Open_Sans']">
                 {testimonials[active].quote.split(" ").map((word, index) => (
                   <motion.span
                     key={index}

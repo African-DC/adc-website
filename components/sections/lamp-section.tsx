@@ -13,9 +13,11 @@ export function LampSection() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-neutral-800 to-neutral-600 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl font-['Open_Sans']"
+        className="mt-8 bg-gradient-to-br from-neutral-800 to-neutral-600 py-4 bg-clip-text text-center text-4xl font-bold tracking-tight text-transparent md:text-7xl font-['Open_Sans']"
       >
-        ADC la solution digitale <br /> pour tous
+        <strong>
+          ADC la solution digitale <br /> pour tous
+        </strong>
       </motion.h1>
     </LampContainer>
   );
