@@ -39,7 +39,7 @@ export function CTASection() {
   }, [loadImages]);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: NodeJS.Timeout | undefined;
 
     if (autoplay) {
       interval = setInterval(() => {
@@ -78,13 +78,13 @@ export function CTASection() {
                 src={image.src}
                 alt={image.alt}
                 fill
-                className="object-cover"
+                className="object-cover transform scale-105 transition-transform duration-1000"
                 priority={index === 0}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-[#ff942b]/90 to-orange-600/90 mix-blend-multiply" />
             </div>
           ))}
-          <div className="absolute inset-0 flex items-center justify-between p-4">
+          <div className="absolute inset-0 flex items-center justify-between p-4 z-10">
             <button
               onClick={handlePrevious}
               className="p-2 rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors"
@@ -98,7 +98,7 @@ export function CTASection() {
               →
             </button>
           </div>
-          <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center z-0">
             <div className="text-center text-white p-8">
               <h2 className="text-4xl font-bold mb-4 font-['Open_Sans']">
                 Transformez votre présence digitale

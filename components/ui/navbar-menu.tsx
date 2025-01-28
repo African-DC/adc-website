@@ -64,6 +64,8 @@ interface HoveredLinkProps {
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
+  download?: boolean;
+  target?: string;
 }
 
 export const HoveredLink = ({
@@ -71,6 +73,8 @@ export const HoveredLink = ({
   href,
   className,
   onClick,
+  download,
+  target,
 }: HoveredLinkProps) => {
   return (
     <Link
@@ -79,6 +83,8 @@ export const HoveredLink = ({
         className || "text-neutral-200 hover:text-orange-500 transition-colors"
       }
       onClick={onClick}
+      download={download}
+      target={target}
     >
       {children}
     </Link>
