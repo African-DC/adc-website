@@ -48,7 +48,6 @@ export const MenuItem = ({
 };
 
 type MenuProps = {
-  setActive: (item: string | null) => void;
   children: React.ReactNode;
 };
 
@@ -60,16 +59,26 @@ export const Menu = ({ children }: MenuProps) => {
   );
 };
 
-interface HoveredLinkProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+interface HoveredLinkProps {
+  href: string;
   children: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
 }
 
-export const HoveredLink = ({ children, ...props }: HoveredLinkProps) => {
+export const HoveredLink = ({
+  children,
+  href,
+  className,
+  onClick,
+}: HoveredLinkProps) => {
   return (
     <Link
-      {...props}
-      className="text-neutral-200 hover:text-orange-500 transition-colors"
+      href={href}
+      className={
+        className || "text-neutral-200 hover:text-orange-500 transition-colors"
+      }
+      onClick={onClick}
     >
       {children}
     </Link>
