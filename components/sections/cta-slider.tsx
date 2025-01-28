@@ -1,77 +1,46 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import { useCallback, useEffect, useState } from "react";
 
-export const ImagesSlider = ({
-  images,
-  children,
-  overlay = true,
-  overlayClassName,
-  className,
-  autoplay = true,
-  direction = "up",
-}: {
-  images: string[];
-  children: React.ReactNode;
-  overlay?: boolean;
-  overlayClassName?: string;
-  className?: string;
-  autoplay?: boolean;
-  direction?: "up" | "down";
-}) => {
+interface ImageType {
+  src: string;
+  alt: string;
+}
+
+export function CTASection() {
+  const [images, setImages] = useState<ImageType[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [, setLoading] = useState(false);
-  const [loadedImages, setLoadedImages] = useState<string[]>([]);
+  const [autoplay, setAutoplay] = useState(true);
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex + 1 === images.length ? 0 : prevIndex + 1
-    );
-  };
+  const loadImages = useCallback(() => {
+    const imageList: ImageType[] = [
+      { src: "/img/crea1.webp", alt: "Image 1" },
+      { src: "/img/crea2.jpg", alt: "Image 2" },
+      { src: "/img/crea3.jpg", alt: "Image 3" },
+    ];
+    setImages(imageList);
+  }, []);
 
-  const handlePrevious = () => {
+  const handlePrevious = useCallback(() => {
     setCurrentIndex((prevIndex) =>
-      prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
-  };
+  }, [images.length]);
+
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  }, [images.length]);
 
   useEffect(() => {
     loadImages();
-  }, []);
-
-  const loadImages = () => {
-    setLoading(true);
-    const loadPromises = images.map((image) => {
-      return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.src = image;
-        img.onload = () => resolve(image);
-        img.onerror = reject;
-      });
-    });
-
-    Promise.all(loadPromises)
-      .then((loadedImages) => {
-        setLoadedImages(loadedImages as string[]);
-        setLoading(false);
-      })
-      .catch((error) => console.error("Failed to load images", error));
-  };
+  }, [loadImages]);
 
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "ArrowRight") {
-        handleNext();
-      } else if (event.key === "ArrowLeft") {
-        handlePrevious();
-      }
-    };
+    let interval: NodeJS.Timeout;
 
-    window.addEventListener("keydown", handleKeyDown);
-
-    let interval: any;
     if (autoplay) {
       interval = setInterval(() => {
         handleNext();
@@ -79,113 +48,74 @@ export const ImagesSlider = ({
     }
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-      clearInterval(interval);
+      if (interval) {
+        clearInterval(interval);
+      }
     };
-  }, []);
+  }, [autoplay, handleNext]);
 
-  const slideVariants = {
-    initial: {
-      scale: 0,
-      opacity: 0,
-      rotateX: 45,
-    },
-    visible: {
-      scale: 1,
-      rotateX: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.645, 0.045, 0.355, 1.0],
-      },
-    },
-    upExit: {
-      opacity: 1,
-      y: "-150%",
-      transition: {
-        duration: 1,
-      },
-    },
-    downExit: {
-      opacity: 1,
-      y: "150%",
-      transition: {
-        duration: 1,
-      },
-    },
-  };
+  const handleMouseEnter = () => setAutoplay(false);
+  const handleMouseLeave = () => setAutoplay(true);
 
-  const areImagesLoaded = loadedImages.length > 0;
+  if (images.length === 0) return null;
 
   return (
-    <div
-      className={cn(
-        "overflow-hidden h-full w-full relative flex items-center justify-center",
-        className
-      )}
-      style={{
-        perspective: "1000px",
-      }}
-    >
-      {areImagesLoaded && children}
-      {areImagesLoaded && overlay && (
-        <div
-          className={cn("absolute inset-0 bg-black/60 z-40", overlayClassName)}
-        />
-      )}
-
-      {areImagesLoaded && (
-        <AnimatePresence>
-          <motion.img
-            key={currentIndex}
-            src={loadedImages[currentIndex]}
-            initial="initial"
-            animate="visible"
-            exit={direction === "up" ? "upExit" : "downExit"}
-            variants={slideVariants}
-            className="image h-full w-full absolute inset-0 object-cover object-center"
-          />
-        </AnimatePresence>
-      )}
-    </div>
-  );
-};
-
-export function CTASection() {
-  const images = [
-    "/img/web-dev.jpg",
-    "/img/hero-background.jpg",
-    "/img/CTA_image.jpg",
-  ];
-
-  return (
-    <section className="h-screen relative flex items-center justify-center bg-[#f2f2f2] py-20">
-      <div className="w-[90%] max-w-6xl h-[80vh] rounded-3xl overflow-hidden shadow-[0_20px_70px_-15px_rgba(0,0,0,0.3)]">
-        <ImagesSlider images={images}>
-          <div className="absolute z-50 flex flex-col items-center justify-center w-full h-full">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center px-4"
+    <section className="relative py-20 overflow-hidden">
+      <div
+        className="relative max-w-7xl mx-auto px-4"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="relative h-[500px] rounded-2xl overflow-hidden">
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentIndex ? "opacity-100" : "opacity-0"
+              }`}
             >
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 font-['Open_Sans']">
-                Prêt à Transformer Votre Vision en Réalité ?
-              </h2>
-              <p className="text-xl md:text-2xl text-neutral-200 mb-8 max-w-3xl mx-auto font-['Open_Sans']">
-                Réservez une consultation gratuite et découvrez comment nous
-                pouvons vous aider à atteindre vos objectifs numériques.
-              </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-[#ff942b] text-white rounded-full text-lg font-semibold hover:bg-[#ff8c1a] transition-colors duration-200 font-['Open_Sans']"
-              >
-                Réserver Ma Consultation Gratuite
-              </motion.button>
-            </motion.div>
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-cover"
+                priority={index === 0}
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#ff942b]/90 to-orange-600/90 mix-blend-multiply" />
+            </div>
+          ))}
+          <div className="absolute inset-0 flex items-center justify-between p-4">
+            <button
+              onClick={handlePrevious}
+              className="p-2 rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors"
+            >
+              ←
+            </button>
+            <button
+              onClick={handleNext}
+              className="p-2 rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors"
+            >
+              →
+            </button>
           </div>
-        </ImagesSlider>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center text-white p-8">
+              <h2 className="text-4xl font-bold mb-4 font-['Open_Sans']">
+                Transformez votre présence digitale
+              </h2>
+              <p className="text-lg mb-8 max-w-2xl mx-auto font-['Open_Sans']">
+                Découvrez comment nous pouvons vous aider à atteindre vos
+                objectifs numériques.
+              </p>
+              <a
+                href="/contact"
+                className="inline-block px-8 py-3 bg-white text-[#ff942b] rounded-lg font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 font-['Open_Sans']"
+              >
+                Commencer maintenant
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

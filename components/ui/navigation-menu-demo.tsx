@@ -7,63 +7,88 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu-base";
 import * as React from "react";
+import { MobileMenu } from "./mobile-menu";
 
 export function NavigationMenuDemo() {
+  const [isVisible, setIsVisible] = React.useState(true);
+  const [lastScrollY, setLastScrollY] = React.useState(0);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setIsVisible(currentScrollY < lastScrollY || currentScrollY < 100);
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 flex justify-center py-4 bg-transparent">
-      <NavigationMenu>
-        <NavigationMenuList className="bg-white/80 backdrop-blur-md px-6 py-3 rounded-full shadow-lg">
-          <NavigationMenuItem>
-            <NavigationMenuLink
-              className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
-              href="/"
-            >
-              Accueil
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuLink
-              className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
-              href="/a-propos"
-            >
-              À propos
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuLink
-              className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
-              href="/notre-expertise"
-            >
-              Notre expertise
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuLink
-              className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
-              href="/nos-realisations"
-            >
-              Nos réalisations
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuLink
-              className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
-              href="/blog"
-            >
-              Blog
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuLink
-              className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
-              href="/contact"
-            >
-              Contact
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
-    </div>
+    <>
+      {/* Desktop Navigation */}
+      <div className="hidden md:block fixed top-4 left-0 right-0 z-[100]">
+        <div className="max-w-screen-xl mx-auto px-4 flex justify-center">
+          <NavigationMenu>
+            <NavigationMenuList className="bg-white/80 backdrop-blur-md px-6 py-3 rounded-full shadow-lg flex items-center space-x-4">
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
+                  href="/"
+                >
+                  Accueil
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
+                  href="/a-propos"
+                >
+                  À propos
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
+                  href="/notre-expertise"
+                >
+                  Notre expertise
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
+                  href="/nos-realisations"
+                >
+                  Nos réalisations
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
+                  href="/blog"
+                >
+                  Blog
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
+                  href="/contact"
+                >
+                  Contact
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div className="md:hidden">
+        <MobileMenu isVisible={isVisible} />
+      </div>
+    </>
   );
 }
 
