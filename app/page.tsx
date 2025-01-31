@@ -5,6 +5,7 @@ import { CTASection } from "@/components/sections/cta-slider";
 import { Footer } from "@/components/sections/footer";
 import { LampSection } from "@/components/sections/lamp-section";
 import { NavbarDemo } from "@/components/sections/navbar-demo";
+import { OffresSection } from "@/components/sections/offres";
 import { SparklesHero } from "@/components/sections/sparkles-hero";
 import { TeamCards } from "@/components/sections/team-cards";
 import { TestimonialsSection } from "@/components/sections/testimonials";
@@ -17,6 +18,7 @@ export default function Home() {
       <NavbarDemo />
       <SparklesHero />
       <ServicesGrid />
+      <OffresSection />
       <TeamCards />
       <LampSection />
       <TestimonialsSection />

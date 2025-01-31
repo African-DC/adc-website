@@ -140,7 +140,7 @@ export function ServicesGrid() {
         "Développez des solutions numériques innovantes pour optimiser vos processus et améliorer votre efficacité opérationnelle.",
       header: (
         <ImageHeader
-          src="/img/solution_digitale.jpg"
+          src="/img/solutiondigitale.jpeg"
           title="Solutions Digitales"
           description="Développez des solutions numériques innovantes pour optimiser vos processus et améliorer votre efficacité opérationnelle."
           icon={<IconDevices className="h-8 w-8 text-[#ff942b]" />}

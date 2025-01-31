@@ -8,10 +8,10 @@ import { useEffect, useState } from "react";
 const testimonials = [
   {
     quote:
-      "Africa Digit Consulting a transformé notre présence digitale. Leur expertise et leur créativité ont dépassé nos attentes.",
-    name: "Sarah Diallo",
-    designation: "Directrice Marketing chez TechFlow Africa",
-    src: "/img/person-temoin1.jpg",
+      "Rien à redire sur les visuels et la qualité du travail. je vous recommande leur service.",
+    name: "Jules Athur Gbon",
+    designation: "Chargé des services",
+    src: "/img/temoignages/2.jpeg",
   },
   {
     quote:

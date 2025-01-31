@@ -40,20 +40,33 @@ export default function AboutPage() {
             className="mb-16"
           >
             <h1 className="text-4xl md:text-5xl font-bold text-center mb-6 pb-[0.4rem] bg-gradient-to-r from-[#ff942b] to-orange-600 bg-clip-text text-transparent font-['Open_Sans']">
-              Notre force
+              Qui sommes-nous?
             </h1>
             <div className="bg-white rounded-2xl shadow-xl p-8">
               <div className="flex items-start gap-6">
                 <Users className="h-12 w-12 text-[#ff942b] flex-shrink-0 mt-1" />
                 <div>
-                  <h2 className="text-2xl font-semibold mb-4 font-['Open_Sans']">
-                    Présentation de l&apos;équipe
+                  <h2 className="text-2xl max-w-3xl text-start font-semibold mb-4 font-['Open_Sans']">
+                    Une agence de Transformation Digitale, qui dispose de plus
+                    de 8 ans d’expérience avec des experts qualifiés et
+                    professionnels dans leur domaine respectif.
                   </h2>
+                  <p className="text-gray-600 mb-3 leading-relaxed font-['Open_Sans']">
+                    Transformez votre entreprise avec notre expertise en
+                    transformation digitale. À notre agence, nous aidons les
+                    entreprises à tirer parti du numérique pour croître,
+                    innover, et se démarquer. De la modernisation de vos
+                    systèmes à la création d’expériences client innovantes, nous
+                    vous accompagnons à chaque étape de votre transition vers un
+                    avenir digital.
+                  </p>
                   <p className="text-gray-600 leading-relaxed font-['Open_Sans']">
-                    Notre équipe est composée de professionnels passionnés et
-                    expérimentés dans le domaine du digital. Nous mettons notre
-                    expertise au service de votre réussite pour vous accompagner
-                    dans votre transformation numérique.
+                    Avec une approche centrée sur vos besoins, nous intégrons
+                    les technologies les plus avancées pour optimiser vos
+                    processus, renforcer votre présence en ligne, et booster
+                    votre compétitivité. Rejoignez-nous pour transformer vos
+                    défis en opportunités digitales et conduire votre entreprise
+                    vers le succès.
                   </p>
                 </div>
               </div>

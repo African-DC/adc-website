@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { Globe, MessageSquare, Palette, Sparkles } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { ContactModal } from "../../components/sections/contact-modal";
 
 const ExpertiseCard = ({
   title,
@@ -42,6 +43,7 @@ const ExpertiseCard = ({
 
 export default function ExpertisePage() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -138,19 +140,24 @@ export default function ExpertisePage() {
                   Transformez votre vision en réalité avec notre expertise.
                   Contactez-nous pour discuter de vos besoins et objectifs.
                 </p>
-                <a
-                  href="/contact"
+                <button
+                  onClick={() => setIsModalOpen(true)}
                   className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#ff942b] rounded-lg font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 font-['Open_Sans']"
                 >
                   Démarrer maintenant
-                  <span className="text-xl">→</span>
-                </a>
+                  <span className="text-xl">→</span> 
+                </button>
               </div>
             </div>
           </motion.div>
         </div>
       </main>
       <Footer />
+
+      <ContactModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </div>
   );
 }

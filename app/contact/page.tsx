@@ -81,7 +81,7 @@ export default function ContactPage() {
                         Adresse
                       </h3>
                       <p className="text-gray-600 font-['Open_Sans'] group-hover:text-gray-700">
-                        123 Rue du Digital, 75000 Paris
+                        Netzify Coworking, Rue L158, Angré, Abidjan
                       </p>
                     </div>
                   </div>
@@ -98,7 +98,7 @@ export default function ContactPage() {
                         Email
                       </h3>
                       <p className="text-gray-600 font-['Open_Sans'] group-hover:text-gray-700">
-                        contact@adc.com
+                        contact@africandigit-consulting.com
                       </p>
                     </div>
                   </div>
@@ -115,7 +115,7 @@ export default function ContactPage() {
                         Téléphone
                       </h3>
                       <p className="text-gray-600 font-['Open_Sans'] group-hover:text-gray-700">
-                        +33 1 23 45 67 89
+                        +225 05 95 459 843 / +225 07 98 81 01 78
                       </p>
                     </div>
                   </div>
@@ -191,7 +191,7 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <div className="relative h-[400px] rounded-2xl overflow-hidden">
+            {/* <div className="relative h-[400px] rounded-2xl overflow-hidden">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937604!2d2.292292615509614!3d48.85837007928746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1647216074015!5m2!1sfr!2sfr"
                 width="100%"
@@ -202,6 +202,19 @@ export default function ContactPage() {
                 referrerPolicy="no-referrer-when-downgrade"
                 className="rounded-2xl"
               />
+            </div> */}
+
+            <div className="relative h-[400px] rounded-2xl overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed/v1/place?q=Netzify+Coworking,+Rue+L158,+Angré,+Abidjan&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-2xl"
+              ></iframe>
             </div>
           </motion.div>
         </div>

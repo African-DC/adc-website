@@ -82,7 +82,7 @@ const products = [
 export function SparklesHero() {
   return (
     <div className="relative w-full">
-      <HeroParallax products={products} />
+      <HeroParallax products={products} /> 
     </div>
   );
 }

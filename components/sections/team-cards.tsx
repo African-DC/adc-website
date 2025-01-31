@@ -63,17 +63,22 @@ export function TeamCards() {
     {
       name: "Marcel Djedje-li",
       role: "Développeur Backend",
-      image: "/img/marcel.jpg",
+      image: "/img/team/marcel.jpeg",
     },
     {
-      name: "Thomas Dubois",
-      role: "Designer UX/UI",
-      image: "/img/team1.jpg",
+      name: "Yablai Yablai Ruben Virgil",
+      role: "Développeur Frontend",
+      image: "/img/team/ruben.jpg",
     },
     {
-      name: "Sophie Laurent",
-      role: "Expert Marketing Digital",
-      image: "/img/team2.jpg",
+      name: "Bede Abel Josias",
+      role: "Spécialiste en transformation digitale et manager general de ADC",
+      image: "/img/team/josias.png",
+    },
+    {
+      name: "N'thomeny N'guessan Arvigne",
+      role: "Intégrateur de solutions et responsable du département développement web",
+      image: "/img/team/arvigne.jpg",
     },
   ];
 
@@ -93,7 +98,7 @@ export function TeamCards() {
             Des membres professionnels prêts à aider votre entreprise
           </motion.p>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 max-w-6xl mx-auto">
           {team.map((member, index) => (
             <motion.div
               key={member.name}

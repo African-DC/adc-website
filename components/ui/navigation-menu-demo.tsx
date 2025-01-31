@@ -30,10 +30,10 @@ export function NavigationMenuDemo() {
       <div className="hidden md:block fixed top-4 left-0 right-0 z-[100]">
         <div className="max-w-screen-xl mx-auto px-4 flex justify-center">
           <NavigationMenu>
-            <NavigationMenuList className="bg-white/80 backdrop-blur-md px-6 py-3 rounded-full shadow-lg flex items-center space-x-4">
+            <NavigationMenuList className="bg-[#ff942b] backdrop-blur-md px-6 py-3 rounded-full shadow-lg flex items-center space-x-4">
               <NavigationMenuItem>
                 <NavigationMenuLink
-                  className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
+                  className="text-white/80 hover:text-black font-semibold transition-all px-4 py-2"
                   href="/"
                 >
                   Accueil
@@ -41,7 +41,8 @@ export function NavigationMenuDemo() {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink
-                  className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
+                  // className="text-white/80 hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
+                  className="text-white/80 hover:text-black font-semibold transition-all px-4 py-2"
                   href="/a-propos"
                 >
                   À propos
@@ -49,7 +50,7 @@ export function NavigationMenuDemo() {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink
-                  className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
+                  className="text-white/80 hover:text-black font-semibold transition-all px-4 py-2"
                   href="/notre-expertise"
                 >
                   Notre expertise
@@ -57,23 +58,23 @@ export function NavigationMenuDemo() {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink
-                  className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
+                  className="text-white/80 hover:text-black font-semibold transition-all px-4 py-2"
                   href="/nos-realisations"
                 >
                   Nos réalisations
                 </NavigationMenuLink>
               </NavigationMenuItem>
-              <NavigationMenuItem>
+              {/* <NavigationMenuItem>
                 <NavigationMenuLink
                   className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
                   href="/blog"
                 >
                   Blog
                 </NavigationMenuLink>
-              </NavigationMenuItem>
+              </NavigationMenuItem> */}
               <NavigationMenuItem>
                 <NavigationMenuLink
-                  className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
+                  className="text-white/80 hover:text-black font-semibold transition-all px-4 py-2"
                   href="/contact"
                 >
                   Contact

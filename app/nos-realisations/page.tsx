@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { FileText, Globe, Image as ImageIcon, Sparkles } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { SolutionsModal } from "../../components/sections/solutions-modal";
 
 const ProjectCard = ({
   title,
@@ -42,6 +43,7 @@ const ProjectCard = ({
 
 export default function RealisationsPage() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isSolutionsModalOpen, setIsSolutionsModalOpen] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -139,8 +141,11 @@ export default function RealisationsPage() {
                   trouvez celle qui correspond parfaitement à vos besoins.
                 </p>
                 <a
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#ff942b] rounded-lg font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 font-['Open_Sans']"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsSolutionsModalOpen(true);
+                  }}
+                  className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#ff942b] rounded-lg font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 font-['Open_Sans'] cursor-pointer"
                 >
                   Explorer nos solutions
                   <span className="text-xl">→</span>
@@ -151,6 +156,10 @@ export default function RealisationsPage() {
         </div>
       </main>
       <Footer />
+      <SolutionsModal 
+        isOpen={isSolutionsModalOpen} 
+        onClose={() => setIsSolutionsModalOpen(false)} 
+      />
     </div>
   );
 }

@@ -2,9 +2,9 @@
 
 import {
   IconBrandFacebook,
-  IconBrandInstagram,
+  // IconBrandInstagram,
   IconBrandLinkedin,
-  IconBrandTwitter,
+  // IconBrandTwitter,
   IconMail,
   IconPhone,
 } from "@tabler/icons-react";
@@ -22,7 +22,7 @@ export function Footer() {
   return (
     <footer className="bg-gradient-to-b from-[#ff942b] to-orange-600 font-['Open_Sans']">
       <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
           {/* Logo et Description */}
           <motion.div
             className="col-span-1 md:col-span-2"
@@ -50,37 +50,37 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <motion.a
-                href="#"
+                href="https://web.facebook.com/p/African-Digit-Consulting-100092649035928/?_rdc=1&_rdr"
                 className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/20 flex items-center justify-center group hover:bg-white transition-colors duration-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <IconBrandFacebook className="h-5 w-5 text-white group-hover:text-[#ff942b] transition-colors duration-300" />
               </motion.a>
-              <motion.a
+              {/* <motion.a
                 href="#"
                 className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/20 flex items-center justify-center group hover:bg-white transition-colors duration-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <IconBrandTwitter className="h-5 w-5 text-white group-hover:text-[#ff942b] transition-colors duration-300" />
-              </motion.a>
+              </motion.a> */}
               <motion.a
-                href="#"
+                href="https://www.linkedin.com/company/african-digit-consulting/?originalSubdomain=ci"
                 className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/20 flex items-center justify-center group hover:bg-white transition-colors duration-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <IconBrandLinkedin className="h-5 w-5 text-white group-hover:text-[#ff942b] transition-colors duration-300" />
               </motion.a>
-              <motion.a
+              {/* <motion.a
                 href="#"
                 className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/20 flex items-center justify-center group hover:bg-white transition-colors duration-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <IconBrandInstagram className="h-5 w-5 text-white group-hover:text-[#ff942b] transition-colors duration-300" />
-              </motion.a>
+              </motion.a> */}
             </div>
           </motion.div>
 
@@ -137,7 +137,7 @@ export function Footer() {
 
           {/* Contact */}
           <motion.div
-            className="col-span-1"
+            className="col-span-2"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
@@ -156,14 +156,14 @@ export function Footer() {
                 className="flex items-center space-x-3"
               >
                 <IconPhone className="h-5 w-5 text-white" />
-                <span className="text-white/80">+123 456 789</span>
+                <span className="text-white/80 ">+225 0798810178 / 05 95 459 843</span>
               </motion.li>
               <motion.li
                 variants={fadeInUp}
                 className="flex items-center space-x-3"
               >
                 <IconMail className="h-5 w-5 text-white" />
-                <span className="text-white/80">contact@adc.com</span>
+                <span className="text-white/80">contact@africandigit-consulting.net</span>
               </motion.li>
             </ul>
           </motion.div>

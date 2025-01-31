@@ -113,7 +113,7 @@ export const Header = () => {
           priority
         />
       </div>
-      <p className="max-w-3xl mx-auto text-base md:text-xl mt-8 text-gray-700 text-center font-['Open_Sans'] leading-relaxed">
+      <p className="max-w-3xl mx-auto text-base md:text-2xl mt-8 text-black text-center font-['Open_Sans'] leading-relaxed">
         Bienvenue chez Africa Digit Consulting. Une agence qui regroupe un
         consortium d&apos;expert dans les métiers du digitale Experte en
         communication et création de solutions digitales
@@ -156,7 +156,7 @@ export const ProductCard = ({
           alt={product.title}
         />
       </Link>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none rounded-xl"></div>
+      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-40 bg-black pointer-events-none rounded-xl"></div>
       <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white font-['Open_Sans']">
         {product.title}
       </h2>
