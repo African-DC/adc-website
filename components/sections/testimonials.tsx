@@ -8,24 +8,38 @@ import { useEffect, useState } from "react";
 const testimonials = [
   {
     quote:
-      "Rien à redire sur les visuels et la qualité du travail. je vous recommande leur service.",
-    name: "Jules Athur Gbon",
-    designation: "Chargé des services",
-    src: "/img/temoignages/2.jpeg",
+      "African Digit Consulting a transformé notre présence en ligne avec une stratégie digitale sur mesure. Grâce à leur expertise, nous avons augmenté notre visibilité et renforcé notre engagement client. Une équipe professionnelle et réactive que je recommande vivement !",
+    name: "Audrey Kady",
+    // designation: "Chargé des services",
+    src: "/img/temoignages/Audrey kady.webp",
   },
   {
     quote:
-      "Une équipe exceptionnelle qui comprend vraiment les besoins spécifiques du marché africain. Leur approche innovante a révolutionné notre stratégie digitale.",
-    name: "Mohamed Keita",
-    designation: "CEO de InnovateAfrica",
-    src: "/img/person-temoin2.jpg",
+      "Nous avions besoin d'une plateforme e-commerce performante et intuitive. ADC a su répondre à nos attentes avec une solution clé en main, parfaitement adaptée à nos besoins. Leur accompagnement et leur souci du détail font toute la différence !",
+    name: "Koffi Mensah",
+    // designation: "CEO de InnovateAfrica",
+    src: "/img/temoignages/Koffi mensah.jpg",
   },
   {
     quote:
-      "Le professionnalisme et la qualité des solutions proposées par ADC sont remarquables. Ils ont su donner vie à notre vision digitale.",
-    name: "Aminata Touré",
-    designation: "Directrice des Opérations chez CloudScale",
-    src: "/img/person-temoin3.jpg",
+      "L’équipe d’ADC nous a aidés à élaborer une stratégie de communication digitale efficace, ce qui a considérablement amélioré notre notoriété. Leur créativité et leur professionnalisme sont un véritable atout pour toute entreprise en quête de visibilité !",
+    name: "Aïcha Touré",
+    designation: "Responsable Communication, InnovTech Mali",
+    src: "/img/temoignages/Aïcha Toure.jpeg",
+  },
+  {
+    quote:
+      "Grâce à ADC, nous avons pu moderniser notre image de marque avec des visuels percutants et une identité graphique forte. Leur approche personnalisée et leur expertise en design ont dépassé nos attentes !",
+    name: "Mamadou Bah",
+    designation: "CEO, StartUp Guinée",
+    src: "/img/temoignages/Mamadou Bah.jpeg",
+  },
+  {
+    quote:
+      "Collaborer avec African Digit Consulting a été une expérience enrichissante. Leur accompagnement stratégique et leurs solutions digitales innovantes nous ont permis d’optimiser notre communication et d’atteindre de nouveaux marchés. Un vrai partenaire de croissance !",
+    name: "Koffi Anderson",
+    // designation: "Responsable Communication, InnovTech Mali",
+    src: "/img/temoignages/Koffi Anderson.jpeg",
   },
 ];
 

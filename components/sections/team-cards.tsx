@@ -63,22 +63,37 @@ export function TeamCards() {
     {
       name: "Marcel Djedje-li",
       role: "Développeur Backend",
-      image: "/img/team/marcel.jpeg",
+      image: "/img/TEAM_ADC/marcel.jpeg",
     },
     {
       name: "Yablai Yablai Ruben Virgil",
       role: "Développeur Frontend",
-      image: "/img/team/ruben.jpg",
+      image: "/img/TEAM_ADC/ruben.jpeg",
     },
     {
       name: "Bede Abel Josias",
       role: "Spécialiste en transformation digitale et manager general de ADC",
-      image: "/img/team/josias.png",
+      image: "/img/TEAM_ADC/BEDE Abel Josias Manager.jpg",
     },
     {
       name: "N'thomeny N'guessan Arvigne",
       role: "Intégrateur de solutions et responsable du département développement web",
-      image: "/img/team/arvigne.jpg",
+      image: "/img/TEAM_ADC/Arvigne N'guessan Integrateur de solution.jpg",
+    },
+    {
+      name: "KIGNIELMAN KONE",
+      role: "SMM",
+      image: "/img/TEAM_ADC/KIGNIELMAN KONE SMM ADC.jpg",
+    },
+    {
+      name: "MELEDJE BYTHIA",
+      role: "Assiatnte de direction",
+      image: "/img/TEAM_ADC/MELEDJE BYTHIA Assiatnte de direction .jpg",
+    },
+    {
+      name: "Siloue Joël",
+      role: "Graphiste",
+      image: "/img/TEAM_ADC/Siloue Joël Graphiste.jpg",
     },
   ];
 
