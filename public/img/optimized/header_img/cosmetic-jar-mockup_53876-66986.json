@@ -1,0 +1,43 @@
+{
+  "original": "/img/header_img/cosmetic-jar-mockup_53876-66986.jpg",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/header_img/cosmetic-jar-mockup_53876-66986-thumbnail.jpg",
+      "webpPath": "/img/optimized/header_img/cosmetic-jar-mockup_53876-66986-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 5,
+      "webpSize": 2
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/header_img/cosmetic-jar-mockup_53876-66986-small.jpg",
+      "webpPath": "/img/optimized/header_img/cosmetic-jar-mockup_53876-66986-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 13,
+      "webpSize": 6
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/header_img/cosmetic-jar-mockup_53876-66986-medium.jpg",
+      "webpPath": "/img/optimized/header_img/cosmetic-jar-mockup_53876-66986-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 24,
+      "webpSize": 9
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/header_img/cosmetic-jar-mockup_53876-66986-large.jpg",
+      "webpPath": "/img/optimized/header_img/cosmetic-jar-mockup_53876-66986-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 35,
+      "webpSize": 13
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKAAoDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAQMGB//EABwQAAIBBQEAAAAAAAAAAAAAAAECAAMRElKRE//EABUBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIRAxEAPwDZhUfC5Q3i/apoZQlF1XkGC6ryTNL/2Q==",
+  "timestamp": "2025-03-20T10:43:21.767Z"
+}

@@ -1,0 +1,43 @@
+{
+  "original": "/img/header_img/Post Konate marine log.jpg",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/header_img/Post Konate marine log-thumbnail.jpg",
+      "webpPath": "/img/optimized/header_img/Post Konate marine log-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 20,
+      "webpSize": 16
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/header_img/Post Konate marine log-small.jpg",
+      "webpPath": "/img/optimized/header_img/Post Konate marine log-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 61,
+      "webpSize": 48
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/header_img/Post Konate marine log-medium.jpg",
+      "webpPath": "/img/optimized/header_img/Post Konate marine log-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 117,
+      "webpSize": 84
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/header_img/Post Konate marine log-large.jpg",
+      "webpPath": "/img/optimized/header_img/Post Konate marine log-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 172,
+      "webpSize": 114
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKAAoDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAwQGB//EACIQAAEDAwMFAAAAAAAAAAAAAAEAAhEEBhMDBxIUIUFRcf/EABQBAQAAAAAAAAAAAAAAAAAAAAb/xAAZEQADAQEBAAAAAAAAAAAAAAABAgMABDH/2gAMAwEAAhEDEQA/AKjce4KauYHB4k+JWc52nvKTupzuoA5GJ9oWmTjb8CUTYxQBcUrzrdyze7//2Q==",
+  "timestamp": "2025-03-20T10:43:14.808Z"
+}

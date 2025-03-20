@@ -1,0 +1,43 @@
+{
+  "original": "/img/clients /LOGO 19.png",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/clients /LOGO 19-thumbnail.png",
+      "webpPath": "/img/optimized/clients /LOGO 19-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 16,
+      "webpSize": 4
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/clients /LOGO 19-small.png",
+      "webpPath": "/img/optimized/clients /LOGO 19-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 49,
+      "webpSize": 9
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/clients /LOGO 19-medium.png",
+      "webpPath": "/img/optimized/clients /LOGO 19-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 94,
+      "webpSize": 14
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/clients /LOGO 19-large.png",
+      "webpPath": "/img/optimized/clients /LOGO 19-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 147,
+      "webpSize": 17
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA3ElEQVR4nI2QQU7DQAxFp2JBhIK66p6uCFyCHqC9Q3uHcAs4Y9Wp46+JRxnhA8TIZQQVC8TCkmU//W//YGYLM7sxs8bMWjNb1mrrzHeLUJs7VV0VYC0inVcpZe0z3zkT5nm+ZeZVzvlpZH4ZgS1AOwAbZn6ucBOSWVtKeXAIdNozxZ6JelA8AOeNK4vIfZimafkh8uhKHGOP8+ltiPEdFF9dWUQ7v/lPUBzUCqaUrqxpn4j6xG5NBwF+rH8/M43YCrBzKOevZ452bC7xDMPwHY+KdKp6iceu4/lv4J+2NyqhXePExwAAAABJRU5ErkJggg==",
+  "timestamp": "2025-03-20T10:40:09.388Z"
+}

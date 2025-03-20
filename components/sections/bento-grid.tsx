@@ -5,202 +5,185 @@ import {
   IconBrandFigma,
   IconBrandGoogle,
   IconBulb,
+  IconChevronRight,
   IconDevices,
   IconPencil,
+  IconRocket,
+  IconArrowRight,
+  IconStar,
 } from "@tabler/icons-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { ReactNode } from "react";
+import { ReactNode, useRef } from "react";
 
-export const BentoGrid = ({
-  className,
-  children,
-}: {
-  className?: string;
-  children?: React.ReactNode;
-}) => {
-  return (
-    <div
-      className={cn(
-        "grid auto-rows-[24rem] grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16 max-w-7xl mx-auto",
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
-};
-
-export const BentoGridItem = ({
-  className,
-  title,
-  description,
-  header,
-  icon,
-}: {
-  className?: string;
-  title?: string | React.ReactNode;
-  description?: string | React.ReactNode;
-  header?: React.ReactNode;
-  icon?: React.ReactNode;
-}) => {
-  return (
-    <motion.div
-      whileHover={{ y: -5 }}
-      className={cn(
-        "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 bg-white border border-neutral-200 dark:border-white/[0.2] justify-between flex flex-col h-full",
-        className
-      )}
-    >
-      <div className="flex-1 p-4 min-h-0">{header}</div>
-      <div className="p-6 group-hover/bento:translate-x-2 transition duration-200 bg-white/80 backdrop-blur-sm">
-        <div className="flex items-center gap-2 mb-2">
-          {icon}
-          <div className="font-['Open_Sans'] font-bold text-xl text-neutral-800">
-            {title}
-          </div>
-        </div>
-        <div className="font-['Open_Sans'] font-normal text-neutral-600 text-sm leading-relaxed">
-          {description}
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
-const ImageHeader = ({
-  src,
+const ServiceCard = ({
   title,
   description,
   icon: Icon,
+  imageUrl,
+  index,
 }: {
-  src: string;
   title: string;
   description: string;
   icon: ReactNode;
+  imageUrl: string;
+  index: number;
 }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  
+  const isEven = index % 2 === 0;
+  
   return (
     <motion.div
-      className="relative h-full w-full rounded-3xl overflow-hidden group"
-      whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.2 }}
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ 
+        duration: 0.7, 
+        delay: index * 0.2,
+        ease: [0.22, 1, 0.36, 1]
+      }}
+      className="flex flex-col md:flex-row gap-8 items-center"
     >
-      <div className="absolute inset-0">
-        <Image
-          src={src}
-          alt={title}
-          width={400}
-          height={400}
-          className="h-full w-full object-cover"
-        />
-      </div>
-      <div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition-colors duration-300" />
-      <div className="relative h-full p-8 flex flex-col justify-end">
-        <div className="flex items-center gap-4 mb-4">
-          {Icon}
-          <h3 className="text-2xl font-semibold text-white">{title}</h3>
+      <div className={`order-2 ${isEven ? 'md:order-2' : 'md:order-1'} md:w-1/2`}>
+        <div className="backdrop-blur-md bg-white/10 p-6 md:p-10 rounded-3xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 group">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="flex items-center justify-center bg-orange-600 rounded-xl w-12 h-12 text-white">
+              {Icon}
+            </div>
+            <h3 className="text-2xl md:text-3xl font-semibold text-gray-800 title-small group-hover:text-orange-600 transition-colors duration-300">
+              {title}
+            </h3>
+          </div>
+          <p className="body-text text-gray-600 mb-8">
+            {description}
+          </p>
+          {/* <motion.div 
+            className="flex items-center gap-2 text-orange-600 font-medium cursor-pointer w-fit"
+            whileHover={{ x: 5 }}
+          >
+            <span>En savoir plus</span>
+            <IconArrowRight className="h-4 w-4" />
+          </motion.div> */}
         </div>
-        <p className="text-white/80 text-sm">{description}</p>
+      </div>
+      <div className={`order-1 ${isEven ? 'md:order-1' : 'md:order-2'} md:w-1/2`}>
+        <motion.div
+          whileHover={{ scale: 1.05, rotate: isEven ? -2 : 2 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          className="relative h-64 md:h-80 w-full overflow-hidden rounded-3xl"
+        >
+          <Image
+            src={imageUrl}
+            alt={title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+            <div className="p-6 text-white w-full">
+              <div className="flex items-center justify-between">
+                <h4 className="text-xl font-semibold">{title}</h4>
+                <div className="flex items-center gap-1">
+                  <IconStar className="h-4 w-4 text-orange-400 fill-orange-400" />
+                  <IconStar className="h-4 w-4 text-orange-400 fill-orange-400" />
+                  <IconStar className="h-4 w-4 text-orange-400 fill-orange-400" />
+                  <IconStar className="h-4 w-4 text-orange-400 fill-orange-400" />
+                  <IconStar className="h-4 w-4 text-orange-400 fill-orange-400" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </motion.div>
   );
 };
 
 export function ServicesGrid() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  
   const services = [
     {
-      title: "Stratégie Digitale",
+      title: "Stratégie des moyens digitaux",
       description:
-        "Élaborez une stratégie numérique sur mesure pour atteindre vos objectifs commerciaux et maximiser votre présence en ligne.",
-      header: (
-        <ImageHeader
-          src="/img/hero-background.jpg"
-          title="Stratégie Digitale"
-          description="Élaborez une stratégie numérique sur mesure pour atteindre vos objectifs commerciaux et maximiser votre présence en ligne."
-          icon={<IconBulb className="h-8 w-8 text-[#ff942b]" />}
-        />
-      ),
-    },
-    {
-      title: "Design UX/UI",
-      description:
-        "Concevez des interfaces utilisateur intuitives et esthétiques qui offrent une expérience utilisateur exceptionnelle.",
-      header: (
-        <ImageHeader
-          src="/img/crea2.jpg"
-          title="Design UX/UI"
-          description="Concevez des interfaces utilisateur intuitives et esthétiques qui offrent une expérience utilisateur exceptionnelle."
-          icon={<IconBrandFigma className="h-8 w-8 text-[#ff942b]" />}
-        />
-      ),
+        "Élaborez une stratégie des moyens digitaux sur mesure pour atteindre vos objectifs de visibilité, de notoriété et d'engagement, tout en maximisant votre présence en ligne.",
+      icon: <IconBulb className="h-6 w-6" />,
+      imageUrl: "/img/header_img/0bda58a3-37b7-4a50-a014-83f7b79862f3.jpg"
     },
     {
       title: "Solutions Digitales",
       description:
-        "Développez des solutions numériques innovantes pour optimiser vos processus et améliorer votre efficacité opérationnelle.",
-      header: (
-        <ImageHeader
-          src="/img/solutiondigitale.jpeg"
-          title="Solutions Digitales"
-          description="Développez des solutions numériques innovantes pour optimiser vos processus et améliorer votre efficacité opérationnelle."
-          icon={<IconDevices className="h-8 w-8 text-[#ff942b]" />}
-        />
-      ),
-      className: "md:row-span-2",
+        "Développez des solutions digitales sur mesure (site internet, CRM, ERP, LMS…), innovantes, qui corresponde à votre vision. Ainsi optimiser vos processus et améliorer votre efficacité opérationnelle.",
+      icon: <IconDevices className="h-6 w-6" />,
+      imageUrl: "/img/header_img/Interface 2.jpeg"
     },
     {
       title: "Création de Contenu",
       description:
-        "Créez un contenu engageant et percutant qui résonne avec votre audience et renforce votre image de marque.",
-      header: (
-        <ImageHeader
-          src="/img/creation_contenu.jpg"
-          title="Création de Contenu"
-          description="Créez un contenu engageant et percutant qui résonne avec votre audience et renforce votre image de marque."
-          icon={<IconPencil className="h-8 w-8 text-[#ff942b]" />}
-        />
-      ),
+        "Créez des contenus visuels (infographies, affiches, logos, vidéos hero, carrousels…) qui mettent en valeur votre marque, communiquent la pertinence de vos services et renforcent votre image de marque.",
+      icon: <IconPencil className="h-6 w-6" />,
+      imageUrl: "/img/header_img/Logo Mima makeup_Plan de travail 1.jpg"
     },
     {
-      title: "Stratégie Marketing",
+      title: "Gestion des réseaux sociaux",
       description:
-        "Optimisez votre présence en ligne et augmentez votre visibilité avec des stratégies marketing ciblées.",
-      header: (
-        <ImageHeader
-          src="/img/crea1.webp"
-          title="Stratégie Marketing"
-          description="Optimisez votre présence en ligne et augmentez votre visibilité avec des stratégies marketing ciblées."
-          icon={<IconBrandGoogle className="h-8 w-8 text-[#ff942b]" />}
-        />
-      ),
+        "Optimisez votre présence en ligne et augmentez votre visibilité et notoriété avec notre service de community management axer sur le résultat.",
+      icon: <IconBrandGoogle className="h-6 w-6" />,
+      imageUrl: "/img/header_img/Interface 1.jpeg"
     },
   ];
 
   return (
-    <section className="py-20 bg-[#f2f2f2]">
-      <div className="max-w-7xl mx-auto px-4">
+    <section id="services" ref={containerRef} className="py-32 bg-gradient-to-b from-white to-orange-50 overflow-hidden">
+      <motion.div 
+        style={{ y }} 
+        className="max-w-7xl mx-auto px-4 relative z-10"
+      >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
+          className="text-center mb-24"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-[#ff942b] to-orange-600 bg-clip-text text-transparent font-['Open_Sans']">
-            Nos Services
-          </h2>
-          <p className="text-center text-gray-600 mb-20 max-w-2xl mx-auto">
-            Des solutions et formations personnalisées pour vous et vos
-            entreprises prospères
+          <div className="flex justify-center mb-4">
+            <div className="bg-orange-100 text-orange-600 px-6 py-2 rounded-full inline-flex items-center gap-2">
+              <IconStar className="h-4 w-4 fill-orange-600" />
+              <span className="font-medium uppercase text-xl">nos services</span>
+            </div>
+          </div>
+          {/* <h2 className="title-large text-5xl md:text-6xl font-bold mb-8 text-gradient">
+            Nos Expertises
+          </h2> */}
+          <p className="body-text text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          Des solutions adaptées aux défis des entreprises de notre continent.
           </p>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <div key={service.title} className={service.className}>
-              {service.header}
-            </div>
+
+        <div className="flex flex-col gap-20 lg:gap-32">
+          {services.map((service, index) => (
+            <ServiceCard 
+              key={service.title}
+              title={service.title}
+              description={service.description}
+              icon={service.icon}
+              imageUrl={service.imageUrl}
+              index={index}
+            />
           ))}
         </div>
-      </div>
+      </motion.div>
+      
+      {/* Éléments décoratifs */}
+      <div className="absolute top-20 left-10 w-64 h-64 bg-orange-400 rounded-full filter blur-[150px] opacity-20"></div>
+      <div className="absolute bottom-20 right-10 w-80 h-80 bg-red-400 rounded-full filter blur-[150px] opacity-20"></div>
     </section>
   );
 }

@@ -1,0 +1,43 @@
+{
+  "original": "/img/TEAM_ADC/ruben-Photoroom.png",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/TEAM_ADC/ruben-Photoroom-thumbnail.png",
+      "webpPath": "/img/optimized/TEAM_ADC/ruben-Photoroom-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 77,
+      "webpSize": 4
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/TEAM_ADC/ruben-Photoroom-small.png",
+      "webpPath": "/img/optimized/TEAM_ADC/ruben-Photoroom-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 267,
+      "webpSize": 11
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/TEAM_ADC/ruben-Photoroom-medium.png",
+      "webpPath": "/img/optimized/TEAM_ADC/ruben-Photoroom-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 544,
+      "webpSize": 18
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/TEAM_ADC/ruben-Photoroom-large.png",
+      "webpPath": "/img/optimized/TEAM_ADC/ruben-Photoroom-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 883,
+      "webpSize": 26
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAIAAADpZ+PpAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCUlEQVR4nAXBjVKCMAAA4D22hbDB5jY9gwDlPEnnsoyeI686O38yMaMQSwP1DF6h7wMFQgdN/SkrX0rp87y0Vs62qnLUtAIhUOgoQzCB2jtUQ1heQXWD4B6hQtdBbhgpNmJaCTl9rbIFZzGjKSE5xiAnJON8bZmLhjvzmnPXiSxzy/mJEJBTur8wk1YrFGIq5axztWy4m1r1QDD4Y2xvO0lXhIO7SRCMZe/Na8a1aooNcGI8cxtxT86D4OU+GEkxbToRpzsDgSNjO8eNumIyuH0a3Dx222PHXFG8RRo4UPpt26Hvj/py2BdD3xtf1j+osUMayCo0sax5u/UsxcN1Z+h7E7seMfyrw3+st7B541OE8QAAAABJRU5ErkJggg==",
+  "timestamp": "2025-03-20T10:38:27.364Z"
+}

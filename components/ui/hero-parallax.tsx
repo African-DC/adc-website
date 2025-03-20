@@ -113,10 +113,13 @@ export const Header = () => {
           priority
         />
       </div>
-      <p className="max-w-3xl mx-auto text-base md:text-2xl mt-8 text-black text-center font-['Open_Sans'] leading-relaxed">
-        Bienvenue chez Africa Digit Consulting. Une agence qui regroupe un
-        consortium d&apos;expert dans les métiers du digitale Experte en
-        communication et création de solutions digitales
+      <p className="max-w-3xl mx-auto text-base md:text-4xl mt-8 text-black text-center font-sans leading-relaxed title-medium">
+        Bienvenue chez <span className="font-bold bg-gradient-to-r from-orange-500 to-orange-800 text-transparent bg-clip-text">Africa Digit Consulting</span>. 
+        <br /> 
+        <span className="body-text md:text-xl mt-4 block">
+          Une agence qui regroupe un consortium d&apos;experts dans les métiers du digital.<br />
+          Experts en communication et création de solutions digitales
+        </span>
       </p>
     </div>
   );
@@ -152,12 +155,12 @@ export const ProductCard = ({
           src={product.thumbnail}
           height="600"
           width="600"
-          className="object-cover object-left-top absolute h-full w-full inset-0 rounded-xl"
+          className="object-cover object-center absolute h-full w-full inset-0 rounded-xl"
           alt={product.title}
         />
       </Link>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-40 bg-black pointer-events-none rounded-xl"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white font-['Open_Sans']">
+      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-gradient-to-t from-black to-transparent pointer-events-none rounded-xl"></div>
+      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white title-small font-semibold tracking-wide">
         {product.title}
       </h2>
     </motion.div>

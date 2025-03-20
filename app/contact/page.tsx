@@ -1,225 +1,451 @@
 "use client";
 
 import { Footer } from "@/components/sections/footer";
-import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { FlickeringGrid } from "@/components/ui/flickering-grid";
-import { ContactSkeleton } from "@/components/ui/loading-skeletons";
-import { NavigationMenuDemo } from "@/components/ui/navigation-menu-demo";
+import { NavbarDemo } from "@/components/sections/navbar-demo";
+import { PageHero } from "@/components/sections/page-hero";
+import ScrollProgress from "@/components/ui/scroll-progress";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
-import { useEffect, useState } from "react";
+import { AtSign, CalendarDays, MapPin, MessageSquare, Phone, Send, CheckCircle } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function ContactPage() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    message: "",
+    service: "web",
+    submitted: false,
+    loading: false,
+    error: false
+  });
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormState(prev => ({ ...prev, [name]: value }));
+  };
 
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return <ContactSkeleton />;
-  }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormState(prev => ({ ...prev, loading: true, error: false }));
+    
+    try {
+      const formData = new FormData();
+      formData.append('name', formState.name);
+      formData.append('email', formState.email);
+      formData.append('phone', formState.phone || 'Non spécifié');
+      formData.append('company', formState.company || 'Non spécifié');
+      formData.append('message', formState.message);
+      formData.append('service', formState.service);
+      
+      // Ajout de l'API key depuis les variables d'environnement
+      formData.append('access_key', process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY || '');
+      
+      // Ajout d'un champ pour identifier le site
+      formData.append('from_website', 'Site ADC');
+      
+      // Envoi du formulaire à Web3Forms
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        setFormState(prev => ({ 
+          ...prev, 
+          loading: false,
+          submitted: true,
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          message: "",
+          service: "web"
+        }));
+      } else {
+        throw new Error(data.message || 'Une erreur est survenue');
+      }
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi du formulaire:', error);
+      setFormState(prev => ({ 
+        ...prev, 
+        loading: false,
+        error: true 
+      }));
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-black flex flex-col relative">
-      <div className="absolute inset-0 z-0">
-        <FlickeringGrid
-          className="size-full"
-          squareSize={4}
-          gridGap={6}
-          color="#ff942b"
-          maxOpacity={0.3}
-          flickerChance={0.1}
-        />
-      </div>
-
-      <NavigationMenuDemo />
-      <main className="pt-24 pb-16 px-4 flex-grow relative z-10">
-        <div className="mt-8">
-          <Breadcrumbs />
-        </div>
-
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 pb-[0.4rem] bg-gradient-to-r from-[#ff942b] to-orange-600 bg-clip-text text-transparent font-['Open_Sans']">
-              Contact
-            </h1>
-            <p className="text-gray-200 max-w-2xl mx-auto font-['Open_Sans']">
-              Nous sommes là pour vous aider. N&apos;hésitez pas à nous
-              contacter pour toute question ou demande.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-[#f2f2f2] rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300"
-            >
-              <h2 className="text-2xl font-semibold mb-8 font-['Open_Sans'] text-[#ff942b] border-b-2 border-[#ff942b]/20 pb-4">
-                Nos coordonnées
-              </h2>
-              <div className="space-y-8">
-                <div className="group relative overflow-hidden rounded-xl bg-white p-6 transition-all duration-300 hover:shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#ff942b]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="relative flex items-start gap-6">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#ff942b]/10 group-hover:bg-[#ff942b]/20 transition-all">
-                      <MapPin className="h-7 w-7 text-[#ff942b]" />
+    <>
+      <ScrollProgress />
+      <NavbarDemo />
+      
+      <PageHero
+        title="Contactez-nous"
+        subtitle="Discutons ensemble de votre prochain projet digital"
+        backgroundImage="/img/header_img/Post Konate marine log.jpg"
+        breadcrumbs={[{ label: "Contact", href: "/contact" }]}
+        pageTheme="contact"
+      />
+      
+      <main className="bg-white relative">
+        {/* Section Formulaire de Contact */}
+        <section className="py-20 relative">
+          {/* Éléments décoratifs */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-orange-300 rounded-full opacity-10 blur-[150px] -z-10"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-orange-400 rounded-full opacity-10 blur-[120px] -z-10"></div>
+          
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              {/* Partie Info Contact */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col gap-8"
+              >
+                <div>
+                  <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                    Prêt à discuter de votre projet?
+                  </h2>
+                  
+                  <p className="text-gray-600 mb-8 leading-relaxed">
+                    Notre équipe d'experts est prête à vous aider à concrétiser votre vision digitale. 
+                    Contactez-nous pour discuter de votre projet et découvrir comment nous pouvons 
+                    transformer vos idées en réalité.
+                  </p>
+                </div>
+                
+                {/* Infos de contact */}
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-orange-100 text-orange-600 rounded-xl">
+                      <MapPin className="h-6 w-6" />
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-2 font-['Open_Sans'] text-lg text-gray-800 group-hover:text-[#ff942b] transition-colors">
-                        Adresse
-                      </h3>
-                      <p className="text-gray-600 font-['Open_Sans'] group-hover:text-gray-700">
-                        Netzify Coworking, Rue L158, Angré, Abidjan
+                      <h3 className="font-medium mb-1">Notre Adresse</h3>
+                      <p className="text-gray-600">Netzify Coworking, Rue L158, Angré, Abidjan
+
+</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-orange-100 text-orange-600 rounded-xl">
+                      <Phone className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium mb-1">Téléphone</h3>
+                      <p className="text-gray-600">+225 27 32 797 538 /05 95 459 843
                       </p>
                     </div>
                   </div>
-                </div>
-
-                <div className="group relative overflow-hidden rounded-xl bg-white p-6 transition-all duration-300 hover:shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#ff942b]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="relative flex items-start gap-6">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#ff942b]/10 group-hover:bg-[#ff942b]/20 transition-all">
-                      <Mail className="h-7 w-7 text-[#ff942b]" />
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-orange-100 text-orange-600 rounded-xl">
+                      <AtSign className="h-6 w-6" />
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-2 font-['Open_Sans'] text-lg text-gray-800 group-hover:text-[#ff942b] transition-colors">
-                        Email
-                      </h3>
-                      <p className="text-gray-600 font-['Open_Sans'] group-hover:text-gray-700">
-                        contact@africandigit-consulting.com
-                      </p>
+                      <h3 className="font-medium mb-1">Email</h3>
+                      <p className="text-gray-600">contact@africadigitconsulting.com</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-orange-100 text-orange-600 rounded-xl">
+                      <CalendarDays className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium mb-1">Horaires d'ouverture</h3>
+                      <p className="text-gray-600">Lun - Ven: 8h30 - 17h30</p>
+                      <p className="text-gray-600">Sam: Sur rendez-vous</p>
                     </div>
                   </div>
                 </div>
-
-                <div className="group relative overflow-hidden rounded-xl bg-white p-6 transition-all duration-300 hover:shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#ff942b]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="relative flex items-start gap-6">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#ff942b]/10 group-hover:bg-[#ff942b]/20 transition-all">
-                      <Phone className="h-7 w-7 text-[#ff942b]" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-2 font-['Open_Sans'] text-lg text-gray-800 group-hover:text-[#ff942b] transition-colors">
-                        Téléphone
-                      </h3>
-                      <p className="text-gray-600 font-['Open_Sans'] group-hover:text-gray-700">
-                        +225 05 95 459 843 / +225 07 98 81 01 78
-                      </p>
+                
+                {/* Carte */}
+                <div className="mt-8 rounded-xl overflow-hidden h-80 relative shadow-lg">
+                  <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center z-0">
+                    <div className="text-gray-400 flex flex-col items-center">
+                      <MapPin className="h-8 w-8 mb-2" />
+                      <span>Chargement de la carte...</span>
                     </div>
                   </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="bg-[#f2f2f2] rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300"
-            >
-              <h2 className="text-2xl font-semibold mb-8 font-['Open_Sans'] text-[#ff942b] border-b-2 border-[#ff942b]/20 pb-4">
-                Envoyez-nous un message
-              </h2>
-              <form className="space-y-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 mb-2 font-['Open_Sans']"
-                  >
-                    Nom complet
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#ff942b] focus:border-transparent transition-all font-['Open_Sans'] placeholder-orange-600"
-                    placeholder="Votre nom"
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.443572663347!2d-3.9742620245976213!3d5.3477399371242615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1ebcc98c7f3d1%3A0xf2b4e6f0f7079fa4!2sNetzify%20coworking!5e0!3m2!1sfr!2sci!4v1626700000000!5m2!1sfr!2sci" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Carte de localisation African Digit Consulting"
+                    className="absolute inset-0 z-10"
                   />
+                  <div className="absolute top-4 left-4 bg-white p-3 rounded-lg shadow-md flex items-center gap-2 z-20">
+                    <MapPin className="h-4 w-4 text-orange-600" />
+                    <span className="text-sm font-medium">African Digit Consulting</span>
+                  </div>
+                  <div className="absolute bottom-4 right-4 bg-orange-600 text-white p-3 rounded-lg shadow-md z-20">
+                    <Link 
+                      href="https://goo.gl/maps/1ysQxe7F1X9qiZC76" 
+                      target="_blank"
+                      className="text-sm font-medium flex items-center gap-2"
+                    >
+                      <span>Itinéraire</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-navigation">
+                        <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+                      </svg>
+                    </Link>
+                  </div>
                 </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-2 font-['Open_Sans']"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#ff942b] focus:border-transparent transition-all font-['Open_Sans'] placeholder-orange-600"
-                    placeholder="votre@email.com"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-2 font-['Open_Sans']"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#ff942b] focus:border-transparent transition-all font-['Open_Sans'] placeholder-orange-600"
-                    placeholder="Votre message..."
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full px-8 py-4 bg-gradient-to-r from-[#ff942b] to-orange-600 text-white rounded-lg font-semibold hover:opacity-90 transition-all transform hover:scale-105 flex items-center justify-center gap-2 font-['Open_Sans']"
-                >
-                  Envoyer
-                  <Send className="h-5 w-5" />
-                </button>
-              </form>
-            </motion.div>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            {/* <div className="relative h-[400px] rounded-2xl overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937604!2d2.292292615509614!3d48.85837007928746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1647216074015!5m2!1sfr!2sfr"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="rounded-2xl"
-              />
-            </div> */}
-
-            <div className="relative h-[400px] rounded-2xl overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed/v1/place?q=Netzify+Coworking,+Rue+L158,+Angré,+Abidjan&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="rounded-2xl"
-              ></iframe>
+              </motion.div>
+              
+              {/* Formulaire de contact */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="bg-white rounded-2xl shadow-xl p-8 border border-orange-100"
+              >
+                {formState.submitted ? (
+                  <div className="flex flex-col items-center justify-center py-12 text-center">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                      <CheckCircle className="h-8 w-8 text-green-600" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4">Message envoyé!</h3>
+                    <p className="text-gray-600 mb-8">
+                      Merci de nous avoir contacté. Notre équipe vous répondra dans les plus brefs délais.
+                    </p>
+                    <button 
+                      onClick={() => setFormState(prev => ({ ...prev, submitted: false }))}
+                      className="bg-orange-600 hover:bg-orange-700 text-white py-2 px-6 rounded-lg"
+                    >
+                      Envoyer un autre message
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <div className="flex items-center gap-2 mb-6">
+                      <MessageSquare className="h-6 w-6 text-orange-600" />
+                      <h3 className="text-2xl font-bold">Envoyez-nous un message</h3>
+                    </div>
+                    
+                    {formState.error && (
+                      <div className="bg-red-50 border border-red-200 text-red-600 p-4 rounded-lg mb-6">
+                        <p className="text-sm">Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer ultérieurement.</p>
+                      </div>
+                    )}
+                    
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <label htmlFor="name" className="text-sm font-medium">
+                            Nom complet <span className="text-orange-600">*</span>
+                          </label>
+                          <input
+                            id="name"
+                            name="name"
+                            value={formState.name}
+                            onChange={handleChange}
+                            placeholder="Votre nom"
+                            required
+                            className="w-full px-3 py-2 rounded-md border border-gray-200 focus:border-orange-500 focus:ring-orange-500"
+                          />
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <label htmlFor="email" className="text-sm font-medium">
+                            Email <span className="text-orange-600">*</span>
+                          </label>
+                          <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            value={formState.email}
+                            onChange={handleChange}
+                            placeholder="votre@email.com"
+                            required
+                            className="w-full px-3 py-2 rounded-md border border-gray-200 focus:border-orange-500 focus:ring-orange-500"
+                          />
+                        </div>
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <label htmlFor="phone" className="text-sm font-medium">
+                            Téléphone
+                          </label>
+                          <input
+                            id="phone"
+                            name="phone"
+                            value={formState.phone}
+                            onChange={handleChange}
+                            placeholder="+225 XX XX XX XX XX"
+                            className="w-full px-3 py-2 rounded-md border border-gray-200 focus:border-orange-500 focus:ring-orange-500"
+                          />
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <label htmlFor="company" className="text-sm font-medium">
+                            Entreprise
+                          </label>
+                          <input
+                            id="company"
+                            name="company"
+                            value={formState.company}
+                            onChange={handleChange}
+                            placeholder="Votre entreprise"
+                            className="w-full px-3 py-2 rounded-md border border-gray-200 focus:border-orange-500 focus:ring-orange-500"
+                          />
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <label htmlFor="service" className="text-sm font-medium">
+                          Service désiré <span className="text-orange-600">*</span>
+                        </label>
+                        <select
+                          id="service"
+                          name="service"
+                          value={formState.service}
+                          onChange={handleChange}
+                          required
+                          className="w-full rounded-md border border-gray-200 py-2.5 px-4 focus:border-orange-500 focus:ring-orange-500"
+                        >
+                          <option value="web">Développement Web</option>
+                          <option value="design">Design & Identité Visuelle</option>
+                          <option value="mobile">Applications Mobiles</option>
+                          <option value="marketing">Marketing Digital</option>
+                          <option value="autre">Autre</option>
+                        </select>
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <label htmlFor="message" className="text-sm font-medium">
+                          Message <span className="text-orange-600">*</span>
+                        </label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          value={formState.message}
+                          onChange={handleChange}
+                          placeholder="Décrivez votre projet ou votre demande..."
+                          rows={5}
+                          required
+                          className="w-full px-3 py-2 rounded-md border border-gray-200 focus:border-orange-500 focus:ring-orange-500"
+                        />
+                      </div>
+                      
+                      <button
+                        type="submit"
+                        disabled={formState.loading}
+                        className="w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white py-3 flex items-center justify-center gap-2 rounded-lg"
+                      >
+                        {formState.loading ? (
+                          <>
+                            <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                            Envoi en cours...
+                          </>
+                        ) : (
+                          <>
+                            <Send className="h-5 w-5" />
+                            Envoyer le message
+                          </>
+                        )}
+                      </button>
+                      
+                      <p className="text-xs text-gray-500 text-center">
+                        En soumettant ce formulaire, vous acceptez notre {" "}
+                        <Link href="/politique-confidentialite" className="text-orange-600 hover:underline">
+                          politique de confidentialité
+                        </Link>
+                      </p>
+                    </form>
+                  </>
+                )}
+              </motion.div>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </section>
+        
+        {/* Section FAQ */}
+        <section className="py-20 bg-gradient-to-b from-orange-50 to-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Questions fréquentes
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Des réponses aux questions les plus courantes sur nos services et notre processus de travail.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="bg-white p-6 rounded-xl shadow-sm border border-orange-100"
+              >
+                <h3 className="text-xl font-semibold mb-3">Combien coûte un projet digital?</h3>
+                <p className="text-gray-600">
+                  Le coût d'un projet digital varie en fonction de sa complexité, de ses fonctionnalités et de son ampleur. Nous proposons des solutions sur mesure adaptées à votre budget et à vos objectifs. Contactez-nous pour obtenir un devis personnalisé.
+                </p>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bg-white p-6 rounded-xl shadow-sm border border-orange-100"
+              >
+                <h3 className="text-xl font-semibold mb-3">Combien de temps faut-il pour réaliser un projet?</h3>
+                <p className="text-gray-600">
+                  La durée d'un projet dépend de sa complexité et de son envergure. Un site vitrine simple peut prendre 2-4 semaines, tandis qu'une application web complexe peut nécessiter plusieurs mois. Nous établissons un calendrier réaliste dès le début du projet.
+                </p>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-white p-6 rounded-xl shadow-sm border border-orange-100"
+              >
+                <h3 className="text-xl font-semibold mb-3">Comment se déroule le processus de travail?</h3>
+                <p className="text-gray-600">
+                  Notre processus commence par une consultation approfondie pour comprendre vos besoins. Nous passons ensuite à la phase de conception, puis au développement. Après validation, nous procédons au lancement et assurons un suivi post-lancement pour garantir votre satisfaction.
+                </p>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="bg-white p-6 rounded-xl shadow-sm border border-orange-100"
+              >
+                <h3 className="text-xl font-semibold mb-3">Proposez-vous des services de maintenance?</h3>
+                <p className="text-gray-600">
+                  Oui, nous proposons des forfaits de maintenance pour assurer le bon fonctionnement de votre site ou application. Ces forfaits incluent les mises à jour de sécurité, les corrections de bugs et l'assistance technique régulière.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
       </main>
+      
       <Footer />
-    </div>
+    </>
   );
 }

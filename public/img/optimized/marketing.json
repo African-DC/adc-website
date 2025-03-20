@@ -1,0 +1,43 @@
+{
+  "original": "/img/marketing.jpg",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/marketing-thumbnail.jpg",
+      "webpPath": "/img/optimized/marketing-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 16,
+      "webpSize": 12
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/marketing-small.jpg",
+      "webpPath": "/img/optimized/marketing-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 45,
+      "webpSize": 30
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/marketing-medium.jpg",
+      "webpPath": "/img/optimized/marketing-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 81,
+      "webpSize": 49
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/marketing-large.jpg",
+      "webpPath": "/img/optimized/marketing-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 123,
+      "webpSize": 70
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAGAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMH/8QAGxAAAwACAwAAAAAAAAAAAAAAAAEDBBESFUH/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//EABYRAQEBAAAAAAAAAAAAAAAAAAABIf/aAAwDAQACEQMRAD8AwrEs8uXGy2U6yT8QBK5Sf//Z",
+  "timestamp": "2025-03-20T10:37:14.195Z"
+}

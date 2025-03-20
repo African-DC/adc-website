@@ -1,14 +1,15 @@
 "use client";
 
 import { ServicesGrid } from "@/components/sections/bento-grid";
-import { CTASection } from "@/components/sections/cta-slider";
+import { ContactForm } from "@/components/sections/contact-form";
 import { Footer } from "@/components/sections/footer";
 import { LampSection } from "@/components/sections/lamp-section";
 import { NavbarDemo } from "@/components/sections/navbar-demo";
 import { OffresSection } from "@/components/sections/offres";
-import { SparklesHero } from "@/components/sections/sparkles-hero";
 import { TeamCards } from "@/components/sections/team-cards";
 import { TestimonialsSection } from "@/components/sections/testimonials";
+import { HeroBanner } from "@/components/sections/hero-banner";
+import { ClientLogos } from "@/components/sections/client-logos";
 import ScrollProgress from "@/components/ui/scroll-progress";
 
 export default function Home() {
@@ -16,13 +17,16 @@ export default function Home() {
     <main>
       <ScrollProgress />
       <NavbarDemo />
-      <SparklesHero />
+      <HeroBanner />
+      {/* <SparklesHero /> */}
       <ServicesGrid />
       <OffresSection />
+      <ClientLogos />
       <TeamCards />
       <LampSection />
       <TestimonialsSection />
-      <CTASection />
+      <ContactForm />
+      {/* <CTASection /> */}
       <Footer />
     </main>
   );

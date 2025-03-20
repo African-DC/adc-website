@@ -17,7 +17,7 @@ export function LampSection() {
           className="mt-8 bg-gradient-to-br from-neutral-800 to-neutral-600 py-4 bg-clip-text text-center text-4xl font-bold tracking-tight text-transparent md:text-7xl font-['Open_Sans']"
         >
           <strong>
-            ADC la solution digitale <br /> pour tous
+          Une agence proche de vous et <br /> orientée vers les résultats.
           </strong>
         </motion.h1>
       </LampContainer>

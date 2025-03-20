@@ -1,0 +1,43 @@
+{
+  "original": "/img/temoignages/Koffi mensah.jpg",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/temoignages/Koffi mensah-thumbnail.jpg",
+      "webpPath": "/img/optimized/temoignages/Koffi mensah-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 14,
+      "webpSize": 10
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/temoignages/Koffi mensah-small.jpg",
+      "webpPath": "/img/optimized/temoignages/Koffi mensah-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 44,
+      "webpSize": 32
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/temoignages/Koffi mensah-medium.jpg",
+      "webpPath": "/img/optimized/temoignages/Koffi mensah-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 95,
+      "webpSize": 69
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/temoignages/Koffi mensah-large.jpg",
+      "webpPath": "/img/optimized/temoignages/Koffi mensah-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 159,
+      "webpSize": 117
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKAAcDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQH/8QAIRAAAQMBCQAAAAAAAAAAAAAAAAECAwYEBRESEyIxUXH/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//EABYRAQEBAAAAAAAAAAAAAAAAAAABMf/aAAwDAQACEQMRAD8AvdU0V3Wp2MqZfQY/Usj9NN7uewVkDX//2Q==",
+  "timestamp": "2025-03-20T10:43:51.337Z"
+}

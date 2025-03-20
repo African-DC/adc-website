@@ -1,0 +1,43 @@
+{
+  "original": "/img/header_img/Etiquettes idée d'afrique_Plan de travail 1 copie.jpg",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/header_img/Etiquettes idée d'afrique_Plan de travail 1 copie-thumbnail.jpg",
+      "webpPath": "/img/optimized/header_img/Etiquettes idée d'afrique_Plan de travail 1 copie-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 4,
+      "webpSize": 2
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/header_img/Etiquettes idée d'afrique_Plan de travail 1 copie-small.jpg",
+      "webpPath": "/img/optimized/header_img/Etiquettes idée d'afrique_Plan de travail 1 copie-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 12,
+      "webpSize": 6
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/header_img/Etiquettes idée d'afrique_Plan de travail 1 copie-medium.jpg",
+      "webpPath": "/img/optimized/header_img/Etiquettes idée d'afrique_Plan de travail 1 copie-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 22,
+      "webpSize": 12
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/header_img/Etiquettes idée d'afrique_Plan de travail 1 copie-large.jpg",
+      "webpPath": "/img/optimized/header_img/Etiquettes idée d'afrique_Plan de travail 1 copie-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 37,
+      "webpSize": 20
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQG/8QAGBABAQADAAAAAAAAAAAAAAAAAAEDMTP/xAAVAQEBAAAAAAAAAAAAAAAAAAAFBv/EABcRAAMBAAAAAAAAAAAAAAAAAAABAjH/2gAMAwEAAhEDEQA/ANjj5VNdgjKxDKP/2Q==",
+  "timestamp": "2025-03-20T10:42:32.011Z"
+}

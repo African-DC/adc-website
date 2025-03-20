@@ -1,0 +1,10 @@
+# Allow all web crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.africadigitconsulting.com/sitemap.xml
+
+# Disallow specific areas if needed
+# Disallow: /admin/
+# Disallow: /private/ 

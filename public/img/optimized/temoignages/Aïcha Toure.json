@@ -1,0 +1,43 @@
+{
+  "original": "/img/temoignages/Aïcha Toure.jpeg",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/temoignages/Aïcha Toure-thumbnail.jpeg",
+      "webpPath": "/img/optimized/temoignages/Aïcha Toure-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 7,
+      "webpSize": 5
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/temoignages/Aïcha Toure-small.jpeg",
+      "webpPath": "/img/optimized/temoignages/Aïcha Toure-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 22,
+      "webpSize": 14
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/temoignages/Aïcha Toure-medium.jpeg",
+      "webpPath": "/img/optimized/temoignages/Aïcha Toure-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 40,
+      "webpSize": 22
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/temoignages/Aïcha Toure-large.jpeg",
+      "webpPath": "/img/optimized/temoignages/Aïcha Toure-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 57,
+      "webpSize": 31
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUI/8QAHBAAAgICAwAAAAAAAAAAAAAAAAIBERRRBRIT/8QAFAEBAAAAAAAAAAAAAAAAAAAAA//EABcRAQADAAAAAAAAAAAAAAAAAAEAAhH/2gAMAwEAAhEDEQA/ANG8hkZ6ebUl7K6zPWL0AFQxYlnQn//Z",
+  "timestamp": "2025-03-20T10:43:41.297Z"
+}

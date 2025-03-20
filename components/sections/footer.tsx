@@ -43,10 +43,8 @@ export function Footer() {
                 height={80}
               />
             </div>
-            <p className="text-white/90 mb-6 font-['Open_Sans']">
-              Votre partenaire de confiance pour la transformation digitale en
-              Afrique. Expertise, innovation et solutions sur mesure pour votre
-              succès numérique.
+            <p className="text-white/90 mb-6  text-lg font-['Open_Sans']">
+            Faire la transformation digitale une clé de réussite internationale pour les organisations et les entreprises africaines.
             </p>
             <div className="flex space-x-4">
               <motion.a
@@ -105,7 +103,7 @@ export function Footer() {
                   href="#"
                   className="text-white/80 hover:text-white transition-colors duration-300"
                 >
-                  Stratégie Digitale
+                  Stratégie des moyens digitaux
                 </Link>
               </motion.li>
               <motion.li variants={fadeInUp}>
@@ -113,7 +111,7 @@ export function Footer() {
                   href="#"
                   className="text-white/80 hover:text-white transition-colors duration-300"
                 >
-                  Design UX/UI
+                  Gestion des réseaux sociaux
                 </Link>
               </motion.li>
               <motion.li variants={fadeInUp}>
@@ -121,7 +119,7 @@ export function Footer() {
                   href="#"
                   className="text-white/80 hover:text-white transition-colors duration-300"
                 >
-                  Développement Web
+                  Création de contenu
                 </Link>
               </motion.li>
               <motion.li variants={fadeInUp}>
@@ -129,7 +127,7 @@ export function Footer() {
                   href="#"
                   className="text-white/80 hover:text-white transition-colors duration-300"
                 >
-                  Marketing Digital
+                  Solutions digitales
                 </Link>
               </motion.li>
             </ul>
@@ -156,14 +154,14 @@ export function Footer() {
                 className="flex items-center space-x-3"
               >
                 <IconPhone className="h-5 w-5 text-white" />
-                <span className="text-white/80 ">+225 0798810178 / 05 95 459 843</span>
+                <span className="text-white/80 ">+225 27 32 797 538 /05 95 459 843 </span>
               </motion.li>
               <motion.li
                 variants={fadeInUp}
                 className="flex items-center space-x-3"
               >
                 <IconMail className="h-5 w-5 text-white" />
-                <span className="text-white/80">contact@africandigit-consulting.net</span>
+                <span className="text-white/80">contact@africadigitconsulting.com</span>
               </motion.li>
             </ul>
           </motion.div>

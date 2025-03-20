@@ -1,0 +1,43 @@
+{
+  "original": "/img/header_img/man-holding-blank-sign_23-2148542728.jpg",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/header_img/man-holding-blank-sign_23-2148542728-thumbnail.jpg",
+      "webpPath": "/img/optimized/header_img/man-holding-blank-sign_23-2148542728-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 12,
+      "webpSize": 9
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/header_img/man-holding-blank-sign_23-2148542728-small.jpg",
+      "webpPath": "/img/optimized/header_img/man-holding-blank-sign_23-2148542728-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 38,
+      "webpSize": 26
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/header_img/man-holding-blank-sign_23-2148542728-medium.jpg",
+      "webpPath": "/img/optimized/header_img/man-holding-blank-sign_23-2148542728-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 76,
+      "webpSize": 50
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/header_img/man-holding-blank-sign_23-2148542728-large.jpg",
+      "webpPath": "/img/optimized/header_img/man-holding-blank-sign_23-2148542728-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 118,
+      "webpSize": 78
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAwIG/8QAGxAAAwACAwAAAAAAAAAAAAAAAAECAwQRUYH/xAAVAQEBAAAAAAAAAAAAAAAAAAAEBf/EABcRAQEBAQAAAAAAAAAAAAAAAAEAETH/2gAMAwEAAhEDEQA/ANtn2HVqIn0VY3whHK6RY84UdMb/2Q==",
+  "timestamp": "2025-03-20T10:43:23.208Z"
+}

@@ -1,0 +1,43 @@
+{
+  "original": "/img/team/marcel.jpeg",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/team/marcel-thumbnail.jpeg",
+      "webpPath": "/img/optimized/team/marcel-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 10,
+      "webpSize": 6
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/team/marcel-small.jpeg",
+      "webpPath": "/img/optimized/team/marcel-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 25,
+      "webpSize": 13
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/team/marcel-medium.jpeg",
+      "webpPath": "/img/optimized/team/marcel-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 43,
+      "webpSize": 21
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/team/marcel-large.jpeg",
+      "webpPath": "/img/optimized/team/marcel-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 63,
+      "webpSize": 30
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABwb/xAAjEAABAwMCBwAAAAAAAAAAAAABAAIDBAUGERYhMTI0UXKx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwT/xAAYEQEBAQEBAAAAAAAAAAAAAAABAgADEf/aAAwDAQACEQMRAD8AbcsyEUV0hia7mdNFRw3IOhjd5aCiXOydzw8T1JEpe1h9B8VPSCZnzHKq7//Z",
+  "timestamp": "2025-03-20T10:43:39.264Z"
+}

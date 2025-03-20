@@ -1,0 +1,43 @@
+{
+  "original": "/img/header_img/Logo AVE GROUP INTL_Plan de travail 1 copie 2.jpg",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/header_img/Logo AVE GROUP INTL_Plan de travail 1 copie 2-thumbnail.jpg",
+      "webpPath": "/img/optimized/header_img/Logo AVE GROUP INTL_Plan de travail 1 copie 2-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 9,
+      "webpSize": 5
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/header_img/Logo AVE GROUP INTL_Plan de travail 1 copie 2-small.jpg",
+      "webpPath": "/img/optimized/header_img/Logo AVE GROUP INTL_Plan de travail 1 copie 2-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 23,
+      "webpSize": 12
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/header_img/Logo AVE GROUP INTL_Plan de travail 1 copie 2-medium.jpg",
+      "webpPath": "/img/optimized/header_img/Logo AVE GROUP INTL_Plan de travail 1 copie 2-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 39,
+      "webpSize": 19
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/header_img/Logo AVE GROUP INTL_Plan de travail 1 copie 2-large.jpg",
+      "webpPath": "/img/optimized/header_img/Logo AVE GROUP INTL_Plan de travail 1 copie 2-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 56,
+      "webpSize": 25
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUI/8QAHRAAAgEEAwAAAAAAAAAAAAAAABECAQQSExUhMf/EABQBAQAAAAAAAAAAAAAAAAAAAAH/xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAMAwEAAhEDEQA/ANGXsrvkI63rfZZjljR+oAdEj//Z",
+  "timestamp": "2025-03-20T10:42:53.346Z"
+}

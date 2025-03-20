@@ -1,0 +1,43 @@
+{
+  "original": "/img/TEAM_ADC/Siloue Joël Graphiste.jpg",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/TEAM_ADC/Siloue Joël Graphiste-thumbnail.jpg",
+      "webpPath": "/img/optimized/TEAM_ADC/Siloue Joël Graphiste-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 9,
+      "webpSize": 5
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/TEAM_ADC/Siloue Joël Graphiste-small.jpg",
+      "webpPath": "/img/optimized/TEAM_ADC/Siloue Joël Graphiste-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 29,
+      "webpSize": 16
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/TEAM_ADC/Siloue Joël Graphiste-medium.jpg",
+      "webpPath": "/img/optimized/TEAM_ADC/Siloue Joël Graphiste-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 60,
+      "webpSize": 32
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/TEAM_ADC/Siloue Joël Graphiste-large.jpg",
+      "webpPath": "/img/optimized/TEAM_ADC/Siloue Joël Graphiste-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 103,
+      "webpSize": 53
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKAAgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAYI/8QAHRAAAgEEAwAAAAAAAAAAAAAAAAECAwUSIRUxQf/EABQBAQAAAAAAAAAAAAAAAAAAAAP/xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAMAwEAAhEDEQA/ANBV7gpXPCNTSfQJuDfOy36AR2RMv//Z",
+  "timestamp": "2025-03-20T10:38:12.928Z"
+}

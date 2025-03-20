@@ -1,0 +1,43 @@
+{
+  "original": "/img/team2.jpg",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/team2-thumbnail.jpg",
+      "webpPath": "/img/optimized/team2-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 11,
+      "webpSize": 8
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/team2-small.jpg",
+      "webpPath": "/img/optimized/team2-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 32,
+      "webpSize": 20
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/team2-medium.jpg",
+      "webpPath": "/img/optimized/team2-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 62,
+      "webpSize": 35
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/team2-large.jpg",
+      "webpPath": "/img/optimized/team2-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 100,
+      "webpSize": 57
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKAAQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAIG/8QAGxAAAgIDAQAAAAAAAAAAAAAAAQIAAwQFIRT/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//EABYRAQEBAAAAAAAAAAAAAAAAAAASE//aAAwDAQACEQMRAD8A2GvrsbGVg3DEnWk+ROmJLQpf/9k=",
+  "timestamp": "2025-03-20T10:37:31.739Z"
+}

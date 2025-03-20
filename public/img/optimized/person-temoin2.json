@@ -1,0 +1,43 @@
+{
+  "original": "/img/person-temoin2.jpg",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/person-temoin2-thumbnail.jpg",
+      "webpPath": "/img/optimized/person-temoin2-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 12,
+      "webpSize": 8
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/person-temoin2-small.jpg",
+      "webpPath": "/img/optimized/person-temoin2-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 34,
+      "webpSize": 18
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/person-temoin2-medium.jpg",
+      "webpPath": "/img/optimized/person-temoin2-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 61,
+      "webpSize": 29
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/person-temoin2-large.jpg",
+      "webpPath": "/img/optimized/person-temoin2-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 91,
+      "webpSize": 40
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgUH/8QAIBAAAQQBBAMAAAAAAAAAAAAAAQACAxEFBBIVMTNhcf/EABQBAQAAAAAAAAAAAAAAAAAAAAH/xAAYEQADAQEAAAAAAAAAAAAAAAAAARECEv/aAAwDAQACEQMRAD8A1XO6l3PxtaDV9phEbiYfQR/JsbyIO0XfdK3H42/AniC9VH//2Q==",
+  "timestamp": "2025-03-20T10:37:17.297Z"
+}

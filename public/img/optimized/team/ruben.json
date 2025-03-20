@@ -1,0 +1,43 @@
+{
+  "original": "/img/team/ruben.jpg",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/team/ruben-thumbnail.jpg",
+      "webpPath": "/img/optimized/team/ruben-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 11,
+      "webpSize": 7
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/team/ruben-small.jpg",
+      "webpPath": "/img/optimized/team/ruben-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 27,
+      "webpSize": 14
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/team/ruben-medium.jpg",
+      "webpPath": "/img/optimized/team/ruben-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 47,
+      "webpSize": 23
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/team/ruben-large.jpg",
+      "webpPath": "/img/optimized/team/ruben-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 68,
+      "webpSize": 31
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABwb/xAAhEAABBAEDBQAAAAAAAAAAAAABAAIDBhEEEyEiMUJSsf/EABUBAQEAAAAAAAAAAAAAAAAAAAQG/8QAGhEAAgMBAQAAAAAAAAAAAAAAAgMAAUEEBf/aAAwDAQACEQMRAD8AaLBYTprDFAw9JOCrSLWsdEw57gFENg5tYz7JDgJ2I+fEfFPp9JptMLyOZziIjdbP/9k=",
+  "timestamp": "2025-03-20T10:43:39.971Z"
+}

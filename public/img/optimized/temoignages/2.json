@@ -1,0 +1,43 @@
+{
+  "original": "/img/temoignages/2.jpeg",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/temoignages/2-thumbnail.jpeg",
+      "webpPath": "/img/optimized/temoignages/2-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 8,
+      "webpSize": 4
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/temoignages/2-small.jpeg",
+      "webpPath": "/img/optimized/temoignages/2-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 20,
+      "webpSize": 8
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/temoignages/2-medium.jpeg",
+      "webpPath": "/img/optimized/temoignages/2-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 36,
+      "webpSize": 13
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/temoignages/2-large.jpeg",
+      "webpPath": "/img/optimized/temoignages/2-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 52,
+      "webpSize": 19
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAYH/8QAHxAAAQMDBQAAAAAAAAAAAAAAAAEDBQIEEQYSJIGi/8QAFAEBAAAAAAAAAAAAAAAAAAAAA//EABYRAQEBAAAAAAAAAAAAAAAAAAEAAv/aAAwDAQACEQMRAD8A3uYj7p7cjbmOybq0/KZXkegBjbAYL//Z",
+  "timestamp": "2025-03-20T10:43:40.608Z"
+}

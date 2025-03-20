@@ -10,7 +10,8 @@ const config: Config = {
   ],
   theme: {
     fontFamily: {
-      sans: ["Open Sans", "sans-serif"],
+      sans: ["var(--font-poppins)", "system-ui", "sans-serif"],
+      montserrat: ["var(--font-montserrat)", "system-ui", "sans-serif"],
     },
     extend: {
       colors: {

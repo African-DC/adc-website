@@ -1,0 +1,43 @@
+{
+  "original": "/img/crea.jpg",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/crea-thumbnail.jpg",
+      "webpPath": "/img/optimized/crea-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 14,
+      "webpSize": 10
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/crea-small.jpg",
+      "webpPath": "/img/optimized/crea-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 44,
+      "webpSize": 29
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/crea-medium.jpg",
+      "webpPath": "/img/optimized/crea-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 78,
+      "webpSize": 46
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/crea-large.jpg",
+      "webpPath": "/img/optimized/crea-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 116,
+      "webpSize": 62
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAFAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAaEAADAQADAAAAAAAAAAAAAAABAgMABREx/8QAFAEBAAAAAAAAAAAAAAAAAAAABP/EABYRAQEBAAAAAAAAAAAAAAAAAAECAP/aAAwDAQACEQMRAD8AmjY3tOjABhqBOTuEUd+DMwYpbrPJCDf/2Q==",
+  "timestamp": "2025-03-20T10:36:54.187Z"
+}

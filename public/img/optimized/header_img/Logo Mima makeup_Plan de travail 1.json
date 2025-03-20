@@ -1,0 +1,43 @@
+{
+  "original": "/img/header_img/Logo Mima makeup_Plan de travail 1.jpg",
+  "thumbnails": [
+    {
+      "size": "thumbnail",
+      "path": "/img/optimized/header_img/Logo Mima makeup_Plan de travail 1-thumbnail.jpg",
+      "webpPath": "/img/optimized/header_img/Logo Mima makeup_Plan de travail 1-thumbnail.webp",
+      "width": 300,
+      "height": 300,
+      "fileSize": 6,
+      "webpSize": 3
+    },
+    {
+      "size": "small",
+      "path": "/img/optimized/header_img/Logo Mima makeup_Plan de travail 1-small.jpg",
+      "webpPath": "/img/optimized/header_img/Logo Mima makeup_Plan de travail 1-small.webp",
+      "width": 600,
+      "height": 600,
+      "fileSize": 15,
+      "webpSize": 7
+    },
+    {
+      "size": "medium",
+      "path": "/img/optimized/header_img/Logo Mima makeup_Plan de travail 1-medium.jpg",
+      "webpPath": "/img/optimized/header_img/Logo Mima makeup_Plan de travail 1-medium.webp",
+      "width": 900,
+      "height": 900,
+      "fileSize": 26,
+      "webpSize": 10
+    },
+    {
+      "size": "large",
+      "path": "/img/optimized/header_img/Logo Mima makeup_Plan de travail 1-large.jpg",
+      "webpPath": "/img/optimized/header_img/Logo Mima makeup_Plan de travail 1-large.webp",
+      "width": 1200,
+      "height": 1200,
+      "fileSize": 37,
+      "webpSize": 14
+    }
+  ],
+  "blurDataURL": "data:image/png;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAHAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQI/8QAHBAAAgICAwAAAAAAAAAAAAAAAAECAwQRISJx/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/ANLZFd7yE4y6+lqUtLkAD//Z",
+  "timestamp": "2025-03-20T10:42:56.388Z"
+}

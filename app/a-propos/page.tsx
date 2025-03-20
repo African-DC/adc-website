@@ -1,118 +1,497 @@
 "use client";
 
 import { Footer } from "@/components/sections/footer";
-import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { AboutSkeleton } from "@/components/ui/loading-skeletons";
-import { NavigationMenuDemo } from "@/components/ui/navigation-menu-demo";
-import { motion } from "framer-motion";
-import { Sparkles, Users } from "lucide-react";
+import { NavbarDemo } from "@/components/sections/navbar-demo";
+import { PageHero } from "@/components/sections/page-hero";
+import ScrollProgress from "@/components/ui/scroll-progress";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Users, Zap, Target, Award, Heart, ArrowRight, MessageCircle, Globe, CheckCircle, Star } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useRef } from "react";
 
 export default function AboutPage() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return <AboutSkeleton />;
-  }
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  
+  // Notre histoire - timeline
+  const historyItems = [
+    {
+      year: "2016",
+      title: "Naissance d'ADC",
+      description: "Fondation de African Digit Consulting par un groupe d'experts passionnés par le digital en Afrique.",
+      image: "/img/TEAM_ADC/BEDE Abel Josias Manager.jpg",
+    },
+    {
+      year: "2018",
+      title: "Premiers clients majeurs",
+      description: "Développement du portefeuille client avec des entreprises de renom en Côte d'Ivoire.",
+      image: "/img/header_img/Logo Komate marine logistics-04 (1).jpg",
+    },
+    {
+      year: "2020",
+      title: "Expansion des services",
+      description: "Élargissement de notre offre avec le développement d'applications mobiles et la gestion de réseaux sociaux.",
+      image: "/img/header_img/Interface 1.jpeg",
+    },
+    {
+      year: "2022",
+      title: "Partenariats internationaux",
+      description: "Développement de collaborations avec des partenaires technologiques internationaux pour enrichir notre expertise.",
+      image: "/img/header_img/Post Konate marine log.jpg",
+    },
+    {
+      year: "2024",
+      title: "ADC aujourd'hui",
+      description: "Une équipe de plus de 10 experts digitaux servant plus de 50 clients à travers l'Afrique.",
+      image: "/img/TEAM_ADC/ruben-Photoroom.png",
+    },
+  ];
+  
+  // Nos valeurs
+  const values = [
+    {
+      icon: <Target className="h-6 w-6" />,
+      title: "Excellence",
+      description: "Nous visons l'excellence dans chaque projet, avec un souci du détail et une quête constante de qualité.",
+      color: "from-orange-500 to-red-500",
+    },
+    {
+      icon: <Heart className="h-6 w-6" />,
+      title: "Passion",
+      description: "Notre passion pour le digital nous pousse à innover et à nous surpasser pour nos clients.",
+      color: "from-red-500 to-pink-500",
+    },
+    {
+      icon: <Globe className="h-6 w-6" />,
+      title: "Expertise africaine",
+      description: "Nous apportons une expertise locale avec une vision globale, adaptée aux réalités africaines.",
+      color: "from-blue-500 to-indigo-500",
+    },
+    {
+      icon: <MessageCircle className="h-6 w-6" />,
+      title: "Communication",
+      description: "Nous privilégions une communication transparente et constructive avec nos clients.",
+      color: "from-green-500 to-emerald-500",
+    },
+  ];
+  
+  // Nos statistiques
+  const stats = [
+    { number: "8+", label: "Années d'expérience" },
+    { number: "50+", label: "Projets réalisés" },
+    { number: "10+", label: "Experts en digital" },
+    { number: "95%", label: "Clients satisfaits" },
+  ];
 
   return (
-    <div className="min-h-screen bg-[#f2f2f2] flex flex-col">
-      <NavigationMenuDemo />
-      <main className="pt-24 pb-16 px-4 flex-grow">
-        <div className="mt-8">
-          <Breadcrumbs />
-        </div>
-
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-16"
+    <>
+      <ScrollProgress />
+      <NavbarDemo />
+      
+      <PageHero
+        title="À Propos de Nous"
+        subtitle="Découvrez l'histoire et les valeurs qui font d'African Digit Consulting un partenaire digital incontournable en Afrique."
+        backgroundImage="/img/header_img/02b21557-4e81-46dd-ac22-bd57b7f78d13.jpg"
+        breadcrumbs={[{ label: "À Propos", href: "/a-propos" }]}
+        pageTheme="about"
+      />
+      
+      <main ref={containerRef} className="overflow-hidden relative">
+        {/* Section Introduction */}
+        <section className="py-20 bg-gradient-to-b from-orange-50 to-white relative">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-orange-300 rounded-full opacity-10 blur-[150px] -z-10"></div>
+          <div className="absolute bottom-20 left-0 w-72 h-72 bg-orange-400 rounded-full opacity-10 blur-[100px] -z-10"></div>
+          
+          <motion.div 
+            style={{ y }} 
+            className="max-w-7xl mx-auto px-4"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-center mb-6 pb-[0.4rem] bg-gradient-to-r from-[#ff942b] to-orange-600 bg-clip-text text-transparent font-['Open_Sans']">
-              Qui sommes-nous?
-            </h1>
-            <div className="bg-white rounded-2xl shadow-xl p-8">
-              <div className="flex items-start gap-6">
-                <Users className="h-12 w-12 text-[#ff942b] flex-shrink-0 mt-1" />
-                <div>
-                  <h2 className="text-2xl max-w-3xl text-start font-semibold mb-4 font-['Open_Sans']">
-                    Une agence de Transformation Digitale, qui dispose de plus
-                    de 8 ans d’expérience avec des experts qualifiés et
-                    professionnels dans leur domaine respectif.
-                  </h2>
-                  <p className="text-gray-600 mb-3 leading-relaxed font-['Open_Sans']">
-                    Transformez votre entreprise avec notre expertise en
-                    transformation digitale. À notre agence, nous aidons les
-                    entreprises à tirer parti du numérique pour croître,
-                    innover, et se démarquer. De la modernisation de vos
-                    systèmes à la création d’expériences client innovantes, nous
-                    vous accompagnons à chaque étape de votre transition vers un
-                    avenir digital.
-                  </p>
-                  <p className="text-gray-600 leading-relaxed font-['Open_Sans']">
-                    Avec une approche centrée sur vos besoins, nous intégrons
-                    les technologies les plus avancées pour optimiser vos
-                    processus, renforcer votre présence en ligne, et booster
-                    votre compétitivité. Rejoignez-nous pour transformer vos
-                    défis en opportunités digitales et conduire votre entreprise
-                    vers le succès.
-                  </p>
+            <div className="flex flex-col lg:flex-row gap-12 items-center">
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="lg:w-1/2"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <Star className="h-6 w-6 text-orange-500" />
+                  <span className="h-px w-10 bg-orange-300"></span>
+                  <span className="text-orange-600 font-medium uppercase">Qui sommes-nous</span>
                 </div>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-16"
-          >
-            <div className="relative overflow-hidden rounded-2xl">
-              <div className="absolute inset-0">
-                <Image
-                  src="/img/CTA_image.jpg"
-                  alt="Call to action background"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#ff942b]/90 to-orange-600/90 mix-blend-multiply" />
-              </div>
-              <div className="relative p-8 md:p-12">
-                <div className="flex items-center gap-2 mb-4">
-                  <Sparkles className="h-6 w-6 text-white" />
-                  <h3 className="text-2xl font-semibold text-white font-['Open_Sans']">
-                    Rejoignez l&apos;aventure digitale
-                  </h3>
-                </div>
-                <p className="text-white/90 text-lg mb-8 max-w-2xl font-['Open_Sans']">
-                  Ensemble, créons des solutions innovantes qui transformeront
-                  votre présence numérique.
+                
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                  Une agence de{" "}
+                  <span className="relative">
+                    <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">
+                      Transformation Digitale
+                    </span>
+                    <span className="absolute bottom-1 left-0 right-0 h-3 bg-orange-200 rounded-lg opacity-50"></span>
+                  </span>
+                </h2>
+                
+                <p className="text-gray-700 text-lg mb-6 leading-relaxed">
+                  Avec plus de 8 ans d'expérience, notre agence réunit des experts qualifiés 
+                  et professionnels dans leur domaine respectif. Nous accompagnons les entreprises 
+                  dans leur transformation digitale, en les aidant à tirer parti du numérique pour 
+                  croître, innover et se démarquer.
                 </p>
-                <a
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#ff942b] rounded-lg font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 font-['Open_Sans']"
-                >
-                  Commencer la discussion
-                  <span className="text-xl">→</span>
-                </a>
-              </div>
+                
+                <p className="text-gray-700 text-lg mb-8 leading-relaxed">
+                  De la modernisation de vos systèmes à la création d'expériences client innovantes, 
+                  nous intégrons les technologies les plus avancées pour optimiser vos processus, 
+                  renforcer votre présence en ligne et booster votre compétitivité.
+                </p>
+                
+                <div className="flex flex-wrap gap-4">
+                  <Link 
+                    href="/notre-expertise" 
+                    className="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full flex items-center gap-2 hover:shadow-lg transition-all"
+                  >
+                    <span>Notre expertise</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  
+                  <Link 
+                    href="/contact" 
+                    className="px-6 py-3 bg-white text-gray-800 border border-gray-200 rounded-full hover:border-orange-300 hover:shadow-md transition-all"
+                  >
+                    Contactez-nous
+                  </Link>
+                </div>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="lg:w-1/2"
+              >
+                <div className="relative">
+                  <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 relative z-10">
+                    <div className="flex items-start gap-6">
+                      <Users className="h-12 w-12 text-orange-500 flex-shrink-0 mt-1" />
+                      <div>
+                        <h3 className="text-2xl font-semibold mb-4">
+                          Une équipe d'experts passionnés par le digital en Afrique
+                        </h3>
+                        <p className="text-gray-600 mb-3 leading-relaxed">
+                          Notre équipe combine expertise technique, créativité et connaissance 
+                          approfondie des marchés africains pour offrir des solutions digitales 
+                          parfaitement adaptées aux besoins locaux.
+                        </p>
+                        <p className="text-gray-600 leading-relaxed">
+                          Chaque membre apporte son expertise unique, créant une synergie qui nous permet 
+                          d'aborder les défis digitaux sous tous les angles et de proposer des solutions 
+                          complètes et innovantes.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute top-6 left-6 w-full h-full bg-orange-500 rounded-2xl -z-10"></div>
+                  
+                  {/* Éléments décoratifs */}
+                  <div className="absolute -bottom-10 -right-10 w-20 h-20 border-4 border-orange-200 rounded-full z-20"></div>
+                  <div className="absolute -top-8 -left-8 w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg z-20 transform rotate-12"></div>
+                </div>
+              </motion.div>
             </div>
+            
+            {/* Statistiques */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20"
+            >
+              {stats.map((stat, index) => (
+                <motion.div 
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+                  className="bg-white rounded-xl p-6 shadow-lg border border-orange-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                >
+                  <span className="block text-4xl font-bold text-orange-600 mb-2">{stat.number}</span>
+                  <span className="text-gray-700">{stat.label}</span>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
-        </div>
+        </section>
+        
+        {/* Section Notre Histoire */}
+        <section className="py-20 bg-white relative">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-16">
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="inline-flex items-center gap-2 bg-orange-100 text-orange-600 px-6 py-2 rounded-full mb-6"
+              >
+                <span className="font-medium uppercase text-xl">Notre Histoire</span>
+              </motion.div>
+              
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="text-3xl md:text-4xl font-bold mb-6 mx-auto max-w-2xl"
+              >
+                L'évolution de notre agence au fil des années
+              </motion.h2>
+              
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-gray-600 max-w-2xl mx-auto"
+              >
+                Découvrez comment African Digit Consulting est devenue une référence 
+                dans le domaine du digital en Afrique.
+              </motion.p>
+            </div>
+            
+            {/* Timeline */}
+            <div className="relative">
+              {/* Ligne verticale */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-orange-200"></div>
+              
+              {historyItems.map((item, index) => (
+                <motion.div 
+                  key={item.year}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className={`flex flex-col md:flex-row items-center mb-16 last:mb-0 ${
+                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  }`}
+                >
+                  <div className="md:w-1/2 flex justify-center">
+                    <div className="relative w-64 h-64 rounded-xl overflow-hidden shadow-lg">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded-md">
+                          {item.year}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="md:w-1/2 mt-6 md:mt-0 text-center relative">
+                    {/* Point sur la timeline */}
+                    <div className="absolute left-1/2 md:left-auto md:right-auto md:top-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-10 h-10 bg-orange-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+                    
+                    <div className={`bg-white p-6 rounded-xl shadow-md border border-orange-100 max-w-md mx-auto ${
+                      index % 2 === 0 ? 'md:ml-12' : 'md:mr-12'
+                    }`}>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+                      <p className="text-gray-600">{item.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+        
+        {/* Section Nos Valeurs */}
+        <section className="py-20 bg-gradient-to-b from-white to-orange-50">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-16">
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="inline-flex items-center gap-2 bg-orange-100 text-orange-600 px-6 py-2 rounded-full mb-6"
+              >
+                <span className="font-medium uppercase text-xl">Nos Valeurs</span>
+              </motion.div>
+              
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="text-3xl md:text-4xl font-bold mb-6"
+              >
+                Les principes qui guident nos actions
+              </motion.h2>
+              
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-gray-600 max-w-2xl mx-auto"
+              >
+                Nos valeurs sont au cœur de chaque projet que nous réalisons et de chaque relation 
+                que nous construisons avec nos clients.
+              </motion.p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {values.map((value, index) => (
+                <motion.div 
+                  key={value.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all p-8 border border-orange-100"
+                >
+                  <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${value.color} flex items-center justify-center mb-6`}>
+                    {value.icon}
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-4">{value.title}</h3>
+                  <p className="text-gray-600">{value.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+        
+        {/* Section Notre Approche */}
+        <section className="py-20 bg-gradient-to-b from-orange-50 to-white relative overflow-hidden">
+          <div className="absolute -top-20 right-0 w-80 h-80 bg-orange-300 rounded-full opacity-10 blur-3xl"></div>
+          <div className="absolute -bottom-20 left-0 w-80 h-80 bg-red-300 rounded-full opacity-10 blur-3xl"></div>
+          
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="relative">
+                  <Image
+                    src="/img/header_img/0bda58a3-37b7-4a50-a014-83f7b79862f3.jpg"
+                    alt="Notre approche"
+                    width={600}
+                    height={500}
+                    className="rounded-2xl shadow-xl z-10 relative"
+                  />
+                  <div className="absolute -bottom-6 -right-6 w-full h-full bg-gradient-to-tr from-orange-500 to-red-500 rounded-2xl -z-10"></div>
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-600 px-6 py-2 rounded-full mb-6">
+                  <span className="font-medium uppercase">Notre Approche</span>
+                </div>
+                
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  Une méthodologie centrée sur vos besoins
+                </h2>
+                
+                <p className="text-gray-600 mb-8">
+                  Notre approche combine expertise technique, créativité et connaissance 
+                  approfondie du marché africain pour offrir des solutions sur mesure 
+                  qui correspondent parfaitement à vos objectifs.
+                </p>
+                
+                <div className="space-y-4">
+                  {[
+                    "Analyse approfondie de vos besoins et objectifs",
+                    "Conception de solutions sur mesure et innovantes",
+                    "Développement rigoureux et tests approfondis",
+                    "Accompagnement personnalisé et support continu"
+                  ].map((item, index) => (
+                    <motion.div 
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                      className="flex items-start gap-3"
+                    >
+                      <CheckCircle className="h-6 w-6 text-orange-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </motion.div>
+                  ))}
+                </div>
+                
+                <div className="mt-10">
+                  <Link 
+                    href="/contact" 
+                    className="px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full inline-flex items-center gap-2 hover:shadow-lg transition-all"
+                  >
+                    <span>Discuter de votre projet</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Section CTA */}
+        <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600 relative overflow-hidden">
+          {/* Éléments décoratifs */}
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20">
+            <div className="absolute top-0 right-0 w-72 h-72 bg-white rounded-full blur-[100px]"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-[120px]"></div>
+          </div>
+          
+          <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-8"
+            >
+              <Zap className="h-16 w-16 text-white/70 mx-auto mb-6" />
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                Rejoignez l'aventure digitale avec nous
+              </h2>
+              <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto">
+                Ensemble, créons des solutions innovantes qui transformeront votre présence numérique
+                et vous aideront à atteindre vos objectifs.
+              </p>
+            </motion.div>
+            
+            <Link 
+              href="/contact"
+              className="px-10 py-4 bg-white text-orange-600 font-medium rounded-full hover:shadow-lg hover:shadow-black/10 transition-all inline-flex items-center gap-2"
+            >
+              <span>Commencer la discussion</span>
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+          </div>
+        </section>
       </main>
+      
       <Footer />
-    </div>
+    </>
   );
 }
