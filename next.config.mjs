@@ -1,28 +1,25 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Optimisation pour la production
+  // Configuration pour hébergement statique
   output: 'export',
+  
+  // Suppression du assetPrefix car il peut causer des problèmes de chargement d'images
+  // assetPrefix: process.env.NODE_ENV === 'production' ? 'https://africandigitconsulting.com' : '',
   
   // Configuration pour optimiser les images
   images: {
-    formats: ['image/avif', 'image/webp'],
+    unoptimized: true, // Nécessaire pour les exports statiques
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 60,
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256],
-    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 jours
-    dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    loader: 'default',
-    path: '/_next/image',
-    disableStaticImages: false,
-    unoptimized: true, // Utiliser des images non optimisées avec le mode export
-    // Domaines autorisés pour les images externes (si nécessaire)
-    // remotePatterns: [
-    //   {
-    //     protocol: 'https',
-    //     hostname: 'example.com',
-    //     pathname: '/**',
-    //   },
-    // ],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    domains: ['africandigitconsulting.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'africandigitconsulting.com',
+      },
+    ],
   },
   
   // Compression pour améliorer les performances
@@ -46,20 +43,20 @@ const nextConfig = {
           options: {
             mozjpeg: {
               progressive: true,
-              quality: 65,
+              quality: 75, // Qualité améliorée pour une meilleure apparence
             },
             optipng: {
               enabled: true,
             },
             pngquant: {
-              quality: [0.65, 0.90],
+              quality: [0.7, 0.9], // Meilleure qualité pour plus de compatibilité
               speed: 4,
             },
             gifsicle: {
               interlaced: false,
             },
             webp: {
-              quality: 75,
+              quality: 80, // Meilleure qualité pour la compatibilité entre navigateurs
             },
           },
         },
@@ -71,11 +68,11 @@ const nextConfig = {
   
   // Optimisation de la taille des pages
   experimental: {
-    // Désactiver temporairement l'optimisation CSS qui cause des erreurs
-    // optimizeCss: true,
     optimizePackageImports: ['framer-motion', 'lucide-react'],
-    optimizeServerReact: true,
   },
+  
+  // Traiter les erreurs 404 correctement
+  trailingSlash: true,
 };
 
 export default nextConfig;

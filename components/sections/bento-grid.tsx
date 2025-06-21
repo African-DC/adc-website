@@ -30,23 +30,25 @@ const ServiceCard = ({
   index: number;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  
+
   const isEven = index % 2 === 0;
-  
+
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ 
-        duration: 0.7, 
+      transition={{
+        duration: 0.7,
         delay: index * 0.2,
-        ease: [0.22, 1, 0.36, 1]
+        ease: [0.22, 1, 0.36, 1],
       }}
       className="flex flex-col md:flex-row gap-8 items-center"
     >
-      <div className={`order-2 ${isEven ? 'md:order-2' : 'md:order-1'} md:w-1/2`}>
+      <div
+        className={`order-2 ${isEven ? "md:order-2" : "md:order-1"} md:w-1/2`}
+      >
         <div className="backdrop-blur-md bg-white/10 p-6 md:p-10 rounded-3xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 group">
           <div className="flex items-center gap-4 mb-6">
             <div className="flex items-center justify-center bg-orange-600 rounded-xl w-12 h-12 text-white">
@@ -56,9 +58,7 @@ const ServiceCard = ({
               {title}
             </h3>
           </div>
-          <p className="body-text text-gray-600 mb-8">
-            {description}
-          </p>
+          <p className="body-text text-gray-600 mb-8">{description}</p>
           {/* <motion.div 
             className="flex items-center gap-2 text-orange-600 font-medium cursor-pointer w-fit"
             whileHover={{ x: 5 }}
@@ -68,7 +68,9 @@ const ServiceCard = ({
           </motion.div> */}
         </div>
       </div>
-      <div className={`order-1 ${isEven ? 'md:order-1' : 'md:order-2'} md:w-1/2`}>
+      <div
+        className={`order-1 ${isEven ? "md:order-1" : "md:order-2"} md:w-1/2`}
+      >
         <motion.div
           whileHover={{ scale: 1.05, rotate: isEven ? -2 : 2 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -106,44 +108,48 @@ export function ServicesGrid() {
     target: containerRef,
     offset: ["start end", "end start"],
   });
-  
+
   const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  
+
   const services = [
     {
       title: "Stratégie des moyens digitaux",
       description:
         "Élaborez une stratégie des moyens digitaux sur mesure pour atteindre vos objectifs de visibilité, de notoriété et d'engagement, tout en maximisant votre présence en ligne.",
       icon: <IconBulb className="h-6 w-6" />,
-      imageUrl: "/img/header_img/0bda58a3-37b7-4a50-a014-83f7b79862f3.jpg"
+      imageUrl: "/img/services/strategie.jpeg",
     },
     {
       title: "Solutions Digitales",
       description:
         "Développez des solutions digitales sur mesure (site internet, CRM, ERP, LMS…), innovantes, qui corresponde à votre vision. Ainsi optimiser vos processus et améliorer votre efficacité opérationnelle.",
       icon: <IconDevices className="h-6 w-6" />,
-      imageUrl: "/img/header_img/Interface 2.jpeg"
+      imageUrl: "/img/services/solution_digitale.jpeg",
     },
     {
       title: "Création de Contenu",
       description:
         "Créez des contenus visuels (infographies, affiches, logos, vidéos hero, carrousels…) qui mettent en valeur votre marque, communiquent la pertinence de vos services et renforcent votre image de marque.",
       icon: <IconPencil className="h-6 w-6" />,
-      imageUrl: "/img/header_img/Logo Mima makeup_Plan de travail 1.jpg"
+      imageUrl: "/img/services/creation_de_contenu.jpeg",
     },
     {
       title: "Gestion des réseaux sociaux",
       description:
         "Optimisez votre présence en ligne et augmentez votre visibilité et notoriété avec notre service de community management axer sur le résultat.",
       icon: <IconBrandGoogle className="h-6 w-6" />,
-      imageUrl: "/img/header_img/Interface 1.jpeg"
+      imageUrl: "/img/services/gestion_de_reseaux.jpeg",
     },
   ];
 
   return (
-    <section id="services" ref={containerRef} className="py-32 bg-gradient-to-b from-white to-orange-50 overflow-hidden">
-      <motion.div 
-        style={{ y }} 
+    <section
+      id="services"
+      ref={containerRef}
+      className="py-32 bg-gradient-to-b from-white to-orange-50 overflow-hidden"
+    >
+      <motion.div
+        style={{ y }}
         className="max-w-7xl mx-auto px-4 relative z-10"
       >
         <motion.div
@@ -156,20 +162,22 @@ export function ServicesGrid() {
           <div className="flex justify-center mb-4">
             <div className="bg-orange-100 text-orange-600 px-6 py-2 rounded-full inline-flex items-center gap-2">
               <IconStar className="h-4 w-4 fill-orange-600" />
-              <span className="font-medium uppercase text-xl">nos services</span>
+              <span className="font-medium uppercase text-xl">
+                nos services
+              </span>
             </div>
           </div>
           {/* <h2 className="title-large text-5xl md:text-6xl font-bold mb-8 text-gradient">
             Nos Expertises
           </h2> */}
           <p className="body-text text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-          Des solutions adaptées aux défis des entreprises de notre continent.
+            Des solutions adaptées aux défis des entreprises de notre continent.
           </p>
         </motion.div>
 
         <div className="flex flex-col gap-20 lg:gap-32">
           {services.map((service, index) => (
-            <ServiceCard 
+            <ServiceCard
               key={service.title}
               title={service.title}
               description={service.description}
@@ -180,7 +188,7 @@ export function ServicesGrid() {
           ))}
         </div>
       </motion.div>
-      
+
       {/* Éléments décoratifs */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-orange-400 rounded-full filter blur-[150px] opacity-20"></div>
       <div className="absolute bottom-20 right-10 w-80 h-80 bg-red-400 rounded-full filter blur-[150px] opacity-20"></div>

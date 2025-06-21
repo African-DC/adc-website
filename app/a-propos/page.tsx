@@ -5,10 +5,10 @@ import { NavbarDemo } from "@/components/sections/navbar-demo";
 import { PageHero } from "@/components/sections/page-hero";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Users, Zap, Target, Award, Heart, ArrowRight, MessageCircle, Globe, CheckCircle, Star } from "lucide-react";
+import { Users, Zap, Target, Award, Heart, ArrowRight, MessageCircle, Globe, CheckCircle, Star, CheckCircle2, Quote } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 export default function AboutPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -25,14 +25,14 @@ export default function AboutPage() {
       year: "2016",
       title: "Naissance d'ADC",
       description: "Fondation de African Digit Consulting par un groupe d'experts passionnés par le digital en Afrique.",
-      image: "/img/TEAM_ADC/BEDE Abel Josias Manager.jpg",
+      image: "/img/TEAM_ADC/BEDE Abel Josias Manager.webp",
     },
-    {
-      year: "2018",
-      title: "Premiers clients majeurs",
-      description: "Développement du portefeuille client avec des entreprises de renom en Côte d'Ivoire.",
-      image: "/img/header_img/Logo Komate marine logistics-04 (1).jpg",
-    },
+    // {
+    //   year: "2018", 
+    //   title: "Premiers clients majeurs",
+    //   description: "Développement du portefeuille client avec des entreprises de renom en Côte d'Ivoire.",
+    //   image: "/img/header_img/fedex5.jpg",
+    // },
     {
       year: "2020",
       title: "Expansion des services",
@@ -49,7 +49,7 @@ export default function AboutPage() {
       year: "2024",
       title: "ADC aujourd'hui",
       description: "Une équipe de plus de 10 experts digitaux servant plus de 50 clients à travers l'Afrique.",
-      image: "/img/TEAM_ADC/ruben-Photoroom.png",
+      image: "/img/TEAM_ADC/ruben-Photoroom.webp",
     },
   ];
   
@@ -95,11 +95,11 @@ export default function AboutPage() {
       <NavbarDemo />
       
       <PageHero
-        title="À Propos de Nous"
-        subtitle="Découvrez l'histoire et les valeurs qui font d'African Digit Consulting un partenaire digital incontournable en Afrique."
-        backgroundImage="/img/header_img/02b21557-4e81-46dd-ac22-bd57b7f78d13.jpg"
-        breadcrumbs={[{ label: "À Propos", href: "/a-propos" }]}
+        title="À propos de nous"
+        subtitle="Découvrez notre parcours, notre vision et les valeurs qui font d'Africa Digit Consulting un partenaire digital de confiance."
+        breadcrumbs={[{ label: "À propos", href: "/a-propos" }]}
         pageTheme="about"
+        useAbstractBackground={true}
       />
       
       <main ref={containerRef} className="overflow-hidden relative">
@@ -108,126 +108,85 @@ export default function AboutPage() {
           <div className="absolute top-0 right-0 w-96 h-96 bg-orange-300 rounded-full opacity-10 blur-[150px] -z-10"></div>
           <div className="absolute bottom-20 left-0 w-72 h-72 bg-orange-400 rounded-full opacity-10 blur-[100px] -z-10"></div>
           
-          <motion.div 
-            style={{ y }} 
-            className="max-w-7xl mx-auto px-4"
-          >
-            <div className="flex flex-col lg:flex-row gap-12 items-center">
-              <motion.div 
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="lg:w-1/2"
+                transition={{ duration: 0.5 }}
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <Star className="h-6 w-6 text-orange-500" />
-                  <span className="h-px w-10 bg-orange-300"></span>
-                  <span className="text-orange-600 font-medium uppercase">Qui sommes-nous</span>
-                </div>
-                
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                  Une agence de{" "}
-                  <span className="relative">
-                    <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">
-                      Transformation Digitale
-                    </span>
-                    <span className="absolute bottom-1 left-0 right-0 h-3 bg-orange-200 rounded-lg opacity-50"></span>
-                  </span>
-                </h2>
-                
-                <p className="text-gray-700 text-lg mb-6 leading-relaxed">
-                  Avec plus de 8 ans d'expérience, notre agence réunit des experts qualifiés 
-                  et professionnels dans leur domaine respectif. Nous accompagnons les entreprises 
-                  dans leur transformation digitale, en les aidant à tirer parti du numérique pour 
-                  croître, innover et se démarquer.
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Notre Entreprise</h2>
+                <p className="text-lg text-gray-600 mb-6">
+                  <span className="font-semibold text-orange-600">Africa Digit Consulting</span> est une agence digitale créée par une équipe passionnée de professionnels africains, avec la vision de transformer le paysage numérique de l'Afrique.
+                </p>
+                <p className="text-lg text-gray-600 mb-8">
+                  Fondée en 2019 en Côte d'Ivoire, notre mission est de fournir des solutions digitales de classe mondiale adaptées au contexte africain, en conjuguant expertise technique, créativité et compréhension approfondie des marchés locaux.
                 </p>
                 
-                <p className="text-gray-700 text-lg mb-8 leading-relaxed">
-                  De la modernisation de vos systèmes à la création d'expériences client innovantes, 
-                  nous intégrons les technologies les plus avancées pour optimiser vos processus, 
-                  renforcer votre présence en ligne et booster votre compétitivité.
-                </p>
-                
-                <div className="flex flex-wrap gap-4">
-                  <Link 
-                    href="/notre-expertise" 
-                    className="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full flex items-center gap-2 hover:shadow-lg transition-all"
-                  >
-                    <span>Notre expertise</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  
-                  <Link 
-                    href="/contact" 
-                    className="px-6 py-3 bg-white text-gray-800 border border-gray-200 rounded-full hover:border-orange-300 hover:shadow-md transition-all"
-                  >
-                    Contactez-nous
-                  </Link>
-                </div>
-              </motion.div>
-              
-              <motion.div 
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="lg:w-1/2"
-              >
-                <div className="relative">
-                  <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 relative z-10">
-                    <div className="flex items-start gap-6">
-                      <Users className="h-12 w-12 text-orange-500 flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="text-2xl font-semibold mb-4">
-                          Une équipe d'experts passionnés par le digital en Afrique
-                        </h3>
-                        <p className="text-gray-600 mb-3 leading-relaxed">
-                          Notre équipe combine expertise technique, créativité et connaissance 
-                          approfondie des marchés africains pour offrir des solutions digitales 
-                          parfaitement adaptées aux besoins locaux.
-                        </p>
-                        <p className="text-gray-600 leading-relaxed">
-                          Chaque membre apporte son expertise unique, créant une synergie qui nous permet 
-                          d'aborder les défis digitaux sous tous les angles et de proposer des solutions 
-                          complètes et innovantes.
-                        </p>
-                      </div>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="bg-orange-100 rounded-full p-1 mt-1">
+                      <CheckCircle2 className="h-5 w-5 text-orange-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-gray-800">Une équipe africaine d'experts</h3>
+                      <p className="text-gray-600">Nous réunissons les meilleurs talents africains dans les métiers du digital.</p>
                     </div>
                   </div>
                   
-                  <div className="absolute top-6 left-6 w-full h-full bg-orange-500 rounded-2xl -z-10"></div>
+                  <div className="flex items-start gap-3">
+                    <div className="bg-orange-100 rounded-full p-1 mt-1">
+                      <CheckCircle2 className="h-5 w-5 text-orange-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-gray-800">Solutions adaptées au contexte local</h3>
+                      <p className="text-gray-600">Nous développons des solutions qui répondent aux défis spécifiques du marché africain.</p>
+                    </div>
+                  </div>
                   
-                  {/* Éléments décoratifs */}
-                  <div className="absolute -bottom-10 -right-10 w-20 h-20 border-4 border-orange-200 rounded-full z-20"></div>
-                  <div className="absolute -top-8 -left-8 w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg z-20 transform rotate-12"></div>
+                  <div className="flex items-start gap-3">
+                    <div className="bg-orange-100 rounded-full p-1 mt-1">
+                      <CheckCircle2 className="h-5 w-5 text-orange-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-gray-800">Excellence et innovation</h3>
+                      <p className="text-gray-600">Nous nous engageons à fournir un travail de la plus haute qualité, en restant à la pointe des nouvelles technologies.</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="relative"
+              >
+                <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
+                  <Image 
+                    src="/img/TEAM_ADC/BEDE Abel Josias Manager.webp"
+                    alt="Notre équipe"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                </div>
+                
+                <div className="absolute -bottom-10 -right-10 bg-white p-6 rounded-xl shadow-xl">
+                  <div className="flex items-center gap-4 mb-3">
+                    <Quote className="h-10 w-10 text-orange-500" />
+                    <div className="h-px flex-grow bg-gray-200"></div>
+                  </div>
+                  <p className="text-gray-600 italic mb-4">
+                    "Nous conjuguons l'Afrique à travers la promotion des produits made in Africa et de classe internationale."
+                  </p>
+                  <div className="font-semibold text-gray-800">Notre vision</div>
                 </div>
               </motion.div>
             </div>
-            
-            {/* Statistiques */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20"
-            >
-              {stats.map((stat, index) => (
-                <motion.div 
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                  className="bg-white rounded-xl p-6 shadow-lg border border-orange-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-                >
-                  <span className="block text-4xl font-bold text-orange-600 mb-2">{stat.number}</span>
-                  <span className="text-gray-700">{stat.label}</span>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
+          </div>
         </section>
         
         {/* Section Notre Histoire */}
@@ -255,7 +214,7 @@ export default function AboutPage() {
               </motion.h2>
               
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -284,12 +243,12 @@ export default function AboutPage() {
                 >
                   <div className="md:w-1/2 flex justify-center">
                     <div className="relative w-64 h-64 rounded-xl overflow-hidden shadow-lg">
-                      <Image
+                <Image
                         src={item.image}
                         alt={item.title}
-                        fill
-                        className="object-cover"
-                      />
+                  fill
+                  className="object-cover"
+                />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                       <div className="absolute bottom-4 left-4 right-4">
                         <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded-md">
@@ -389,14 +348,14 @@ export default function AboutPage() {
               >
                 <div className="relative">
                   <Image
-                    src="/img/header_img/0bda58a3-37b7-4a50-a014-83f7b79862f3.jpg"
+                    src="/img/TEAM_ADC/BEDE Abel Josias Manager.webp"
                     alt="Notre approche"
                     width={600}
                     height={500}
                     className="rounded-2xl shadow-xl z-10 relative"
                   />
                   <div className="absolute -bottom-6 -right-6 w-full h-full bg-gradient-to-tr from-orange-500 to-red-500 rounded-2xl -z-10"></div>
-                </div>
+              </div>
               </motion.div>
               
               <motion.div
@@ -442,13 +401,13 @@ export default function AboutPage() {
                 
                 <div className="mt-10">
                   <Link 
-                    href="/contact" 
+                  href="/contact"
                     className="px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full inline-flex items-center gap-2 hover:shadow-lg transition-all"
                   >
                     <span>Discuter de votre projet</span>
                     <ArrowRight className="h-4 w-4" />
                   </Link>
-                </div>
+              </div>
               </motion.div>
             </div>
           </div>
@@ -478,7 +437,7 @@ export default function AboutPage() {
                 Ensemble, créons des solutions innovantes qui transformeront votre présence numérique
                 et vous aideront à atteindre vos objectifs.
               </p>
-            </motion.div>
+          </motion.div>
             
             <Link 
               href="/contact"
@@ -487,7 +446,7 @@ export default function AboutPage() {
               <span>Commencer la discussion</span>
               <ArrowRight className="h-5 w-5" />
             </Link>
-          </div>
+        </div>
         </section>
       </main>
       

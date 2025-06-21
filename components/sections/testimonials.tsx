@@ -12,7 +12,7 @@ const testimonials = [
       "African Digit Consulting a transformé notre présence en ligne avec une stratégie digitale sur mesure. Grâce à leur expertise, nous avons augmenté notre visibilité et renforcé notre engagement client. Une équipe professionnelle et réactive que je recommande vivement !",
     name: "Audrey Kady",
     // designation: "Chargé des services",
-    src: "/img/temoignages/Audrey kady.webp",
+    src: "/img/temoignages/Audrey kady.webp", 
   },
   {
     quote:
@@ -26,7 +26,7 @@ const testimonials = [
       "L'équipe d'ADC nous a aidés à élaborer une stratégie de communication digitale efficace, ce qui a considérablement amélioré notre notoriété. Leur créativité et leur professionnalisme sont un véritable atout pour toute entreprise en quête de visibilité !",
     name: "Aïcha Touré",
     designation: "Responsable Communication, InnovTech Mali",
-    src: "/img/temoignages/Aïcha Toure.jpeg",
+    src: "/img/temoignages/AïchaToure.webp",
   },
   {
     quote:

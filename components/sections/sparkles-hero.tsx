@@ -129,30 +129,31 @@ export function ProductCard({
         className="block group-hover/product:shadow-2xl"
       >
         <div className="absolute inset-0 h-full w-full rounded-xl bg-gray-100 animate-pulse" />
-        <Image
-          src={product.thumbnail}
-          height="600"
-          width="600"
-          priority={false}
-          loading="lazy"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-          quality={75}
-          placeholder="blur" 
-          blurDataURL="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
-          className="object-cover object-center absolute h-full w-full inset-0 rounded-xl"
-          alt={product.title}
-          onLoad={(e) => {
-            // Masquer l'animation de chargement une fois que l'image est chargée
-            const target = e.target as HTMLImageElement;
-            const parent = target.parentElement;
-            if (parent) {
-              const loader = parent.querySelector('.animate-pulse');
-              if (loader) {
-                loader.classList.add('opacity-0');
+        <div className="relative h-full w-full">
+          <Image
+            src={product.thumbnail}
+            fill
+            priority={false}
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 30rem"
+            quality={75}
+            placeholder="blur" 
+            blurDataURL="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
+            className="object-cover object-center rounded-xl"
+            alt={product.title}
+            onLoad={(e) => {
+              // Masquer l'animation de chargement une fois que l'image est chargée
+              const target = e.target as HTMLImageElement;
+              const parent = target.parentElement?.parentElement;
+              if (parent) {
+                const loader = parent.querySelector('.animate-pulse');
+                if (loader) {
+                  loader.classList.add('opacity-0');
+                }
               }
-            }
-          }}
-        />
+            }}
+          />
+        </div>
       </Link>
       <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-gradient-to-t from-black to-transparent pointer-events-none rounded-xl"></div>
       <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white title-small font-semibold tracking-wide">

@@ -151,13 +151,14 @@ export const ProductCard = ({
         href={product.link}
         className="block group-hover/product:shadow-2xl"
       >
-        <Image
-          src={product.thumbnail}
-          height="600"
-          width="600"
-          className="object-cover object-center absolute h-full w-full inset-0 rounded-xl"
-          alt={product.title}
-        />
+        <div className="relative h-full w-full">
+          <Image
+            src={product.thumbnail}
+            fill
+            className="object-cover object-center rounded-xl"
+            alt={product.title}
+          />
+        </div>
       </Link>
       <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-gradient-to-t from-black to-transparent pointer-events-none rounded-xl"></div>
       <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white title-small font-semibold tracking-wide">

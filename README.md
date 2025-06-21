@@ -36,60 +36,131 @@ npm run dev
 yarn dev
 ```
 
-4. Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
+4. Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur pour voir le résultat.
 
-## Scripts disponibles
+## Commandes principales
 
-- `npm run dev` - Lance le serveur de développement
-- `npm run build` - Construit l'application pour la production
-- `npm run start` - Démarre le serveur de production
-- `npm run lint` - Exécute le linter pour vérifier la qualité du code
-- `npm run analyze` - Analyse la taille du bundle avec @next/bundle-analyzer
-- `npm run deploy` - Construit et démarre l'application pour la production
-- `npm run export` - Exporte l'application en HTML statique pour l'hébergement
+- `npm run dev` - Démarrer le serveur de développement
+- `npm run build` - Créer une version optimisée pour la production
+- `npm run start` - Démarrer le serveur de production
+- `npm run lint` - Exécuter le linter pour vérifier la qualité du code
 
 ## Déploiement
 
-### Déploiement sur un hébergeur traditionnel
+### Pour Hostinger (recommandé)
 
-1. Générer la version de production:
+Nous avons créé un script optimisé spécifiquement pour Hostinger:
+
 ```bash
-npm run build
+npm run deploy-optimized
 ```
 
-2. Les fichiers optimisés pour la production se trouvent dans le dossier `.next/`. Si vous utilisez un hébergeur Node.js, transférez l'ensemble du projet et exécutez:
+Ce script:
+1. Nettoie les builds précédents
+2. Corrige les noms de dossiers problématiques (espaces en fin)
+3. Génère une version optimisée du site
+4. Optimise les images volumineuses
+5. Nettoie les fichiers de cache
+6. Crée des versions WebP des images
+7. Génère des archives ZIP et TAR.GZ prêtes à être téléchargées
+
+Pour plus de détails, consultez [DEPLOY-HOSTINGER.md](DEPLOY-HOSTINGER.md).
+
+### Pour d'autres hébergeurs
+
 ```bash
-npm run start
+npm run deploy-static
 ```
 
-3. Pour un hébergement statique, utilisez:
+Pour plus d'informations, consultez [DEPLOY.md](DEPLOY.md).
+
+## Optimisation des images
+
+### Optimisation automatique
+
+Le site inclut plusieurs scripts pour optimiser les images:
+
 ```bash
-npm run export
+# Optimiser les images volumineuses (>500KB)
+npm run optimize-large-images
+
+# Créer des versions WebP des images
+npm run create-webp
+
+# Corriger les noms de dossiers avec espaces en fin
+npm run fix-directory-names
 ```
-Puis téléchargez le contenu du dossier `out/` sur votre hébergeur.
 
-### Configurations importantes
+Ces scripts sont exécutés automatiquement lors du déploiement via la commande `deploy-optimized`.
 
-- Le fichier `.env.production` contient les variables d'environnement pour la production
-- `next.config.mjs` inclut les optimisations pour un déploiement en production
-- `public/.htaccess` contient les configurations pour un serveur Apache
-- `public/robots.txt` et `public/sitemap.xml` sont configurés pour le SEO
+### Outils d'optimisation recommandés
 
-### Déploiement sur Vercel (recommandé)
+Pour une optimisation maximale, installez ces outils:
 
-Le moyen le plus simple de déployer ce site est d'utiliser [Vercel](https://vercel.com), la plateforme des créateurs de Next.js:
-
-1. Créez un compte sur Vercel
-2. Importez votre dépôt GitHub
-3. Vercel détectera automatiquement qu'il s'agit d'un projet Next.js et configurera le déploiement
+```bash
+sudo apt-get install imagemagick jpegoptim optipng webp
+```
 
 ## Structure du projet
 
-- `/app` - Pages et composants de l'application (structure App Router de Next.js)
-- `/components` - Composants réutilisables
-- `/lib` - Utilitaires et fonctions auxiliaires
-- `/public` - Fichiers statiques (images, favicon, etc.)
-- `/scripts` - Scripts utilitaires comme la génération du sitemap
+- `app/` - Pages et routes du site
+- `components/` - Composants React réutilisables
+- `public/` - Fichiers statiques (images, etc.)
+- `scripts/` - Scripts utilitaires pour le déploiement et l'optimisation
+- `lib/` - Bibliothèques et utilitaires
+
+## Styles et design
+
+Le site utilise Tailwind CSS avec une configuration personnalisée dans `tailwind.config.ts`.
+
+Les polices principales sont:
+- Montserrat (titres)
+- Poppins (texte)
+
+## Contribution
+
+Pour contribuer au projet:
+
+1. Créez une branche pour votre fonctionnalité
+2. Effectuez vos modifications
+3. Soumettez une pull request
+
+## Licence
+
+Ce projet est la propriété d'Africa Digit Consulting.
+
+## Résolution des problèmes
+
+Si vous rencontrez des erreurs lors du déploiement, consultez le guide de dépannage dans [DEPLOY-HOSTINGER.md](./DEPLOY-HOSTINGER.md).
+
+### Problèmes d'image courants
+
+#### Les images ne s'affichent pas sur certains navigateurs ou appareils
+
+Cette situation peut être causée par plusieurs facteurs:
+
+1. **Incompatibilité de format**:
+   - Certains navigateurs anciens ne supportent pas le format WebP
+   - Solution: exécutez `npm run fix-and-verify` pour identifier et corriger ces problèmes
+
+2. **Problèmes de chemin d'accès**:
+   - Les chemins d'accès peuvent être incorrects entre différents systèmes d'exploitation
+   - Solution: exécutez `npm run fix-images` pour standardiser les chemins
+
+3. **Images trop volumineuses**:
+   - Les images de plus de 1 Mo peuvent ne pas se charger sur certains appareils ou connexions
+   - Solution: exécutez `npm run optimize-large-images` pour réduire la taille sans perdre trop de qualité
+
+4. **Problèmes de cache navigateur**:
+   - Les navigateurs peuvent mettre en cache d'anciennes versions
+   - Solution: videz le cache du navigateur ou utilisez un mode de navigation privée pour tester
+
+Si vous voyez une erreur comme celle-ci:
+```
+Error: Image with src "..." has both "width" and "fill" properties. Only one should be used.
+```
+
+Assurez-vous que dans vos composants d'image, vous n'utilisez jamais les propriétés `width`/`height` avec la propriété `fill` simultanément. C'est une limitation de Next.js.
 
 ## Maintenance
 

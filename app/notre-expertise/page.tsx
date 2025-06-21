@@ -53,26 +53,6 @@ const expertises = [
     ]
   },
   {
-    id: "mobile",
-    title: "Applications Mobiles",
-    icon: <Smartphone className="h-6 w-6" />,
-    description: "Nous développons des applications mobiles innovantes et performantes pour iOS et Android, offrant une expérience utilisateur exceptionnelle.",
-    image: "/img/header_img/Interface 1.jpeg",
-    categories: [
-      { name: "Applications iOS", percentage: 85 },
-      { name: "Applications Android", percentage: 85 },
-      { name: "Applications hybrides", percentage: 90 },
-      { name: "UX/UI mobile", percentage: 95 },
-    ],
-    features: [
-      "Développement iOS et Android natif",
-      "Solutions cross-platform (React Native, Flutter)",
-      "Design d'expérience utilisateur mobile",
-      "Intégration de fonctionnalités avancées",
-      "Maintenance et mises à jour continues"
-    ]
-  },
-  {
     id: "digital",
     title: "Marketing Digital",
     icon: <BarChart className="h-6 w-6" />,
@@ -103,14 +83,14 @@ export default function ExpertisePage() {
       <NavbarDemo />
       
       <PageHero
-        title="Notre Expertise"
-        subtitle="Découvrez les domaines dans lesquels notre équipe d'experts excelle pour transformer votre vision digitale en réalité."
-        backgroundImage="/img/header_img/02b21557-4e81-46dd-ac22-bd57b7f78d13.jpg"
-        breadcrumbs={[{ label: "Notre Expertise", href: "/notre-expertise" }]}
+        title="Notre expertise"
+        subtitle="Découvrez nos services de communication digitale sur mesure pour propulser votre entreprise vers de nouveaux sommets."
+        breadcrumbs={[{ label: "Notre expertise", href: "/notre-expertise" }]}
         pageTheme="expertise"
+        useAbstractBackground={true}
       />
       
-      <main className="overflow-hidden bg-white relative">
+      <main ref={containerRef} className="overflow-hidden">
         {/* Introduction */}
         <section className="py-20 bg-gradient-to-b from-orange-50 to-white relative">
           <div className="absolute top-0 right-0 w-96 h-96 bg-orange-300 rounded-full opacity-10 blur-[150px] -z-10"></div>
@@ -165,12 +145,12 @@ export default function ExpertisePage() {
               className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
             >
               <div className="bg-white rounded-lg p-6 shadow-md border border-orange-100">
-                <div className="text-4xl font-bold text-orange-600 mb-2">8+</div>
+                <div className="text-4xl font-bold text-orange-600 mb-2">2+</div>
                 <div className="text-gray-600 font-medium">Années d'expérience</div>
               </div>
               
               <div className="bg-white rounded-lg p-6 shadow-md border border-orange-100">
-                <div className="text-4xl font-bold text-orange-600 mb-2">50+</div>
+                <div className="text-4xl font-bold text-orange-600 mb-2">30+</div>
                 <div className="text-gray-600 font-medium">Projets réalisés</div>
               </div>
               

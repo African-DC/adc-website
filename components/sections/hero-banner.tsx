@@ -66,8 +66,8 @@ export function HeroBanner() {
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-6">
               <span className="block relative">
-                L'expertise 
-                <span className="relative">
+              L'expertise
+                <span className="relative ml-2">
                   <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">digitale</span>
                   <span className="absolute bottom-1 left-0 right-0 h-3 bg-orange-200 rounded-lg opacity-50"></span>
                 </span>
@@ -302,7 +302,7 @@ export function HeroBanner() {
               </div>
               <div>
                 <div className="text-sm font-medium">Solutions innovantes</div>
-                <div className="text-xs text-gray-500">+200 projets réalisés</div>
+                <div className="text-xs text-gray-500">+30 projets réalisés</div>
               </div>
             </motion.div>
             

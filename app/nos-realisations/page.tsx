@@ -16,8 +16,8 @@ const categories = [
   "Web Design",
   "Branding",
   "Social Media",
-  "Graphisme",
-  "Développement"
+  "Graphisme"
+  // "Développement"
 ];
 
 // Définition des projets

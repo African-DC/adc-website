@@ -11,21 +11,42 @@ import { TestimonialsSection } from "@/components/sections/testimonials";
 import { HeroBanner } from "@/components/sections/hero-banner";
 import { ClientLogos } from "@/components/sections/client-logos";
 import ScrollProgress from "@/components/ui/scroll-progress";
+import { ModernServices } from "@/components/sections/modern-services";
+import { HeroShowcase } from "@/components/sections/hero-showcase";
+import { Services3D } from "@/components/sections/services-3d";
+import { TestimonialsCarousel } from "@/components/sections/testimonials-carousel";
+// import { SocialShowcase } from "@/components/sections/social-showcase";
 
 export default function Home() {
   return (
     <main>
       <ScrollProgress />
       <NavbarDemo />
-      <HeroBanner />
+      
+      {/* Section Hero - Nouvelle version */}
+      <HeroShowcase />
+      {/* <HeroBanner /> */}
       {/* <SparklesHero /> */}
-      <ServicesGrid />
-      <OffresSection />
-      <ClientLogos />
+      
+      {/* Section Services - Nouvelle version */}
+      <Services3D />
+      {/* <ModernServices /> */}
+      {/* <ServicesGrid /> */}
+      
+      {/* Section des offres commentée comme demandé */}
+      {/* <OffresSection /> */}
+      {/* <SocialShowcase /> */}
+      
+      {/* <ClientLogos /> */}
       <TeamCards />
       <LampSection />
-      <TestimonialsSection />
-      <ContactForm />
+      
+      {/* Section Témoignages - Nouvelle version */}
+      <TestimonialsCarousel />
+      {/* <TestimonialsSection /> */}
+      
+      {/* Section de contact commentée comme demandé */}
+      {/* <ContactForm /> */}
       {/* <CTASection /> */}
       <Footer />
     </main>

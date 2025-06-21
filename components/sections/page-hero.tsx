@@ -3,15 +3,17 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight, Sparkles, Lightbulb, PenTool, Briefcase, MessageSquare } from "lucide-react";
+import { ChevronRight, Sparkles, Lightbulb, PenTool, Briefcase, MessageSquare, ShieldCheck, LightbulbIcon, MailIcon } from "lucide-react";
+import { AbstractBackground } from "./abstract-backgrounds";
 
 interface PageHeroProps {
   title: string;
   subtitle: string;
-  backgroundImage: string;
+  backgroundImage?: string;
   breadcrumbs: { label: string; href: string }[];
   accentColor?: string;
   pageTheme?: 'about' | 'expertise' | 'portfolio' | 'contact' | 'default';
+  useAbstractBackground?: boolean;
 }
 
 export function PageHero({
@@ -21,40 +23,41 @@ export function PageHero({
   breadcrumbs,
   accentColor,
   pageTheme = 'default',
+  useAbstractBackground = true,
 }: PageHeroProps) {
   // Determine the theme-based styles
   const getThemeStyles = () => {
     switch (pageTheme) {
       case 'about':
         return {
-          gradient: "from-purple-600 via-violet-600 to-indigo-700",
-          patternColor: "#ffffff15",
+          gradient: accentColor || "from-purple-600 to-indigo-500",
+          patternColor: "#ffffff12",
           accent: "purple-300",
-          icon: <Lightbulb className="h-10 w-10 text-purple-200" />,
-          pattern: "bg-[radial-gradient(#ffffff15_1px,transparent_1px)] bg-[size:20px_20px]"
+          icon: <ShieldCheck className="h-10 w-10 text-purple-200" />,
+          pattern: "bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:24px_24px]"
         };
       case 'expertise':
         return {
-          gradient: "from-blue-600 via-blue-700 to-indigo-800",
+          gradient: accentColor || "from-blue-600 to-cyan-500",
           patternColor: "#ffffff12",
-          accent: "blue-300", 
-          icon: <PenTool className="h-10 w-10 text-blue-200" />,
-          pattern: "bg-[linear-gradient(45deg,#ffffff10_25%,transparent_25%,transparent_50%,#ffffff10_50%,#ffffff10_75%,transparent_75%,transparent)] bg-[size:32px_32px]"
+          accent: "blue-300",
+          icon: <LightbulbIcon className="h-10 w-10 text-blue-200" />,
+          pattern: "bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:24px_24px]"
         };
       case 'portfolio':
         return {
-          gradient: "from-teal-600 via-emerald-700 to-green-800",
+          gradient: accentColor || "from-emerald-600 to-green-500",
           patternColor: "#ffffff12",
           accent: "emerald-300",
-          icon: <Briefcase className="h-10 w-10 text-emerald-200" />,
-          pattern: "bg-[radial-gradient(circle_at_center,#ffffff15_0,#ffffff05_40%,transparent_60%)]"
+          icon: <Sparkles className="h-10 w-10 text-emerald-200" />,
+          pattern: "bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:24px_24px]"
         };
       case 'contact':
         return {
-          gradient: "from-amber-600 via-orange-600 to-red-700",
-          patternColor: "#ffffff15",
+          gradient: accentColor || "from-orange-600 to-amber-500",
+          patternColor: "#ffffff12",
           accent: "orange-300",
-          icon: <MessageSquare className="h-10 w-10 text-orange-200" />,
+          icon: <MailIcon className="h-10 w-10 text-orange-200" />,
           pattern: "bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:24px_24px]"
         };
       default:
@@ -72,16 +75,24 @@ export function PageHero({
 
   return (
     <section className="relative min-h-[40vh] flex items-center overflow-hidden">
-      {/* Arrière-plan avec image et overlay */}
+      {/* Arrière-plan avec image ou fond abstrait */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={backgroundImage}
-          alt={title}
-          fill
-          priority
-          className="object-cover object-center"
-        />
-        <div className={`absolute inset-0 bg-gradient-to-r ${themeStyles.gradient} opacity-85 mix-blend-multiply`} />
+        {useAbstractBackground ? (
+          <AbstractBackground theme={pageTheme === 'default' ? 'contact' : pageTheme} />
+        ) : (
+          backgroundImage && (
+            <>
+              <Image
+                src={backgroundImage}
+                alt={title}
+                fill
+                priority
+                className="object-cover object-center"
+              />
+              <div className={`absolute inset-0 bg-gradient-to-r ${themeStyles.gradient} opacity-85 mix-blend-multiply`} />
+            </>
+          )
+        )}
         
         {/* Motif géométrique */}
         <div className="absolute inset-0 opacity-15">

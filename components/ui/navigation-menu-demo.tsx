@@ -64,14 +64,6 @@ export function NavigationMenuDemo() {
                   Nos réalisations
                 </NavigationMenuLink>
               </NavigationMenuItem>
-              {/* <NavigationMenuItem>
-                <NavigationMenuLink
-                  className="text-black hover:text-[#ff942b] font-semibold transition-all px-4 py-2"
-                  href="/blog"
-                >
-                  Blog
-                </NavigationMenuLink>
-              </NavigationMenuItem> */}
               <NavigationMenuItem>
                 <NavigationMenuLink
                   className="text-white/80 hover:text-black font-semibold transition-all px-4 py-2"

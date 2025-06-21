@@ -80,15 +80,6 @@ export function MobileMenu({ isVisible }: MobileMenuProps) {
                 <NavigationMenuItem className="w-full">
                   <a
                     className="text-black hover:text-[#ff942b] hover:bg-gray-100 font-semibold transition-all px-6 py-4 flex items-center justify-center"
-                    href="/blog"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Blog
-                  </a>
-                </NavigationMenuItem>
-                <NavigationMenuItem className="w-full">
-                  <a
-                    className="text-black hover:text-[#ff942b] hover:bg-gray-100 font-semibold transition-all px-6 py-4 flex items-center justify-center"
                     href="/contact"
                     onClick={() => setIsMenuOpen(false)}
                   >

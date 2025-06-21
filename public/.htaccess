@@ -1,5 +1,31 @@
-# Configuration pour les serveurs Apache
-# Optimisation pour Next.js
+# Configuration pour Next.js en mode export statique
+# Sur MilesWeb avec Apache
+
+# Activer la réécriture d'URL
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  # Si le fichier ou répertoire demandé existe, servir directement
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+  
+  # Rediriger le slash de fin vers sans slash pour les fichiers HTML
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{THE_REQUEST} \s/(.+?)\.html\s [NC]
+  RewriteRule ^ /%1 [R=301,L]
+  
+  # Ajouter .html pour les requêtes internes
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+  
+  # Gérer les routes avec paramètres (SPA fallback)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^([^.]+)$ index.html [L]
+</IfModule>
 
 # Activer la compression Gzip
 <IfModule mod_deflate.c>
@@ -42,34 +68,32 @@
   ExpiresByType font/eot "access plus 1 year"
 </IfModule>
 
-# Redirection vers HTTPS
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-</IfModule>
-
-# En-tête de sécurité
+# En-têtes de sécurité et CORS pour permettre le chargement de polices et d'images
 <IfModule mod_headers.c>
+  # Activer CORS pour les ressources statiques
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css|css|js|gif|png|jpe?g|svg|svgz|ico|webp)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+  
+  # Sécurité de base
   Header set X-Content-Type-Options "nosniff"
   Header set X-XSS-Protection "1; mode=block"
-  Header set X-Frame-Options "DENY"
+  
+  # Désactiver X-Frame-Options pour permettre l'affichage dans des iframes si nécessaire
+  # Header set X-Frame-Options "SAMEORIGIN"
+  
+  # Définir la politique de référence
   Header set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
-# Gestion des SPA/SSR pour Next.js
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  
-  # Si le fichier ou répertoire demandé existe, servir directement
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteRule ^ - [L]
-  
-  # Pour les fichiers statiques dans les dossiers spécifiques, éviter la redirection
-  RewriteRule ^(_next|img|fonts|icons)/(.*) - [L]
-  
-  # Sinon, rediriger vers index.html
-  RewriteRule ^ index.html [L]
-</IfModule> 
+# Empêcher le listage des répertoires
+Options -Indexes
+
+# Définir le type MIME pour JavaScript et JSON
+<IfModule mod_mime.c>
+  AddType application/javascript .js
+  AddType application/json .json
+</IfModule>
+
+# Définir l'encodage par défaut
+AddDefaultCharset UTF-8 

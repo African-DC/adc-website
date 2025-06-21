@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Star, ChevronLeft, ChevronRight, Building, Award, Globe } from "lucide-react";
 
-// Liste des clients (à remplacer par les vrais clients)
+// Liste des clients (corrigée avec des chemins d'images valides)
 const clients = [
   {
     name: "Mima Makeup",
@@ -23,7 +23,7 @@ const clients = [
   },
   {
     name: "Fedex Côte d'Ivoire",
-    logo: "/img/header_img/525ae4d7-9437-4dbe-b25c-ce1ee913dc17.jpg",
+    logo: "/img/header_img/Post Konate marine log.jpg",
     industry: "Transport & Livraison",
     year: "2023",
     website: "#"
