@@ -138,16 +138,6 @@ export function TeamCards() {
       }
     },
     {
-      name: "KIGNIELMAN KONE",
-      role: "Social Media Manager",
-      image: "/img/TEAM_ADC/KIGNIELMAN KONE SMM ADC.webp",
-      bio: "Expert en stratégies de médias sociaux, Kignielman crée des campagnes engageantes et analyse les tendances pour maximiser la visibilité digitale de nos clients.",
-      social: {
-        linkedin: "#",
-        twitter: "#"
-      }
-    },
-    {
       name: "MELEDJE BYTHIA",
       role: "Assistante de Direction",
       image: "/img/TEAM_ADC/MELEDJE BYTHIA Assiatnte de direction .webp",

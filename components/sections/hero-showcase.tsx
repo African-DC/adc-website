@@ -99,7 +99,7 @@ export function HeroShowcase() {
             className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-100 to-orange-200 text-orange-600 px-5 py-2 rounded-full text-sm font-medium mb-6 shadow-sm"
           >
             <Star className="h-4 w-4 fill-orange-500" />
-            <span>Agence de communication digitale</span>
+            <span>Agence digitale</span>
           </motion.div>
           
           <motion.h1

@@ -161,7 +161,7 @@ export function Footer() {
                 className="flex items-center space-x-3"
               >
                 <IconMail className="h-5 w-5 text-white" />
-                <span className="text-white/80">contact@africadigitconsulting.com</span>
+                <span className="text-white/80">contact@africandigitconsulting.com</span>
               </motion.li>
             </ul>
           </motion.div>
@@ -180,7 +180,7 @@ export function Footer() {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <p className="text-center text-white/80 font-['Open_Sans']">
-            © {new Date().getFullYear()} Africa Digit Consulting. Tous droits
+            © {new Date().getFullYear()} African Digit Consulting. Tous droits
             réservés.
           </p>
         </motion.div>

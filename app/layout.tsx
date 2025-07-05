@@ -25,7 +25,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | ADC - Agence de Communication',
+    template: '%s | ADC - Agence digitate',
     default: 'ADC - Agence de Communication Digitale en Côte d\'Ivoire',
   },
   description: "African Digit Consulting, votre partenaire en communication digitale et solutions numériques en Afrique. Expertise en développement web, marketing digital et design.",
