@@ -1,19 +1,13 @@
 "use client";
 import { HeroParallax } from "../ui/hero-parallax";
-import { Montserrat, Poppins } from 'next/font/google';
-import { motion, MotionValue, useMotionValue } from "framer-motion";
+import { Montserrat } from "next/font/google";
+import { motion, MotionValue } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
-const montserrat = Montserrat({ 
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-const poppins = Poppins({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin'],
-  display: 'swap',
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
 });
 
 const products = [
@@ -71,7 +65,7 @@ const products = [
     title: "Fedex",
     link: "/creation-11",
     thumbnail: "/img/header_img/525ae4d7-9437-4dbe-b25c-ce1ee913dc17.jpg",
-  }, 
+  },
   {
     title: "Africa Brands",
     link: "/creation-12",
@@ -91,13 +85,13 @@ const products = [
     title: "Idée d'Afrique Cosmétiques",
     link: "/creation-15",
     thumbnail: "/img/header_img/cosmetic-jar-mockup_53876-66986.jpg",
-  }
+  },
 ];
 
 export function SparklesHero() {
   return (
     <div className={`relative w-full ${montserrat.className}`}>
-      <HeroParallax products={products} /> 
+      <HeroParallax products={products} />
     </div>
   );
 }
@@ -137,7 +131,7 @@ export function ProductCard({
             loading="lazy"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 30rem"
             quality={75}
-            placeholder="blur" 
+            placeholder="blur"
             blurDataURL="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
             className="object-cover object-center rounded-xl"
             alt={product.title}
@@ -146,9 +140,9 @@ export function ProductCard({
               const target = e.target as HTMLImageElement;
               const parent = target.parentElement?.parentElement;
               if (parent) {
-                const loader = parent.querySelector('.animate-pulse');
+                const loader = parent.querySelector(".animate-pulse");
                 if (loader) {
-                  loader.classList.add('opacity-0');
+                  loader.classList.add("opacity-0");
                 }
               }
             }}
@@ -161,4 +155,4 @@ export function ProductCard({
       </h2>
     </motion.div>
   );
-};
+}

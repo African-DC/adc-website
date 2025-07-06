@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import Image, { ImageProps } from 'next/image';
-import { cn } from '@/lib/utils';
+import { useState, useEffect } from "react";
+import Image, { ImageProps } from "next/image";
+import { cn } from "@/lib/utils";
 
-interface ProgressiveImageProps extends Omit<ImageProps, 'onLoad' | 'onError'> {
+interface ProgressiveImageProps extends Omit<ImageProps, "onLoad" | "onError"> {
   lowQualitySrc?: string;
   containerClassName?: string;
 }
@@ -22,7 +22,7 @@ export function ProgressiveImage({
   ...props
 }: ProgressiveImageProps) {
   const [loading, setLoading] = useState(true);
-  const [currentSrc, setCurrentSrc] = useState(lowQualitySrc);
+  const [_, setCurrentSrc] = useState(lowQualitySrc);
 
   useEffect(() => {
     // Reset loading state when source changes
@@ -46,7 +46,7 @@ export function ProgressiveImage({
           setCurrentSrc(src as string);
         }}
       />
-      
+
       {loading && (
         <div className="absolute inset-0 animate-pulse bg-gray-200">
           <Image
@@ -73,7 +73,7 @@ export function BlurImage({
   alt,
   className,
   ...props
-}: Omit<ImageProps, 'placeholder' | 'blurDataURL'>) {
+}: Omit<ImageProps, "placeholder" | "blurDataURL">) {
   return (
     <Image
       src={src}
@@ -85,4 +85,4 @@ export function BlurImage({
       {...props}
     />
   );
-} 
+}

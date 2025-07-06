@@ -1,9 +1,7 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import { OptimizedImage } from "../ui/optimized-image";
 
@@ -25,7 +23,7 @@ interface TeamMemberCardProps {
 }
 
 const TeamMemberCard = ({ member, index }: TeamMemberCardProps) => {
-  const [hovered, setHovered] = useState(false);
+  const [_, setHovered] = useState(false);
 
   return (
     <motion.div
@@ -42,7 +40,7 @@ const TeamMemberCard = ({ member, index }: TeamMemberCardProps) => {
     >
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"></div>
-      
+
       {/* Image */}
       <div className="absolute inset-0 transition-transform duration-700 ease-in-out transform group-hover:scale-110">
         <OptimizedImage
@@ -54,33 +52,42 @@ const TeamMemberCard = ({ member, index }: TeamMemberCardProps) => {
           fill
         />
       </div>
-      
+
       {/* Content */}
       <div className="absolute bottom-0 left-0 right-0 p-6 z-20 transition-all duration-500 ease-in-out">
         <div className="transition-all duration-500 transform group-hover:-translate-y-2">
           <h3 className="font-bold text-2xl text-white mb-1">{member.name}</h3>
           <div className="w-10 h-1 bg-orange-500 rounded mb-3 transition-all duration-500 group-hover:w-16"></div>
           <p className="text-orange-300 font-medium mb-3">{member.role}</p>
-          
+
           <div className="max-h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24">
             {member.bio && (
               <p className="text-white/80 text-sm mb-4">{member.bio}</p>
             )}
-            
+
             {member.social && (
               <div className="flex gap-3 mt-3">
                 {member.social.linkedin && (
-                  <a href={member.social.linkedin} className="text-white hover:text-orange-400 transition-colors">
+                  <a
+                    href={member.social.linkedin}
+                    className="text-white hover:text-orange-400 transition-colors"
+                  >
                     <Linkedin size={18} />
                   </a>
                 )}
                 {member.social.twitter && (
-                  <a href={member.social.twitter} className="text-white hover:text-orange-400 transition-colors">
+                  <a
+                    href={member.social.twitter}
+                    className="text-white hover:text-orange-400 transition-colors"
+                  >
                     <Twitter size={18} />
                   </a>
                 )}
                 {member.social.github && (
-                  <a href={member.social.github} className="text-white hover:text-orange-400 transition-colors">
+                  <a
+                    href={member.social.github}
+                    className="text-white hover:text-orange-400 transition-colors"
+                  >
                     <Github size={18} />
                   </a>
                 )}
@@ -103,8 +110,8 @@ export function TeamCards() {
       social: {
         linkedin: "#",
         twitter: "#",
-        github: "#"
-      }
+        github: "#",
+      },
     },
     {
       name: "Yablai Yablai Ruben Virgil",
@@ -114,8 +121,8 @@ export function TeamCards() {
       social: {
         linkedin: "#",
         twitter: "#",
-        github: "#"
-      }
+        github: "#",
+      },
     },
     {
       name: "Bede Abel Josias",
@@ -124,8 +131,8 @@ export function TeamCards() {
       bio: "Visionnaire et stratège, Abel dirige l'équipe ADC avec passion et expertise. Il accompagne les entreprises dans leur transformation digitale avec une approche sur mesure.",
       social: {
         linkedin: "#",
-        twitter: "#"
-      }
+        twitter: "#",
+      },
     },
     {
       name: "N'thomeny N'guessan Arvigne",
@@ -134,8 +141,8 @@ export function TeamCards() {
       bio: "Intégrateur de solutions expérimenté, Arvigne dirige le département développement web avec rigueur et créativité, assurant l'excellence technique de chaque projet.",
       social: {
         linkedin: "#",
-        github: "#"
-      }
+        github: "#",
+      },
     },
     {
       name: "MELEDJE BYTHIA",
@@ -143,8 +150,8 @@ export function TeamCards() {
       image: "/img/TEAM_ADC/MELEDJE BYTHIA Assiatnte de direction .webp",
       bio: "Organisée et polyvalente, Bythia coordonne efficacement les opérations internes et assure une communication fluide entre les différents départements.",
       social: {
-        linkedin: "#"
-      }
+        linkedin: "#",
+      },
     },
     {
       name: "Siloue Joël",
@@ -153,8 +160,8 @@ export function TeamCards() {
       bio: "Créatif et talentueux, Joël conçoit des identités visuelles uniques et des supports graphiques percutants qui captivent et communiquent avec impact.",
       social: {
         linkedin: "#",
-        twitter: "#"
-      }
+        twitter: "#",
+      },
     },
   ];
 
@@ -181,7 +188,7 @@ export function TeamCards() {
               Notre Équipe
             </span>
           </motion.div>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -189,27 +196,25 @@ export function TeamCards() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
           >
-            Une équipe passionnée <span className="text-orange-600">à votre service</span>
+            Une équipe passionnée{" "}
+            <span className="text-orange-600">à votre service</span>
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             className="text-gray-600 max-w-2xl mx-auto text-lg"
           >
-            Une équipe jeune qui respire et inspire la créativité, l'originalité, le sérieux et le professionnalisme.
+            Une équipe jeune qui respire et inspire la créativité,
+            l'originalité, le sérieux et le professionnalisme.
           </motion.p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {team.map((member, index) => (
-            <TeamMemberCard
-              key={member.name}
-              member={member}
-              index={index}
-            />
+            <TeamMemberCard key={member.name} member={member} index={index} />
           ))}
         </div>
       </div>

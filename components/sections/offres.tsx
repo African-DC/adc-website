@@ -1,9 +1,8 @@
 "use client";
 
-import { Check, Star, ChevronRight, ArrowRight, X } from "lucide-react";
+import { Check, Star, ChevronRight, X } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
-import Image from "next/image";
+import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 
@@ -18,8 +17,8 @@ export interface Offre {
 }
 
 const FeatureRow = ({ feature }: { feature: string }) => (
-  <motion.div 
-    className="flex items-start gap-3 group" 
+  <motion.div
+    className="flex items-start gap-3 group"
     initial={{ opacity: 0, x: -10 }}
     whileInView={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.3 }}
@@ -71,11 +70,8 @@ const OffreCard = ({
         Recommandé
       </div>
     )}
-    
-    <div className={cn(
-      "bg-white p-7 md:p-8",
-      isPopular ? "pt-12" : ""
-    )}>
+
+    <div className={cn("bg-white p-7 md:p-8", isPopular ? "pt-12" : "")}>
       <div className="flex items-center justify-between mb-6">
         <h3 className="title-small text-gray-900">{title}</h3>
         <span className="px-3 py-1 bg-orange-100 text-orange-600 text-xs md:text-sm font-medium rounded-full">
@@ -85,7 +81,9 @@ const OffreCard = ({
 
       <div className="mb-8">
         <div className="flex items-end gap-2">
-          <div className="text-4xl md:text-5xl font-bold text-gray-900">{price}</div>
+          <div className="text-4xl md:text-5xl font-bold text-gray-900">
+            {price}
+          </div>
           {type === "MENSUEL" && (
             <div className="text-gray-500 mb-1">/mois</div>
           )}
@@ -102,7 +100,10 @@ const OffreCard = ({
           <FeatureRow key={index} feature={feature} />
         ))}
         {features.length > 4 && (
-          <div className="text-sm text-orange-600 font-medium mt-2 flex items-center gap-1 cursor-pointer hover:underline" onClick={onClick}>
+          <div
+            className="text-sm text-orange-600 font-medium mt-2 flex items-center gap-1 cursor-pointer hover:underline"
+            onClick={onClick}
+          >
             <span>Voir plus de fonctionnalités</span>
             <ChevronRight className="h-4 w-4" />
           </div>
@@ -126,12 +127,12 @@ const OffreCard = ({
   </motion.div>
 );
 
-const OffreDetailsModal = ({ 
-  offre, 
+const OffreDetailsModal = ({
+  offre,
   onClose,
-  onSelect
-}: { 
-  offre: Offre; 
+  onSelect,
+}: {
+  offre: Offre;
   onClose: () => void;
   onSelect: () => void;
 }) => {
@@ -145,31 +146,33 @@ const OffreDetailsModal = ({
       className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
       onClick={onClose}
     >
-      <motion.div 
+      <motion.div
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 20 }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
         className="bg-white rounded-2xl p-6 max-w-md w-full shadow-2xl"
-        onClick={e => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center mb-6">
           <h3 className="title-small text-2xl text-gray-900">{offre.title}</h3>
-          <button 
+          <button
             onClick={onClose}
             className="text-gray-500 hover:text-orange-600 transition-colors p-1"
           >
             <X className="h-6 w-6" />
           </button>
         </div>
-        
+
         <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
-          <h4 className="font-medium text-orange-600">Toutes les fonctionnalités incluses:</h4>
+          <h4 className="font-medium text-orange-600">
+            Toutes les fonctionnalités incluses:
+          </h4>
           {offre.features.map((feature, index) => (
             <FeatureRow key={index} feature={feature} />
           ))}
         </div>
-        
+
         <div className="mt-8">
           <motion.button
             whileHover={{ scale: 1.03 }}
@@ -194,9 +197,9 @@ export function OffresSection() {
     target: containerRef,
     offset: ["start end", "end start"],
   });
-  
+
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  
+
   const offres = [
     {
       title: "Offre Evolus",
@@ -246,28 +249,37 @@ export function OffresSection() {
 
   const handleSelectOffre = (offre: Offre) => {
     // Sauvegarde l'offre sélectionnée dans localStorage
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('selectedOffre', JSON.stringify({
-        title: offre.title,
-        price: offre.price,
-        type: offre.type,
-        secondaryPrice: offre.secondaryPrice || '',
-      }));
-      
+    if (typeof window !== "undefined") {
+      localStorage.setItem(
+        "selectedOffre",
+        JSON.stringify({
+          title: offre.title,
+          price: offre.price,
+          type: offre.type,
+          secondaryPrice: offre.secondaryPrice || "",
+        })
+      );
+
       // Rediriger vers la page de contact
-      router.push('#contact');
-      
+      router.push("#contact");
+
       // Fermer le modal si ouvert
       setSelectedOffre(null);
     }
   };
 
   return (
-    <section ref={containerRef} className="relative py-32 overflow-hidden bg-white"> 
+    <section
+      ref={containerRef}
+      className="relative py-32 overflow-hidden bg-white"
+    >
       <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-orange-100 rounded-full opacity-30 blur-3xl"></div>
       <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-orange-200 rounded-full opacity-30 blur-3xl"></div>
-      
-      <motion.div style={{ y }} className="max-w-7xl mx-auto px-4 relative z-10">
+
+      <motion.div
+        style={{ y }}
+        className="max-w-7xl mx-auto px-4 relative z-10"
+      >
         <div className="text-center mb-8">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
@@ -279,7 +291,7 @@ export function OffresSection() {
             <Star className="h-4 w-4 fill-orange-600 text-orange-600" />
             <span className="font-medium uppercase text-xl">Nos formules</span>
           </motion.div>
-          
+
           {/* <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -289,15 +301,17 @@ export function OffresSection() {
           >
             Découvrez nos offres
           </motion.h2> */}
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
             className="body-text text-lg md:text-xl text-gray-600 max-w-2xl mx-auto"
           >
-            Des solutions complètes et adaptées à vos besoins spécifiques. Choisissez l'offre qui correspond à vos objectifs et commencez votre transformation digitale dès aujourd'hui.
+            Des solutions complètes et adaptées à vos besoins spécifiques.
+            Choisissez l'offre qui correspond à vos objectifs et commencez votre
+            transformation digitale dès aujourd'hui.
           </motion.p>
         </div>
 
@@ -312,8 +326,8 @@ export function OffresSection() {
             />
           ))}
         </div>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -323,24 +337,24 @@ export function OffresSection() {
           <p className="text-gray-500 mb-6">
             Vous ne trouvez pas l'offre qui vous convient?
           </p>
-          <a 
+          <a
             href="#contact"
             className="inline-flex items-center gap-2 text-orange-600 font-medium hover:text-orange-700 transition-colors"
           >
             <span>Contactez-nous pour une offre personnalisée</span>
-            <ArrowRight className="h-4 w-4" />
+            <ChevronRight className="h-4 w-4" />
           </a>
         </motion.div>
       </motion.div>
-      
+
       {/* Éléments décoratifs */}
       <div className="hidden md:block absolute top-1/4 left-0 -translate-x-1/2 w-[300px] h-[300px] border-2 border-orange-200 rounded-full opacity-60"></div>
       <div className="hidden md:block absolute bottom-1/3 right-0 translate-x-1/3 w-[200px] h-[200px] border-2 border-orange-200 rounded-full opacity-60"></div>
-      
+
       {selectedOffre && (
-        <OffreDetailsModal 
-          offre={selectedOffre} 
-          onClose={() => setSelectedOffre(null)} 
+        <OffreDetailsModal
+          offre={selectedOffre}
+          onClose={() => setSelectedOffre(null)}
           onSelect={() => handleSelectOffre(selectedOffre)}
         />
       )}

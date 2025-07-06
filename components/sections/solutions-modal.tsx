@@ -1,7 +1,7 @@
 "use client";
 
 import * as Dialog from "@radix-ui/react-dialog";
-import { X, Globe, MessageSquare, Palette, Check } from "lucide-react";
+import { X, Check } from "lucide-react";
 
 const SolutionCard = ({
   title,
@@ -93,10 +93,10 @@ export function SolutionsModal({
         <Dialog.Content className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#f8f8f8] rounded-xl p-6 w-full max-w-6xl max-h-[90vh] overflow-y-auto">
           <div className="flex justify-between items-center mb-6">
             <Dialog.Title className="text-2xl font-semibold text-gray-900">
-            Nos offres
+              Nos offres
             </Dialog.Title>
-            <button 
-              onClick={() => onClose()} 
+            <button
+              onClick={() => onClose()}
               className="text-gray-500 hover:text-gray-700"
               type="button"
             >
@@ -120,4 +120,4 @@ export function SolutionsModal({
       </Dialog.Portal>
     </Dialog.Root>
   );
-} 
+}

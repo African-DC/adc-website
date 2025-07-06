@@ -3,7 +3,17 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-import { Sparkles, LucideIcon, Globe, Code, Palette, Share, Zap, ArrowRight, LightbulbIcon, BarChart } from "lucide-react";
+import {
+  Sparkles,
+  Globe,
+  Code,
+  Palette,
+  Share,
+  Zap,
+  ArrowRight,
+  LightbulbIcon,
+  BarChart,
+} from "lucide-react";
 import Link from "next/link";
 
 interface Service {
@@ -19,40 +29,52 @@ interface Service {
 const services: Service[] = [
   {
     title: "Stratégie Digitale",
-    description: "Développez une présence en ligne cohérente avec une stratégie adaptée à vos objectifs.",
+    description:
+      "Développez une présence en ligne cohérente avec une stratégie adaptée à vos objectifs.",
     icon: <Globe className="h-6 w-6" />,
     bgColor: "bg-gradient-to-br from-blue-400 to-cyan-600",
     textColor: "text-blue-600",
     image: "/img/services/strategie.jpeg",
-    features: ["Audit de présence digitale", "KPIs & Analytics", "Plan d'action stratégique"]
+    features: [
+      "Audit de présence digitale",
+      "KPIs & Analytics",
+      "Plan d'action stratégique",
+    ],
   },
   {
     title: "Développement Web",
-    description: "Des solutions techniques robustes pour optimiser votre présence digitale et vos processus.",
+    description:
+      "Des solutions techniques robustes pour optimiser votre présence digitale et vos processus.",
     icon: <Code className="h-6 w-6" />,
     bgColor: "bg-gradient-to-br from-purple-400 to-indigo-600",
     textColor: "text-purple-600",
     image: "/img/services/solution_digitale.jpeg",
-    features: ["Sites responsifs", "Applications web", "Intégration CRM/ERP"]
+    features: ["Sites responsifs", "Applications web", "Intégration CRM/ERP"],
   },
   {
     title: "Création Graphique",
-    description: "Designs visuels impactants qui renforcent votre image de marque et captent l'attention.",
+    description:
+      "Designs visuels impactants qui renforcent votre image de marque et captent l'attention.",
     icon: <Palette className="h-6 w-6" />,
     bgColor: "bg-gradient-to-br from-pink-400 to-red-600",
     textColor: "text-pink-600",
     image: "/img/services/creation_de_contenu.jpeg",
-    features: ["Identité visuelle", "Supports marketing", "Motion design"]
+    features: ["Identité visuelle", "Supports marketing", "Motion design"],
   },
   {
     title: "Community Management",
-    description: "Gestion professionnelle de vos réseaux sociaux pour augmenter votre visibilité.",
+    description:
+      "Gestion professionnelle de vos réseaux sociaux pour augmenter votre visibilité.",
     icon: <Share className="h-6 w-6" />,
     bgColor: "bg-gradient-to-br from-green-400 to-emerald-600",
     textColor: "text-green-600",
     image: "/img/services/gestion_de_reseaux.jpeg",
-    features: ["Planning éditorial", "Création de contenu", "Gestion de communauté"]
-  }
+    features: [
+      "Planning éditorial",
+      "Création de contenu",
+      "Gestion de communauté",
+    ],
+  },
 ];
 
 export function Services3D() {
@@ -65,8 +87,8 @@ export function Services3D() {
   const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
-    <section 
-      id="services" 
+    <section
+      id="services"
       ref={containerRef}
       className="py-24 md:py-32 relative overflow-hidden"
     >
@@ -75,11 +97,11 @@ export function Services3D() {
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange-200 rounded-full mix-blend-multiply opacity-20 blur-[120px]"></div>
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-red-200 rounded-full mix-blend-multiply opacity-20 blur-[100px]"></div>
       </div>
-      
+
       {/* Motif de fond */}
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none"></div>
-      
-      <motion.div 
+
+      <motion.div
         style={{ y }}
         className="max-w-7xl mx-auto px-4 relative z-10"
       >
@@ -95,17 +117,21 @@ export function Services3D() {
             <Sparkles className="h-4 w-4" />
             <span>SERVICES PROFESSIONNELS</span>
           </div>
-          
+
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Notre <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">expertise</span>
+            Notre{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
+              expertise
+            </span>
           </h2>
-          
+
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Des solutions digitales adaptées aux défis spécifiques des entreprises africaines, 
-            avec une approche locale et une vision globale.
+            Des solutions digitales adaptées aux défis spécifiques des
+            entreprises africaines, avec une approche locale et une vision
+            globale.
           </p>
         </motion.div>
-        
+
         {/* Grille de services */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 perspective-1000">
           {services.map((service, index) => (
@@ -114,54 +140,69 @@ export function Services3D() {
               initial={{ opacity: 0, y: 50, rotateX: 10 }}
               whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               viewport={{ once: true }}
-              transition={{ 
-                duration: 0.7, 
+              transition={{
+                duration: 0.7,
                 delay: index * 0.1,
                 type: "spring",
-                stiffness: 50
+                stiffness: 50,
               }}
-              whileHover={{ 
+              whileHover={{
                 translateY: -15,
-                transition: { 
+                transition: {
                   duration: 0.3,
                   type: "tween",
-                  ease: "easeOut" 
-                }
+                  ease: "easeOut",
+                },
               }}
               className="group h-full preserve-3d"
             >
               <div className="card-body h-full bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 transform hover:shadow-xl">
                 {/* Image avec overlay */}
                 <div className="relative h-48 overflow-hidden">
-                  <Image 
+                  <Image
                     src={service.image}
                     alt={service.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 opacity-80 group-hover:opacity-90 transition-opacity duration-300" style={{ background: `linear-gradient(to bottom, transparent, ${service.bgColor.split(' ')[2]})` }}></div>
-                  
+                  <div
+                    className="absolute inset-0 opacity-80 group-hover:opacity-90 transition-opacity duration-300"
+                    style={{
+                      background: `linear-gradient(to bottom, transparent, ${
+                        service.bgColor.split(" ")[2]
+                      })`,
+                    }}
+                  ></div>
+
                   {/* Icon overlay */}
-                  <div className="absolute top-4 right-4 w-10 h-10 rounded-lg flex items-center justify-center text-white" style={{ background: service.bgColor.split(' ')[2] }}>
+                  <div
+                    className="absolute top-4 right-4 w-10 h-10 rounded-lg flex items-center justify-center text-white"
+                    style={{ background: service.bgColor.split(" ")[2] }}
+                  >
                     {service.icon}
                   </div>
                 </div>
-                
+
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className={`text-xl font-bold mb-3 group-hover:${service.textColor} transition-colors`}>
+                  <h3
+                    className={`text-xl font-bold mb-3 group-hover:${service.textColor} transition-colors`}
+                  >
                     {service.title}
                   </h3>
-                  
-                  <p className="text-gray-600 mb-6">
-                    {service.description}
-                  </p>
-                  
+
+                  <p className="text-gray-600 mb-6">{service.description}</p>
+
                   {/* Features */}
                   <ul className="space-y-2 mb-6">
                     {service.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <div className={`mt-1 w-4 h-4 rounded-full flex items-center justify-center ${service.textColor.replace('text', 'bg')}/20`}>
+                        <div
+                          className={`mt-1 w-4 h-4 rounded-full flex items-center justify-center ${service.textColor.replace(
+                            "text",
+                            "bg"
+                          )}/20`}
+                        >
                           <Zap className={`h-2.5 w-2.5 ${service.textColor}`} />
                         </div>
                         <span className="text-sm text-gray-600">{feature}</span>
@@ -169,10 +210,13 @@ export function Services3D() {
                     ))}
                   </ul>
                 </div>
-                
+
                 {/* Call to action */}
                 <div className="px-6 pb-6 mt-auto">
-                  <Link href="/notre-expertise" className="group/link flex items-center text-sm font-medium text-gray-600 hover:text-orange-500 transition-colors">
+                  <Link
+                    href="/notre-expertise"
+                    className="group/link flex items-center text-sm font-medium text-gray-600 hover:text-orange-500 transition-colors"
+                  >
                     <span>Découvrir</span>
                     <motion.div
                       initial={{ x: 0 }}
@@ -183,14 +227,17 @@ export function Services3D() {
                     </motion.div>
                   </Link>
                 </div>
-                
+
                 {/* Background accent */}
-                <div className="absolute inset-x-0 bottom-0 h-1 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" style={{ background: service.bgColor.split(' ')[2] }}></div>
+                <div
+                  className="absolute inset-x-0 bottom-0 h-1 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"
+                  style={{ background: service.bgColor.split(" ")[2] }}
+                ></div>
               </div>
             </motion.div>
           ))}
         </div>
-        
+
         {/* Call to action */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -199,7 +246,7 @@ export function Services3D() {
           transition={{ duration: 0.7, delay: 0.6 }}
           className="mt-20 text-center"
         >
-          <Link 
+          <Link
             href="/notre-expertise"
             className="inline-flex items-center gap-2 px-8 py-4 font-medium text-white rounded-full bg-gradient-to-r from-orange-500 to-red-500 shadow-md hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300"
           >
@@ -207,7 +254,7 @@ export function Services3D() {
             <ArrowRight className="h-5 w-5" />
           </Link>
         </motion.div>
-        
+
         {/* Métriques */}
         <div className="mt-24 pt-16 border-t border-gray-100">
           <motion.div
@@ -218,10 +265,30 @@ export function Services3D() {
             className="grid grid-cols-1 md:grid-cols-4 gap-8"
           >
             {[
-              { icon: <LightbulbIcon className="h-7 w-7" />, value: "+30", label: "Projets réalisés", color: "bg-blue-100 text-blue-600" },
-              { icon: <Sparkles className="h-7 w-7" />, value: "+10", label: "Experts digitaux", color: "bg-purple-100 text-purple-600" },
-              { icon: <BarChart className="h-7 w-7" />, value: "+50%", label: "Croissance annuelle", color: "bg-red-100 text-red-600" },
-              { icon: <Globe className="h-7 w-7" />, value: "+5", label: "Pays africains", color: "bg-green-100 text-green-600" }
+              {
+                icon: <LightbulbIcon className="h-7 w-7" />,
+                value: "+30",
+                label: "Projets réalisés",
+                color: "bg-blue-100 text-blue-600",
+              },
+              {
+                icon: <Sparkles className="h-7 w-7" />,
+                value: "+10",
+                label: "Experts digitaux",
+                color: "bg-purple-100 text-purple-600",
+              },
+              {
+                icon: <BarChart className="h-7 w-7" />,
+                value: "+50%",
+                label: "Croissance annuelle",
+                color: "bg-red-100 text-red-600",
+              },
+              {
+                icon: <Globe className="h-7 w-7" />,
+                value: "+5",
+                label: "Pays africains",
+                color: "bg-green-100 text-green-600",
+              },
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -231,7 +298,9 @@ export function Services3D() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-white p-6 rounded-2xl border border-gray-100 shadow-md hover:shadow-lg transition-all text-center"
               >
-                <div className={`w-14 h-14 rounded-full ${stat.color} mx-auto mb-5 flex items-center justify-center`}>
+                <div
+                  className={`w-14 h-14 rounded-full ${stat.color} mx-auto mb-5 flex items-center justify-center`}
+                >
                   {stat.icon}
                 </div>
                 <div className="text-3xl font-bold mb-2">{stat.value}</div>
@@ -241,24 +310,27 @@ export function Services3D() {
           </motion.div>
         </div>
       </motion.div>
-      
+
       {/* CSS classes */}
       <style jsx>{`
         .perspective-1000 {
           perspective: 1000px;
         }
-        
+
         .preserve-3d {
           transform-style: preserve-3d;
         }
-        
+
         .bg-grid-pattern {
           background-size: 30px 30px;
-          background-image: 
-            linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+          background-image: linear-gradient(
+              to right,
+              rgba(0, 0, 0, 0.05) 1px,
+              transparent 1px
+            ),
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
         }
       `}</style>
     </section>
   );
-} 
+}

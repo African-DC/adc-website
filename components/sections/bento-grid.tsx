@@ -1,15 +1,10 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import {
-  IconBrandFigma,
   IconBrandGoogle,
   IconBulb,
-  IconChevronRight,
   IconDevices,
   IconPencil,
-  IconRocket,
-  IconArrowRight,
   IconStar,
 } from "@tabler/icons-react";
 import { motion, useScroll, useTransform } from "framer-motion";

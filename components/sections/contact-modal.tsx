@@ -11,8 +11,14 @@ const formSchema = z.object({
   name: z.string().min(2, "Le nom est requis"),
   email: z.string().email("Email invalide"),
   phone: z.string().min(10, "Numéro de téléphone invalide"),
-  service: z.enum(["Communication digitale", "Développement web", "Création visuelle"]),
-  message: z.string().min(10, "Le message doit contenir au moins 10 caractères"),
+  service: z.enum([
+    "Communication digitale",
+    "Développement web",
+    "Création visuelle",
+  ]),
+  message: z
+    .string()
+    .min(10, "Le message doit contenir au moins 10 caractères"),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -25,7 +31,7 @@ export function ContactModal({
   onClose: () => void;
 }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   const {
     register,
     handleSubmit,
@@ -56,7 +62,7 @@ export function ContactModal({
       } else {
         throw new Error("Erreur lors de l'envoi");
       }
-    } catch (_) {
+    } catch {
       alert("Une erreur est survenue. Veuillez réessayer.");
     } finally {
       setIsSubmitting(false);
@@ -72,8 +78,8 @@ export function ContactModal({
             <Dialog.Title className="text-xl font-semibold">
               Contactez-nous
             </Dialog.Title>
-            <button 
-              onClick={() => onClose()} 
+            <button
+              onClick={() => onClose()}
               className="text-gray-500 hover:text-gray-700"
               type="button"
             >
@@ -83,14 +89,18 @@ export function ContactModal({
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium mb-1">Nom et prénom</label>
+              <label className="block text-sm font-medium mb-1">
+                Nom et prénom
+              </label>
               <input
                 {...register("name")}
                 className="w-full px-3 py-2 border focus:outline-none focus:ring-2 focus:ring-orange-400 rounded-lg"
                 placeholder="Votre nom complet"
               />
               {errors.name && (
-                <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.name.message}
+                </p>
               )}
             </div>
 
@@ -103,19 +113,25 @@ export function ContactModal({
                 placeholder="votre@email.com"
               />
               {errors.email && (
-                <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.email.message}
+                </p>
               )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-1">Téléphone</label>
+              <label className="block text-sm font-medium mb-1">
+                Téléphone
+              </label>
               <input
                 {...register("phone")}
                 className="w-full px-3 py-2 border focus:outline-none focus:ring-2 focus:ring-orange-400 caret-orange-400 rounded-lg"
                 placeholder="Votre numéro de téléphone"
               />
               {errors.phone && (
-                <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.phone.message}
+                </p>
               )}
             </div>
 
@@ -125,12 +141,16 @@ export function ContactModal({
                 {...register("service")}
                 className="w-full px-3 py-2 border focus:outline-none focus:ring-2 focus:ring-orange-400 caret-orange-400 rounded-lg"
               >
-                <option value="Communication digitale">Communication digitale</option>
+                <option value="Communication digitale">
+                  Communication digitale
+                </option>
                 <option value="Développement web">Développement web</option>
                 <option value="Création visuelle">Création visuelle</option>
               </select>
               {errors.service && (
-                <p className="text-red-500 text-sm mt-1">{errors.service.message}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.service.message}
+                </p>
               )}
             </div>
 
@@ -143,7 +163,9 @@ export function ContactModal({
                 placeholder="Votre message"
               />
               {errors.message && (
-                <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.message.message}
+                </p>
               )}
             </div>
 
@@ -159,4 +181,4 @@ export function ContactModal({
       </Dialog.Portal>
     </Dialog.Root>
   );
-} 
+}
