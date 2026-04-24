@@ -3,15 +3,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowUpRight, Globe, Palette, Share, Code } from "lucide-react";
-import { Fraunces } from "next/font/google";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  display: "swap",
-  variable: "--font-fraunces-services",
-});
 
 type Service = {
   number: string;
@@ -60,7 +51,7 @@ export function ServicesEditorial() {
   return (
     <section
       id="services"
-      className={`${fraunces.variable} relative py-24 md:py-36 bg-neutral-50 overflow-hidden`}
+      className={`relative py-24 md:py-36 bg-neutral-50 overflow-hidden`}
     >
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -82,7 +73,7 @@ export function ServicesEditorial() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              style={{ fontFamily: "var(--font-fraunces-services)" }}
+              style={{ fontFamily: "var(--font-fraunces)" }}
               className="text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] text-neutral-950"
             >
               Quatre manières de{" "}
@@ -127,7 +118,7 @@ export function ServicesEditorial() {
               <div className="flex items-start justify-between gap-4 mb-6">
                 <div className="flex items-center gap-4">
                   <span
-                    style={{ fontFamily: "var(--font-fraunces-services)" }}
+                    style={{ fontFamily: "var(--font-fraunces)" }}
                     className="text-4xl italic font-light text-orange-500/80 leading-none"
                   >
                     {service.number}
@@ -139,7 +130,7 @@ export function ServicesEditorial() {
               </div>
 
               <h3
-                style={{ fontFamily: "var(--font-fraunces-services)" }}
+                style={{ fontFamily: "var(--font-fraunces)" }}
                 className="text-3xl md:text-4xl font-medium leading-tight text-neutral-950 mb-4"
               >
                 {service.title}

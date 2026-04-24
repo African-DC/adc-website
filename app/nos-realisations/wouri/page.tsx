@@ -15,15 +15,6 @@ import {
   Leaf,
 } from "lucide-react";
 import Link from "next/link";
-import { Fraunces } from "next/font/google";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  display: "swap",
-  variable: "--font-fraunces-wouri",
-});
 
 // Wouri brand green (deep forest, sophisticated)
 const WOURI_GREEN = "#1a5d3a";
@@ -93,7 +84,7 @@ const sampleConversation = [
 
 export default function WouriCaseStudyPage() {
   return (
-    <div className={`${fraunces.variable} bg-[#fafaf6] text-neutral-950`}>
+    <div className={`bg-[#fafaf6] text-neutral-950`}>
       <ScrollProgress />
       <NavbarDemo />
 
@@ -175,7 +166,7 @@ export default function WouriCaseStudyPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.15 }}
                   style={{
-                    fontFamily: "var(--font-fraunces-wouri)",
+                    fontFamily: "var(--font-fraunces)",
                     color: WOURI_GREEN,
                   }}
                   className="text-[clamp(4rem,13vw,11rem)] font-semibold leading-[0.9] tracking-tight mb-10"
@@ -187,7 +178,7 @@ export default function WouriCaseStudyPage() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  style={{ fontFamily: "var(--font-fraunces-wouri)" }}
+                  style={{ fontFamily: "var(--font-fraunces)" }}
                   className="text-2xl md:text-3xl italic font-light text-neutral-800 leading-snug mb-8 max-w-2xl"
                 >
                   L'agent IA qui aide les agriculteurs ivoiriens à s'adapter au{" "}
@@ -264,7 +255,7 @@ export default function WouriCaseStudyPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              style={{ fontFamily: "var(--font-fraunces-wouri)" }}
+              style={{ fontFamily: "var(--font-fraunces)" }}
               className="text-4xl md:text-5xl font-medium leading-tight mb-10 text-neutral-950"
             >
               Les saisons{" "}
@@ -323,7 +314,7 @@ export default function WouriCaseStudyPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              style={{ fontFamily: "var(--font-fraunces-wouri)" }}
+              style={{ fontFamily: "var(--font-fraunces)" }}
               className="text-4xl md:text-5xl font-medium max-w-3xl leading-tight text-neutral-950"
             >
               Quatre principes de conception.
@@ -343,7 +334,7 @@ export default function WouriCaseStudyPage() {
                 <div className="flex items-center gap-4 mb-6">
                   <span
                     style={{
-                      fontFamily: "var(--font-fraunces-wouri)",
+                      fontFamily: "var(--font-fraunces)",
                       color: `${WOURI_GREEN}B3`,
                     }}
                     className="text-5xl italic font-light leading-none"
@@ -358,7 +349,7 @@ export default function WouriCaseStudyPage() {
                   </div>
                 </div>
                 <h3
-                  style={{ fontFamily: "var(--font-fraunces-wouri)" }}
+                  style={{ fontFamily: "var(--font-fraunces)" }}
                   className="text-2xl md:text-3xl font-medium leading-tight mb-4 text-neutral-950"
                 >
                   {feature.title}
@@ -398,7 +389,7 @@ export default function WouriCaseStudyPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: 0.1 }}
-                  style={{ fontFamily: "var(--font-fraunces-wouri)" }}
+                  style={{ fontFamily: "var(--font-fraunces)" }}
                   className="text-3xl md:text-4xl font-medium leading-tight mb-6 text-neutral-950"
                 >
                   Parle-lui comme tu parlerais à un voisin.
@@ -434,7 +425,7 @@ export default function WouriCaseStudyPage() {
                       className="h-10 w-10 rounded-full flex items-center justify-center text-white font-semibold"
                       style={{
                         background: WOURI_GREEN,
-                        fontFamily: "var(--font-fraunces-wouri)",
+                        fontFamily: "var(--font-fraunces)",
                       }}
                     >
                       W
@@ -521,7 +512,7 @@ export default function WouriCaseStudyPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: 0.1 }}
-                  style={{ fontFamily: "var(--font-fraunces-wouri)" }}
+                  style={{ fontFamily: "var(--font-fraunces)" }}
                   className="text-3xl md:text-4xl font-medium leading-tight mb-6 text-neutral-950"
                 >
                   On ne touche pas un village si on ne parle pas sa langue.
@@ -621,7 +612,7 @@ export default function WouriCaseStudyPage() {
                         Rejoindre la beta
                       </div>
                       <h2
-                        style={{ fontFamily: "var(--font-fraunces-wouri)" }}
+                        style={{ fontFamily: "var(--font-fraunces)" }}
                         className="text-white text-4xl md:text-6xl font-medium leading-[1] mb-5"
                       >
                         Travaillez avec nous

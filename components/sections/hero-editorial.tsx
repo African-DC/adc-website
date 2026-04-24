@@ -5,15 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Fraunces } from "next/font/google";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  display: "swap",
-  variable: "--font-fraunces-hero",
-});
 
 const metrics = [
   { value: "2016", label: "Année de fondation" },
@@ -24,7 +15,7 @@ const metrics = [
 export function HeroEditorial() {
   return (
     <section
-      className={`${fraunces.variable} relative min-h-screen pt-28 pb-12 md:pt-32 md:pb-12 flex flex-col bg-neutral-50 overflow-hidden`}
+      className={`relative min-h-screen pt-28 pb-12 md:pt-32 md:pb-12 flex flex-col bg-neutral-50 overflow-hidden`}
     >
       {/* Decorative faint grid */}
       <div
@@ -72,7 +63,7 @@ export function HeroEditorial() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            style={{ fontFamily: "var(--font-fraunces-hero)" }}
+            style={{ fontFamily: "var(--font-fraunces)" }}
             className="text-[clamp(2.25rem,6vw,5.75rem)] font-semibold leading-[1] tracking-tight text-neutral-950 max-w-5xl"
           >
             Des solutions digitales à fort impact{" "}
@@ -83,7 +74,7 @@ export function HeroEditorial() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            style={{ fontFamily: "var(--font-fraunces-hero)" }}
+            style={{ fontFamily: "var(--font-fraunces)" }}
             className="mt-6 md:mt-8 text-xl md:text-2xl italic font-light text-neutral-700 max-w-xl"
           >
             Le digital au service des peuples.
@@ -135,7 +126,7 @@ export function HeroEditorial() {
                 </span>
                 <div>
                   <dt
-                    style={{ fontFamily: "var(--font-fraunces-hero)" }}
+                    style={{ fontFamily: "var(--font-fraunces)" }}
                     className="text-2xl md:text-4xl font-semibold text-neutral-950 leading-none mb-1 md:mb-2"
                   >
                     {metric.value}

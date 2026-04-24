@@ -3,15 +3,6 @@
 import { Facebook, Linkedin, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Fraunces } from "next/font/google";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  display: "swap",
-  variable: "--font-fraunces-footer",
-});
 
 const navLinks = [
   { label: "Accueil", href: "/" },
@@ -34,7 +25,7 @@ const legalLinks = [
 export function Footer() {
   return (
     <footer
-      className={`${fraunces.variable} relative bg-neutral-950 text-white overflow-hidden`}
+      className={`relative bg-neutral-950 text-white overflow-hidden`}
     >
       {/* Subtle glow */}
       <div
@@ -58,7 +49,7 @@ export function Footer() {
             </div>
 
             <h2
-              style={{ fontFamily: "var(--font-fraunces-footer)" }}
+              style={{ fontFamily: "var(--font-fraunces)" }}
               className="text-3xl md:text-4xl font-medium leading-[1.15] max-w-md"
             >
               Le digital au service{" "}

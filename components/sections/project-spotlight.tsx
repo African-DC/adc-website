@@ -4,15 +4,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { Fraunces } from "next/font/google";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  display: "swap",
-  variable: "--font-fraunces-spotlight",
-});
 
 const WOURI_GREEN = "#1a5d3a";
 const WOURI_GREEN_LIGHT = "#a7d7b5";
@@ -20,7 +11,7 @@ const WOURI_GREEN_LIGHT = "#a7d7b5";
 export function ProjectSpotlight() {
   return (
     <section
-      className={`${fraunces.variable} relative py-24 md:py-32 bg-neutral-950 text-white overflow-hidden`}
+      className={`relative py-24 md:py-32 bg-neutral-950 text-white overflow-hidden`}
     >
       {/* Decorative grid */}
       <div
@@ -61,7 +52,7 @@ export function ProjectSpotlight() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          style={{ fontFamily: "var(--font-fraunces-spotlight)" }}
+          style={{ fontFamily: "var(--font-fraunces)" }}
           className="text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.05] max-w-4xl mb-14 md:mb-20"
         >
           Deux produits que nous construisons,{" "}
@@ -96,7 +87,7 @@ export function ProjectSpotlight() {
                       />
                     </div>
                     <h3
-                      style={{ fontFamily: "var(--font-fraunces-spotlight)" }}
+                      style={{ fontFamily: "var(--font-fraunces)" }}
                       className="text-3xl md:text-4xl font-semibold leading-none"
                     >
                       KLASSCI<span className="text-orange-400">.</span>
@@ -114,7 +105,7 @@ export function ProjectSpotlight() {
                 {/* Tagline */}
                 <div>
                   <p
-                    style={{ fontFamily: "var(--font-fraunces-spotlight)" }}
+                    style={{ fontFamily: "var(--font-fraunces)" }}
                     className="text-xl md:text-2xl italic font-light text-white/85 leading-snug mb-4"
                   >
                     Le SaaS qui réinvente la gestion des universités africaines.
@@ -141,7 +132,7 @@ export function ProjectSpotlight() {
                   <div className="flex gap-6">
                     <div>
                       <div
-                        style={{ fontFamily: "var(--font-fraunces-spotlight)" }}
+                        style={{ fontFamily: "var(--font-fraunces)" }}
                         className="text-2xl font-semibold"
                       >
                         4
@@ -152,7 +143,7 @@ export function ProjectSpotlight() {
                     </div>
                     <div>
                       <div
-                        style={{ fontFamily: "var(--font-fraunces-spotlight)" }}
+                        style={{ fontFamily: "var(--font-fraunces)" }}
                         className="text-2xl font-semibold"
                       >
                         LMD
@@ -180,23 +171,14 @@ export function ProjectSpotlight() {
           >
             <Link
               href="/nos-realisations/wouri"
-              className="group block relative rounded-2xl md:rounded-3xl overflow-hidden border border-white/10 bg-white/[0.02] backdrop-blur-sm transition-all duration-500 h-full"
-              style={{
-                // hover border handled via inline JS not possible here — use css var trick
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = `${WOURI_GREEN}80`;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
-              }}
+              className="group block relative rounded-2xl md:rounded-3xl overflow-hidden border border-white/10 hover:border-[#1a5d3a]/70 bg-white/[0.02] backdrop-blur-sm transition-all duration-500 h-full"
             >
               <div className="p-8 md:p-10 flex flex-col h-full gap-8">
                 {/* Top — logo + status */}
                 <div className="flex items-start justify-between gap-4">
                   <h3
                     style={{
-                      fontFamily: "var(--font-fraunces-spotlight)",
+                      fontFamily: "var(--font-fraunces)",
                       color: WOURI_GREEN_LIGHT,
                     }}
                     className="text-4xl md:text-5xl font-semibold leading-none"
@@ -228,7 +210,7 @@ export function ProjectSpotlight() {
                 {/* Tagline */}
                 <div>
                   <p
-                    style={{ fontFamily: "var(--font-fraunces-spotlight)" }}
+                    style={{ fontFamily: "var(--font-fraunces)" }}
                     className="text-xl md:text-2xl italic font-light text-white/85 leading-snug mb-4"
                   >
                     L'agent IA qui aide les agriculteurs ivoiriens face au
@@ -266,7 +248,7 @@ export function ProjectSpotlight() {
                   <div className="flex gap-6">
                     <div>
                       <div
-                        style={{ fontFamily: "var(--font-fraunces-spotlight)" }}
+                        style={{ fontFamily: "var(--font-fraunces)" }}
                         className="text-2xl font-semibold"
                       >
                         4
@@ -277,7 +259,7 @@ export function ProjectSpotlight() {
                     </div>
                     <div>
                       <div
-                        style={{ fontFamily: "var(--font-fraunces-spotlight)" }}
+                        style={{ fontFamily: "var(--font-fraunces)" }}
                         className="text-2xl font-semibold"
                       >
                         WA

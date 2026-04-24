@@ -1,9 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat, Poppins } from "next/font/google";
+import { Fraunces, Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
 import { ReactNode } from "react";
 
-// Configuration des polices avec préchargement pour de meilleures performances
 const montserrat = Montserrat({
   subsets: ["latin"],
   display: "swap",
@@ -21,6 +20,14 @@ const poppins = Poppins({
   preload: true,
   fallback: ["system-ui", "Arial", "sans-serif"],
   adjustFontFallback: true,
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-fraunces",
 });
 
 export const metadata: Metadata = {
@@ -103,7 +110,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="fr" className={`${montserrat.variable} ${poppins.variable}`}>
+    <html lang="fr" className={`${montserrat.variable} ${poppins.variable} ${fraunces.variable}`}>
       <body>{children}</body>
     </html>
   );

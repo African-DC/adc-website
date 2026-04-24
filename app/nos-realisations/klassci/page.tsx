@@ -17,15 +17,6 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Fraunces } from "next/font/google";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  display: "swap",
-  variable: "--font-fraunces",
-});
 
 const KLASSCI_URL = "https://klassci.com";
 
@@ -110,7 +101,7 @@ const features: Feature[] = [
 
 export default function KlassciCaseStudyPage() {
   return (
-    <div className={`${fraunces.variable} bg-neutral-50 text-neutral-950`}>
+    <div className={`bg-neutral-50 text-neutral-950`}>
       <ScrollProgress />
       <NavbarDemo />
 
@@ -521,8 +512,8 @@ export default function KlassciCaseStudyPage() {
                   <div className="absolute -inset-4 bg-gradient-to-br from-orange-500/10 to-transparent rounded-2xl -rotate-2" />
                   <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-200 shadow-2xl shadow-neutral-900/15 border border-neutral-200">
                     <Image
-                      src="/img/projets/klassci/md-portrait.png"
-                      alt="Fondateur African Digit Consulting"
+                      src="/img/TEAM_ADC/marcel-djedjeli.png"
+                      alt="Marcel Djedje-li"
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 500px"

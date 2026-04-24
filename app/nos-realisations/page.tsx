@@ -4,7 +4,7 @@ import { Footer } from "@/components/sections/footer";
 import { NavbarDemo } from "@/components/sections/navbar-demo";
 import { PageHero } from "@/components/sections/page-hero";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { Star, ExternalLink, Tag, EyeIcon, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -147,21 +147,15 @@ const projects = [
 
 export default function RealisationsPage() {
   const [selectedCategory, setSelectedCategory] = useState("Tous");
-  const [filteredProjects, setFilteredProjects] = useState(projects);
   const [selectedProject, setSelectedProject] = useState<
     (typeof projects)[0] | null
   >(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {
-    if (selectedCategory === "Tous") {
-      setFilteredProjects(projects);
-    } else {
-      setFilteredProjects(
-        projects.filter((project) => project.category === selectedCategory)
-      );
-    }
-  }, [selectedCategory]);
+  const filteredProjects =
+    selectedCategory === "Tous"
+      ? projects
+      : projects.filter((project) => project.category === selectedCategory);
 
   const openProjectModal = (project: (typeof projects)[0]) => {
     setSelectedProject(project);

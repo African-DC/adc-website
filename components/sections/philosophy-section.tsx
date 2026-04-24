@@ -2,15 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Lightbulb, Users, MapPin } from "lucide-react";
-import { Fraunces } from "next/font/google";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  display: "swap",
-  variable: "--font-fraunces-philo",
-});
 
 const pillars = [
   {
@@ -45,7 +36,7 @@ const pillars = [
 export function PhilosophySection() {
   return (
     <section
-      className={`${fraunces.variable} relative py-24 md:py-36 bg-white overflow-hidden`}
+      className={`relative py-24 md:py-36 bg-white overflow-hidden`}
     >
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -66,7 +57,7 @@ export function PhilosophySection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            style={{ fontFamily: "var(--font-fraunces-philo)" }}
+            style={{ fontFamily: "var(--font-fraunces)" }}
             className="text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] text-neutral-950"
           >
             Trois convictions qui guident{" "}
@@ -91,7 +82,7 @@ export function PhilosophySection() {
                 {/* Number + icon */}
                 <div className="flex items-center gap-4 mb-8">
                   <span
-                    style={{ fontFamily: "var(--font-fraunces-philo)" }}
+                    style={{ fontFamily: "var(--font-fraunces)" }}
                     className="text-5xl md:text-6xl italic font-light text-orange-500/80 leading-none"
                   >
                     {pillar.number}
@@ -103,7 +94,7 @@ export function PhilosophySection() {
 
                 {/* Title */}
                 <h3
-                  style={{ fontFamily: "var(--font-fraunces-philo)" }}
+                  style={{ fontFamily: "var(--font-fraunces)" }}
                   className="text-3xl md:text-[2rem] font-medium leading-tight text-neutral-950 mb-5"
                 >
                   {pillar.title}

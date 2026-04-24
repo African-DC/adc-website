@@ -4,20 +4,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Fraunces } from "next/font/google";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  display: "swap",
-  variable: "--font-fraunces-closing",
-});
 
 export function ClosingEditorial() {
   return (
     <section
-      className={`${fraunces.variable} relative py-24 md:py-36 bg-neutral-950 text-white overflow-hidden`}
+      className={`relative py-24 md:py-36 bg-neutral-950 text-white overflow-hidden`}
     >
       {/* Grid pattern */}
       <div
@@ -54,7 +45,7 @@ export function ClosingEditorial() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          style={{ fontFamily: "var(--font-fraunces-closing)" }}
+          style={{ fontFamily: "var(--font-fraunces)" }}
           className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] text-white mb-12 md:mb-16"
         >
           Nous ne livrons pas des projets.
@@ -74,13 +65,13 @@ export function ClosingEditorial() {
         >
           <span
             aria-hidden
-            style={{ fontFamily: "var(--font-fraunces-closing)" }}
+            style={{ fontFamily: "var(--font-fraunces)" }}
             className="block text-7xl md:text-8xl italic leading-none text-orange-400/60 mb-2 select-none"
           >
             «
           </span>
           <p
-            style={{ fontFamily: "var(--font-fraunces-closing)" }}
+            style={{ fontFamily: "var(--font-fraunces)" }}
             className="text-2xl md:text-3xl italic font-light text-white/90 leading-snug mb-8"
           >
             ADC a compris notre métier avant de nous proposer une solution

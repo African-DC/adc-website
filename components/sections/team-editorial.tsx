@@ -3,15 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Linkedin } from "lucide-react";
-import { Fraunces } from "next/font/google";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  display: "swap",
-  variable: "--font-fraunces-team",
-});
 
 type Member = {
   name: string;
@@ -62,7 +53,7 @@ const team: Member[] = [
 export function TeamEditorial() {
   return (
     <section
-      className={`${fraunces.variable} relative py-24 md:py-36 bg-white overflow-hidden`}
+      className={`relative py-24 md:py-36 bg-white overflow-hidden`}
     >
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -84,7 +75,7 @@ export function TeamEditorial() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              style={{ fontFamily: "var(--font-fraunces-team)" }}
+              style={{ fontFamily: "var(--font-fraunces)" }}
               className="text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] text-neutral-950"
             >
               Dix experts.{" "}
@@ -135,7 +126,7 @@ export function TeamEditorial() {
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
                     <h3
-                      style={{ fontFamily: "var(--font-fraunces-team)" }}
+                      style={{ fontFamily: "var(--font-fraunces)" }}
                       className="text-xl md:text-2xl font-medium text-neutral-950 leading-tight mb-1"
                     >
                       {member.name}
