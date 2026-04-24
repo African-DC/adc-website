@@ -38,6 +38,11 @@ const team: Member[] = [
     linkedin: "https://www.linkedin.com/in/issouf-ouedraogo-riqa/",
   },
   {
+    name: "Hermann Koré",
+    role: "Commercial",
+    image: "/img/TEAM_ADC/hermann-kore.jpg",
+  },
+  {
     name: "Meledje Bythia",
     role: "Assistante de direction",
     image: "/img/TEAM_ADC/MELEDJE BYTHIA Assiatnte de direction .webp",

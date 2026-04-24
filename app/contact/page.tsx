@@ -165,9 +165,9 @@ export default function ContactPage() {
                         Adresse
                       </dt>
                       <dd className="text-neutral-900">
-                        Netzify Coworking, Rue L158, Angré
+                        Siti Dia, Grand-Bassam Monckey-ville
                         <br />
-                        Abidjan, Côte d'Ivoire
+                        Côte d'Ivoire
                       </dd>
                     </div>
                   </div>
@@ -183,17 +183,17 @@ export default function ContactPage() {
                       </dt>
                       <dd>
                         <a
-                          href="tel:+2252732797538"
+                          href="tel:+2252732797523"
                           className="text-neutral-900 hover:text-orange-600 transition-colors"
                         >
-                          +225 27 32 797 538
+                          +225 27 32 797 523
                         </a>
                         <span className="text-neutral-400 mx-2">·</span>
                         <a
                           href="tel:+22505954598 43"
                           className="text-neutral-900 hover:text-orange-600 transition-colors"
                         >
-                          +225 05 95 459 843
+                          +225 05 95 45 98 43
                         </a>
                       </dd>
                     </div>
@@ -210,10 +210,10 @@ export default function ContactPage() {
                       </dt>
                       <dd>
                         <a
-                          href="mailto:contact@africandigitconsulting.com"
+                          href="mailto:klassci@africandigitconsulting.com"
                           className="text-neutral-900 hover:text-orange-600 transition-colors break-all"
                         >
-                          contact@africandigitconsulting.com
+                          klassci@africandigitconsulting.com
                         </a>
                       </dd>
                     </div>
@@ -302,10 +302,10 @@ export default function ContactPage() {
                           Une erreur s'est produite. Veuillez réessayer ou
                           nous écrire directement à{" "}
                           <a
-                            href="mailto:contact@africandigitconsulting.com"
+                            href="mailto:klassci@africandigitconsulting.com"
                             className="underline"
                           >
-                            contact@africandigitconsulting.com
+                            klassci@africandigitconsulting.com
                           </a>
                           .
                         </div>
@@ -491,10 +491,10 @@ export default function ContactPage() {
                   style={{ fontFamily: "var(--font-fraunces)" }}
                   className="text-3xl md:text-4xl font-medium leading-tight text-neutral-950 mb-4"
                 >
-                  Angré, Abidjan.
+                  Grand-Bassam, Côte d'Ivoire.
                 </h2>
                 <p className="text-neutral-600 leading-relaxed mb-6">
-                  Notre bureau est au Netzify Coworking, rue L158. Un café
+                  Notre bureau est à Siti Dia, Grand-Bassam Monckey-ville. Un café
                   vous attend. Préférez-vous qu'on passe chez vous ? On peut
                   aussi.
                 </p>
@@ -512,7 +512,7 @@ export default function ContactPage() {
 
               <div className="lg:col-span-7 relative rounded-2xl overflow-hidden border border-neutral-200 aspect-[16/10] md:aspect-[16/9]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.443572663347!2d-3.9742620245976213!3d5.3477399371242615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1ebcc98c7f3d1%3A0xf2b4e6f0f7079fa4!2sNetzify%20coworking!5e0!3m2!1sfr!2sci!4v1626700000000!5m2!1sfr!2sci"
+                  src="https://www.google.com/maps?q=Grand-Bassam+Monckey-ville,+C%C3%B4te+d'Ivoire&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

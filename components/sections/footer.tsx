@@ -139,7 +139,7 @@ export function Footer() {
                     className="h-4 w-4 text-orange-400 mt-0.5 flex-shrink-0"
                     strokeWidth={1.5}
                   />
-                  <span>Abidjan, Côte d'Ivoire</span>
+                  <span>Siti Dia, Grand-Bassam Monckey-ville</span>
                 </li>
                 <li className="flex items-start gap-2.5 text-sm text-white/80">
                   <Phone
@@ -147,10 +147,10 @@ export function Footer() {
                     strokeWidth={1.5}
                   />
                   <a
-                    href="tel:+2252732797538"
+                    href="tel:+2252732797523"
                     className="hover:text-orange-400 transition-colors"
                   >
-                    +225 27 32 797 538
+                    +225 27 32 797 523
                   </a>
                 </li>
                 <li className="flex items-start gap-2.5 text-sm text-white/80">
@@ -159,10 +159,10 @@ export function Footer() {
                     strokeWidth={1.5}
                   />
                   <a
-                    href="mailto:contact@africandigitconsulting.com"
+                    href="mailto:klassci@africandigitconsulting.com"
                     className="hover:text-orange-400 transition-colors break-all"
                   >
-                    contact@africandigitconsulting.com
+                    klassci@africandigitconsulting.com
                   </a>
                 </li>
               </ul>

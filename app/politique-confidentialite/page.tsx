@@ -65,7 +65,7 @@ export default function PolitiqueConfidentialitePage() {
                   <li>
                     <strong>African Digit Consulting</strong>
                   </li>
-                  <li>Netzify Coworking, Rue L158, Angré, Abidjan</li>
+                  <li>Siti Dia, Grand-Bassam Monckey-ville</li>
                   <li>Côte d'Ivoire</li>
                   <li>
                     Email :{" "}

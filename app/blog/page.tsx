@@ -22,32 +22,32 @@ type Article = {
 
 const articles: Article[] = [
   {
-    title: "Digital Women for Access : première édition à Abidjan",
-    excerpt:
-      "Retour sur la première édition de cette initiative dédiée à l'inclusion numérique des femmes en Afrique de l'Ouest.",
-    image: "/img/crea1.webp",
-    category: "Événements",
-    date: "Août 2024",
-    href: "#",
-  },
-  {
     title:
-      "Salon des opportunités publiques et privées : ADC présent",
+      "ADC au SIADE 2026 : deux IA africaines à l'épreuve de la souveraineté technologique",
     excerpt:
-      "Notre participation à la deuxième édition du salon dédié à l'entrepreneuriat en Côte d'Ivoire.",
-    image: "/img/crea2.jpg",
-    category: "Entrepreneuriat",
-    date: "Mai 2024",
-    href: "#",
+      "Retour sur notre participation à la 2e édition du Salon International de l'IA, de la Défense et de l'Espace, où nous avons présenté KLASSCI et Wouri.",
+    image: "/img/blog/siade-hero.jpg",
+    category: "Événements",
+    date: "21 avril 2026",
+    href: "/blog/siade-2026-abidjan",
   },
   {
-    title: "Webinar : une vision pour l'Afrique numérique",
+    title: "KLASSCI à l'honneur chez Orange Business",
     excerpt:
-      "Notre équipe partage sa vision des défis et des opportunités du digital en Afrique francophone.",
-    image: "/img/crea3.jpg",
-    category: "Vision",
-    date: "Mars 2024",
-    href: "#",
+      "Présentation de notre CRM éducatif lors du lancement de l'offre Internet Pro illimité, au siège Orange Village d'Abidjan.",
+    image: "/img/blog/orange-village-hero.jpg",
+    category: "Partenariats",
+    date: "19 avril 2026",
+    href: "/blog/klassci-orange-business-village",
+  },
+  {
+    title: "ADC retenue en phase d'accélération du programme DigiGreen",
+    excerpt:
+      "Une opportunité majeure pour Wouri, notre agent IA dédié aux agriculteurs ivoiriens face au changement climatique. Partenaires : Orange, GIZ, Union européenne.",
+    image: "/img/blog/digigreen-hero.jpg",
+    category: "Accélération",
+    date: "17 avril 2026",
+    href: "/blog/digigreen-acceleration-wouri",
   },
 ];
 
@@ -113,9 +113,7 @@ export default function BlogPage() {
                   </p>
                   <span className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 group-hover:text-orange-600 transition-colors">
                     Lire l'article
-                    <ArrowUpRight
-                      className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-                    />
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                   </span>
                 </div>
               </Link>
@@ -134,16 +132,13 @@ export default function BlogPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
               {rest.map((article, i) => (
                 <motion.article
-                  key={article.title}
+                  key={article.href}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
-                  <Link
-                    href={article.href}
-                    className="group block"
-                  >
+                  <Link href={article.href} className="group block">
                     <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-neutral-100 mb-6">
                       <Image
                         src={article.image}
@@ -171,9 +166,7 @@ export default function BlogPage() {
                     </p>
                     <span className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 group-hover:text-orange-600 transition-colors">
                       Lire l'article
-                      <ArrowUpRight
-                        className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-                      />
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                     </span>
                   </Link>
                 </motion.article>
@@ -264,4 +257,3 @@ function NewsletterForm() {
     </form>
   );
 }
-

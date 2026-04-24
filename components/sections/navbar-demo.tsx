@@ -192,7 +192,7 @@ export function NavbarDemo() {
                 <p className="mt-8 text-sm text-neutral-500">
                   Abidjan, Côte d'Ivoire
                   <br />
-                  contact@africandigitconsulting.com
+                  klassci@africandigitconsulting.com
                 </p>
               </motion.div>
             </div>
