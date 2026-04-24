@@ -37,7 +37,7 @@ const articles: Article[] = [
       "Présentation de notre CRM éducatif lors du lancement de l'offre Internet Pro illimité, au siège Orange Village d'Abidjan.",
     image: "/img/blog/orange-village-hero.jpg",
     category: "Partenariats",
-    date: "19 avril 2026",
+    date: "26 mars 2026",
     href: "/blog/klassci-orange-business-village",
   },
   {

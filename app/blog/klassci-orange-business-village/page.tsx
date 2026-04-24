@@ -19,7 +19,7 @@ export default function OrangeBusinessArticlePage() {
       <PageHero
         title="KLASSCI à l'honneur chez Orange Business."
         subtitle="Présentation de notre CRM éducatif lors du lancement de l'offre Internet Pro illimité, au siège Orange Village d'Abidjan."
-        eyebrow="Blog · Partenariats · 19 avril 2026"
+        eyebrow="Blog · Partenariats · 26 mars 2026"
         breadcrumbs={[
           { label: "Blog", href: "/blog" },
           {
@@ -58,7 +58,7 @@ export default function OrangeBusinessArticlePage() {
               style={{ fontFamily: "var(--font-fraunces)" }}
               className="text-2xl md:text-3xl italic font-light text-neutral-900 leading-snug"
             >
-              Le 19 avril 2026, nous avons eu le plaisir de présenter
+              Le 26 mars 2026, nous avons eu le plaisir de présenter
               KLASSCI lors du salon privé organisé par Orange à l'occasion
               du lancement de son offre Internet Pro illimité, au siège
               Orange Village d'Abidjan.
@@ -66,12 +66,12 @@ export default function OrangeBusinessArticlePage() {
 
             <p>
               Orange Business est un acteur central de la transformation
-              digitale en Côte d'Ivoire. En mars dernier, l'opérateur avait
-              déjà lancé Mobile Pro pour les entrepreneurs et les PME. La
-              nouvelle offre Internet Pro illimité prolonge cette
-              stratégie : offrir aux structures professionnelles ivoiriennes
-              une connectivité capable de soutenir une vraie digitalisation
-              des métiers.
+              digitale en Côte d'Ivoire. L'opérateur a déployé sur le
+              premier trimestre 2026 une nouvelle gamme dédiée aux
+              structures professionnelles, dont Mobile Pro et Internet Pro
+              illimité. L'objectif est clair : offrir aux entreprises
+              ivoiriennes une connectivité capable de soutenir une vraie
+              digitalisation des métiers.
             </p>
 
             <p>
