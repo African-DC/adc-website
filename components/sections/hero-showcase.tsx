@@ -111,9 +111,9 @@ export function HeroShowcase() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 mx-auto max-w-3xl"
           >
-            Votre partenaire digital
+            Des solutions
             <span className="relative ml-3">
-              complet
+              digitales
               <motion.svg
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
@@ -136,7 +136,7 @@ export function HeroShowcase() {
             </span>
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
-              pour l'Afrique
+              à fort impact social et humain
             </span>
           </motion.h1>
 
@@ -146,9 +146,9 @@ export function HeroShowcase() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto"
           >
-            Africa Digit Consulting transforme votre présence numérique avec des
-            solutions intégrées, de la conception à la gestion, adaptées au
-            marché africain.
+            Le digital au service des peuples. African Digit Consulting conçoit
+            des solutions utiles, durables et adaptées aux réalités locales des
+            communautés africaines.
           </motion.p>
         </div>
 
@@ -221,10 +221,9 @@ export function HeroShowcase() {
                 Notre mission
               </h2>
               <p className="text-gray-600 mb-6">
-                Nous créons des solutions digitales qui renforcent votre
-                présence en ligne et boostent votre croissance. Notre approche
-                combine expertise technique, créativité et connaissance
-                approfondie du marché africain.
+                Construire des technologies utiles au service des réalités
+                locales. Nous plaçons l'humain au cœur de chaque projet pour
+                répondre aux besoins concrets de nos communautés.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
                 {[
@@ -310,8 +309,8 @@ export function HeroShowcase() {
                       transition={{ duration: 0.8, delay: 1 }}
                       className="text-lg md:text-xl font-medium text-white leading-relaxed"
                     >
-                      « Le but de la vie, ce n'est pas l'espoir de devenir
-                      parfait, c'est la volonté d'être toujours meilleur. »
+                      « Construire des technologies utiles au service des
+                      réalités locales. »
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0 }}
@@ -319,7 +318,7 @@ export function HeroShowcase() {
                       transition={{ duration: 0.8, delay: 1.3 }}
                       className="text-sm text-white/80 mt-2"
                     >
-                      Ralph Waldo Emerson
+                      African Digit Consulting, Abidjan
                     </motion.div>
                   </div>
                 </div>
@@ -339,10 +338,10 @@ export function HeroShowcase() {
                 </div>
                 <div>
                   <div className="text-sm font-semibold text-gray-900">
-                    Solutions adaptées
+                    Impact humain
                   </div>
                   <div className="text-xs text-gray-500">
-                    pour le marché africain
+                    au cœur de chaque projet
                   </div>
                 </div>
               </div>

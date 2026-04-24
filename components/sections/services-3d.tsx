@@ -127,9 +127,9 @@ export function Services3D() {
           </h2>
 
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Des solutions digitales adaptées aux défis spécifiques des
-            entreprises africaines, avec une approche locale et une vision
-            globale.
+            Des solutions digitales utiles, durables et adaptées aux réalités
+            locales. Nous plaçons l'humain au cœur de chaque projet pour un
+            impact concret dans nos communautés.
           </p>
         </motion.div>
 

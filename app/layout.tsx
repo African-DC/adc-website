@@ -25,17 +25,20 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | ADC - Agence digitate",
+    template: "%s | ADC - Agence digitale",
     default: "ADC - Agence Digitale Ivoirienne",
   },
   description:
-    "African Digit Consulting, votre partenaire en communication digitale et solutions numériques en Afrique. Expertise en développement web, marketing digital et design.",
+    "African Digit Consulting conçoit des solutions digitales à fort impact social et humain en Afrique. Le digital au service des peuples, ancré dans les réalités locales.",
   keywords: [
     "agence digitale",
+    "impact social",
+    "solutions utiles",
     "communication",
     "développement web",
     "marketing digital",
     "design",
+    "Abidjan",
     "Côte d'Ivoire",
     "Afrique",
     "solutions numériques",
@@ -53,9 +56,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "ADC - Agence de Communication Digitale en Côte d'Ivoire",
+    title: "ADC - Des solutions digitales à fort impact social et humain",
     description:
-      "African Digit Consulting, votre partenaire en communication digitale et solutions numériques en Afrique.",
+      "African Digit Consulting conçoit des solutions digitales utiles, durables et adaptées aux réalités locales africaines. Le digital au service des peuples.",
     url: "https://www.africadigitconsulting.com",
     siteName: "African Digit Consulting",
     locale: "fr_FR",
@@ -71,9 +74,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ADC - Agence de Communication Digitale en Côte d'Ivoire",
+    title: "ADC - Des solutions digitales à fort impact social et humain",
     description:
-      "African Digit Consulting, votre partenaire en communication digitale et solutions numériques en Afrique.",
+      "African Digit Consulting conçoit des solutions digitales utiles, durables et adaptées aux réalités locales africaines.",
     images: ["/img/logoadc.png"],
   },
   robots: {

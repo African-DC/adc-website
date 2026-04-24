@@ -7,15 +7,14 @@ import { Button } from "@/components/ui/button";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import { motion } from "framer-motion";
 import {
-  Heart,
   ArrowRight,
-  MessageCircle,
-  Globe,
   CheckCircle,
   CheckCircle2,
   Quote,
-  Target,
   Zap,
+  Lightbulb,
+  Users,
+  MapPin,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -59,35 +58,28 @@ export default function AboutPage() {
     },
   ];
 
-  // Nos valeurs
+  // Nos valeurs (3 piliers — flyer ADC)
   const values = [
     {
-      icon: <Target className="h-6 w-6" />,
-      title: "Excellence",
+      icon: <Lightbulb className="h-6 w-6 text-white" />,
+      title: "Innovation",
       description:
-        "Nous visons l'excellence dans chaque projet, avec un souci du détail et une quête constante de qualité.",
+        "Nous créons des solutions digitales utiles, durables et adaptées.",
       color: "from-orange-500 to-red-500",
     },
     {
-      icon: <Heart className="h-6 w-6" />,
-      title: "Passion",
+      icon: <Users className="h-6 w-6 text-white" />,
+      title: "Impact humain",
       description:
-        "Notre passion pour le digital nous pousse à innover et à nous surpasser pour nos clients.",
+        "Nous plaçons l'humain au cœur de chaque projet.",
       color: "from-red-500 to-pink-500",
     },
     {
-      icon: <Globe className="h-6 w-6" />,
-      title: "Expertise africaine",
+      icon: <MapPin className="h-6 w-6 text-white" />,
+      title: "Réalités locales",
       description:
-        "Nous apportons une expertise locale avec une vision globale, adaptée aux réalités africaines.",
+        "Nos technologies répondent aux besoins concrets de nos communautés.",
       color: "from-blue-500 to-indigo-500",
-    },
-    {
-      icon: <MessageCircle className="h-6 w-6" />,
-      title: "Communication",
-      description:
-        "Nous privilégions une communication transparente et constructive avec nos clients.",
-      color: "from-green-500 to-emerald-500",
     },
   ];
 
@@ -99,7 +91,7 @@ export default function AboutPage() {
 
       <PageHero
         title="À propos de nous"
-        subtitle="Découvrez notre parcours, notre vision et les valeurs qui font d'Africa Digit Consulting un partenaire digital de confiance."
+        subtitle="Le digital au service des peuples. Découvrez notre parcours, notre vision et les valeurs qui guident chacune de nos solutions."
         breadcrumbs={[{ label: "À propos", href: "/a-propos" }]}
         pageTheme="about"
         useAbstractBackground={true}
@@ -124,17 +116,18 @@ export default function AboutPage() {
                 </h2>
                 <p className="text-lg text-gray-600 mb-6">
                   <span className="font-semibold text-orange-600">
-                    Africa Digit Consulting
+                    African Digit Consulting
                   </span>{" "}
-                  est une agence digitale créée par une équipe passionnée de
-                  professionnels africains, avec la vision de transformer le
-                  paysage numérique de l'Afrique.
+                  conçoit des solutions digitales à fort impact social et
+                  humain, pensées depuis Abidjan pour l'ensemble du continent
+                  africain.
                 </p>
                 <p className="text-lg text-gray-600 mb-8">
-                  Fondée en 2019 en Côte d'Ivoire, notre mission est de fournir
-                  des solutions digitales de classe mondiale adaptées au
-                  contexte africain, en conjuguant expertise technique,
-                  créativité et compréhension approfondie des marchés locaux.
+                  Notre mission : construire des technologies utiles au service
+                  des réalités locales. Nous plaçons l'humain au cœur de chaque
+                  projet et nous engageons à livrer des solutions utiles,
+                  durables et adaptées aux besoins concrets de nos
+                  communautés.
                 </p>
 
                 <div className="space-y-4">
@@ -144,11 +137,12 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h3 className="font-medium text-gray-800">
-                        Une équipe africaine d'experts
+                        Innovation utile
                       </h3>
                       <p className="text-gray-600">
-                        Nous réunissons les meilleurs talents africains dans les
-                        métiers du digital.
+                        Nous créons des solutions digitales utiles, durables
+                        et adaptées aux contextes dans lesquels elles sont
+                        déployées.
                       </p>
                     </div>
                   </div>
@@ -159,11 +153,12 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h3 className="font-medium text-gray-800">
-                        Solutions adaptées au contexte local
+                        Impact social et humain
                       </h3>
                       <p className="text-gray-600">
-                        Nous développons des solutions qui répondent aux défis
-                        spécifiques du marché africain.
+                        Nous plaçons l'humain au cœur de chaque projet, pour
+                        que la technologie serve toujours les personnes qui
+                        l'utilisent.
                       </p>
                     </div>
                   </div>
@@ -174,12 +169,12 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h3 className="font-medium text-gray-800">
-                        Excellence et innovation
+                        Ancrage dans les réalités locales
                       </h3>
                       <p className="text-gray-600">
-                        Nous nous engageons à fournir un travail de la plus
-                        haute qualité, en restant à la pointe des nouvelles
-                        technologies.
+                        Nos technologies répondent aux besoins concrets de
+                        nos communautés, avec une compréhension fine des
+                        marchés africains.
                       </p>
                     </div>
                   </div>
@@ -209,8 +204,8 @@ export default function AboutPage() {
                     <div className="h-px flex-grow bg-gray-200"></div>
                   </div>
                   <p className="text-gray-600 italic mb-4">
-                    "Nous conjuguons l'Afrique à travers la promotion des
-                    produits made in Africa et de classe internationale."
+                    "Construire des technologies utiles au service des
+                    réalités locales."
                   </p>
                   <div className="font-semibold text-gray-800">
                     Notre vision
@@ -336,7 +331,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-3xl md:text-4xl font-bold mb-6"
               >
-                Les principes qui guident nos actions
+                Les trois piliers qui guident nos actions
               </motion.h2>
 
               <motion.p
@@ -346,12 +341,12 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-gray-600 max-w-2xl mx-auto"
               >
-                Nos valeurs sont au cœur de chaque projet que nous réalisons et
-                de chaque relation que nous construisons avec nos clients.
+                Innovation, impact humain et ancrage dans les réalités locales :
+                trois valeurs qui structurent chaque projet que nous menons.
               </motion.p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {values.map((value, index) => (
                 <motion.div
                   key={value.title}
