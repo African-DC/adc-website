@@ -12,6 +12,8 @@ type ShareButtonProps = {
   url?: string;
   className?: string;
   align?: "left" | "center" | "right";
+  variant?: "primary" | "ghost";
+  compactLabel?: boolean;
 };
 
 type ShareTarget = {
@@ -118,6 +120,8 @@ export function ShareButton({
   url,
   className,
   align = "center",
+  variant = "primary",
+  compactLabel = false,
 }: ShareButtonProps) {
   const t = useTranslations("article");
   const emailLabel = t("shareEmail");
@@ -185,6 +189,13 @@ export function ShareButton({
         ? "right-0"
         : "left-1/2 -translate-x-1/2";
 
+  const buttonLabel = compactLabel ? t("shareHeading") : t("shareButton");
+  const triggerClass =
+    variant === "ghost"
+      ? "group inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white/80 px-3.5 py-2 text-xs font-medium text-neutral-700 backdrop-blur transition-all hover:border-neutral-900 hover:bg-white hover:text-neutral-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 md:px-4 md:text-sm"
+      : "group inline-flex items-center gap-2.5 rounded-full bg-neutral-950 px-5 py-3 text-sm font-medium text-white transition-all hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2";
+  const iconClass = variant === "ghost" ? "h-3.5 w-3.5 md:h-4 md:w-4" : "h-4 w-4";
+
   return (
     <div className={cn("relative inline-block", className)} ref={containerRef}>
       <button
@@ -193,10 +204,10 @@ export function ShareButton({
         aria-haspopup="menu"
         aria-expanded={open}
         aria-controls={menuId}
-        className="group inline-flex items-center gap-2.5 rounded-full bg-neutral-950 px-5 py-3 text-sm font-medium text-white transition-all hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
+        className={triggerClass}
       >
-        <Share2 className="h-4 w-4" strokeWidth={1.8} />
-        <span>{t("shareButton")}</span>
+        <Share2 className={iconClass} strokeWidth={1.8} />
+        <span>{buttonLabel}</span>
       </button>
 
       <AnimatePresence>

@@ -53,6 +53,14 @@ export function BlogArticleLayout({
         subtitle={subtitle}
         eyebrow={eyebrow}
         breadcrumbs={breadcrumbs}
+        actions={
+          <ShareButton
+            title={title.replace(/\.$/, "")}
+            text={shareText ?? subtitle}
+            variant="ghost"
+            align="right"
+          />
+        }
       />
 
       <main className="overflow-hidden bg-white">
