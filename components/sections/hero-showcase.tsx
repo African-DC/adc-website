@@ -13,7 +13,8 @@ import {
   BarChart,
 } from "lucide-react";
 import Link from "next/link";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 export function HeroShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -28,20 +29,6 @@ export function HeroShowcase() {
     "/img/header_img/Interface 2.jpeg",
     "/img/header_img/PHOTO-2024-03-23-08-22-55.jpg",
   ];
-
-  // Gestion du chargement de l'image avec fallback
-  useEffect(() => {
-    const img = new window.Image();
-    img.onload = () => {
-      setImageLoaded(true);
-    };
-    img.onerror = () => {
-      // Si l'image principale ne charge pas, utiliser une image de fallback
-      const randomIndex = Math.floor(Math.random() * fallbackImages.length);
-      setMainImage(fallbackImages[randomIndex]);
-    };
-    img.src = mainImage;
-  }, [mainImage]);
 
   // Données des services de l'entreprise
   const services = [
@@ -275,13 +262,12 @@ export function HeroShowcase() {
                   </div>
                 </Link>
 
-                <Link
-                  href="/contact"
-                  className="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-medium rounded-full flex items-center gap-2 hover:shadow-lg hover:shadow-orange-500/20 transition-all shadow-md"
-                >
-                  <span>Démarrer un projet</span>
-                  <Zap className="h-4 w-4" />
-                </Link>
+                <Button asChild variant="cta" size="lg">
+                  <Link href="/contact">
+                    <span>Démarrer un projet</span>
+                    <Zap className="h-4 w-4" />
+                  </Link>
+                </Button>
               </div>
             </motion.div>
           </motion.div>
@@ -307,6 +293,10 @@ export function HeroShowcase() {
                   fill
                   className="object-cover"
                   onLoad={() => setImageLoaded(true)}
+                  onError={() => {
+                    const randomIndex = Math.floor(Math.random() * fallbackImages.length);
+                    setMainImage(fallbackImages[randomIndex]);
+                  }}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />

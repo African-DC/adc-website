@@ -3,8 +3,9 @@
 import { Footer } from "@/components/sections/footer";
 import { NavbarDemo } from "@/components/sections/navbar-demo";
 import { PageHero } from "@/components/sections/page-hero";
+import { Button } from "@/components/ui/button";
 import ScrollProgress from "@/components/ui/scroll-progress";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Heart,
   ArrowRight,
@@ -18,17 +19,8 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
 
 export default function AboutPage() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
-
   // Notre histoire - timeline
   const historyItems = [
     {
@@ -99,13 +91,6 @@ export default function AboutPage() {
     },
   ];
 
-  // Nos statistiques
-  const stats = [
-    { number: "8+", label: "Années d'expérience" },
-    { number: "50+", label: "Projets réalisés" },
-    { number: "10+", label: "Experts en digital" },
-    { number: "95%", label: "Clients satisfaits" },
-  ];
 
   return (
     <>
@@ -120,7 +105,7 @@ export default function AboutPage() {
         useAbstractBackground={true}
       />
 
-      <main ref={containerRef} className="overflow-hidden relative">
+      <main className="overflow-hidden relative">
         {/* Section Introduction */}
         <section className="py-20 bg-gradient-to-b from-orange-50 to-white relative">
           <div className="absolute top-0 right-0 w-96 h-96 bg-orange-300 rounded-full opacity-10 blur-[150px] -z-10"></div>
@@ -458,13 +443,12 @@ export default function AboutPage() {
                 </div>
 
                 <div className="mt-10">
-                  <Link
-                    href="/contact"
-                    className="px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full inline-flex items-center gap-2 hover:shadow-lg transition-all"
-                  >
-                    <span>Discuter de votre projet</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  <Button asChild variant="cta" size="cta">
+                    <Link href="/contact">
+                      <span>Discuter de votre projet</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
                 </div>
               </motion.div>
             </div>
@@ -498,13 +482,12 @@ export default function AboutPage() {
               </p>
             </motion.div>
 
-            <Link
-              href="/contact"
-              className="px-10 py-4 bg-white text-orange-600 font-medium rounded-full hover:shadow-lg hover:shadow-black/10 transition-all inline-flex items-center gap-2"
-            >
-              <span>Commencer la discussion</span>
-              <ArrowRight className="h-5 w-5" />
-            </Link>
+            <Button asChild variant="ctaInverse" size="cta">
+              <Link href="/contact">
+                <span>Commencer la discussion</span>
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
           </div>
         </section>
       </main>

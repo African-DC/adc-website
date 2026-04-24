@@ -15,7 +15,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import Link from "next/link";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({
@@ -29,8 +29,6 @@ export default function ContactPage() {
     loading: false,
     error: false,
   });
-
-  const containerRef = useRef<HTMLDivElement>(null);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -109,7 +107,7 @@ export default function ContactPage() {
         useAbstractBackground={true}
       />
 
-      <main ref={containerRef} className="overflow-hidden">
+      <main className="overflow-hidden">
         {/* Section Formulaire de Contact */}
         <section className="py-20 relative">
           {/* Éléments décoratifs */}
@@ -425,7 +423,7 @@ export default function ContactPage() {
                       <p className="text-xs text-gray-500 text-center">
                         En soumettant ce formulaire, vous acceptez notre{" "}
                         <Link
-                          href="javascript:void(0)"
+                          href="/politique-confidentialite"
                           className="text-orange-600 hover:underline"
                         >
                           politique de confidentialité

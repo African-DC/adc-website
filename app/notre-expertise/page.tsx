@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { Button } from "@/components/ui/button";
 import ScrollProgress from "@/components/ui/scroll-progress";
 
 // Définition des domaines d'expertise
@@ -86,8 +86,6 @@ const expertises = [
 ];
 
 export default function ExpertisePage() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   return (
     <>
       <ScrollProgress />
@@ -101,7 +99,7 @@ export default function ExpertisePage() {
         useAbstractBackground={true}
       />
 
-      <main ref={containerRef} className="overflow-hidden">
+      <main className="overflow-hidden">
         {/* Introduction */}
         <section className="py-20 bg-gradient-to-b from-orange-50 to-white relative">
           <div className="absolute top-0 right-0 w-96 h-96 bg-orange-300 rounded-full opacity-10 blur-[150px] -z-10"></div>
@@ -200,7 +198,7 @@ export default function ExpertisePage() {
         </section>
 
         {/* Domaines d'expertise */}
-        <section ref={containerRef} className="py-20">
+        <section className="py-20">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-16">
               <motion.h2
@@ -323,13 +321,12 @@ export default function ExpertisePage() {
 
                         {expertise.id === "web" && (
                           <div className="mt-10">
-                            <Link
-                              href="/nos-realisations?categorie=Web%20Design"
-                              className="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full flex items-center gap-2 w-fit hover:shadow-lg transition-all"
-                            >
-                              <span>Voir tous nos projets web</span>
-                              <ArrowRight className="h-4 w-4" />
-                            </Link>
+                            <Button asChild variant="cta" size="lg" className="w-fit">
+                              <Link href="/nos-realisations?categorie=Web%20Design">
+                                <span>Voir tous nos projets web</span>
+                                <ArrowRight className="h-4 w-4" />
+                              </Link>
+                            </Button>
                           </div>
                         )}
                       </div>
@@ -529,13 +526,12 @@ export default function ExpertisePage() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
 
-              <Link
-                href="/contact"
-                className="px-8 py-4 bg-white text-orange-600 font-medium rounded-full hover:shadow-lg hover:shadow-orange-700/20 transition-all duration-300 inline-flex items-center gap-2"
-              >
-                <span>Discuter de votre projet</span>
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+              <Button asChild variant="ctaInverse" size="cta">
+                <Link href="/contact">
+                  <span>Discuter de votre projet</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
             </motion.div>
           </div>
         </section>

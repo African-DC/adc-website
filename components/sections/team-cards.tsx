@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import { OptimizedImage } from "../ui/optimized-image";
 
@@ -23,8 +22,6 @@ interface TeamMemberCardProps {
 }
 
 const TeamMemberCard = ({ member, index }: TeamMemberCardProps) => {
-  const [_, setHovered] = useState(false);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -35,8 +32,6 @@ const TeamMemberCard = ({ member, index }: TeamMemberCardProps) => {
         ease: "easeInOut",
       }}
       className="relative h-[380px] rounded-2xl overflow-hidden group"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"></div>

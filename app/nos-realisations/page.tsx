@@ -6,7 +6,8 @@ import { PageHero } from "@/components/sections/page-hero";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Star, ExternalLink, Tag, EyeIcon } from "lucide-react";
+import { Star, ExternalLink, Tag, EyeIcon, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import Link from "next/link";
 
@@ -326,27 +327,12 @@ export default function RealisationsPage() {
               Partagez-nous votre vision et collaborons ensemble pour créer
               quelque chose d'exceptionnel.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-white text-orange-600 font-medium px-8 py-4 rounded-full hover:shadow-lg hover:shadow-black/10 transition-all"
-            >
-              <span>Commencer un projet</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-move-right"
-              >
-                <path d="M18 8L22 12L18 16" />
-                <path d="M2 12H22" />
-              </svg>
-            </Link>
+            <Button asChild variant="ctaInverse" size="cta">
+              <Link href="/contact">
+                <span>Commencer un projet</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </main>

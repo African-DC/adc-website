@@ -15,6 +15,7 @@ import {
   BarChart,
 } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 interface Service {
   title: string;
@@ -246,13 +247,12 @@ export function Services3D() {
           transition={{ duration: 0.7, delay: 0.6 }}
           className="mt-20 text-center"
         >
-          <Link
-            href="/notre-expertise"
-            className="inline-flex items-center gap-2 px-8 py-4 font-medium text-white rounded-full bg-gradient-to-r from-orange-500 to-red-500 shadow-md hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300"
-          >
-            <span>Explorer toutes nos solutions</span>
-            <ArrowRight className="h-5 w-5" />
-          </Link>
+          <Button asChild variant="cta" size="cta">
+            <Link href="/notre-expertise">
+              <span>Explorer toutes nos solutions</span>
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+          </Button>
         </motion.div>
 
         {/* Métriques */}
