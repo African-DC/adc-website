@@ -148,15 +148,28 @@ export default function KlassciCaseStudyPage() {
                   <span>Étude de cas N° 01 · Projet vedette</span>
                 </motion.div>
 
-                <motion.h1
+                <motion.div
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.15 }}
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="text-[clamp(3rem,8vw,7rem)] font-semibold leading-[0.95] tracking-tight mb-8"
+                  className="flex items-center gap-5 md:gap-7 mb-8"
                 >
-                  KLASSCI<span className="text-orange-500">.</span>
-                </motion.h1>
+                  <div className="relative h-20 w-20 md:h-24 md:w-24 rounded-2xl bg-white border border-neutral-200 shadow-sm p-2 flex-shrink-0">
+                    <Image
+                      src="/img/projets/klassci/logo-klassci.png"
+                      alt="Logo KLASSCI"
+                      fill
+                      className="object-contain p-2"
+                      priority
+                    />
+                  </div>
+                  <h1
+                    style={{ fontFamily: "var(--font-fraunces)" }}
+                    className="text-[clamp(3rem,8vw,7rem)] font-semibold leading-[0.95] tracking-tight"
+                  >
+                    KLASSCI<span className="text-orange-500">.</span>
+                  </h1>
+                </motion.div>
 
                 <motion.p
                   initial={{ opacity: 0, y: 16 }}

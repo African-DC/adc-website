@@ -223,9 +223,19 @@ export default function RealisationsPage() {
                       </span>
                     </div>
 
-                    <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] mb-5">
-                      KLASSCI<span className="text-orange-500">.</span>
-                    </h3>
+                    <div className="flex items-center gap-4 mb-5">
+                      <div className="relative h-14 w-14 rounded-xl bg-white border border-neutral-200 shadow-sm p-1.5 flex-shrink-0">
+                        <Image
+                          src="/img/projets/klassci/logo-klassci.png"
+                          alt="Logo KLASSCI"
+                          fill
+                          className="object-contain p-1.5"
+                        />
+                      </div>
+                      <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05]">
+                        KLASSCI<span className="text-orange-500">.</span>
+                      </h3>
+                    </div>
                     <p className="text-xl md:text-2xl italic font-light text-neutral-700 leading-snug mb-8 max-w-md">
                       Le SaaS qui réinvente la gestion des universités
                       africaines.
