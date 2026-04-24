@@ -509,7 +509,7 @@ export default function KlassciCaseStudyPage() {
                   On ne construit pas un outil pour les écoles africaines
                   sans passer du temps{" "}
                   <span className="text-orange-600 not-italic font-medium">
-                    dans leurs salles de classe.
+                    du côté de leur administration.
                   </span>
                 </blockquote>
 
