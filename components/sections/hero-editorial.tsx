@@ -16,7 +16,7 @@ const metrics = [
 export function HeroEditorial() {
   return (
     <section
-      className={`relative min-h-screen pt-28 pb-12 md:pt-32 md:pb-12 flex flex-col bg-neutral-50 overflow-hidden`}
+      className={`relative min-h-[100svh] pt-28 pb-12 md:pt-32 md:pb-12 flex flex-col bg-neutral-50 overflow-hidden`}
     >
       {/* Decorative faint grid */}
       <div

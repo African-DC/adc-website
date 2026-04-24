@@ -85,10 +85,6 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-p, span, a, button, input, textarea, div {
-  font-family: var(--font-poppins), system-ui, sans-serif;
-}
-
 /* Custom Font Classes */
 .title-large {
   font-family: var(--font-montserrat), system-ui, sans-serif;

@@ -18,7 +18,7 @@ const team: Member[] = [
     slug: "marcel-djedje-li",
     name: "Marcel Djedje-li",
     role: "Head of engineering",
-    image: "/img/TEAM_ADC/marcel-djedjeli.png",
+    image: "/img/TEAM_ADC/marcel.webp",
     linkedin: "https://www.linkedin.com/in/marcel-djedje-li-099490235/",
   },
   {

@@ -61,7 +61,7 @@ export function ImageLightbox({
           role="dialog"
           aria-modal="true"
           aria-label="Image viewer"
-          className="fixed inset-0 z-[100] flex flex-col bg-neutral-950/95 backdrop-blur-md"
+          className="fixed inset-0 z-[100] flex flex-col bg-neutral-950/98 md:bg-neutral-950/95 md:backdrop-blur-md"
         >
           <div className="relative flex items-center justify-between px-6 pt-6 md:px-8 md:pt-8 z-10">
             <div className="text-white/70 text-xs tracking-[0.2em] uppercase font-medium">

@@ -5,6 +5,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { PostHogProvider } from "@/components/analytics/posthog-provider";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ReactNode } from "react";
 import "../globals.css";
 
@@ -18,7 +20,7 @@ const montserrat = Montserrat({
 });
 
 const poppins = Poppins({
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   subsets: ["latin"],
   display: "swap",
   variable: "--font-poppins",
@@ -29,10 +31,11 @@ const poppins = Poppins({
 
 const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600"],
   style: ["normal", "italic"],
   display: "swap",
   variable: "--font-fraunces",
+  preload: false,
 });
 
 const SITE_URL =
@@ -148,6 +151,8 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
         <NextIntlClientProvider>
           <PostHogProvider>{children}</PostHogProvider>
         </NextIntlClientProvider>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

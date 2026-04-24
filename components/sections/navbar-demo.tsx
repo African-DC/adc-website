@@ -52,7 +52,7 @@ export function NavbarDemo() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-white/90 backdrop-blur-md border-b border-neutral-200/80"
+            ? "bg-white/95 md:bg-white/90 md:backdrop-blur-md border-b border-neutral-200/80"
             : "bg-transparent"
         }`}
       >
