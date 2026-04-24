@@ -73,7 +73,7 @@ export function Footer() {
                 <Facebook className="h-4 w-4" strokeWidth={1.5} />
               </a>
               <a
-                href="https://www.linkedin.com/company/african-digit-consulting/?originalSubdomain=ci"
+                href="https://www.linkedin.com/company/klassci/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"

@@ -1,156 +1,267 @@
 "use client";
 
 import { Footer } from "@/components/sections/footer";
-import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { BlogSkeleton } from "@/components/ui/loading-skeletons";
-import { NavigationMenuDemo } from "@/components/ui/navigation-menu-demo";
+import { NavbarDemo } from "@/components/sections/navbar-demo";
+import { PageHero } from "@/components/sections/page-hero";
+import ScrollProgress from "@/components/ui/scroll-progress";
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useState } from "react";
 
-const BlogCard = ({
-  title,
-  description,
-  image,
-  delay,
-}: {
+type Article = {
   title: string;
-  description: string;
+  excerpt: string;
   image: string;
-  delay: number;
-}) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, delay }}
-    className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-  >
-    <div className="relative h-48">
-      <Image src={image} alt={title} fill className="object-cover" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-    </div>
-    <div className="p-6">
-      <h3 className="text-xl font-semibold mb-3 font-['Open_Sans']">{title}</h3>
-      <p className="text-gray-600 text-sm font-['Open_Sans']">{description}</p>
-      <a
-        href="#"
-        className="inline-block mt-4 text-[#ff942b] font-semibold hover:text-orange-600 transition-colors font-['Open_Sans']"
-      >
-        Lire la suite →
-      </a>
-    </div>
-  </motion.div>
-);
+  category: string;
+  date: string;
+  href: string;
+};
+
+const articles: Article[] = [
+  {
+    title: "Digital Women for Access : première édition à Abidjan",
+    excerpt:
+      "Retour sur la première édition de cette initiative dédiée à l'inclusion numérique des femmes en Afrique de l'Ouest.",
+    image: "/img/crea1.webp",
+    category: "Événements",
+    date: "Août 2024",
+    href: "#",
+  },
+  {
+    title:
+      "Salon des opportunités publiques et privées : ADC présent",
+    excerpt:
+      "Notre participation à la deuxième édition du salon dédié à l'entrepreneuriat en Côte d'Ivoire.",
+    image: "/img/crea2.jpg",
+    category: "Entrepreneuriat",
+    date: "Mai 2024",
+    href: "#",
+  },
+  {
+    title: "Webinar : une vision pour l'Afrique numérique",
+    excerpt:
+      "Notre équipe partage sa vision des défis et des opportunités du digital en Afrique francophone.",
+    image: "/img/crea3.jpg",
+    category: "Vision",
+    date: "Mars 2024",
+    href: "#",
+  },
+];
 
 export default function BlogPage() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return <BlogSkeleton />;
-  }
-
-  const articles = [
-    {
-      title: "Article 1",
-      description:
-        "Organisation de la première édition de Digital Women for Access",
-      image: "/img/crea1.webp",
-    },
-    {
-      title: "Article 2",
-      description:
-        "Participation à la deuxième édition du salon des opportunités publiques et privées de l'entrepreneur",
-      image: "/img/crea2.jpg",
-    },
-    {
-      title: "Article 3",
-      description: "Webinar (vision Afrique numérique)",
-      image: "/img/crea3.jpg",
-    },
-  ];
+  const [featured, ...rest] = articles;
 
   return (
-    <div className="min-h-screen bg-[#f2f2f2] flex flex-col">
-      <NavigationMenuDemo />
-      <main className="pt-24 pb-16 px-4 flex-grow">
-        <div className="mt-8">
-          <Breadcrumbs />
-        </div>
+    <>
+      <ScrollProgress />
+      <NavbarDemo />
 
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 pb-[0.4rem] bg-gradient-to-r from-[#ff942b] to-orange-600 bg-clip-text text-transparent font-['Open_Sans'] leading-tight">
-              Blog
-            </h1>
-            <p className="text-gray-600 max-w-2xl mx-auto font-['Open_Sans']">
-              Découvrez nos derniers articles et actualités
-            </p>
-          </motion.div>
+      <PageHero
+        title="Le journal."
+        subtitle="Nos observations sur le digital africain, entre pratique du terrain et regard critique."
+        eyebrow="Blog · Actualités"
+        breadcrumbs={[{ label: "Blog", href: "/blog" }]}
+      />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {articles.map((article, index) => (
-              <BlogCard key={article.title} {...article} delay={index * 0.2} />
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-16"
-          >
-            <div className="relative overflow-hidden rounded-2xl">
-              <div className="absolute inset-0">
-                <Image
-                  src="/img/CTA_image.jpg"
-                  alt="Newsletter background"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#ff942b]/90 to-orange-600/90 mix-blend-multiply" />
-              </div>
-              <div className="relative p-8 md:p-12">
-                <div className="flex items-center gap-2 mb-4">
-                  <Sparkles className="h-6 w-6 text-white" />
-                  <h3 className="text-2xl font-semibold text-white font-['Open_Sans']">
-                    Restez connecté
-                  </h3>
-                </div>
-                <p className="text-white/90 text-lg mb-8 max-w-2xl font-['Open_Sans']">
-                  Abonnez-vous à notre newsletter pour recevoir en
-                  avant-première nos dernières actualités et conseils
-                  d&apos;experts.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 max-w-xl">
-                  <input
-                    type="email"
-                    placeholder="Votre adresse email"
-                    className="flex-grow px-6 py-3 rounded-lg border-2 border-white/20 bg-white/10 text-white placeholder-white/60 focus:outline-none focus:border-white transition-colors font-['Open_Sans']"
-                  />
-                  <button className="px-8 py-3 bg-white text-[#ff942b] rounded-lg font-semibold hover:bg-opacity-90 transition-all transform hover:scale-105 whitespace-nowrap font-['Open_Sans']">
-                    S&apos;abonner
-                  </button>
-                </div>
-              </div>
+      <main className="overflow-hidden bg-white">
+        {/* ===================== FEATURED ===================== */}
+        <section className="py-16 md:py-20 border-t border-neutral-200">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="mb-8 inline-flex items-center gap-3 text-xs tracking-[0.22em] text-neutral-600 uppercase">
+              <span className="inline-block h-px w-10 bg-orange-500" />
+              À la une
             </div>
-          </motion.div>
-        </div>
+
+            <motion.article
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <Link
+                href={featured.href}
+                className="group grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center"
+              >
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-neutral-100 order-1 lg:order-2">
+                  <Image
+                    src={featured.image}
+                    alt={featured.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    sizes="(max-width: 1024px) 100vw, 600px"
+                  />
+                </div>
+                <div className="lg:order-1">
+                  <div className="flex items-center gap-3 text-xs tracking-[0.15em] uppercase text-neutral-500 mb-6">
+                    <span className="text-orange-600 font-medium">
+                      {featured.category}
+                    </span>
+                    <span>·</span>
+                    <time>{featured.date}</time>
+                  </div>
+                  <h2
+                    style={{ fontFamily: "var(--font-fraunces)" }}
+                    className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-neutral-950 mb-5 group-hover:text-orange-600 transition-colors"
+                  >
+                    {featured.title}
+                  </h2>
+                  <p className="text-lg text-neutral-600 leading-relaxed mb-8">
+                    {featured.excerpt}
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 group-hover:text-orange-600 transition-colors">
+                    Lire l'article
+                    <ArrowUpRight
+                      className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                    />
+                  </span>
+                </div>
+              </Link>
+            </motion.article>
+          </div>
+        </section>
+
+        {/* ===================== LIST ===================== */}
+        <section className="py-16 md:py-24 border-t border-neutral-200">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="mb-12 md:mb-16 inline-flex items-center gap-3 text-xs tracking-[0.22em] text-neutral-600 uppercase">
+              <span className="inline-block h-px w-10 bg-orange-500" />
+              Tous les articles
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
+              {rest.map((article, i) => (
+                <motion.article
+                  key={article.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                >
+                  <Link
+                    href={article.href}
+                    className="group block"
+                  >
+                    <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-neutral-100 mb-6">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                    <div className="flex items-center gap-3 text-xs tracking-[0.15em] uppercase text-neutral-500 mb-4">
+                      <span className="text-orange-600 font-medium">
+                        {article.category}
+                      </span>
+                      <span>·</span>
+                      <time>{article.date}</time>
+                    </div>
+                    <h3
+                      style={{ fontFamily: "var(--font-fraunces)" }}
+                      className="text-2xl md:text-3xl font-medium leading-tight text-neutral-950 mb-3 group-hover:text-orange-600 transition-colors"
+                    >
+                      {article.title}
+                    </h3>
+                    <p className="text-neutral-600 leading-relaxed mb-4">
+                      {article.excerpt}
+                    </p>
+                    <span className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 group-hover:text-orange-600 transition-colors">
+                      Lire l'article
+                      <ArrowUpRight
+                        className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                      />
+                    </span>
+                  </Link>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===================== NEWSLETTER ===================== */}
+        <section className="py-24 md:py-32 bg-neutral-950 text-white relative overflow-hidden">
+          <div
+            aria-hidden
+            className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-orange-500/15 blur-[140px] pointer-events-none"
+          />
+          <div className="relative max-w-5xl mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <div className="lg:col-span-7">
+                <div className="inline-flex items-center gap-3 text-xs tracking-[0.22em] text-neutral-400 uppercase mb-6">
+                  <span className="inline-block h-px w-10 bg-orange-400" />
+                  Restez connecté
+                </div>
+                <h2
+                  style={{ fontFamily: "var(--font-fraunces)" }}
+                  className="text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.1] mb-4"
+                >
+                  Une newsletter,{" "}
+                  <em className="text-orange-400 font-normal">
+                    une fois par mois
+                  </em>
+                  .
+                </h2>
+                <p className="text-neutral-400 leading-relaxed">
+                  Nos observations, nos chantiers en cours, et les
+                  apprentissages qu'on a envie de partager. Pas de spam,
+                  désinscription en un clic.
+                </p>
+              </div>
+
+              <NewsletterForm />
+            </div>
+          </div>
+        </section>
       </main>
+
       <Footer />
-    </div>
+    </>
   );
 }
+
+function NewsletterForm() {
+  const [submitted, setSubmitted] = useState(false);
+
+  if (submitted) {
+    return (
+      <div className="lg:col-span-5 border border-white/15 rounded-2xl p-6 bg-white/5">
+        <p className="text-sm text-orange-300 tracking-wider uppercase mb-2">
+          Merci !
+        </p>
+        <p className="text-white/80 leading-relaxed">
+          Votre inscription sera bientôt active. Surveillez votre boîte mail.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      className="lg:col-span-5 flex flex-col gap-3"
+      onSubmit={(e) => {
+        e.preventDefault();
+        setSubmitted(true);
+      }}
+    >
+      <label htmlFor="newsletter-email" className="sr-only">
+        Votre adresse email
+      </label>
+      <input
+        id="newsletter-email"
+        type="email"
+        required
+        placeholder="votre@email.com"
+        className="h-12 px-4 rounded-full bg-white/5 border border-white/15 text-white placeholder:text-neutral-500 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-400/30 transition-colors"
+      />
+      <Button type="submit" variant="cta" size="cta">
+        <span>S'abonner</span>
+        <ArrowUpRight className="h-4 w-4" />
+      </Button>
+    </form>
+  );
+}
+

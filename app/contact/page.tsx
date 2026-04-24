@@ -4,18 +4,38 @@ import { Footer } from "@/components/sections/footer";
 import { NavbarDemo } from "@/components/sections/navbar-demo";
 import { PageHero } from "@/components/sections/page-hero";
 import ScrollProgress from "@/components/ui/scroll-progress";
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import {
-  AtSign,
-  CalendarDays,
+  Mail,
   MapPin,
-  MessageSquare,
   Phone,
-  Send,
-  CheckCircle,
+  ArrowUpRight,
+  CheckCircle2,
+  CalendarClock,
+  Navigation,
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+
+const faqs = [
+  {
+    q: "Combien coûte un projet digital ?",
+    a: "Le coût dépend de la complexité, du périmètre et des délais. Nous proposons des solutions sur mesure adaptées à votre budget et à vos objectifs. Contactez-nous pour un devis personnalisé sous 48h.",
+  },
+  {
+    q: "En combien de temps livrez-vous un projet ?",
+    a: "Un site vitrine simple prend 2 à 4 semaines. Une application web métier peut demander plusieurs mois. Nous établissons un calendrier réaliste dès le brief et vous tenons informé à chaque étape.",
+  },
+  {
+    q: "Comment se déroule votre processus ?",
+    a: "Un brief approfondi pour comprendre votre métier, puis des ateliers de conception, puis le développement itératif. Validation par sprint, mise en ligne, et accompagnement post-lancement.",
+  },
+  {
+    q: "Proposez-vous de la maintenance ?",
+    a: "Oui. Des forfaits maintenance couvrent les mises à jour de sécurité, les corrections de bugs et l'assistance technique. Nous restons votre partenaire sur la durée, pas seulement au lancement.",
+  },
+];
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({
@@ -51,48 +71,41 @@ export default function ContactPage() {
       formData.append("company", formState.company || "Non spécifié");
       formData.append("message", formState.message);
       formData.append("service", formState.service);
-
-      // Ajout de l'API key depuis les variables d'environnement
       formData.append(
         "access_key",
         process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY || ""
       );
-
-      // Ajout d'un champ pour identifier le site
       formData.append("from_website", "Site ADC");
 
-      // Envoi du formulaire à Web3Forms
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData,
       });
-
       const data = await response.json();
 
       if (data.success) {
-        setFormState((prev) => ({
-          ...prev,
-          loading: false,
-          submitted: true,
+        setFormState({
           name: "",
           email: "",
           phone: "",
           company: "",
           message: "",
           service: "web",
-        }));
+          submitted: true,
+          loading: false,
+          error: false,
+        });
       } else {
         throw new Error(data.message || "Une erreur est survenue");
       }
     } catch (error) {
       console.error("Erreur lors de l'envoi du formulaire:", error);
-      setFormState((prev) => ({
-        ...prev,
-        loading: false,
-        error: true,
-      }));
+      setFormState((prev) => ({ ...prev, loading: false, error: true }));
     }
   };
+
+  const inputClass =
+    "w-full h-12 px-4 bg-transparent border border-neutral-200 rounded-lg text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-colors";
 
   return (
     <>
@@ -100,431 +113,474 @@ export default function ContactPage() {
       <NavbarDemo />
 
       <PageHero
-        title="Contactez-nous"
-        subtitle="Prenez contact avec notre équipe et découvrez comment nous pouvons vous accompagner dans votre transformation digitale."
+        title="Parlons de votre projet."
+        subtitle="Un brief, un café, un appel. Nous répondons sous 48h."
+        eyebrow="Contact · Abidjan"
         breadcrumbs={[{ label: "Contact", href: "/contact" }]}
-        pageTheme="contact"
-        useAbstractBackground={true}
       />
 
-      <main className="overflow-hidden">
-        {/* Section Formulaire de Contact */}
-        <section className="py-20 relative">
-          {/* Éléments décoratifs */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-orange-300 rounded-full opacity-10 blur-[150px] -z-10"></div>
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-orange-400 rounded-full opacity-10 blur-[120px] -z-10"></div>
-
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              {/* Partie Info Contact */}
+      <main className="overflow-hidden bg-white">
+        {/* ===================== FORM + INFOS ===================== */}
+        <section className="py-16 md:py-24 border-t border-neutral-200">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+              {/* Left — editorial contact info */}
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="flex flex-col gap-8"
+                transition={{ duration: 0.6 }}
+                className="lg:col-span-5"
               >
-                <div>
-                  <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
-                    Prêt à discuter de votre projet?
-                  </h2>
-
-                  <p className="text-gray-600 mb-8 leading-relaxed">
-                    Notre équipe d'experts est prête à vous aider à concrétiser
-                    votre vision digitale. Contactez-nous pour discuter de votre
-                    projet et découvrir comment nous pouvons transformer vos
-                    idées en réalité.
-                  </p>
+                <div className="mb-6 text-xs tracking-[0.22em] text-neutral-600 uppercase">
+                  <span className="inline-block h-px w-10 bg-orange-500 mr-3 align-middle" />
+                  Prendre contact
                 </div>
 
-                {/* Infos de contact */}
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-orange-100 text-orange-600 rounded-xl">
-                      <MapPin className="h-6 w-6" />
-                    </div>
+                <h2
+                  style={{ fontFamily: "var(--font-fraunces)" }}
+                  className="text-3xl md:text-4xl font-medium leading-tight text-neutral-950 mb-6"
+                >
+                  Dites-nous{" "}
+                  <em className="text-orange-500 font-normal">
+                    ce que vous voulez construire
+                  </em>
+                  . Nous vous dirons comment le rendre utile.
+                </h2>
+
+                <p className="text-neutral-600 leading-relaxed mb-10 max-w-md">
+                  Que ce soit une première idée, un appel d'offres, ou un
+                  projet déjà démarré, nous prenons le temps de comprendre
+                  avant de proposer.
+                </p>
+
+                <dl className="space-y-7">
+                  <div className="flex items-start gap-4 pb-7 border-b border-neutral-200">
+                    <MapPin
+                      className="h-5 w-5 text-orange-500 mt-1 flex-shrink-0"
+                      strokeWidth={1.5}
+                    />
                     <div>
-                      <h3 className="font-medium mb-1">Notre Adresse</h3>
-                      <p className="text-gray-600">
-                        Netzify Coworking, Rue L158, Angré, Abidjan
-                      </p>
+                      <dt className="text-xs tracking-[0.15em] uppercase text-neutral-500 mb-1.5">
+                        Adresse
+                      </dt>
+                      <dd className="text-neutral-900">
+                        Netzify Coworking, Rue L158, Angré
+                        <br />
+                        Abidjan, Côte d'Ivoire
+                      </dd>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 pb-7 border-b border-neutral-200">
+                    <Phone
+                      className="h-5 w-5 text-orange-500 mt-1 flex-shrink-0"
+                      strokeWidth={1.5}
+                    />
+                    <div>
+                      <dt className="text-xs tracking-[0.15em] uppercase text-neutral-500 mb-1.5">
+                        Téléphone
+                      </dt>
+                      <dd>
+                        <a
+                          href="tel:+2252732797538"
+                          className="text-neutral-900 hover:text-orange-600 transition-colors"
+                        >
+                          +225 27 32 797 538
+                        </a>
+                        <span className="text-neutral-400 mx-2">·</span>
+                        <a
+                          href="tel:+22505954598 43"
+                          className="text-neutral-900 hover:text-orange-600 transition-colors"
+                        >
+                          +225 05 95 459 843
+                        </a>
+                      </dd>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4 pb-7 border-b border-neutral-200">
+                    <Mail
+                      className="h-5 w-5 text-orange-500 mt-1 flex-shrink-0"
+                      strokeWidth={1.5}
+                    />
+                    <div>
+                      <dt className="text-xs tracking-[0.15em] uppercase text-neutral-500 mb-1.5">
+                        Email
+                      </dt>
+                      <dd>
+                        <a
+                          href="mailto:contact@africandigitconsulting.com"
+                          className="text-neutral-900 hover:text-orange-600 transition-colors break-all"
+                        >
+                          contact@africandigitconsulting.com
+                        </a>
+                      </dd>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-orange-100 text-orange-600 rounded-xl">
-                      <Phone className="h-6 w-6" />
-                    </div>
+                    <CalendarClock
+                      className="h-5 w-5 text-orange-500 mt-1 flex-shrink-0"
+                      strokeWidth={1.5}
+                    />
                     <div>
-                      <h3 className="font-medium mb-1">Téléphone</h3>
-                      <p className="text-gray-600">
-                        +225 27 32 797 538 /05 95 459 843
-                      </p>
+                      <dt className="text-xs tracking-[0.15em] uppercase text-neutral-500 mb-1.5">
+                        Horaires
+                      </dt>
+                      <dd className="text-neutral-900">
+                        Lun – Ven · 8h30 – 17h30
+                        <br />
+                        <span className="text-neutral-500">
+                          Samedi sur rendez-vous
+                        </span>
+                      </dd>
                     </div>
                   </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-orange-100 text-orange-600 rounded-xl">
-                      <AtSign className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium mb-1">Email</h3>
-                      <p className="text-gray-600">
-                        contact@africadigitconsulting.com
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-orange-100 text-orange-600 rounded-xl">
-                      <CalendarDays className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium mb-1">Horaires d'ouverture</h3>
-                      <p className="text-gray-600">Lun - Ven: 8h30 - 17h30</p>
-                      <p className="text-gray-600">Sam: Sur rendez-vous</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Carte */}
-                <div className="mt-8 rounded-xl overflow-hidden h-80 relative shadow-lg">
-                  <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center z-0">
-                    <div className="text-gray-400 flex flex-col items-center">
-                      <MapPin className="h-8 w-8 mb-2" />
-                      <span>Chargement de la carte...</span>
-                    </div>
-                  </div>
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.443572663347!2d-3.9742620245976213!3d5.3477399371242615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1ebcc98c7f3d1%3A0xf2b4e6f0f7079fa4!2sNetzify%20coworking!5e0!3m2!1sfr!2sci!4v1626700000000!5m2!1sfr!2sci"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Carte de localisation African Digit Consulting"
-                    className="absolute inset-0 z-10"
-                  />
-                  <div className="absolute top-4 left-4 bg-white p-3 rounded-lg shadow-md flex items-center gap-2 z-20">
-                    <MapPin className="h-4 w-4 text-orange-600" />
-                    <span className="text-sm font-medium">
-                      African Digit Consulting
-                    </span>
-                  </div>
-                  <div className="absolute bottom-4 right-4 bg-orange-600 text-white p-3 rounded-lg shadow-md z-20">
-                    <Link
-                      href="https://goo.gl/maps/1ysQxe7F1X9qiZC76"
-                      target="_blank"
-                      className="text-sm font-medium flex items-center gap-2"
-                    >
-                      <span>Itinéraire</span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="lucide lucide-navigation"
-                      >
-                        <polygon points="3 11 22 2 13 21 11 13 3 11" />
-                      </svg>
-                    </Link>
-                  </div>
-                </div>
+                </dl>
               </motion.div>
 
-              {/* Formulaire de contact */}
+              {/* Right — form */}
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="bg-white rounded-2xl shadow-xl p-8 border border-orange-100"
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="lg:col-span-7"
               >
-                {formState.submitted ? (
-                  <div className="flex flex-col items-center justify-center py-12 text-center">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                      <CheckCircle className="h-8 w-8 text-green-600" />
-                    </div>
-                    <h3 className="text-2xl font-bold mb-4">Message envoyé!</h3>
-                    <p className="text-gray-600 mb-8">
-                      Merci de nous avoir contacté. Notre équipe vous répondra
-                      dans les plus brefs délais.
-                    </p>
-                    <button
-                      onClick={() =>
-                        setFormState((prev) => ({ ...prev, submitted: false }))
-                      }
-                      className="bg-orange-600 hover:bg-orange-700 text-white py-2 px-6 rounded-lg"
-                    >
-                      Envoyer un autre message
-                    </button>
-                  </div>
-                ) : (
-                  <>
-                    <div className="flex items-center gap-2 mb-6">
-                      <MessageSquare className="h-6 w-6 text-orange-600" />
-                      <h3 className="text-2xl font-bold">
-                        Envoyez-nous un message
+                <div className="relative bg-neutral-50 border border-neutral-200 rounded-2xl p-8 md:p-10">
+                  {formState.submitted ? (
+                    <div className="flex flex-col items-start py-8">
+                      <div className="flex items-center justify-center h-14 w-14 rounded-full bg-green-100 text-green-700 mb-6">
+                        <CheckCircle2 className="h-7 w-7" strokeWidth={1.5} />
+                      </div>
+                      <h3
+                        style={{ fontFamily: "var(--font-fraunces)" }}
+                        className="text-3xl md:text-4xl font-medium text-neutral-950 leading-tight mb-4"
+                      >
+                        Message envoyé.
                       </h3>
+                      <p className="text-neutral-600 leading-relaxed mb-8 max-w-md">
+                        Merci. Notre équipe vous répond sous 48h, généralement
+                        plus tôt.
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setFormState((prev) => ({
+                            ...prev,
+                            submitted: false,
+                          }))
+                        }
+                        className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 hover:text-orange-600 transition-colors"
+                      >
+                        Envoyer un autre message
+                        <ArrowUpRight className="h-4 w-4" />
+                      </button>
                     </div>
-
-                    {formState.error && (
-                      <div className="bg-red-50 border border-red-200 text-red-600 p-4 rounded-lg mb-6">
-                        <p className="text-sm">
-                          Une erreur s'est produite lors de l'envoi de votre
-                          message. Veuillez réessayer ultérieurement.
+                  ) : (
+                    <>
+                      <div className="mb-8">
+                        <h3
+                          style={{ fontFamily: "var(--font-fraunces)" }}
+                          className="text-2xl md:text-3xl font-medium text-neutral-950 leading-tight mb-2"
+                        >
+                          Votre brief.
+                        </h3>
+                        <p className="text-sm text-neutral-500">
+                          Les champs suivis d'un{" "}
+                          <span className="text-orange-500">*</span> sont
+                          obligatoires.
                         </p>
                       </div>
-                    )}
 
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <label htmlFor="name" className="text-sm font-medium">
-                            Nom complet{" "}
-                            <span className="text-orange-600">*</span>
+                      {formState.error && (
+                        <div
+                          role="alert"
+                          className="border border-red-200 bg-red-50 text-red-700 text-sm px-4 py-3 rounded-lg mb-6"
+                        >
+                          Une erreur s'est produite. Veuillez réessayer ou
+                          nous écrire directement à{" "}
+                          <a
+                            href="mailto:contact@africandigitconsulting.com"
+                            className="underline"
+                          >
+                            contact@africandigitconsulting.com
+                          </a>
+                          .
+                        </div>
+                      )}
+
+                      <form onSubmit={handleSubmit} className="space-y-5">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                          <div>
+                            <label
+                              htmlFor="name"
+                              className="block text-xs tracking-[0.12em] uppercase text-neutral-600 mb-2"
+                            >
+                              Nom complet{" "}
+                              <span className="text-orange-500">*</span>
+                            </label>
+                            <input
+                              id="name"
+                              name="name"
+                              value={formState.name}
+                              onChange={handleChange}
+                              placeholder="Votre nom"
+                              required
+                              className={inputClass}
+                            />
+                          </div>
+
+                          <div>
+                            <label
+                              htmlFor="email"
+                              className="block text-xs tracking-[0.12em] uppercase text-neutral-600 mb-2"
+                            >
+                              Email <span className="text-orange-500">*</span>
+                            </label>
+                            <input
+                              id="email"
+                              name="email"
+                              type="email"
+                              value={formState.email}
+                              onChange={handleChange}
+                              placeholder="votre@email.com"
+                              required
+                              className={inputClass}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                          <div>
+                            <label
+                              htmlFor="phone"
+                              className="block text-xs tracking-[0.12em] uppercase text-neutral-600 mb-2"
+                            >
+                              Téléphone
+                            </label>
+                            <input
+                              id="phone"
+                              name="phone"
+                              value={formState.phone}
+                              onChange={handleChange}
+                              placeholder="+225 XX XX XX XX XX"
+                              className={inputClass}
+                            />
+                          </div>
+
+                          <div>
+                            <label
+                              htmlFor="company"
+                              className="block text-xs tracking-[0.12em] uppercase text-neutral-600 mb-2"
+                            >
+                              Entreprise
+                            </label>
+                            <input
+                              id="company"
+                              name="company"
+                              value={formState.company}
+                              onChange={handleChange}
+                              placeholder="Votre entreprise"
+                              className={inputClass}
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <label
+                            htmlFor="service"
+                            className="block text-xs tracking-[0.12em] uppercase text-neutral-600 mb-2"
+                          >
+                            Type de projet{" "}
+                            <span className="text-orange-500">*</span>
                           </label>
-                          <input
-                            id="name"
-                            name="name"
-                            value={formState.name}
+                          <select
+                            id="service"
+                            name="service"
+                            value={formState.service}
                             onChange={handleChange}
-                            placeholder="Votre nom"
                             required
-                            className="w-full px-3 py-2 rounded-md border border-gray-200 focus:border-orange-500 focus:ring-orange-500"
-                          />
+                            className={inputClass}
+                          >
+                            <option value="web">Développement web</option>
+                            <option value="design">
+                              Design & identité visuelle
+                            </option>
+                            <option value="mobile">
+                              Application mobile
+                            </option>
+                            <option value="marketing">
+                              Marketing digital
+                            </option>
+                            <option value="autre">Autre</option>
+                          </select>
                         </div>
 
-                        <div className="space-y-2">
+                        <div>
                           <label
-                            htmlFor="email"
-                            className="text-sm font-medium"
+                            htmlFor="message"
+                            className="block text-xs tracking-[0.12em] uppercase text-neutral-600 mb-2"
                           >
-                            Email <span className="text-orange-600">*</span>
+                            Votre message{" "}
+                            <span className="text-orange-500">*</span>
                           </label>
-                          <input
-                            id="email"
-                            name="email"
-                            type="email"
-                            value={formState.email}
+                          <textarea
+                            id="message"
+                            name="message"
+                            value={formState.message}
                             onChange={handleChange}
-                            placeholder="votre@email.com"
+                            placeholder="Décrivez votre projet, votre besoin, vos contraintes…"
+                            rows={5}
                             required
-                            className="w-full px-3 py-2 rounded-md border border-gray-200 focus:border-orange-500 focus:ring-orange-500"
+                            className={`${inputClass} h-auto py-3 resize-y`}
                           />
                         </div>
-                      </div>
 
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <label
-                            htmlFor="phone"
-                            className="text-sm font-medium"
+                        <div className="pt-2">
+                          <Button
+                            type="submit"
+                            disabled={formState.loading}
+                            variant="cta"
+                            size="cta"
+                            className="w-full sm:w-auto"
                           >
-                            Téléphone
-                          </label>
-                          <input
-                            id="phone"
-                            name="phone"
-                            value={formState.phone}
-                            onChange={handleChange}
-                            placeholder="+225 XX XX XX XX XX"
-                            className="w-full px-3 py-2 rounded-md border border-gray-200 focus:border-orange-500 focus:ring-orange-500"
-                          />
+                            {formState.loading ? (
+                              <>
+                                <span className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                <span>Envoi en cours…</span>
+                              </>
+                            ) : (
+                              <>
+                                <span>Envoyer le brief</span>
+                                <ArrowUpRight className="h-4 w-4" />
+                              </>
+                            )}
+                          </Button>
+                          <p className="mt-4 text-xs text-neutral-500">
+                            En soumettant ce formulaire, vous acceptez notre{" "}
+                            <Link
+                              href="/politique-confidentialite"
+                              className="text-orange-600 hover:underline"
+                            >
+                              politique de confidentialité
+                            </Link>
+                            .
+                          </p>
                         </div>
-
-                        <div className="space-y-2">
-                          <label
-                            htmlFor="company"
-                            className="text-sm font-medium"
-                          >
-                            Entreprise
-                          </label>
-                          <input
-                            id="company"
-                            name="company"
-                            value={formState.company}
-                            onChange={handleChange}
-                            placeholder="Votre entreprise"
-                            className="w-full px-3 py-2 rounded-md border border-gray-200 focus:border-orange-500 focus:ring-orange-500"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="space-y-2">
-                        <label
-                          htmlFor="service"
-                          className="text-sm font-medium"
-                        >
-                          Service désiré{" "}
-                          <span className="text-orange-600">*</span>
-                        </label>
-                        <select
-                          id="service"
-                          name="service"
-                          value={formState.service}
-                          onChange={handleChange}
-                          required
-                          className="w-full rounded-md border border-gray-200 py-2.5 px-4 focus:border-orange-500 focus:ring-orange-500"
-                        >
-                          <option value="web">Développement Web</option>
-                          <option value="design">
-                            Design & Identité Visuelle
-                          </option>
-                          <option value="mobile">Applications Mobiles</option>
-                          <option value="marketing">Marketing Digital</option>
-                          <option value="autre">Autre</option>
-                        </select>
-                      </div>
-
-                      <div className="space-y-2">
-                        <label
-                          htmlFor="message"
-                          className="text-sm font-medium"
-                        >
-                          Message <span className="text-orange-600">*</span>
-                        </label>
-                        <textarea
-                          id="message"
-                          name="message"
-                          value={formState.message}
-                          onChange={handleChange}
-                          placeholder="Décrivez votre projet ou votre demande..."
-                          rows={5}
-                          required
-                          className="w-full px-3 py-2 rounded-md border border-gray-200 focus:border-orange-500 focus:ring-orange-500"
-                        />
-                      </div>
-
-                      <button
-                        type="submit"
-                        disabled={formState.loading}
-                        className="w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white py-3 flex items-center justify-center gap-2 rounded-lg"
-                      >
-                        {formState.loading ? (
-                          <>
-                            <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                            Envoi en cours...
-                          </>
-                        ) : (
-                          <>
-                            <Send className="h-5 w-5" />
-                            Envoyer le message
-                          </>
-                        )}
-                      </button>
-
-                      <p className="text-xs text-gray-500 text-center">
-                        En soumettant ce formulaire, vous acceptez notre{" "}
-                        <Link
-                          href="/politique-confidentialite"
-                          className="text-orange-600 hover:underline"
-                        >
-                          politique de confidentialité
-                        </Link>
-                      </p>
-                    </form>
-                  </>
-                )}
+                      </form>
+                    </>
+                  )}
+                </div>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Section FAQ */}
-        <section className="py-20 bg-gradient-to-b from-orange-50 to-white">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Questions fréquentes
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Des réponses aux questions les plus courantes sur nos services
-                et notre processus de travail.
-              </p>
+        {/* ===================== MAP ===================== */}
+        <section className="py-12 md:py-16 border-t border-neutral-200">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-10">
+              <div className="lg:col-span-5">
+                <div className="mb-6 text-xs tracking-[0.22em] text-neutral-600 uppercase">
+                  <span className="inline-block h-px w-10 bg-orange-500 mr-3 align-middle" />
+                  Nous rendre visite
+                </div>
+                <h2
+                  style={{ fontFamily: "var(--font-fraunces)" }}
+                  className="text-3xl md:text-4xl font-medium leading-tight text-neutral-950 mb-4"
+                >
+                  Angré, Abidjan.
+                </h2>
+                <p className="text-neutral-600 leading-relaxed mb-6">
+                  Notre bureau est au Netzify Coworking, rue L158. Un café
+                  vous attend. Préférez-vous qu'on passe chez vous ? On peut
+                  aussi.
+                </p>
+                <a
+                  href="https://goo.gl/maps/1ysQxe7F1X9qiZC76"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 hover:text-orange-600 transition-colors"
+                >
+                  <Navigation className="h-4 w-4" strokeWidth={1.8} />
+                  Voir l'itinéraire
+                  <ArrowUpRight className="h-4 w-4" strokeWidth={1.8} />
+                </a>
+              </div>
+
+              <div className="lg:col-span-7 relative rounded-2xl overflow-hidden border border-neutral-200 aspect-[16/10] md:aspect-[16/9]">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.443572663347!2d-3.9742620245976213!3d5.3477399371242615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1ebcc98c7f3d1%3A0xf2b4e6f0f7079fa4!2sNetzify%20coworking!5e0!3m2!1sfr!2sci!4v1626700000000!5m2!1sfr!2sci"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Carte de localisation ADC"
+                  className="absolute inset-0"
+                />
+              </div>
             </div>
+          </div>
+        </section>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="bg-white p-6 rounded-xl shadow-sm border border-orange-100"
-              >
-                <h3 className="text-xl font-semibold mb-3">
-                  Combien coûte un projet digital?
-                </h3>
-                <p className="text-gray-600">
-                  Le coût d'un projet digital varie en fonction de sa
-                  complexité, de ses fonctionnalités et de son ampleur. Nous
-                  proposons des solutions sur mesure adaptées à votre budget et
-                  à vos objectifs. Contactez-nous pour obtenir un devis
-                  personnalisé.
-                </p>
-              </motion.div>
+        {/* ===================== FAQ ===================== */}
+        <section className="py-24 md:py-32 border-t border-neutral-200">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-12 md:mb-16">
+              <div className="lg:col-span-5">
+                <div className="mb-6 text-xs tracking-[0.22em] text-neutral-600 uppercase">
+                  <span className="inline-block h-px w-10 bg-orange-500 mr-3 align-middle" />
+                  Questions fréquentes
+                </div>
+                <h2
+                  style={{ fontFamily: "var(--font-fraunces)" }}
+                  className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-neutral-950"
+                >
+                  Ce qu'on nous demande{" "}
+                  <em className="text-orange-500 font-normal">
+                    le plus souvent
+                  </em>
+                  .
+                </h2>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="bg-white p-6 rounded-xl shadow-sm border border-orange-100"
-              >
-                <h3 className="text-xl font-semibold mb-3">
-                  Combien de temps faut-il pour réaliser un projet?
-                </h3>
-                <p className="text-gray-600">
-                  La durée d'un projet dépend de sa complexité et de son
-                  envergure. Un site vitrine simple peut prendre 2-4 semaines,
-                  tandis qu'une application web complexe peut nécessiter
-                  plusieurs mois. Nous établissons un calendrier réaliste dès le
-                  début du projet.
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="bg-white p-6 rounded-xl shadow-sm border border-orange-100"
-              >
-                <h3 className="text-xl font-semibold mb-3">
-                  Comment se déroule le processus de travail?
-                </h3>
-                <p className="text-gray-600">
-                  Notre processus commence par une consultation approfondie pour
-                  comprendre vos besoins. Nous passons ensuite à la phase de
-                  conception, puis au développement. Après validation, nous
-                  procédons au lancement et assurons un suivi post-lancement
-                  pour garantir votre satisfaction.
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="bg-white p-6 rounded-xl shadow-sm border border-orange-100"
-              >
-                <h3 className="text-xl font-semibold mb-3">
-                  Proposez-vous des services de maintenance?
-                </h3>
-                <p className="text-gray-600">
-                  Oui, nous proposons des forfaits de maintenance pour assurer
-                  le bon fonctionnement de votre site ou application. Ces
-                  forfaits incluent les mises à jour de sécurité, les
-                  corrections de bugs et l'assistance technique régulière.
-                </p>
-              </motion.div>
+              <div className="lg:col-span-7">
+                <ul className="divide-y divide-neutral-200 border-t border-b border-neutral-200">
+                  {faqs.map((item, i) => (
+                    <motion.li
+                      key={item.q}
+                      initial={{ opacity: 0, y: 12 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.08 }}
+                    >
+                      <details className="group py-6">
+                        <summary className="flex items-start justify-between gap-6 cursor-pointer list-none">
+                          <span
+                            style={{ fontFamily: "var(--font-fraunces)" }}
+                            className="text-lg md:text-xl font-medium text-neutral-950 pr-4"
+                          >
+                            <span className="text-orange-500/80 italic mr-4 text-sm tabular-nums">
+                              0{i + 1}
+                            </span>
+                            {item.q}
+                          </span>
+                          <span className="flex-shrink-0 mt-1 flex items-center justify-center h-8 w-8 rounded-full border border-neutral-200 text-neutral-500 group-open:rotate-45 group-open:border-orange-500 group-open:text-orange-500 transition-all">
+                            +
+                          </span>
+                        </summary>
+                        <p className="mt-4 pr-12 text-neutral-600 leading-relaxed max-w-2xl">
+                          {item.a}
+                        </p>
+                      </details>
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </section>

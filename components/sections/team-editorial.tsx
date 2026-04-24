@@ -16,31 +16,31 @@ const team: Member[] = [
     name: "Marcel Djedje-li",
     role: "Chef du département développement",
     image: "/img/TEAM_ADC/marcel-djedjeli.png",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/marcel-djedje-li-099490235/",
   },
   {
     name: "Bede Abel Josias",
     role: "Manager général · Transformation digitale",
     image: "/img/TEAM_ADC/BEDE Abel Josias Manager.webp",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/abel-josias-bede-2372a0255/",
   },
   {
     name: "Yablai Ruben Virgil",
     role: "Développeur frontend",
     image: "/img/TEAM_ADC/ruben-Photoroom.webp",
-    linkedin: "#",
+    linkedin:
+      "https://www.linkedin.com/in/yablai-ruben-virgil-yablai-b1657b1a9/",
   },
   {
     name: "Issouf Ouedraogo",
     role: "Développeur full-stack · Administrateur de base de données",
     image: "/img/TEAM_ADC/issouf-ouedraogo.jpg",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/issouf-ouedraogo-riqa/",
   },
   {
     name: "Meledje Bythia",
     role: "Assistante de direction",
     image: "/img/TEAM_ADC/MELEDJE BYTHIA Assiatnte de direction .webp",
-    linkedin: "#",
   },
 ];
 
