@@ -40,7 +40,7 @@ const team: Member[] = [
   {
     name: "Hermann Koré",
     role: "Commercial",
-    image: "/img/TEAM_ADC/hermann-kore.jpg",
+    image: "/img/TEAM_ADC/hermann-kore.webp",
   },
   {
     name: "Meledje Bythia",
