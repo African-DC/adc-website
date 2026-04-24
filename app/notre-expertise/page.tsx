@@ -8,9 +8,8 @@ import {
   ArrowUpRight,
   Check,
   Code,
-  BarChart,
-  PenTool,
 } from "lucide-react";
+// BarChart, PenTool icons kept on standby for expertises 02/03 if we reactivate them.
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ScrollProgress from "@/components/ui/scroll-progress";
@@ -50,52 +49,43 @@ const expertises: Expertise[] = [
       "Plateformes multi-tenants",
     ],
   },
-  {
-    number: "02",
-    id: "graphic",
-    title: "Design & identité visuelle",
-    icon: <PenTool className="h-5 w-5" strokeWidth={1.5} />,
-    tagline:
-      "Une marque lisible en trois secondes, mémorable en trente jours.",
-    description:
-      "Identité visuelle, supports marketing, motion design. Notre direction artistique commence toujours par comprendre ce que votre marque veut dire avant de réfléchir à son apparence.",
-    features: [
-      "Création de logos et systèmes d'identité complets",
-      "Chartes graphiques rigoureuses et exploitables",
-      "Supports marketing imprimés et digitaux",
-      "Packaging produit pensé pour la distribution locale",
-      "Interfaces UX/UI adaptées à vos utilisateurs cibles",
-    ],
-    specialties: [
-      "Logo & branding",
-      "Supports imprimés",
-      "Packaging",
-      "UI/UX",
-    ],
-  },
-  {
-    number: "03",
-    id: "digital",
-    title: "Marketing digital",
-    icon: <BarChart className="h-5 w-5" strokeWidth={1.5} />,
-    tagline:
-      "De la visibilité qui se mesure, pas des vanity metrics.",
-    description:
-      "Stratégies SEO, réseaux sociaux, campagnes publicitaires ciblées. Nous élaborons des plans marketing digitaux qui convertissent, avec des rapports mensuels honnêtes sur ce qui marche et ce qui ne marche pas.",
-    features: [
-      "Stratégies SEO on-page et off-page pour un référencement durable",
-      "Gestion éditoriale des réseaux sociaux avec calendrier clair",
-      "Campagnes publicitaires ciblées (Google Ads, Meta Ads)",
-      "Email marketing et automation pour fidéliser",
-      "Analyse de données et rapports mensuels transparents",
-    ],
-    specialties: [
-      "SEO",
-      "Médias sociaux",
-      "Publicité en ligne",
-      "Content marketing",
-    ],
-  },
+  // Expertises ci-dessous desactivees: ADC ne fournit plus ces prestations.
+  // A reactiver en decommentant si l'offre change (ajouter BarChart/PenTool aux imports).
+  // {
+  //   number: "02",
+  //   id: "graphic",
+  //   title: "Design & identité visuelle",
+  //   icon: <PenTool className="h-5 w-5" strokeWidth={1.5} />,
+  //   tagline:
+  //     "Une marque lisible en trois secondes, mémorable en trente jours.",
+  //   description:
+  //     "Identité visuelle, supports marketing, motion design. Notre direction artistique commence toujours par comprendre ce que votre marque veut dire avant de réfléchir à son apparence.",
+  //   features: [
+  //     "Création de logos et systèmes d'identité complets",
+  //     "Chartes graphiques rigoureuses et exploitables",
+  //     "Supports marketing imprimés et digitaux",
+  //     "Packaging produit pensé pour la distribution locale",
+  //     "Interfaces UX/UI adaptées à vos utilisateurs cibles",
+  //   ],
+  //   specialties: ["Logo & branding", "Supports imprimés", "Packaging", "UI/UX"],
+  // },
+  // {
+  //   number: "03",
+  //   id: "digital",
+  //   title: "Marketing digital",
+  //   icon: <BarChart className="h-5 w-5" strokeWidth={1.5} />,
+  //   tagline: "De la visibilité qui se mesure, pas des vanity metrics.",
+  //   description:
+  //     "Stratégies SEO, réseaux sociaux, campagnes publicitaires ciblées. Nous élaborons des plans marketing digitaux qui convertissent, avec des rapports mensuels honnêtes sur ce qui marche et ce qui ne marche pas.",
+  //   features: [
+  //     "Stratégies SEO on-page et off-page pour un référencement durable",
+  //     "Gestion éditoriale des réseaux sociaux avec calendrier clair",
+  //     "Campagnes publicitaires ciblées (Google Ads, Meta Ads)",
+  //     "Email marketing et automation pour fidéliser",
+  //     "Analyse de données et rapports mensuels transparents",
+  //   ],
+  //   specialties: ["SEO", "Médias sociaux", "Publicité en ligne", "Content marketing"],
+  // },
 ];
 
 export default function ExpertisePage() {
@@ -105,8 +95,8 @@ export default function ExpertisePage() {
       <NavbarDemo />
 
       <PageHero
-        title="Trois expertises, une même discipline."
-        subtitle="Nos services sont différents mais suivent tous la même règle : commencer par comprendre avant de proposer."
+        title="Notre expertise : concevoir le web qui tient dans la durée."
+        subtitle="Une discipline simple : commencer par comprendre votre métier avant de proposer une ligne de code."
         eyebrow="Notre expertise"
         breadcrumbs={[{ label: "Notre expertise", href: "/notre-expertise" }]}
       />
@@ -135,10 +125,11 @@ export default function ExpertisePage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="lg:col-span-5 text-lg text-neutral-600 leading-relaxed lg:pl-10 lg:border-l border-neutral-300"
               >
-                Un site ne sert à rien si personne ne le trouve. Une identité
-                ne porte pas si le produit derrière ne tient pas. Une
-                campagne ne convertit pas si l'expérience d'arrivée n'est pas
-                pensée. Nous travaillons sur les trois ensemble.
+                Un site ne sert à rien si personne ne le trouve, et un
+                produit ne tient pas si l'architecture derrière n'est pas
+                pensée pour durer. Notre métier : livrer des plateformes
+                web solides, mobile-first, pensées pour le contexte
+                africain.
               </motion.p>
             </div>
           </div>

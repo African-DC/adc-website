@@ -189,7 +189,7 @@ export function NavbarDemo() {
                   <ArrowUpRight className="h-5 w-5" strokeWidth={1.5} />
                 </Link>
                 <p className="mt-8 text-sm text-neutral-500">
-                  Abidjan, Côte d'Ivoire
+                  Grand-Bassam, Côte d'Ivoire
                   <br />
                   klassci@africandigitconsulting.com
                 </p>

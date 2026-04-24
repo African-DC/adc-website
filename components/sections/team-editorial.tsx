@@ -89,8 +89,8 @@ export function TeamEditorial() {
             className="lg:col-span-5 lg:pl-10 lg:border-l border-neutral-300"
           >
             <p className="text-lg text-neutral-600 leading-relaxed">
-              Dev, design, stratégie, gestion de projet. Une équipe jeune,
-              basée à Abidjan, qui croit que la technologie la plus utile est
+              Développeur, stratège, gestionnaire de projet. Une équipe jeune,
+              basée dans le Sud-Comoé, qui croit que la technologie la plus utile est
               celle qui sait rester simple.
             </p>
           </motion.div>

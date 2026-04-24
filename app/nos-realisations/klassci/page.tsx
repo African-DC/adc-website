@@ -168,7 +168,7 @@ export default function KlassciCaseStudyPage() {
                 >
                   Le SaaS qui réinvente la gestion des{" "}
                   <span className="text-orange-600 not-italic font-medium">
-                    universités africaines
+                    écoles africaines
                   </span>
                   .
                 </motion.p>
@@ -537,10 +537,10 @@ export default function KlassciCaseStudyPage() {
                 <blockquote
                   className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] italic font-light leading-[1.2] text-neutral-900 mb-10"
                 >
-                  On ne construit pas un outil pour les universités africaines
+                  On ne construit pas un outil pour les écoles africaines
                   sans passer du temps{" "}
                   <span className="text-orange-600 not-italic font-medium">
-                    dans les universités africaines.
+                    dans les écoles africaines.
                   </span>
                 </blockquote>
 

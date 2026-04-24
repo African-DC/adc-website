@@ -105,10 +105,10 @@ export function ProjectSpotlight() {
                   <p
                     className="font-serif text-xl md:text-2xl italic font-light text-white/85 leading-snug mb-4"
                   >
-                    Le SaaS qui réinvente la gestion des universités africaines.
+                    Le SaaS qui réinvente la gestion des écoles africaines.
                   </p>
                   <p className="text-sm text-neutral-400 leading-relaxed">
-                    Planning, scolarité, finances, bulletins, paie. Quatre
+                    Planning, scolarité, finances, bulletins, paie. Dix
                     grandes écoles en production.
                   </p>
                 </div>
@@ -131,7 +131,7 @@ export function ProjectSpotlight() {
                       <div
                         className="font-serif text-2xl font-semibold"
                       >
-                        4
+                        10
                       </div>
                       <div className="text-[10px] tracking-[0.1em] uppercase text-neutral-500">
                         Écoles
@@ -273,30 +273,6 @@ export function ProjectSpotlight() {
           </motion.div>
         </div>
 
-        {/* Tenants strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-14 md:mt-16 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 pt-10 border-t border-white/10"
-        >
-          <div className="text-[11px] tracking-[0.2em] text-neutral-500 uppercase">
-            Ils l'utilisent déjà
-          </div>
-          <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-neutral-300">
-            {[
-              "ESBTP Abidjan",
-              "ESBTP Yamoussoukro",
-              "ISLG Rostan",
-              "Hetec",
-            ].map((tenant) => (
-              <span key={tenant} className="font-medium">
-                {tenant}
-              </span>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

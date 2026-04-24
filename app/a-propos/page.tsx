@@ -13,25 +13,25 @@ import { useRef } from "react";
 
 const historyItems = [
   {
-    year: "2016",
+    year: "2023",
     title: "Naissance d'ADC",
     description:
-      "African Digit Consulting est fondée à Abidjan par un groupe d'experts passionnés par le digital en Afrique.",
+      "African Digit Consulting est fondée dans le Sud-Comoé par un groupe d'experts passionnés par le digital en Afrique.",
   },
   {
-    year: "2020",
+    year: "2024",
     title: "Expansion des services",
     description:
       "Élargissement de l'offre : applications mobiles, gestion de réseaux sociaux, accompagnement stratégique.",
   },
   {
-    year: "2022",
+    year: "2025",
     title: "Partenariats internationaux",
     description:
       "Collaborations avec des partenaires technologiques internationaux pour enrichir notre expertise.",
   },
   {
-    year: "2024",
+    year: "2026",
     title: "ADC aujourd'hui",
     description:
       "Une équipe de plus de 10 experts digitaux servant des clients à travers l'Afrique, avec deux produits signature : KLASSCI et Wouri.",
@@ -75,8 +75,8 @@ export default function AboutPage() {
 
       <PageHero
         title="Le digital au service des peuples."
-        subtitle="Depuis 2016, nous construisons des solutions digitales pensées pour les réalités africaines."
-        eyebrow="À propos · Abidjan · Depuis 2016"
+        subtitle="Depuis 2023, nous construisons des solutions digitales pensées pour les réalités africaines."
+        eyebrow="À propos · Sud-Comoé · Depuis 2023"
         breadcrumbs={[{ label: "À propos", href: "/a-propos" }]}
       />
 
@@ -101,14 +101,14 @@ export default function AboutPage() {
                 >
                   Construire des technologies{" "}
                   <em className="text-orange-500 font-normal">
-                    utiles, depuis Abidjan
+                    utiles, depuis le Sud-Comoé
                   </em>
                   , pour l'Afrique.
                 </h2>
                 <div className="space-y-5 text-neutral-600 text-lg leading-relaxed max-w-2xl">
                   <p>
                     African Digit Consulting conçoit des solutions digitales à
-                    fort impact social et humain, pensées depuis Abidjan pour
+                    fort impact social et humain, pensées depuis le Sud-Comoé pour
                     l'ensemble du continent africain.
                   </p>
                   <p>
@@ -121,7 +121,7 @@ export default function AboutPage() {
                   <p>
                     Nos deux produits phares, KLASSCI et Wouri, illustrent
                     cette démarche : l'un transforme la gestion des
-                    universités africaines, l'autre aide les agriculteurs
+                    écoles africaines, l'autre aide les agriculteurs
                     face au changement climatique.
                   </p>
                 </div>
@@ -152,7 +152,7 @@ export default function AboutPage() {
                     <span className="block font-medium text-neutral-900 mb-1">
                       Bede Abel Josias
                     </span>
-                    Manager général, fondateur · Avec ADC depuis 2016
+                    Manager général, fondateur · Avec ADC depuis 2023
                   </figcaption>
                 </div>
               </motion.div>

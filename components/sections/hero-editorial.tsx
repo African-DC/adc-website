@@ -7,7 +7,7 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const metrics = [
-  { value: "2016", label: "Année de fondation" },
+  { value: "2023", label: "Année de fondation" },
   { value: "10+", label: "Experts digitaux" },
   { value: "50+", label: "Projets livrés" },
 ];
@@ -54,7 +54,7 @@ export function HeroEditorial() {
             </div>
             <span className="inline-flex items-center gap-3 text-xs tracking-[0.22em] text-neutral-600 uppercase">
               <span className="inline-block h-px w-10 bg-orange-500" />
-              Basée à Abidjan · Depuis 2016
+              Basée dans le Sud-Comoé · Depuis 2023
             </span>
           </motion.div>
 

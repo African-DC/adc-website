@@ -227,10 +227,10 @@ export default function RealisationsPage() {
 
                 <div>
                   <p className="text-xl md:text-2xl italic font-light text-neutral-700 leading-snug mb-3">
-                    Le SaaS qui réinvente la gestion des universités africaines.
+                    Le SaaS qui réinvente la gestion des écoles africaines.
                   </p>
                   <p className="text-sm text-neutral-500 leading-relaxed">
-                    Quatre grandes écoles en production. Planning, scolarité,
+                    Dix grandes écoles en production. Planning, scolarité,
                     finances, bulletins, paie.
                   </p>
                 </div>

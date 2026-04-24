@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowUpRight, Globe, Palette, Share, Code } from "lucide-react";
+import { ArrowUpRight, Globe, Code } from "lucide-react";
+// Palette, Share icons kept on standby for services 03/04 if we reactivate them.
 
 type Service = {
   number: string;
@@ -29,22 +30,24 @@ const services: Service[] = [
     deliverables: ["Sites vitrines", "Applications web", "Intégration API"],
     icon: <Code className="h-5 w-5" strokeWidth={1.5} />,
   },
-  {
-    number: "03",
-    title: "Création graphique",
-    description:
-      "Identité visuelle, supports marketing, motion design. Une direction artistique cohérente qui porte votre message.",
-    deliverables: ["Identité visuelle", "Supports print", "Motion design"],
-    icon: <Palette className="h-5 w-5" strokeWidth={1.5} />,
-  },
-  {
-    number: "04",
-    title: "Community management",
-    description:
-      "Présence sociale pensée comme une conversation avec votre communauté. Calendrier, contenus, modération.",
-    deliverables: ["Planning éditorial", "Création de contenu", "Animation"],
-    icon: <Share className="h-5 w-5" strokeWidth={1.5} />,
-  },
+  // Services ci-dessous desactives: ADC ne fournit plus ces prestations.
+  // A reactiver en decommentant si l'offre change (ajouter Palette/Share aux imports).
+  // {
+  //   number: "03",
+  //   title: "Création graphique",
+  //   description:
+  //     "Identité visuelle, supports marketing, motion design. Une direction artistique cohérente qui porte votre message.",
+  //   deliverables: ["Identité visuelle", "Supports print", "Motion design"],
+  //   icon: <Palette className="h-5 w-5" strokeWidth={1.5} />,
+  // },
+  // {
+  //   number: "04",
+  //   title: "Community management",
+  //   description:
+  //     "Présence sociale pensée comme une conversation avec votre communauté. Calendrier, contenus, modération.",
+  //   deliverables: ["Planning éditorial", "Création de contenu", "Animation"],
+  //   icon: <Share className="h-5 w-5" strokeWidth={1.5} />,
+  // },
 ];
 
 export function ServicesEditorial() {
@@ -75,7 +78,7 @@ export function ServicesEditorial() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] text-neutral-950"
             >
-              Quatre manières de{" "}
+              Deux manières de{" "}
               <em className="text-orange-500 font-normal">vous accompagner</em>
               . Une seule philosophie.
             </motion.h2>
