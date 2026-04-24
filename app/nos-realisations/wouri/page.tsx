@@ -32,14 +32,14 @@ const features: Feature[] = [
     icon: <MessagesSquare className="h-5 w-5" />,
     title: "Accessible via WhatsApp",
     description:
-      "Pas d'application à télécharger, pas de compte à créer. L'agriculteur discute avec Wouri comme avec un contact WhatsApp, sur le téléphone qu'il a déjà.",
+      "Pas d'application à télécharger, pas de compte à créer. L'agriculteur discute avec WOURI comme avec un contact WhatsApp, sur le téléphone qu'il a déjà.",
   },
   {
     number: "02",
     icon: <Languages className="h-5 w-5" />,
     title: "Langues locales ivoiriennes",
     description:
-      "Baoulé, Dioula, Bété, et évidemment français. Wouri répond dans la langue dans laquelle l'agriculteur lui parle, par message texte ou par vocal.",
+      "Baoulé, Dioula, Bété, et évidemment français. WOURI répond dans la langue dans laquelle l'agriculteur lui parle, par message texte ou par vocal.",
   },
   {
     number: "03",
@@ -65,7 +65,7 @@ const sampleConversation = [
   },
   {
     from: "wouri",
-    label: "Wouri",
+    label: "WOURI",
     text:
       "Bonjour. Dans ta zone, les prévisions donnent des pluies fiables à partir de la semaine prochaine. Je te conseille d'attendre 6 à 8 jours avant de semer. En attendant, prépare le sol et vérifie tes semences.",
   },
@@ -76,7 +76,7 @@ const sampleConversation = [
   },
   {
     from: "wouri",
-    label: "Wouri",
+    label: "WOURI",
     text:
       "Ɛlɛ, kɛ ka wulu ka taa ba 6 ni 8 tile waati la. Ji be na kɔ wula kɔ. (Non, attends 6 à 8 jours. Les pluies arrivent bien après.)",
   },
@@ -168,7 +168,7 @@ export default function WouriCaseStudyPage() {
                   style={{ color: WOURI_GREEN }}
                   className="font-serif text-[clamp(4rem,13vw,11rem)] font-semibold leading-[0.9] tracking-tight mb-10"
                 >
-                  Wouri.
+                  WOURI.
                 </motion.h1>
 
                 <motion.p
@@ -193,7 +193,7 @@ export default function WouriCaseStudyPage() {
                   transition={{ duration: 0.6, delay: 0.45 }}
                   className="text-lg text-neutral-600 leading-relaxed max-w-xl"
                 >
-                  Wouri s'installe là où les agriculteurs sont déjà.
+                  WOURI s'installe là où les agriculteurs sont déjà.
                   Sur WhatsApp. Dans leur langue. Avec des conseils concrets
                   pour des saisons qui ne ressemblent plus à celles d'avant.
                 </motion.p>
@@ -390,7 +390,7 @@ export default function WouriCaseStudyPage() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="text-neutral-700 leading-relaxed"
                 >
-                  Wouri comprend le français et les principales langues
+                  WOURI comprend le français et les principales langues
                   parlées en Côte d'Ivoire. Les questions peuvent être écrites
                   ou vocales. Les réponses aussi. Aucun formulaire, aucun
                   bouton à apprendre.
@@ -418,7 +418,7 @@ export default function WouriCaseStudyPage() {
                     </div>
                     <div>
                       <div className="font-semibold text-neutral-900 text-sm">
-                        Wouri
+                        WOURI
                       </div>
                       <div className="text-xs text-neutral-500">
                         en ligne · WhatsApp
@@ -466,7 +466,7 @@ export default function WouriCaseStudyPage() {
                   </div>
 
                   <p className="text-[11px] text-neutral-400 mt-6 italic">
-                    Exemple illustratif. Wouri est actuellement en beta privée
+                    Exemple illustratif. WOURI est actuellement en beta privée
                     avec un panel d'agriculteurs partenaires.
                   </p>
                 </div>
@@ -607,7 +607,7 @@ export default function WouriCaseStudyPage() {
                       </h2>
                       <p className="text-neutral-400 text-lg max-w-md">
                         Coopératives, ONG, services agricoles, chercheurs.
-                        Wouri ouvre progressivement sa beta. Contactez-nous pour
+                        WOURI ouvre progressivement sa beta. Contactez-nous pour
                         en discuter.
                       </p>
                     </div>

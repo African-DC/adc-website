@@ -69,7 +69,7 @@ export default function WebinarAfriqueArticlePage() {
               <p className="text-neutral-600 leading-relaxed">
                 Entre outils grand public et applications métier, nous
                 avons partagé comment nous l'utilisons concrètement
-                dans nos projets (KLASSCI, Wouri).
+                dans nos projets (KLASSCI, WOURI).
               </p>
             </div>
             <div>

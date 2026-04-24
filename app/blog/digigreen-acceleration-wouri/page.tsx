@@ -8,7 +8,7 @@ export default function DigiGreenArticlePage() {
   return (
     <BlogArticleLayout
       title="ADC retenue en phase d'accélération du programme DigiGreen."
-      subtitle="Une opportunité majeure pour Wouri, notre agent IA dédié aux agriculteurs ivoiriens face au changement climatique."
+      subtitle="Une opportunité majeure pour WOURI, notre agent IA dédié aux agriculteurs ivoiriens face au changement climatique."
       eyebrow="Blog · Accélération · 17 avril 2026"
       breadcrumbs={[
         { label: "Blog", href: "/blog" },
@@ -24,8 +24,8 @@ export default function DigiGreenArticlePage() {
       cta={{
         title: "Coopérative, ONG, service agricole, chercheur ?",
         description:
-          "Wouri ouvre progressivement sa beta. Si votre travail touche à l'agriculture ivoirienne ou à la résilience climatique, parlons-en.",
-        label: "Découvrir Wouri",
+          "WOURI ouvre progressivement sa beta. Si votre travail touche à l'agriculture ivoirienne ou à la résilience climatique, parlons-en.",
+        label: "Découvrir WOURI",
         href: "/nos-realisations/wouri",
       }}
     >
@@ -41,7 +41,7 @@ export default function DigiGreenArticlePage() {
 
           <p>
             Pour notre équipe, cette sélection marque une étape
-            importante. Pour Wouri, notre agent IA sur WhatsApp qui aide
+            importante. Pour WOURI, notre agent IA sur WhatsApp qui aide
             les agriculteurs ivoiriens à faire face au changement
             climatique, c'est un accélérateur concret : mentorat,
             ressources, accès à un réseau d'experts et de partenaires
@@ -81,11 +81,11 @@ export default function DigiGreenArticlePage() {
           </p>
 
           <h2 className="font-serif text-3xl md:text-4xl font-medium text-neutral-950 leading-tight pt-4">
-            Pourquoi Wouri entre dans ce cadre.
+            Pourquoi WOURI entre dans ce cadre.
           </h2>
 
           <p>
-            Wouri est un agent IA accessible depuis WhatsApp, dans la
+            WOURI est un agent IA accessible depuis WhatsApp, dans la
             langue de l'utilisateur. Un agriculteur pose sa question en
             français, en baoulé, en dioula ou en bété, par message texte
             ou par vocal, et reçoit des conseils adaptés à sa région, à
@@ -162,7 +162,7 @@ export default function DigiGreenArticlePage() {
                   Étendre la beta
                 </h3>
                 <p className="text-neutral-600">
-                  Ouvrir Wouri à de nouvelles coopératives agricoles
+                  Ouvrir WOURI à de nouvelles coopératives agricoles
                   partenaires, collecter des retours terrain, mesurer
                   l'impact sur les décisions de saison.
                 </p>

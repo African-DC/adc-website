@@ -191,7 +191,7 @@ export function NavbarDemo() {
                 <p className="mt-8 text-sm text-neutral-500">
                   Grand-Bassam, Côte d'Ivoire
                   <br />
-                  klassci@africandigitconsulting.com
+                  africandigitconsulting@gmail.com
                 </p>
               </motion.div>
             </div>

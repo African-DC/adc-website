@@ -15,7 +15,7 @@ const navLinks = [
 
 const projectLinks = [
   { label: "KLASSCI", href: "/nos-realisations/klassci" },
-  { label: "Wouri", href: "/nos-realisations/wouri" },
+  { label: "WOURI", href: "/nos-realisations/wouri" },
 ];
 
 const legalLinks = [
@@ -166,10 +166,10 @@ export function Footer() {
                     strokeWidth={1.5}
                   />
                   <a
-                    href="mailto:klassci@africandigitconsulting.com"
+                    href="mailto:africandigitconsulting@gmail.com"
                     className="hover:text-orange-400 transition-colors break-all"
                   >
-                    klassci@africandigitconsulting.com
+                    africandigitconsulting@gmail.com
                   </a>
                 </li>
               </ul>

@@ -209,10 +209,10 @@ export default function ContactPage() {
                       </dt>
                       <dd>
                         <a
-                          href="mailto:klassci@africandigitconsulting.com"
+                          href="mailto:africandigitconsulting@gmail.com"
                           className="text-neutral-900 hover:text-orange-600 transition-colors break-all"
                         >
-                          klassci@africandigitconsulting.com
+                          africandigitconsulting@gmail.com
                         </a>
                       </dd>
                     </div>
@@ -299,10 +299,10 @@ export default function ContactPage() {
                           Une erreur s'est produite. Veuillez réessayer ou
                           nous écrire directement à{" "}
                           <a
-                            href="mailto:klassci@africandigitconsulting.com"
+                            href="mailto:africandigitconsulting@gmail.com"
                             className="underline"
                           >
-                            klassci@africandigitconsulting.com
+                            africandigitconsulting@gmail.com
                           </a>
                           .
                         </div>

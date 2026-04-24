@@ -34,7 +34,7 @@ const historyItems = [
     year: "2026",
     title: "ADC aujourd'hui",
     description:
-      "Une équipe de plus de 10 experts digitaux servant des clients à travers l'Afrique, avec deux produits signature : KLASSCI et Wouri.",
+      "Une équipe de plus de 10 experts digitaux servant des clients à travers l'Afrique, avec deux produits signature : KLASSCI et WOURI.",
   },
 ];
 
@@ -119,7 +119,7 @@ export default function AboutPage() {
                     aux besoins concrets de nos communautés.
                   </p>
                   <p>
-                    Nos deux produits phares, KLASSCI et Wouri, illustrent
+                    Nos deux produits phares, KLASSCI et WOURI, illustrent
                     cette démarche : l'un transforme la gestion des
                     écoles africaines, l'autre aide les agriculteurs
                     face au changement climatique.
@@ -230,7 +230,7 @@ export default function AboutPage() {
                 <h2
                   className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] text-neutral-950"
                 >
-                  Huit ans plus tard,{" "}
+                  Trois ans plus tard,{" "}
                   <em className="text-orange-500 font-normal">
                     la même question
                   </em>{" "}

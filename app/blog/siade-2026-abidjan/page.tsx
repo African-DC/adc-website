@@ -113,7 +113,7 @@ export default function SiadeArticlePage() {
                 Une IA agritech dans la langue du village.
               </h3>
               <p className="text-neutral-600 text-base leading-relaxed mb-4">
-                Wouri transforme les données météo en conseils pratiques
+                WOURI transforme les données météo en conseils pratiques
                 pour les agriculteurs, via WhatsApp et appels vocaux,
                 en français et en langues locales.
               </p>
@@ -200,7 +200,7 @@ export default function SiadeArticlePage() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
-              { src: "/img/blog/siade-2.jpg", alt: "Stand Wouri au SIADE" },
+              { src: "/img/blog/siade-2.jpg", alt: "Stand WOURI au SIADE" },
               {
                 src: "/img/blog/siade-3.jpg",
                 alt: "Équipe ADC en discussion",

@@ -175,7 +175,7 @@ export function ProjectSpotlight() {
                     style={{ color: WOURI_GREEN_LIGHT }}
                     className="font-serif text-4xl md:text-5xl font-semibold leading-none"
                   >
-                    Wouri<span style={{ color: WOURI_GREEN }}>.</span>
+                    WOURI<span style={{ color: WOURI_GREEN }}>.</span>
                   </h3>
                   <span
                     className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide uppercase"

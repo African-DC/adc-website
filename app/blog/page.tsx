@@ -25,7 +25,7 @@ const articles: Article[] = [
     title:
       "ADC au SIADE 2026 : deux IA africaines à l'épreuve de la souveraineté technologique",
     excerpt:
-      "Retour sur notre participation à la 2e édition du Salon International de l'IA, de la Défense et de l'Espace, où nous avons présenté KLASSCI et Wouri.",
+      "Retour sur notre participation à la 2e édition du Salon International de l'IA, de la Défense et de l'Espace, où nous avons présenté KLASSCI et WOURI.",
     image: "/img/blog/siade-hero.jpg",
     category: "Événements",
     date: "21 avril 2026",
@@ -43,7 +43,7 @@ const articles: Article[] = [
   {
     title: "ADC retenue en phase d'accélération du programme DigiGreen",
     excerpt:
-      "Une opportunité majeure pour Wouri, notre agent IA dédié aux agriculteurs ivoiriens face au changement climatique. Partenaires : Orange, GIZ, Union européenne.",
+      "Une opportunité majeure pour WOURI, notre agent IA dédié aux agriculteurs ivoiriens face au changement climatique. Partenaires : Orange, GIZ, Union européenne.",
     image: "/img/blog/digigreen-hero.jpg",
     category: "Accélération",
     date: "17 avril 2026",
@@ -341,10 +341,10 @@ function NewsletterForm() {
         <p className="text-sm text-red-300 mt-1">
           Une erreur s'est produite. Réessayez ou écrivez-nous à{" "}
           <a
-            href="mailto:klassci@africandigitconsulting.com"
+            href="mailto:africandigitconsulting@gmail.com"
             className="underline"
           >
-            klassci@africandigitconsulting.com
+            africandigitconsulting@gmail.com
           </a>
           .
         </p>

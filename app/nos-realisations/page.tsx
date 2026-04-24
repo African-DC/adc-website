@@ -270,7 +270,7 @@ export default function RealisationsPage() {
               <div className="p-8 md:p-10 flex flex-col gap-7 h-full">
                 <div className="flex items-center justify-between gap-3">
                   <h3 className="text-4xl md:text-5xl font-bold leading-none" style={{ color: "#1a5d3a" }}>
-                    Wouri<span className="text-neutral-900">.</span>
+                    WOURI<span className="text-neutral-900">.</span>
                   </h3>
                   <span
                     className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wide"
