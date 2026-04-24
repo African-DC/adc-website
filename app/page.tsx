@@ -1,15 +1,12 @@
-"use client";
-
 import { Footer } from "@/components/sections/footer";
-import { LampSection } from "@/components/sections/lamp-section";
 import { NavbarDemo } from "@/components/sections/navbar-demo";
-import { TeamCards } from "@/components/sections/team-cards";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import { HeroEditorial } from "@/components/sections/hero-editorial";
 import { PhilosophySection } from "@/components/sections/philosophy-section";
-import { Services3D } from "@/components/sections/services-3d";
+import { ServicesEditorial } from "@/components/sections/services-editorial";
 import { ProjectSpotlight } from "@/components/sections/project-spotlight";
-import { TestimonialsCarousel } from "@/components/sections/testimonials-carousel";
+import { TeamEditorial } from "@/components/sections/team-editorial";
+import { ClosingEditorial } from "@/components/sections/closing-editorial";
 
 export default function Home() {
   return (
@@ -18,11 +15,10 @@ export default function Home() {
       <NavbarDemo />
       <HeroEditorial />
       <PhilosophySection />
-      <Services3D />
+      <ServicesEditorial />
       <ProjectSpotlight />
-      <TeamCards />
-      <LampSection />
-      <TestimonialsCarousel />
+      <TeamEditorial />
+      <ClosingEditorial />
       <Footer />
     </main>
   );

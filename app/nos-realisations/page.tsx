@@ -188,7 +188,7 @@ export default function RealisationsPage() {
       />
 
       <main className="overflow-hidden bg-gradient-to-b from-orange-50 via-white to-orange-50">
-        {/* Projet vedette — KLASSCI */}
+        {/* Projets vedettes — KLASSCI + Wouri */}
         <section className="relative pt-16 pb-20 md:pt-20 md:pb-24">
           <div className="max-w-7xl mx-auto px-4">
             <motion.div
@@ -199,89 +199,137 @@ export default function RealisationsPage() {
               className="mb-8 inline-flex items-center gap-3 text-xs tracking-[0.18em] text-neutral-600 uppercase"
             >
               <span className="inline-block h-px w-8 bg-orange-500" />
-              Projet vedette
+              Projets vedettes
             </motion.div>
 
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
             <Link
               href="/nos-realisations/klassci"
               className="group block relative rounded-2xl md:rounded-3xl overflow-hidden border border-neutral-200 bg-white shadow-xl shadow-neutral-900/5 hover:shadow-2xl hover:shadow-neutral-900/10 transition-all duration-500"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
-                {/* Left — text */}
-                <div className="relative p-8 md:p-12 lg:p-16 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-3 mb-6">
-                      <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100 text-orange-700 text-xs font-medium">
-                        <span className="relative flex h-1.5 w-1.5">
-                          <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping" />
-                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
-                        </span>
-                        En production
-                      </span>
-                      <span className="text-xs text-neutral-500">
-                        Enseignement supérieur
-                      </span>
+              <div className="p-8 md:p-10 flex flex-col gap-7 h-full">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="relative h-12 w-12 rounded-xl bg-white border border-neutral-200 shadow-sm p-1.5 flex-shrink-0">
+                      <Image
+                        src="/img/projets/klassci/logo-klassci.png"
+                        alt="Logo KLASSCI"
+                        fill
+                        className="object-contain p-1"
+                      />
                     </div>
-
-                    <div className="flex items-center gap-4 mb-5">
-                      <div className="relative h-14 w-14 rounded-xl bg-white border border-neutral-200 shadow-sm p-1.5 flex-shrink-0">
-                        <Image
-                          src="/img/projets/klassci/logo-klassci.png"
-                          alt="Logo KLASSCI"
-                          fill
-                          className="object-contain p-1.5"
-                        />
-                      </div>
-                      <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05]">
-                        KLASSCI<span className="text-orange-500">.</span>
-                      </h3>
-                    </div>
-                    <p className="text-xl md:text-2xl italic font-light text-neutral-700 leading-snug mb-8 max-w-md">
-                      Le SaaS qui réinvente la gestion des universités
-                      africaines.
-                    </p>
-                    <p className="text-neutral-600 max-w-md mb-10">
-                      Quatre grandes écoles en production. Planning, scolarité,
-                      finances, bulletins, paie. Construit de bout en bout par
-                      ADC.
-                    </p>
+                    <h3 className="text-3xl md:text-4xl font-bold leading-none">
+                      KLASSCI<span className="text-orange-500">.</span>
+                    </h3>
                   </div>
-
-                  <div className="flex items-center gap-6 text-sm">
-                    <span className="inline-flex items-center gap-2 text-neutral-900 font-medium group-hover:text-orange-600 transition-colors">
-                      Lire l'étude de cas
-                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100 text-orange-700 text-[11px] font-semibold uppercase tracking-wide">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping" />
+                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
                     </span>
-                    <span className="text-neutral-400">·</span>
-                    <span className="text-neutral-500">6 min de lecture</span>
-                  </div>
+                    En production
+                  </span>
                 </div>
 
-                {/* Right — screenshot */}
-                <div className="relative bg-gradient-to-br from-orange-50 via-orange-100/50 to-amber-50 p-6 md:p-10 lg:p-12 flex items-center justify-center overflow-hidden min-h-[320px]">
+                <div>
+                  <p className="text-xl md:text-2xl italic font-light text-neutral-700 leading-snug mb-3">
+                    Le SaaS qui réinvente la gestion des universités africaines.
+                  </p>
+                  <p className="text-sm text-neutral-500 leading-relaxed">
+                    Quatre grandes écoles en production. Planning, scolarité,
+                    finances, bulletins, paie.
+                  </p>
+                </div>
+
+                <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-orange-50 to-amber-50 p-4 min-h-[200px] flex items-center justify-center flex-1">
                   <div
-                    className="relative w-full transition-transform duration-700 group-hover:scale-[1.02]"
+                    className="relative w-full transition-transform duration-700 group-hover:scale-[1.03]"
                     style={{ transform: "rotate(1deg)" }}
                   >
-                    <div className="absolute -inset-3 bg-gradient-to-br from-orange-500/10 to-transparent rounded-xl" />
-                    <div className="relative rounded-lg overflow-hidden border border-neutral-200 shadow-2xl shadow-neutral-900/10 bg-white">
+                    <div className="relative rounded-md overflow-hidden border border-neutral-200 shadow-lg bg-white">
                       <Image
                         src="/img/projets/klassci/hero_section.png"
-                        alt="Aperçu de l'interface KLASSCI"
+                        alt="Aperçu KLASSCI"
                         width={1200}
                         height={800}
                         className="w-full h-auto"
                       />
                     </div>
                   </div>
-                  {/* Decorative glow */}
-                  <div
-                    aria-hidden
-                    className="absolute -bottom-20 -right-20 w-72 h-72 rounded-full bg-orange-400 opacity-15 blur-[80px] pointer-events-none"
-                  />
+                </div>
+
+                <div className="flex items-center justify-between pt-4 border-t border-neutral-100 text-sm">
+                  <span className="text-neutral-500">Enseignement supérieur · Multi-tenants</span>
+                  <span className="inline-flex items-center gap-2 font-medium text-neutral-900 group-hover:text-orange-600 transition-colors">
+                    Étude de cas
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </span>
                 </div>
               </div>
             </Link>
+
+            {/* Wouri card */}
+            <Link
+              href="/nos-realisations/wouri"
+              className="group block relative rounded-2xl md:rounded-3xl overflow-hidden border border-neutral-200 bg-white shadow-xl shadow-neutral-900/5 hover:shadow-2xl transition-all duration-500"
+            >
+              <div className="p-8 md:p-10 flex flex-col gap-7 h-full">
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="text-4xl md:text-5xl font-bold leading-none" style={{ color: "#1a5d3a" }}>
+                    Wouri<span className="text-neutral-900">.</span>
+                  </h3>
+                  <span
+                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wide"
+                    style={{ background: "#1a5d3a10", border: "1px solid #1a5d3a30", color: "#1a5d3a" }}
+                  >
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ background: "#1a5d3a" }} />
+                      <span className="relative inline-flex rounded-full h-1.5 w-1.5" style={{ background: "#1a5d3a" }} />
+                    </span>
+                    En beta
+                  </span>
+                </div>
+
+                <div>
+                  <p className="text-xl md:text-2xl italic font-light text-neutral-700 leading-snug mb-3">
+                    L'agent IA qui aide les agriculteurs ivoiriens face au changement climatique.
+                  </p>
+                  <p className="text-sm text-neutral-500 leading-relaxed">
+                    Sur WhatsApp. Dans les langues locales. Des conseils concrets pour des saisons qui changent.
+                  </p>
+                </div>
+
+                <div
+                  className="relative rounded-xl p-4 min-h-[200px] space-y-2.5 flex-1 flex flex-col justify-center"
+                  style={{ background: "#1a5d3a06", border: "1px solid #1a5d3a1f" }}
+                >
+                  <div className="flex justify-end">
+                    <div className="max-w-[80%] rounded-2xl rounded-tr-sm bg-white border border-neutral-200 px-3.5 py-2 text-[13px] text-neutral-700">
+                      Les pluies tardent. Je plante ?
+                    </div>
+                  </div>
+                  <div className="flex justify-start">
+                    <div className="max-w-[80%] rounded-2xl rounded-tl-sm px-3.5 py-2 text-[13px] text-white" style={{ background: "#1a5d3a" }}>
+                      Attends 6 à 8 jours. Les pluies arrivent. Prépare le sol.
+                    </div>
+                  </div>
+                  <div className="flex justify-end">
+                    <div className="max-w-[80%] rounded-2xl rounded-tr-sm bg-white border border-neutral-200 px-3.5 py-2 text-[13px] text-neutral-700 italic">
+                      N'mɔ m'aba kaban ?
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between pt-4 border-t border-neutral-100 text-sm">
+                  <span className="text-neutral-500">Agritech · Climate-tech · WhatsApp</span>
+                  <span className="inline-flex items-center gap-2 font-medium text-neutral-900 transition-colors">
+                    Étude de cas
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </span>
+                </div>
+              </div>
+            </Link>
+            </div>
           </div>
         </section>
 
