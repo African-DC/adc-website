@@ -6,7 +6,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
-import { Star, ExternalLink, Tag, EyeIcon, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ExternalLink, Tag, EyeIcon, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import Link from "next/link";
@@ -464,31 +464,84 @@ export default function RealisationsPage() {
         </div>
         )}
 
-        {/* Section CTA */}
-        <div className="bg-gradient-to-r from-orange-600 to-amber-500 py-20 relative overflow-hidden">
-          {/* Éléments décoratifs */}
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-            <div className="absolute -top-20 right-0 w-72 h-72 bg-white rounded-full opacity-10 blur-[80px]"></div>
-            <div className="absolute -bottom-40 -left-20 w-96 h-96 bg-white rounded-full opacity-10 blur-[100px]"></div>
-          </div>
+        {/* ===================== CTA EDITORIAL ===================== */}
+        <section className="relative py-24 md:py-32 bg-neutral-950 text-white overflow-hidden">
+          {/* Grid pattern */}
+          <div
+            aria-hidden
+            className="absolute inset-0 opacity-[0.04] pointer-events-none"
+            style={{
+              backgroundImage:
+                "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)",
+              backgroundSize: "56px 56px",
+            }}
+          />
+          {/* Warm orange glow */}
+          <div
+            aria-hidden
+            className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-orange-500/15 blur-[140px] pointer-events-none"
+          />
 
-          <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-            <Star className="h-12 w-12 text-white/50 mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Prêt à donner vie à votre projet?
-            </h2>
-            <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto">
-              Partagez-nous votre vision et collaborons ensemble pour créer
-              quelque chose d'exceptionnel.
-            </p>
-            <Button asChild variant="ctaInverse" size="cta">
-              <Link href="/contact">
-                <span>Commencer un projet</span>
-                <ArrowRight className="h-4 w-4" />
+          <div className="relative max-w-5xl mx-auto px-6 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-3 text-xs tracking-[0.22em] text-neutral-400 uppercase mb-8"
+            >
+              <span className="inline-block h-px w-10 bg-orange-400" />
+              Et votre projet ?
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-10"
+            >
+              Les études de cas d'aujourd'hui,{" "}
+              <em className="text-orange-400 font-normal">
+                ce sont vos idées d'hier
+              </em>
+              .
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.25 }}
+              className="text-lg text-white/75 leading-relaxed max-w-2xl mx-auto mb-12"
+            >
+              Dites-nous ce que vous voulez construire. On commence par
+              écouter, on continue par livrer.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-6"
+            >
+              <Button asChild variant="cta" size="cta">
+                <Link href="/contact">
+                  <span>Démarrer un projet</span>
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </Button>
+              <Link
+                href="/notre-expertise"
+                className="inline-flex items-center gap-2 text-sm font-medium text-white/80 hover:text-orange-400 transition-colors"
+              >
+                Voir notre expertise
+                <ArrowUpRight className="h-4 w-4" />
               </Link>
-            </Button>
+            </motion.div>
           </div>
-        </div>
+        </section>
       </main>
 
       {/* Modal de projet */}
