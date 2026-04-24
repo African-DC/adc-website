@@ -129,7 +129,7 @@ export default function BlogPage() {
               Tous les articles
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-stretch">
               {rest.map((article, i) => (
                 <motion.article
                   key={article.href}
@@ -137,8 +137,12 @@ export default function BlogPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="h-full"
                 >
-                  <Link href={article.href} className="group block">
+                  <Link
+                    href={article.href}
+                    className="group flex flex-col h-full"
+                  >
                     <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-neutral-100 mb-6">
                       <Image
                         src={article.image}
@@ -161,10 +165,10 @@ export default function BlogPage() {
                     >
                       {article.title}
                     </h3>
-                    <p className="text-neutral-600 leading-relaxed mb-4">
+                    <p className="text-neutral-600 leading-relaxed mb-6 flex-1">
                       {article.excerpt}
                     </p>
-                    <span className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 group-hover:text-orange-600 transition-colors">
+                    <span className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 group-hover:text-orange-600 transition-colors mt-auto">
                       Lire l'article
                       <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                     </span>
