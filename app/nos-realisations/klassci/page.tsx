@@ -20,16 +20,9 @@ import Link from "next/link";
 
 const KLASSCI_URL = "https://klassci.com";
 
-const tenants = [
-  "ESBTP Abidjan",
-  "ESBTP Yamoussoukro",
-  "ISLG Rostan",
-  "Hetec",
-];
-
 const metrics = [
-  { value: "4", label: "Établissements en production" },
-  { value: "3", label: "Cycles LMD couverts" },
+  { value: "10", label: "Établissements en production" },
+  { value: "Tous cycles", label: "Du primaire au doctorat" },
   { value: "Temps réel", label: "Suivi financier" },
 ];
 
@@ -193,7 +186,7 @@ export default function KlassciCaseStudyPage() {
                   className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-neutral-200"
                 >
                   {[
-                    { label: "Secteur", value: "Enseignement supérieur" },
+                    { label: "Secteur", value: "Tout type d'enseignement" },
                     { label: "Stack", value: "Laravel · Blade · Alpine" },
                     { label: "Déploiement", value: "Multi-tenants" },
                     { label: "Statut", value: "En production" },
@@ -293,7 +286,7 @@ export default function KlassciCaseStudyPage() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="font-serif text-4xl md:text-5xl font-medium leading-tight mb-8"
             >
-              La plupart des écoles supérieures africaines gèrent toute leur
+              La plupart des écoles africaines gèrent toute leur
               scolarité dans des{" "}
               <em className="text-orange-600">fichiers Excel éparpillés</em>.
               Nous avons construit l'alternative.
@@ -309,16 +302,15 @@ export default function KlassciCaseStudyPage() {
               <p>
                 KLASSCI est né d'un constat simple. Entre les inscriptions, la
                 scolarité, les notes, les bulletins, les paiements et la paie
-                des enseignants, une école supérieure gère des centaines de
+                des enseignants, un établissement gère des centaines de
                 flux de données critiques. La plupart le font avec des outils
                 qui n'ont pas été conçus pour ça.
               </p>
               <p>
                 Nous avons pris le temps de comprendre le métier en profondeur,
-                avec de vraies écoles partenaires dès le premier jour. Le
-                résultat est un SaaS multi-tenants qui sert aujourd'hui quatre
-                établissements en production, de la filière BTS jusqu'au
-                doctorat.
+                avec de vrais établissements partenaires dès le premier jour.
+                Le résultat est un SaaS multi-tenants qui sert aujourd'hui dix
+                établissements en production, du primaire au doctorat.
               </p>
             </motion.div>
           </div>
@@ -422,72 +414,6 @@ export default function KlassciCaseStudyPage() {
           </div>
         </section>
 
-        {/* ===================== TENANTS ===================== */}
-        <section className="py-24 md:py-32 border-t border-neutral-200">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-              <div className="lg:col-span-5">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className="mb-6 text-xs tracking-[0.18em] text-neutral-500 uppercase"
-                >
-                  <span className="inline-block h-px w-8 bg-orange-500 mr-3 align-middle" />
-                  Ils l'utilisent chaque jour
-                </motion.div>
-                <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.1 }}
-                  className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-6"
-                >
-                  Quatre établissements en production, d'Abidjan à
-                  Yamoussoukro.
-                </motion.h2>
-                <motion.p
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-neutral-600 leading-relaxed"
-                >
-                  Chaque tenant a ses propres filières, ses règles de notation,
-                  son année académique, sa grille tarifaire. Une base de code,
-                  quatre contextes bien réels.
-                </motion.p>
-              </div>
-
-              <ul className="lg:col-span-7 divide-y divide-neutral-200 border-t border-b border-neutral-200">
-                {tenants.map((tenant, i) => (
-                  <motion.li
-                    key={tenant}
-                    initial={{ opacity: 0, x: 16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.08 }}
-                    className="flex items-center justify-between py-5"
-                  >
-                    <span className="flex items-center gap-5">
-                      <span className="text-xs tabular-nums text-neutral-400 tracking-wide w-6">
-                        0{i + 1}
-                      </span>
-                      <span className="text-lg md:text-xl font-medium text-neutral-900">
-                        {tenant}
-                      </span>
-                    </span>
-                    <span className="text-xs uppercase tracking-wider text-neutral-400">
-                      Actif
-                    </span>
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-
         {/* ===================== HUMAN MOMENT ===================== */}
         <section className="py-20 md:py-28">
           <div className="max-w-7xl mx-auto px-6">
@@ -540,7 +466,7 @@ export default function KlassciCaseStudyPage() {
                   On ne construit pas un outil pour les écoles africaines
                   sans passer du temps{" "}
                   <span className="text-orange-600 not-italic font-medium">
-                    dans les écoles africaines.
+                    dans leurs salles de classe.
                   </span>
                 </blockquote>
 
