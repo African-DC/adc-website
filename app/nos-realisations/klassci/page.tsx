@@ -265,6 +265,49 @@ export default function KlassciCaseStudyPage() {
           </div>
         </section>
 
+        {/* ===================== VIDEO PRESENTATION ===================== */}
+        <section className="py-20 md:py-24 bg-neutral-950 text-white">
+          <div className="max-w-5xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-10 text-xs tracking-[0.22em] text-neutral-400 uppercase text-center"
+            >
+              <span className="inline-block h-px w-10 bg-orange-400 mr-3 align-middle" />
+              Vidéo de présentation
+            </motion.div>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-10 text-center max-w-2xl mx-auto"
+            >
+              Une minute pour comprendre{" "}
+              <em className="text-orange-400 font-normal">ce que KLASSCI change</em>.
+            </motion.h2>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              className="max-w-md mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40 bg-black"
+            >
+              <video
+                controls
+                preload="metadata"
+                poster="/videos/klassci-presentation-poster.webp"
+                className="w-full aspect-square"
+              >
+                <source src="/videos/klassci-presentation.mp4" type="video/mp4" />
+                Votre navigateur ne prend pas en charge la lecture vidéo.
+              </video>
+            </motion.div>
+          </div>
+        </section>
+
         {/* ===================== PROBLEM / CONTEXTE ===================== */}
         <section className="py-24 md:py-32">
           <div className="max-w-4xl mx-auto px-6">

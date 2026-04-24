@@ -142,6 +142,35 @@ export default function AkwabaKlassciArticlePage() {
         </div>
       </article>
 
+      <section className="py-16 md:py-20 border-t border-neutral-200">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="mb-8 text-xs tracking-[0.22em] text-neutral-600 uppercase">
+            <span className="inline-block h-px w-10 bg-orange-500 mr-3 align-middle" />
+            Vlog · La journée en 1 min 20
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-sm mx-auto rounded-2xl overflow-hidden bg-black shadow-2xl shadow-neutral-900/20 border border-neutral-200"
+          >
+            <video
+              controls
+              preload="metadata"
+              poster="/videos/akwaba-klassci-vlog-poster.webp"
+              className="w-full aspect-[9/16]"
+            >
+              <source src="/videos/akwaba-klassci-vlog.mp4" type="video/mp4" />
+              Votre navigateur ne prend pas en charge la lecture vidéo.
+            </video>
+          </motion.div>
+          <p className="mt-6 text-sm text-neutral-500 text-center">
+            Retour en images sur la présentation officielle du 20 juin 2025.
+          </p>
+        </div>
+      </section>
+
       <section className="py-16 md:py-20 bg-neutral-50 border-t border-neutral-200">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-10 text-xs tracking-[0.22em] text-neutral-600 uppercase">
