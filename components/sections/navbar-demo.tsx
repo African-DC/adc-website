@@ -1,24 +1,26 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const navLinks = [
-  { label: "Accueil", href: "/" },
-  { label: "À propos", href: "/a-propos" },
-  { label: "Expertise", href: "/notre-expertise" },
-  { label: "Réalisations", href: "/nos-realisations" },
-  { label: "Blog", href: "/blog" },
-];
-
 export function NavbarDemo() {
+  const t = useTranslations("nav");
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const navLinks = [
+    { key: "home", href: "/" as const },
+    { key: "about", href: "/a-propos" as const },
+    { key: "expertise", href: "/notre-expertise" as const },
+    { key: "work", href: "/nos-realisations" as const },
+    { key: "blog", href: "/blog" as const },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -54,7 +56,7 @@ export function NavbarDemo() {
           {/* Logo */}
           <Link
             href="/"
-            aria-label="Accueil African Digit Consulting"
+            aria-label={t("ariaLogo")}
             className="flex items-center flex-shrink-0"
           >
             <div className="relative h-10 md:h-12 w-auto">
@@ -83,7 +85,7 @@ export function NavbarDemo() {
                         : "text-neutral-600 hover:text-neutral-950"
                     }`}
                   >
-                    {link.label}
+                    {t(link.key)}
                     {active && (
                       <motion.span
                         layoutId="nav-underline"
@@ -101,13 +103,15 @@ export function NavbarDemo() {
             })}
           </ul>
 
-          {/* Right: CTA + mobile toggle */}
-          <div className="flex items-center gap-3">
+          {/* Right: Language + CTA + mobile toggle */}
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher className="hidden md:inline-flex" />
+
             <Link
               href="/contact"
               className="hidden sm:inline-flex items-center gap-2 h-11 px-5 rounded-full bg-neutral-950 text-white text-sm font-medium hover:bg-orange-500 transition-colors"
             >
-              Contact
+              {t("contact")}
               <ArrowUpRight
                 className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 strokeWidth={1.8}
@@ -116,7 +120,7 @@ export function NavbarDemo() {
 
             <button
               type="button"
-              aria-label="Ouvrir le menu"
+              aria-label={t("openMenu")}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen((s) => !s)}
               className="lg:hidden inline-flex items-center justify-center h-11 w-11 rounded-full border border-neutral-200 bg-white text-neutral-950 hover:border-orange-500 hover:text-orange-500 transition-colors"
@@ -144,7 +148,7 @@ export function NavbarDemo() {
             <div className="h-full overflow-y-auto px-6 py-10">
               <div className="text-xs tracking-[0.22em] uppercase text-neutral-500 mb-8">
                 <span className="inline-block h-px w-8 bg-orange-500 mr-3 align-middle" />
-                Menu
+                {t("menuLabel")}
               </div>
               <ul className="space-y-2">
                 {navLinks.map((link, i) => {
@@ -164,7 +168,7 @@ export function NavbarDemo() {
                             : "text-neutral-950 hover:text-orange-600"
                         }`}
                       >
-                        <span>{link.label}</span>
+                        <span>{t(link.key)}</span>
                         <ArrowUpRight
                           className="h-5 w-5 opacity-60"
                           strokeWidth={1.5}
@@ -185,11 +189,16 @@ export function NavbarDemo() {
                   href="/contact"
                   className="inline-flex items-center justify-center gap-2 w-full h-14 rounded-full bg-neutral-950 text-white text-base font-medium hover:bg-orange-500 transition-colors"
                 >
-                  Démarrer un projet
+                  {t("cta")}
                   <ArrowUpRight className="h-5 w-5" strokeWidth={1.5} />
                 </Link>
-                <p className="mt-8 text-sm text-neutral-500">
-                  Grand-Bassam, Côte d'Ivoire
+
+                <div className="mt-10 flex items-center justify-center">
+                  <LanguageSwitcher />
+                </div>
+
+                <p className="mt-8 text-sm text-neutral-500 text-center">
+                  Grand-Bassam, Côte d&apos;Ivoire
                   <br />
                   africandigitconsulting@gmail.com
                 </p>

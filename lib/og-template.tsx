@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { getArticleBySlug } from "@/lib/blog";
+import { getArticleBySlug, localize, type BlogLocale } from "@/lib/blog";
 
 export const alt = "African Digit Consulting — Blog";
 export const size = { width: 1200, height: 630 };
@@ -32,11 +32,14 @@ async function loadGoogleFont(
   return fontRes.arrayBuffer();
 }
 
-export async function createBlogOgImage(slug: string) {
+export async function createBlogOgImage(
+  slug: string,
+  locale: BlogLocale = "fr",
+) {
   const article = getArticleBySlug(slug);
-  const title = article?.title ?? "African Digit Consulting";
-  const category = article?.category ?? "Blog";
-  const date = article?.publishedAtDisplay ?? "";
+  const title = article ? localize(article.title, locale) : "African Digit Consulting";
+  const category = article ? localize(article.category, locale) : "Blog";
+  const date = article ? localize(article.publishedAtDisplay, locale) : "";
   const author = article?.author.name ?? "African Digit Consulting";
 
   const [frauncesBold, poppinsMedium] = await Promise.all([

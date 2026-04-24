@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "ADC - Ivorian Digital Agency",
+    "titleTemplate": "%s | ADC - Digital Agency",
+    "description": "African Digit Consulting designs digital solutions with strong social and human impact in Africa. Digital in service of people, grounded in local realities.",
+    "ogTitle": "ADC - Digital solutions with strong social and human impact",
+    "ogDescription": "African Digit Consulting designs useful, sustainable digital solutions adapted to local African realities. Digital in service of people."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "expertise": "Expertise",
+    "expertiseLong": "Our expertise",
+    "work": "Work",
+    "workLong": "Our work",
+    "blog": "Blog",
+    "contact": "Contact",
+    "cta": "Start a project",
+    "openMenu": "Open menu",
+    "ariaLogo": "African Digit Consulting home",
+    "menuLabel": "Menu",
+    "langFr": "Français",
+    "langEn": "English",
+    "langSwitch": "Change language"
+  },
+  "footer": {
+    "tagline": "Digital in service",
+    "taglineEm": "of people.",
+    "description": "African Digit Consulting designs useful, sustainable digital solutions adapted to local African realities.",
+    "navigation": "Navigation",
+    "featuredProjects": "Featured projects",
+    "contact": "Contact",
+    "copyright": "© {year} African Digit Consulting. All rights reserved.",
+    "privacy": "Privacy policy",
+    "addressLine": "Siti Dia, Grand-Bassam Monckey-ville"
+  },
+  "blogIndex": {
+    "title": "The journal.",
+    "subtitle": "Our observations on African digital, between field practice and critical perspective.",
+    "eyebrow": "Blog · News",
+    "breadcrumb": "Blog",
+    "featuredLabel": "Featured",
+    "allLabel": "All articles",
+    "read": "Read the article",
+    "newsletter": {
+      "eyebrow": "Stay connected",
+      "title": "A newsletter,",
+      "titleEm": "once a month",
+      "description": "Our observations, our ongoing projects, and the lessons we want to share. No spam, one-click unsubscribe.",
+      "placeholder": "your@email.com",
+      "submit": "Subscribe",
+      "submitting": "Subscribing…",
+      "successEyebrow": "Thank you!",
+      "successMessage": "Your subscription is confirmed. You will receive our next edition in your inbox.",
+      "error": "Something went wrong. Try again or email us at"
+    }
+  },
+  "article": {
+    "shareEyebrow": "Did this article resonate?",
+    "shareLead": "Share it with people who can make something of it. Useful information spreads by word of mouth.",
+    "shareButton": "Share this article",
+    "shareMenuLabel": "Share options",
+    "shareHeading": "Share",
+    "shareClose": "Close menu",
+    "shareCopy": "Copy link",
+    "shareCopied": "Link copied!",
+    "shareEmail": "Email",
+    "backToBlog": "Back to blog"
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "aria": "Change language",
+    "fr": "Français",
+    "en": "English"
+  },
+  "comingSoon": {
+    "eyebrow": "Translation in progress",
+    "title": "This page will soon be available in English.",
+    "description": "We are finalising the translation. In the meantime, the French version remains accessible.",
+    "cta": "View in French"
+  }
+}

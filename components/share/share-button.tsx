@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Copy, Link2, Mail, Share2, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 
 type ShareButtonProps = {
@@ -45,7 +46,7 @@ const FacebookIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const buildShareTargets = (): ShareTarget[] => [
+const buildShareTargets = (emailLabel: string): ShareTarget[] => [
   {
     id: "whatsapp",
     label: "WhatsApp",
@@ -93,7 +94,7 @@ const buildShareTargets = (): ShareTarget[] => [
   },
   {
     id: "email",
-    label: "Email",
+    label: emailLabel,
     icon: Mail,
     color: "text-neutral-700",
     build: ({ title, text, url }) => {
@@ -112,12 +113,13 @@ export function ShareButton({
   className,
   align = "center",
 }: ShareButtonProps) {
+  const t = useTranslations("article");
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [resolvedUrl, setResolvedUrl] = useState(url ?? "");
   const containerRef = useRef<HTMLDivElement>(null);
   const menuId = useId();
-  const targets = buildShareTargets();
+  const targets = buildShareTargets(t("shareEmail"));
 
   useEffect(() => {
     if (!url && typeof window !== "undefined") {
@@ -185,7 +187,7 @@ export function ShareButton({
         className="group inline-flex items-center gap-2.5 rounded-full bg-neutral-950 px-5 py-3 text-sm font-medium text-white transition-all hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
       >
         <Share2 className="h-4 w-4" strokeWidth={1.8} />
-        <span>Partager cet article</span>
+        <span>{t("shareButton")}</span>
       </button>
 
       <AnimatePresence>
@@ -193,7 +195,7 @@ export function ShareButton({
           <motion.div
             id={menuId}
             role="menu"
-            aria-label="Options de partage"
+            aria-label={t("shareMenuLabel")}
             initial={{ opacity: 0, y: -8, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -6, scale: 0.97 }}
@@ -205,12 +207,12 @@ export function ShareButton({
           >
             <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-neutral-100 mb-1">
               <span className="text-xs tracking-[0.18em] uppercase text-neutral-500">
-                Partager
+                {t("shareHeading")}
               </span>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                aria-label="Fermer le menu"
+                aria-label={t("shareClose")}
                 className="text-neutral-400 hover:text-neutral-900 transition-colors"
               >
                 <X className="h-4 w-4" />
@@ -252,12 +254,12 @@ export function ShareButton({
                   {copied ? (
                     <>
                       <Check className="h-5 w-5 text-orange-600" />
-                      <span className="text-orange-600">Lien copié !</span>
+                      <span className="text-orange-600">{t("shareCopied")}</span>
                     </>
                   ) : (
                     <>
                       <Copy className="h-5 w-5 text-neutral-600" />
-                      <span>Copier le lien</span>
+                      <span>{t("shareCopy")}</span>
                     </>
                   )}
                 </button>

@@ -6,10 +6,11 @@ import { PageHero } from "@/components/sections/page-hero";
 import { ShareButton } from "@/components/share/share-button";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
 import type { ReactNode } from "react";
 
 type Breadcrumb = { label: string; href: string };
@@ -40,6 +41,8 @@ export function BlogArticleLayout({
   shareText,
   children,
 }: BlogArticleLayoutProps) {
+  const t = useTranslations("article");
+
   return (
     <>
       <ScrollProgress />
@@ -80,11 +83,10 @@ export function BlogArticleLayout({
             <div className="flex flex-col items-center gap-4 text-center">
               <div className="inline-flex items-center gap-3 text-xs tracking-[0.22em] text-neutral-500 uppercase">
                 <span className="inline-block h-px w-10 bg-orange-500" />
-                Cet article vous a intéressé ?
+                {t("shareEyebrow")}
               </div>
               <p className="max-w-lg text-neutral-600 leading-relaxed">
-                Partagez-le à celles et ceux qui peuvent en tirer quelque chose.
-                L'information utile circule par capillarité.
+                {t("shareLead")}
               </p>
               <ShareButton
                 title={title.replace(/\.$/, "")}
@@ -106,7 +108,7 @@ export function BlogArticleLayout({
             )}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
               <Button asChild variant="cta" size="cta">
-                <Link href={cta.href ?? "/contact"}>
+                <Link href={(cta.href ?? "/contact") as "/contact"}>
                   <span>{cta.label}</span>
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
@@ -116,7 +118,7 @@ export function BlogArticleLayout({
                 className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 hover:text-orange-600 transition-colors"
               >
                 <ArrowLeft className="h-4 w-4" />
-                Retour au blog
+                {t("backToBlog")}
               </Link>
             </div>
           </div>

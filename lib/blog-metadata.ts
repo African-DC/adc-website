@@ -2,45 +2,66 @@ import type { Metadata } from "next";
 import {
   getArticleBySlug,
   getArticleUrl,
+  localize,
   SITE_URL,
   type BlogArticle,
+  type BlogLocale,
 } from "@/lib/blog";
 
 const SITE_NAME = "African Digit Consulting";
 
-export function buildArticleMetadata(slug: string): Metadata {
+export function buildArticleMetadata(
+  slug: string,
+  locale: BlogLocale = "fr",
+): Metadata {
   const article = getArticleBySlug(slug);
   if (!article) {
     return {
-      title: "Article non trouvé",
-      description: "Cet article n'existe pas ou a été déplacé.",
+      title: locale === "en" ? "Article not found" : "Article non trouvé",
+      description:
+        locale === "en"
+          ? "This article does not exist or has been moved."
+          : "Cet article n'existe pas ou a été déplacé.",
       robots: { index: false, follow: false },
     };
   }
-  return buildMetadataFromArticle(article);
+  return buildMetadataFromArticle(article, locale);
 }
 
-function buildMetadataFromArticle(article: BlogArticle): Metadata {
-  const url = getArticleUrl(article.slug);
+function buildMetadataFromArticle(
+  article: BlogArticle,
+  locale: BlogLocale,
+): Metadata {
+  const url = getArticleUrl(article.slug, locale);
   const ogImage = `${url}/opengraph-image`;
+  const title = localize(article.title, locale);
+  const excerpt = localize(article.excerpt, locale);
+
+  const frUrl = getArticleUrl(article.slug, "fr");
+  const enUrl = getArticleUrl(article.slug, "en");
 
   return {
-    title: article.title,
-    description: article.excerpt,
+    title,
+    description: excerpt,
     keywords: article.keywords,
     authors: [{ name: article.author.name }],
     creator: article.author.name,
     publisher: SITE_NAME,
     alternates: {
       canonical: url,
+      languages: {
+        fr: frUrl,
+        en: enUrl,
+        "x-default": frUrl,
+      },
     },
     openGraph: {
-      title: article.title,
-      description: article.excerpt,
+      title,
+      description: excerpt,
       url,
       siteName: SITE_NAME,
       type: "article",
-      locale: "fr_FR",
+      locale: locale === "en" ? "en_US" : "fr_FR",
       publishedTime: article.publishedAt,
       modifiedTime: article.updatedAt ?? article.publishedAt,
       authors: [article.author.name],
@@ -50,14 +71,14 @@ function buildMetadataFromArticle(article: BlogArticle): Metadata {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: article.title,
+          alt: title,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: article.title,
-      description: article.excerpt,
+      title,
+      description: excerpt,
       images: [ogImage],
     },
     robots: {
@@ -73,18 +94,21 @@ function buildMetadataFromArticle(article: BlogArticle): Metadata {
   };
 }
 
-export function buildArticleJsonLd(slug: string) {
+export function buildArticleJsonLd(slug: string, locale: BlogLocale = "fr") {
   const article = getArticleBySlug(slug);
   if (!article) return null;
 
-  const url = getArticleUrl(slug);
+  const url = getArticleUrl(slug, locale);
   const ogImage = `${url}/opengraph-image`;
+  const title = localize(article.title, locale);
+  const excerpt = localize(article.excerpt, locale);
+  const category = localize(article.category, locale);
 
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: article.title,
-    description: article.excerpt,
+    headline: title,
+    description: excerpt,
     image: [ogImage, `${SITE_URL}${article.hero.src}`],
     datePublished: article.publishedAt,
     dateModified: article.updatedAt ?? article.publishedAt,
@@ -106,9 +130,9 @@ export function buildArticleJsonLd(slug: string) {
       "@type": "WebPage",
       "@id": url,
     },
-    inLanguage: "fr-FR",
+    inLanguage: locale === "en" ? "en-US" : "fr-FR",
     keywords: article.keywords?.join(", "),
-    articleSection: article.category,
+    articleSection: category,
   };
 }
 
