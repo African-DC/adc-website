@@ -145,12 +145,20 @@ export function Footer() {
                     className="h-4 w-4 text-orange-400 mt-0.5 flex-shrink-0"
                     strokeWidth={1.5}
                   />
-                  <a
-                    href="tel:+2252732797523"
-                    className="hover:text-orange-400 transition-colors"
-                  >
-                    +225 27 32 797 523
-                  </a>
+                  <div className="flex flex-col gap-1">
+                    <a
+                      href="tel:+2252732797523"
+                      className="hover:text-orange-400 transition-colors"
+                    >
+                      +225 27 32 797 523
+                    </a>
+                    <a
+                      href="tel:+2250595459843"
+                      className="hover:text-orange-400 transition-colors"
+                    >
+                      +225 05 95 45 98 43
+                    </a>
+                  </div>
                 </li>
                 <li className="flex items-start gap-2.5 text-sm text-white/80">
                   <Mail

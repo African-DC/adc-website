@@ -189,7 +189,7 @@ export default function ContactPage() {
                         </a>
                         <span className="text-neutral-400 mx-2">·</span>
                         <a
-                          href="tel:+22505954598 43"
+                          href="tel:+2250595459843"
                           className="text-neutral-900 hover:text-orange-600 transition-colors"
                         >
                           +225 05 95 45 98 43
