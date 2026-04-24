@@ -1,3 +1,4 @@
+import { toBlogLocale } from "@/lib/blog";
 import { createBlogOgImage } from "@/lib/og-template";
 
 export { alt, size, contentType } from "@/lib/og-template";
@@ -8,6 +9,6 @@ export default async function Image({ params }: { params: Params }) {
   const { locale } = await params;
   return createBlogOgImage(
     "digigreen-acceleration-wouri",
-    locale === "en" ? "en" : "fr",
+    toBlogLocale(locale),
   );
 }

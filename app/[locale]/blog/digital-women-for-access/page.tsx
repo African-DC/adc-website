@@ -5,7 +5,7 @@ import {
   buildArticleMetadata,
   jsonLdScriptProps,
 } from "@/lib/blog-metadata";
-import type { BlogLocale } from "@/lib/blog";
+import { toBlogLocale } from "@/lib/blog";
 import ArticleFr from "./article-content";
 import ArticleEn from "./article-content-en";
 
@@ -13,8 +13,6 @@ const SLUG = "digital-women-for-access";
 
 type Params = Promise<{ locale: string }>;
 
-const toLocale = (locale: string): BlogLocale =>
-  locale === "en" ? "en" : "fr";
 
 export async function generateMetadata({
   params,
@@ -22,12 +20,12 @@ export async function generateMetadata({
   params: Params;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return buildArticleMetadata(SLUG, toLocale(locale));
+  return buildArticleMetadata(SLUG, toBlogLocale(locale));
 }
 
 export default async function Page({ params }: { params: Params }) {
   const { locale } = await params;
-  const loc = toLocale(locale);
+  const loc = toBlogLocale(locale);
   setRequestLocale(locale);
   const jsonLd = buildArticleJsonLd(SLUG, loc);
   return (

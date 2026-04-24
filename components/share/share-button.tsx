@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Copy, Link2, Mail, Share2, X } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 
 type ShareButtonProps = {
   title: string;
@@ -20,6 +20,7 @@ type ShareTarget = {
   build: (params: { title: string; text: string; url: string }) => string;
   icon: React.ComponentType<{ className?: string }>;
   color: string;
+  external: boolean;
 };
 
 const LinkedInIcon = ({ className }: { className?: string }) => (
@@ -52,6 +53,7 @@ const buildShareTargets = (emailLabel: string): ShareTarget[] => [
     label: "WhatsApp",
     icon: WhatsAppIcon,
     color: "text-[#25D366]",
+    external: true,
     build: ({ title, url }) => {
       const u = new URL("https://wa.me/");
       u.searchParams.set("text", `${title} ${url}`);
@@ -63,6 +65,7 @@ const buildShareTargets = (emailLabel: string): ShareTarget[] => [
     label: "LinkedIn",
     icon: LinkedInIcon,
     color: "text-[#0A66C2]",
+    external: true,
     build: ({ url }) => {
       const u = new URL("https://www.linkedin.com/sharing/share-offsite/");
       u.searchParams.set("url", url);
@@ -74,6 +77,7 @@ const buildShareTargets = (emailLabel: string): ShareTarget[] => [
     label: "X · Twitter",
     icon: XIcon,
     color: "text-neutral-950",
+    external: true,
     build: ({ title, url }) => {
       const u = new URL("https://x.com/intent/post");
       u.searchParams.set("url", url);
@@ -86,6 +90,7 @@ const buildShareTargets = (emailLabel: string): ShareTarget[] => [
     label: "Facebook",
     icon: FacebookIcon,
     color: "text-[#1877F2]",
+    external: true,
     build: ({ url }) => {
       const u = new URL("https://www.facebook.com/sharer/sharer.php");
       u.searchParams.set("u", url);
@@ -97,6 +102,7 @@ const buildShareTargets = (emailLabel: string): ShareTarget[] => [
     label: emailLabel,
     icon: Mail,
     color: "text-neutral-700",
+    external: false,
     build: ({ title, text, url }) => {
       const u = new URL("mailto:");
       u.searchParams.set("subject", title);
@@ -114,12 +120,15 @@ export function ShareButton({
   align = "center",
 }: ShareButtonProps) {
   const t = useTranslations("article");
+  const emailLabel = t("shareEmail");
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [resolvedUrl, setResolvedUrl] = useState(url ?? "");
+  const [resolvedUrl, setResolvedUrl] = useState(
+    () => url ?? (typeof window !== "undefined" ? window.location.href : ""),
+  );
   const containerRef = useRef<HTMLDivElement>(null);
   const menuId = useId();
-  const targets = buildShareTargets(t("shareEmail"));
+  const targets = useMemo(() => buildShareTargets(emailLabel), [emailLabel]);
 
   useEffect(() => {
     if (!url && typeof window !== "undefined") {
@@ -232,8 +241,8 @@ export function ShareButton({
                     <a
                       role="menuitem"
                       href={href}
-                      target={target.id === "email" ? undefined : "_blank"}
-                      rel={target.id === "email" ? undefined : "noopener noreferrer"}
+                      target={target.external ? "_blank" : undefined}
+                      rel={target.external ? "noopener noreferrer" : undefined}
                       onClick={() => setOpen(false)}
                       className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-neutral-800 transition-colors hover:bg-neutral-50 focus-visible:bg-neutral-50 focus-visible:outline-none"
                     >

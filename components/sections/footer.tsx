@@ -5,27 +5,27 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
+const NAV_LINKS = [
+  { key: "home", href: "/" },
+  { key: "about", href: "/a-propos" },
+  { key: "expertiseLong", href: "/notre-expertise" },
+  { key: "workLong", href: "/nos-realisations" },
+  { key: "blog", href: "/blog" },
+  { key: "contact", href: "/contact" },
+] as const;
+
+const PROJECT_LINKS = [
+  { label: "KLASSCI", href: "/nos-realisations/klassci" },
+  { label: "WOURI", href: "/nos-realisations/wouri" },
+] as const;
+
+const LEGAL_LINKS = [
+  { key: "privacy", href: "/politique-confidentialite" },
+] as const;
+
 export function Footer() {
   const t = useTranslations("footer");
   const tNav = useTranslations("nav");
-
-  const navLinks = [
-    { key: "home", href: "/" as const },
-    { key: "about", href: "/a-propos" as const },
-    { key: "expertiseLong", href: "/notre-expertise" as const },
-    { key: "workLong", href: "/nos-realisations" as const },
-    { key: "blog", href: "/blog" as const },
-    { key: "contact", href: "/contact" as const },
-  ];
-
-  const projectLinks = [
-    { label: "KLASSCI", href: "/nos-realisations/klassci" as const },
-    { label: "WOURI", href: "/nos-realisations/wouri" as const },
-  ];
-
-  const legalLinks = [
-    { key: "privacy", href: "/politique-confidentialite" as const },
-  ];
 
   return (
     <footer className="relative bg-neutral-950 text-white overflow-hidden">
@@ -84,7 +84,7 @@ export function Footer() {
                 {t("navigation")}
               </h3>
               <ul className="space-y-3">
-                {navLinks.map((link) => (
+                {NAV_LINKS.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
@@ -102,7 +102,7 @@ export function Footer() {
                 {t("featuredProjects")}
               </h3>
               <ul className="space-y-3">
-                {projectLinks.map((link) => (
+                {PROJECT_LINKS.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
@@ -171,7 +171,7 @@ export function Footer() {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-neutral-500">
           <p>{t("copyright", { year: new Date().getFullYear() })}</p>
           <ul className="flex flex-wrap gap-6">
-            {legalLinks.map((link) => (
+            {LEGAL_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}

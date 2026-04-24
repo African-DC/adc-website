@@ -8,22 +8,25 @@ import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const NAV_LINKS = [
+  { key: "home", href: "/" },
+  { key: "about", href: "/a-propos" },
+  { key: "expertise", href: "/notre-expertise" },
+  { key: "work", href: "/nos-realisations" },
+  { key: "blog", href: "/blog" },
+] as const;
+
 export function NavbarDemo() {
   const t = useTranslations("nav");
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const navLinks = [
-    { key: "home", href: "/" as const },
-    { key: "about", href: "/a-propos" as const },
-    { key: "expertise", href: "/notre-expertise" as const },
-    { key: "work", href: "/nos-realisations" as const },
-    { key: "blog", href: "/blog" as const },
-  ];
-
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      const next = window.scrollY > 20;
+      setScrolled((prev) => (prev === next ? prev : next));
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -73,7 +76,7 @@ export function NavbarDemo() {
 
           {/* Desktop links */}
           <ul className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => {
+            {NAV_LINKS.map((link) => {
               const active = isActive(link.href);
               return (
                 <li key={link.href}>
@@ -151,7 +154,7 @@ export function NavbarDemo() {
                 {t("menuLabel")}
               </div>
               <ul className="space-y-2">
-                {navLinks.map((link, i) => {
+                {NAV_LINKS.map((link, i) => {
                   const active = isActive(link.href);
                   return (
                     <motion.li

@@ -291,11 +291,15 @@ export function getArticleHref(slug: string): string {
   return `/blog/${slug}`;
 }
 
-export function localize<T extends string>(
-  value: { fr: T; en: T },
+export function localize(
+  value: LocalizedString,
   locale: BlogLocale,
-): T {
-  return value[locale] ?? value.fr;
+): string {
+  return value[locale];
+}
+
+export function toBlogLocale(locale: string): BlogLocale {
+  return locale === "en" ? "en" : "fr";
 }
 
 export { SITE_URL };
