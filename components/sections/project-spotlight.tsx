@@ -141,10 +141,10 @@ export function ProjectSpotlight() {
                       <div
                         className="font-serif text-2xl font-semibold"
                       >
-                        LMD
+                        Tous
                       </div>
                       <div className="text-[10px] tracking-[0.1em] uppercase text-neutral-500">
-                        L · M · D
+                        Cycles
                       </div>
                     </div>
                   </div>

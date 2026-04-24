@@ -73,11 +73,11 @@ export default function OrangeBusinessArticlePage() {
           </p>
 
           <p>
-            Aujourd'hui, quatre établissements l'utilisent en production,
-            de la filière BTS jusqu'au doctorat, avec des règles de
-            notation, des années académiques et des grilles tarifaires
-            propres à chacun. Une base de code, quatre contextes
-            réels, une même discipline d'exécution.
+            Aujourd'hui, dix établissements l'utilisent en production,
+            du primaire au doctorat, avec des règles de notation, des
+            années académiques et des grilles tarifaires propres à
+            chacun. Une base de code, autant de contextes réels, une
+            même discipline d'exécution.
           </p>
 
           <div className="my-10 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -91,7 +91,7 @@ export default function OrangeBusinessArticlePage() {
             </div>
             <div className="rounded-xl border border-neutral-200 p-5 bg-neutral-50">
               <div className="font-serif text-4xl font-semibold text-neutral-950 mb-2">
-                4
+                10
               </div>
               <p className="text-sm text-neutral-600 leading-snug">
                 établissements en production
@@ -99,10 +99,10 @@ export default function OrangeBusinessArticlePage() {
             </div>
             <div className="rounded-xl border border-neutral-200 p-5 bg-neutral-50">
               <div className="font-serif text-4xl font-semibold text-neutral-950 mb-2">
-                LMD
+                Tous cycles
               </div>
               <p className="text-sm text-neutral-600 leading-snug">
-                cycle complet Licence / Master / Doctorat
+                du primaire au doctorat
               </p>
             </div>
           </div>

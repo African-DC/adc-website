@@ -327,6 +327,10 @@ export default function RealisationsPage() {
           </div>
         </section>
 
+        {/* Section "Autres realisations / Portfolio creatif" desactivee :
+            ADC ne fournit plus Design / Branding / Social Media / Graphisme.
+            Conservee pour reactivation future (cf. services-editorial.tsx). */}
+        {false && (
         <div className="py-16 relative">
           {/* Éléments décoratifs en arrière-plan */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-orange-300 rounded-full opacity-10 blur-[150px] -z-10"></div>
@@ -458,6 +462,7 @@ export default function RealisationsPage() {
             )}
           </div>
         </div>
+        )}
 
         {/* Section CTA */}
         <div className="bg-gradient-to-r from-orange-600 to-amber-500 py-20 relative overflow-hidden">
