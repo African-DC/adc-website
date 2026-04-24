@@ -6,7 +6,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Star, ExternalLink, Tag, EyeIcon, ArrowRight } from "lucide-react";
+import { Star, ExternalLink, Tag, EyeIcon, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import Link from "next/link";
@@ -188,12 +188,109 @@ export default function RealisationsPage() {
       />
 
       <main className="overflow-hidden bg-gradient-to-b from-orange-50 via-white to-orange-50">
+        {/* Projet vedette — KLASSCI */}
+        <section className="relative pt-16 pb-20 md:pt-20 md:pb-24">
+          <div className="max-w-7xl mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-8 inline-flex items-center gap-3 text-xs tracking-[0.18em] text-neutral-600 uppercase"
+            >
+              <span className="inline-block h-px w-8 bg-orange-500" />
+              Projet vedette
+            </motion.div>
+
+            <Link
+              href="/nos-realisations/klassci"
+              className="group block relative rounded-2xl md:rounded-3xl overflow-hidden border border-neutral-200 bg-white shadow-xl shadow-neutral-900/5 hover:shadow-2xl hover:shadow-neutral-900/10 transition-all duration-500"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
+                {/* Left — text */}
+                <div className="relative p-8 md:p-12 lg:p-16 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-3 mb-6">
+                      <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100 text-orange-700 text-xs font-medium">
+                        <span className="relative flex h-1.5 w-1.5">
+                          <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping" />
+                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
+                        </span>
+                        En production
+                      </span>
+                      <span className="text-xs text-neutral-500">
+                        Enseignement supérieur
+                      </span>
+                    </div>
+
+                    <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] mb-5">
+                      KLASSCI<span className="text-orange-500">.</span>
+                    </h3>
+                    <p className="text-xl md:text-2xl italic font-light text-neutral-700 leading-snug mb-8 max-w-md">
+                      Le SaaS qui réinvente la gestion des universités
+                      africaines.
+                    </p>
+                    <p className="text-neutral-600 max-w-md mb-10">
+                      Cinq grandes écoles en production. Planning, scolarité,
+                      finances, bulletins, paie. Construit de bout en bout par
+                      ADC.
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-6 text-sm">
+                    <span className="inline-flex items-center gap-2 text-neutral-900 font-medium group-hover:text-orange-600 transition-colors">
+                      Lire l'étude de cas
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    </span>
+                    <span className="text-neutral-400">·</span>
+                    <span className="text-neutral-500">6 min de lecture</span>
+                  </div>
+                </div>
+
+                {/* Right — screenshot */}
+                <div className="relative bg-gradient-to-br from-orange-50 via-orange-100/50 to-amber-50 p-6 md:p-10 lg:p-12 flex items-center justify-center overflow-hidden min-h-[320px]">
+                  <div
+                    className="relative w-full transition-transform duration-700 group-hover:scale-[1.02]"
+                    style={{ transform: "rotate(1deg)" }}
+                  >
+                    <div className="absolute -inset-3 bg-gradient-to-br from-orange-500/10 to-transparent rounded-xl" />
+                    <div className="relative rounded-lg overflow-hidden border border-neutral-200 shadow-2xl shadow-neutral-900/10 bg-white">
+                      <Image
+                        src="/img/projets/klassci/hero_section.png"
+                        alt="Aperçu de l'interface KLASSCI"
+                        width={1200}
+                        height={800}
+                        className="w-full h-auto"
+                      />
+                    </div>
+                  </div>
+                  {/* Decorative glow */}
+                  <div
+                    aria-hidden
+                    className="absolute -bottom-20 -right-20 w-72 h-72 rounded-full bg-orange-400 opacity-15 blur-[80px] pointer-events-none"
+                  />
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
+
         <div className="py-16 relative">
           {/* Éléments décoratifs en arrière-plan */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-orange-300 rounded-full opacity-10 blur-[150px] -z-10"></div>
           <div className="absolute bottom-20 left-0 w-72 h-72 bg-amber-400 rounded-full opacity-10 blur-[100px] -z-10"></div>
 
           <div className="max-w-7xl mx-auto px-4">
+            <div className="mb-10 text-center">
+              <div className="text-xs tracking-[0.18em] uppercase text-neutral-600 mb-3">
+                <span className="inline-block h-px w-8 bg-orange-500 mr-3 align-middle" />
+                Autres réalisations
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-neutral-900">
+                Notre portfolio créatif
+              </h2>
+            </div>
+
             {/* Filtres de catégories */}
             <div className="mb-12">
               <motion.div
