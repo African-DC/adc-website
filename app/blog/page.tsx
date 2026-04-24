@@ -49,6 +49,34 @@ const articles: Article[] = [
     date: "17 avril 2026",
     href: "/blog/digigreen-acceleration-wouri",
   },
+  {
+    title: "Digital Women for Access : première édition à Abidjan",
+    excerpt:
+      "Initiative portée par ADC pour rendre le numérique plus accessible aux femmes ivoiriennes. Formation, mise en réseau, acculturation digitale.",
+    image: "/img/blog/digital-women.webp",
+    category: "Initiatives",
+    date: "Juin 2024",
+    href: "/blog/digital-women-for-access",
+  },
+  {
+    title:
+      "ADC au Salon des opportunités publiques et privées de l'entrepreneur",
+    excerpt:
+      "Participation à la deuxième édition de ce rendez-vous qui réunit PME, institutions publiques et bailleurs autour de l'entrepreneuriat ivoirien.",
+    image: "/img/blog/salon-entrepreneur.jpg",
+    category: "Entrepreneuriat",
+    date: "Mai 2024",
+    href: "/blog/salon-opportunites-entrepreneur",
+  },
+  {
+    title: "Webinar : une vision pour l'Afrique numérique",
+    excerpt:
+      "Notre équipe partage sa lecture des défis et des opportunités du digital en Afrique francophone : souveraineté, IA, transformation réelle.",
+    image: "/img/blog/webinar-afrique.jpg",
+    category: "Vision",
+    date: "Mars 2024",
+    href: "/blog/webinar-afrique-numerique",
+  },
 ];
 
 export default function BlogPage() {
