@@ -1,9 +1,12 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { track } from "@/lib/analytics/track";
+import type { ShareChannel } from "@/lib/analytics/events";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Copy, Link2, Mail, Share2, X } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 
 type ShareButtonProps = {
@@ -14,15 +17,20 @@ type ShareButtonProps = {
   align?: "left" | "center" | "right";
   variant?: "primary" | "ghost";
   compactLabel?: boolean;
+  trackingSlug?: string;
 };
 
 type ShareTarget = {
-  id: string;
+  id: ShareChannel;
   label: string;
   build: (params: { title: string; text: string; url: string }) => string;
   icon: React.ComponentType<{ className?: string }>;
   color: string;
   external: boolean;
+};
+
+type ShareButtonProps2 = {
+  trackingSlug?: string;
 };
 
 const LinkedInIcon = ({ className }: { className?: string }) => (
@@ -122,8 +130,10 @@ export function ShareButton({
   align = "center",
   variant = "primary",
   compactLabel = false,
+  trackingSlug,
 }: ShareButtonProps) {
   const t = useTranslations("article");
+  const pathname = usePathname();
   const emailLabel = t("shareEmail");
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -160,27 +170,43 @@ export function ShareButton({
 
   const shareText = text ?? title;
 
+  const slugProp =
+    trackingSlug ?? pathname?.split("/").filter(Boolean).pop() ?? "";
+
   const handlePrimary = useCallback(async () => {
     if (typeof navigator !== "undefined" && "share" in navigator) {
+      track("blog_article_share_click", { slug: slugProp, channel: "native" });
       try {
         await navigator.share({ title, text: shareText, url: resolvedUrl });
+        track("blog_article_share_success", {
+          slug: slugProp,
+          channel: "native",
+        });
         return;
       } catch (err) {
         if ((err as DOMException)?.name === "AbortError") return;
       }
     }
-    setOpen((v) => !v);
-  }, [title, shareText, resolvedUrl]);
+    setOpen((v) => {
+      const next = !v;
+      if (next) {
+        track("blog_article_share_open", { slug: slugProp });
+      }
+      return next;
+    });
+  }, [title, shareText, resolvedUrl, slugProp]);
 
   const handleCopy = useCallback(async () => {
     try {
       await navigator.clipboard.writeText(resolvedUrl);
       setCopied(true);
+      track("blog_article_share_click", { slug: slugProp, channel: "copy" });
+      track("blog_article_share_success", { slug: slugProp, channel: "copy" });
       window.setTimeout(() => setCopied(false), 2000);
     } catch {
       setCopied(false);
     }
-  }, [resolvedUrl]);
+  }, [resolvedUrl, slugProp]);
 
   const alignClass =
     align === "left"
@@ -254,7 +280,13 @@ export function ShareButton({
                       href={href}
                       target={target.external ? "_blank" : undefined}
                       rel={target.external ? "noopener noreferrer" : undefined}
-                      onClick={() => setOpen(false)}
+                      onClick={() => {
+                        track("blog_article_share_click", {
+                          slug: slugProp,
+                          channel: target.id,
+                        });
+                        setOpen(false);
+                      }}
                       className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-neutral-800 transition-colors hover:bg-neutral-50 focus-visible:bg-neutral-50 focus-visible:outline-none"
                     >
                       <Icon className={cn("h-5 w-5", target.color)} />

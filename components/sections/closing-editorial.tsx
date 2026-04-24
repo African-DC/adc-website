@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { track } from "@/lib/analytics/track";
 
 export function ClosingEditorial() {
   return (
@@ -97,13 +98,27 @@ export function ClosingEditorial() {
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
         >
           <Button asChild variant="cta" size="cta">
-            <Link href="/contact">
+            <Link
+              href="/contact"
+              onClick={() =>
+                track("home_hero_cta_click", {
+                  cta: "start_project_closing",
+                  destination: "/contact",
+                })
+              }
+            >
               <span>Parler avec notre équipe</span>
               <ArrowUpRight className="h-4 w-4" />
             </Link>
           </Button>
           <Link
             href="/nos-realisations"
+            onClick={() =>
+              track("home_hero_cta_click", {
+                cta: "see_work_closing",
+                destination: "/nos-realisations",
+              })
+            }
             className="inline-flex items-center gap-2 text-sm font-medium text-white/80 hover:text-orange-400 transition-colors"
           >
             Voir nos études de cas

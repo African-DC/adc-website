@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { track } from "@/lib/analytics/track";
 
 const metrics = [
   { value: "2023", label: "Founded" },
@@ -92,13 +93,27 @@ export function HeroEditorial() {
 
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3 md:justify-end">
               <Button asChild variant="cta" size="cta">
-                <Link href="/contact">
+                <Link
+                  href="/contact"
+                  onClick={() =>
+                    track("home_hero_cta_click", {
+                      cta: "start_project",
+                      destination: "/contact",
+                    })
+                  }
+                >
                   <span>Start a project</span>
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </Button>
               <Link
                 href="/nos-realisations"
+                onClick={() =>
+                  track("home_hero_cta_click", {
+                    cta: "see_work",
+                    destination: "/nos-realisations",
+                  })
+                }
                 className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 hover:text-orange-600 transition-colors whitespace-nowrap"
               >
                 <span>See our case studies</span>

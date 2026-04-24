@@ -16,22 +16,27 @@ import {
   Navigation,
 } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { track, bucketMessageLength } from "@/lib/analytics/track";
 
 const faqs = [
   {
+    id: "cout-projet-digital",
     q: "Combien coûte un projet digital ?",
     a: "Le coût dépend de la complexité, du périmètre et des délais. Nous proposons des solutions sur mesure adaptées à votre budget et à vos objectifs. Contactez-nous pour un devis personnalisé sous 48h.",
   },
   {
+    id: "delai-livraison-projet",
     q: "En combien de temps livrez-vous un projet ?",
     a: "Un site vitrine simple prend 2 à 4 semaines. Une application web métier peut demander plusieurs mois. Nous établissons un calendrier réaliste dès le brief et vous tenons informé à chaque étape.",
   },
   {
+    id: "processus-travail",
     q: "Comment se déroule votre processus ?",
     a: "Un brief approfondi pour comprendre votre métier, puis des ateliers de conception, puis le développement itératif. Validation par sprint, mise en ligne, et accompagnement post-lancement.",
   },
   {
+    id: "maintenance",
     q: "Proposez-vous de la maintenance ?",
     a: "Oui. Des forfaits maintenance couvrent les mises à jour de sécurité, les corrections de bugs et l'assistance technique. Nous restons votre partenaire sur la durée, pas seulement au lancement.",
   },
@@ -50,6 +55,20 @@ export default function ContactPageContent() {
     error: false,
   });
 
+  const focusedFieldsRef = useRef<Set<string>>(new Set());
+
+  const handleFocus = (
+    e: React.FocusEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const field = e.target.name;
+    if (!field) return;
+    if (focusedFieldsRef.current.has(field)) return;
+    focusedFieldsRef.current.add(field);
+    track("contact_form_focused", { field });
+  };
+
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -62,6 +81,12 @@ export default function ContactPageContent() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState((prev) => ({ ...prev, loading: true, error: false }));
+
+    track("contact_form_submit_attempt", {
+      has_company: formState.company.trim().length > 0,
+      message_length_bucket: bucketMessageLength(formState.message.length),
+      project_type: formState.service || undefined,
+    });
 
     try {
       const formData = new FormData();
@@ -84,6 +109,7 @@ export default function ContactPageContent() {
       const data = await response.json();
 
       if (data.success) {
+        const submittedProjectType = formState.service || undefined;
         setFormState({
           name: "",
           email: "",
@@ -95,12 +121,18 @@ export default function ContactPageContent() {
           loading: false,
           error: false,
         });
+        track("contact_form_submit_success", {
+          project_type: submittedProjectType,
+        });
       } else {
         throw new Error(data.message || "Une erreur est survenue");
       }
-    } catch (error) {
-      console.error("Erreur lors de l'envoi du formulaire:", error);
+    } catch (err) {
+      console.error("Erreur lors de l'envoi du formulaire:", err);
       setFormState((prev) => ({ ...prev, loading: false, error: true }));
+      track("contact_form_submit_error", {
+        error: String(err).slice(0, 100),
+      });
     }
   };
 
@@ -183,6 +215,9 @@ export default function ContactPageContent() {
                       <dd>
                         <a
                           href="tel:+2252732797523"
+                          onClick={() =>
+                            track("contact_phone_click", { number_index: 0 })
+                          }
                           className="text-neutral-900 hover:text-orange-600 transition-colors"
                         >
                           +225 27 32 797 523
@@ -190,6 +225,9 @@ export default function ContactPageContent() {
                         <span className="text-neutral-400 mx-2">·</span>
                         <a
                           href="tel:+2250595459843"
+                          onClick={() =>
+                            track("contact_phone_click", { number_index: 1 })
+                          }
                           className="text-neutral-900 hover:text-orange-600 transition-colors"
                         >
                           +225 05 95 45 98 43
@@ -210,6 +248,12 @@ export default function ContactPageContent() {
                       <dd>
                         <a
                           href="mailto:africandigitconsulting@gmail.com"
+                          onClick={() =>
+                            track(
+                              "contact_email_click",
+                              {} as Record<string, never>
+                            )
+                          }
                           className="text-neutral-900 hover:text-orange-600 transition-colors break-all"
                         >
                           africandigitconsulting@gmail.com
@@ -323,6 +367,7 @@ export default function ContactPageContent() {
                               name="name"
                               value={formState.name}
                               onChange={handleChange}
+                              onFocus={handleFocus}
                               placeholder="Votre nom"
                               required
                               className={inputClass}
@@ -342,6 +387,7 @@ export default function ContactPageContent() {
                               type="email"
                               value={formState.email}
                               onChange={handleChange}
+                              onFocus={handleFocus}
                               placeholder="votre@email.com"
                               required
                               className={inputClass}
@@ -362,6 +408,7 @@ export default function ContactPageContent() {
                               name="phone"
                               value={formState.phone}
                               onChange={handleChange}
+                              onFocus={handleFocus}
                               placeholder="+225 XX XX XX XX XX"
                               className={inputClass}
                             />
@@ -379,6 +426,7 @@ export default function ContactPageContent() {
                               name="company"
                               value={formState.company}
                               onChange={handleChange}
+                              onFocus={handleFocus}
                               placeholder="Votre entreprise"
                               className={inputClass}
                             />
@@ -398,6 +446,7 @@ export default function ContactPageContent() {
                             name="service"
                             value={formState.service}
                             onChange={handleChange}
+                            onFocus={handleFocus}
                             required
                             className={inputClass}
                           >
@@ -428,6 +477,7 @@ export default function ContactPageContent() {
                             name="message"
                             value={formState.message}
                             onChange={handleChange}
+                            onFocus={handleFocus}
                             placeholder="Décrivez votre projet, votre besoin, vos contraintes…"
                             rows={5}
                             required
@@ -553,7 +603,16 @@ export default function ContactPageContent() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: i * 0.08 }}
                     >
-                      <details className="group py-6">
+                      <details
+                        className="group py-6"
+                        onToggle={(e) => {
+                          if ((e.currentTarget as HTMLDetailsElement).open) {
+                            track("contact_faq_expand", {
+                              question_id: item.id,
+                            });
+                          }
+                        }}
+                      >
                         <summary className="flex items-start justify-between gap-6 cursor-pointer list-none">
                           <span
                             className="font-serif text-lg md:text-xl font-medium text-neutral-950 pr-4"

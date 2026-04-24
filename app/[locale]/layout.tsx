@@ -4,6 +4,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
+import { PostHogProvider } from "@/components/analytics/posthog-provider";
 import { ReactNode } from "react";
 import "../globals.css";
 
@@ -144,7 +145,9 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
       className={`${montserrat.variable} ${poppins.variable} ${fraunces.variable}`}
     >
       <body>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <PostHogProvider>{children}</PostHogProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

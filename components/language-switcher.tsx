@@ -3,6 +3,7 @@
 import { routing, type AppLocale } from "@/i18n/routing";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
+import { track } from "@/lib/analytics/track";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, Globe } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -54,6 +55,11 @@ export function LanguageSwitcher({
   const switchTo = (nextLocale: AppLocale) => {
     setOpen(false);
     if (nextLocale === currentLocale || isPending) return;
+    track("language_switched", {
+      from: currentLocale,
+      to: nextLocale,
+      page: pathname,
+    });
     startTransition(() => {
       router.replace(
         pathname as Parameters<typeof router.replace>[0],

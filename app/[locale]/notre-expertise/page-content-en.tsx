@@ -13,6 +13,7 @@ import {
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ScrollProgress from "@/components/ui/scroll-progress";
+import { track } from "@/lib/analytics/track";
 
 type Expertise = {
   number: string;
@@ -317,13 +318,27 @@ export default function ExpertisePageContentEn() {
             </h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Button asChild variant="cta" size="cta">
-                <Link href="/contact">
+                <Link
+                  href="/contact"
+                  onClick={() =>
+                    track("expertise_cta_click", {
+                      cta: "start_project",
+                      destination: "/contact",
+                    })
+                  }
+                >
                   <span>Start a project</span>
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </Button>
               <Link
                 href="/nos-realisations"
+                onClick={() =>
+                  track("expertise_cta_click", {
+                    cta: "see_work",
+                    destination: "/nos-realisations",
+                  })
+                }
                 className="inline-flex items-center gap-2 text-sm font-medium text-white/80 hover:text-orange-400 transition-colors"
               >
                 See our case studies

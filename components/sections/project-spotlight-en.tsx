@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { track } from "@/lib/analytics/track";
 
 const WOURI_GREEN = "#1a5d3a";
 const WOURI_GREEN_LIGHT = "#a7d7b5";
@@ -71,6 +72,9 @@ export function ProjectSpotlight() {
           >
             <Link
               href="/nos-realisations/klassci"
+              onClick={() =>
+                track("home_project_click", { project: "klassci" })
+              }
               className="group block relative rounded-2xl md:rounded-3xl overflow-hidden border border-white/10 bg-white/[0.02] backdrop-blur-sm hover:border-orange-500/40 transition-all duration-500 h-full"
             >
               <div className="p-8 md:p-10 flex flex-col h-full gap-8">
@@ -166,6 +170,9 @@ export function ProjectSpotlight() {
           >
             <Link
               href="/nos-realisations/wouri"
+              onClick={() =>
+                track("home_project_click", { project: "wouri" })
+              }
               className="group block relative rounded-2xl md:rounded-3xl overflow-hidden border border-white/10 hover:border-[#1a5d3a]/70 bg-white/[0.02] backdrop-blur-sm transition-all duration-500 h-full"
             >
               <div className="p-8 md:p-10 flex flex-col h-full gap-8">

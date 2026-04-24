@@ -7,9 +7,11 @@ import { ShareButton } from "@/components/share/share-button";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
+import { track } from "@/lib/analytics/track";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import type { ReactNode } from "react";
 
@@ -42,6 +44,8 @@ export function BlogArticleLayout({
   children,
 }: BlogArticleLayoutProps) {
   const t = useTranslations("article");
+  const pathname = usePathname();
+  const slug = pathname?.split("/").filter(Boolean).pop() ?? "";
 
   return (
     <>
@@ -116,13 +120,23 @@ export function BlogArticleLayout({
             )}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
               <Button asChild variant="cta" size="cta">
-                <Link href={(cta.href ?? "/contact") as "/contact"}>
+                <Link
+                  href={(cta.href ?? "/contact") as "/contact"}
+                  onClick={() =>
+                    track("blog_cta_click", {
+                      slug,
+                      cta_label: cta.label,
+                      destination: cta.href ?? "/contact",
+                    })
+                  }
+                >
                   <span>{cta.label}</span>
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </Button>
               <Link
                 href="/blog"
+                onClick={() => track("blog_back_to_blog_click", { slug })}
                 className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 hover:text-orange-600 transition-colors"
               >
                 <ArrowLeft className="h-4 w-4" />

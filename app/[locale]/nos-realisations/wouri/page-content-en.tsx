@@ -15,6 +15,9 @@ import {
   Leaf,
 } from "lucide-react";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useLocale } from "next-intl";
+import { track } from "@/lib/analytics/track";
 
 // Wouri brand green (deep forest, sophisticated)
 const WOURI_GREEN = "#1a5d3a";
@@ -83,6 +86,13 @@ const sampleConversation = [
 ];
 
 export default function WouriCaseStudyContent() {
+  const rawLocale = useLocale();
+  const locale: "fr" | "en" = rawLocale === "en" ? "en" : "fr";
+
+  useEffect(() => {
+    track("case_study_view", { project: "wouri", locale });
+  }, [locale]);
+
   return (
     <div className={`bg-[#fafaf6] text-neutral-950`}>
       <ScrollProgress />
@@ -615,6 +625,13 @@ export default function WouriCaseStudyContent() {
                       </span>
                       <Link
                         href="/contact"
+                        onClick={() =>
+                          track("case_study_cta_click", {
+                            project: "wouri",
+                            cta: "join_beta",
+                            destination: "/contact",
+                          })
+                        }
                         className="flex items-center justify-center h-16 w-16 md:h-20 md:w-20 rounded-full bg-white text-neutral-950 hover:bg-[#a7d7b5] hover:text-neutral-950 transition-all duration-500 hover:-translate-y-1"
                       >
                         <Leaf
@@ -637,7 +654,16 @@ export default function WouriCaseStudyContent() {
                 <span>See all case studies</span>
               </Link>
               <Button asChild variant="cta" size="cta">
-                <Link href="/contact">
+                <Link
+                  href="/contact"
+                  onClick={() =>
+                    track("case_study_cta_click", {
+                      project: "wouri",
+                      cta: "start_project",
+                      destination: "/contact",
+                    })
+                  }
+                >
                   <span>Work with ADC</span>
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>

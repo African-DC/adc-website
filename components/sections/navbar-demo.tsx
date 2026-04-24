@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { track } from "@/lib/analytics/track";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -82,6 +83,12 @@ export function NavbarDemo() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    onClick={() =>
+                      track("nav_click", {
+                        item: link.key,
+                        location: "desktop",
+                      })
+                    }
                     className={`relative inline-flex items-center h-11 px-4 text-sm font-medium transition-colors ${
                       active
                         ? "text-neutral-950"
@@ -112,6 +119,13 @@ export function NavbarDemo() {
 
             <Link
               href="/contact"
+              onClick={() =>
+                track("cta_click", {
+                  label: "navbar_contact",
+                  location: "navbar",
+                  destination: "/contact",
+                })
+              }
               className="hidden sm:inline-flex items-center gap-2 h-11 px-5 rounded-full bg-neutral-950 text-white text-sm font-medium hover:bg-orange-500 transition-colors"
             >
               {t("contact")}
@@ -125,7 +139,14 @@ export function NavbarDemo() {
               type="button"
               aria-label={t("openMenu")}
               aria-expanded={menuOpen}
-              onClick={() => setMenuOpen((s) => !s)}
+              onClick={() => {
+                setMenuOpen((s) => {
+                  if (!s) {
+                    track("mobile_menu_opened", { page: pathname });
+                  }
+                  return !s;
+                });
+              }}
               className="lg:hidden inline-flex items-center justify-center h-11 w-11 rounded-full border border-neutral-200 bg-white text-neutral-950 hover:border-orange-500 hover:text-orange-500 transition-colors"
             >
               {menuOpen ? (
@@ -165,6 +186,12 @@ export function NavbarDemo() {
                     >
                       <Link
                         href={link.href}
+                        onClick={() =>
+                          track("nav_click", {
+                            item: link.key,
+                            location: "mobile_drawer",
+                          })
+                        }
                         className={`font-serif flex items-center justify-between py-4 border-b border-neutral-200 text-3xl md:text-4xl font-medium transition-colors ${
                           active
                             ? "text-orange-600"
@@ -190,6 +217,13 @@ export function NavbarDemo() {
               >
                 <Link
                   href="/contact"
+                  onClick={() =>
+                    track("cta_click", {
+                      label: "drawer_contact",
+                      location: "mobile_drawer",
+                      destination: "/contact",
+                    })
+                  }
                   className="inline-flex items-center justify-center gap-2 w-full h-14 rounded-full bg-neutral-950 text-white text-base font-medium hover:bg-orange-500 transition-colors"
                 >
                   {t("cta")}

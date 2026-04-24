@@ -7,6 +7,7 @@ import ScrollProgress from "@/components/ui/scroll-progress";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { getAllArticles, getArticleHref, localize } from "@/lib/blog";
+import { track } from "@/lib/analytics/track";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -49,6 +50,12 @@ export default function BlogPage() {
             >
               <Link
                 href={getArticleHref(featured.slug) as "/blog"}
+                onClick={() =>
+                  track("blog_article_card_click", {
+                    slug: featured.slug,
+                    position: "featured",
+                  })
+                }
                 className="group grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center"
               >
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-neutral-100 order-1 lg:order-2">
@@ -105,6 +112,13 @@ export default function BlogPage() {
                 >
                   <Link
                     href={getArticleHref(article.slug) as "/blog"}
+                    onClick={() =>
+                      track("blog_article_card_click", {
+                        slug: article.slug,
+                        position: "list",
+                        list_index: i,
+                      })
+                    }
                     className="group flex flex-col h-full"
                   >
                     <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-neutral-100 mb-6">
@@ -187,6 +201,7 @@ function NewsletterForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
+    track("newsletter_subscribe_attempt", { source: "blog_index" });
 
     try {
       const formData = new FormData();
@@ -211,12 +226,17 @@ function NewsletterForm() {
       if (data.success) {
         setStatus("success");
         setEmail("");
+        track("newsletter_subscribe_success", { source: "blog_index" });
       } else {
         throw new Error(data.message || "Erreur");
       }
     } catch (err) {
       console.error("Newsletter subscription error:", err);
       setStatus("error");
+      track("newsletter_subscribe_error", {
+        source: "blog_index",
+        error: String(err).slice(0, 100),
+      });
     }
   };
 

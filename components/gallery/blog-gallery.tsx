@@ -1,9 +1,11 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { track } from "@/lib/analytics/track";
 import { motion } from "framer-motion";
 import { Maximize2 } from "lucide-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { ImageLightbox, type LightboxImage } from "./image-lightbox";
 
@@ -30,6 +32,36 @@ export function BlogGallery({
   className,
 }: BlogGalleryProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const pathname = usePathname();
+  const slug = pathname?.split("/").filter(Boolean).pop();
+
+  const openLightbox = (index: number) => {
+    track("blog_gallery_lightbox_open", {
+      slug,
+      image_index: index,
+      total: images.length,
+    });
+    setActiveIndex(index);
+  };
+
+  const navigateLightbox = (index: number) => {
+    if (activeIndex === null) {
+      setActiveIndex(index);
+      return;
+    }
+    const direction: "prev" | "next" | "thumb" =
+      index === (activeIndex + 1) % images.length
+        ? "next"
+        : index === (activeIndex - 1 + images.length) % images.length
+          ? "prev"
+          : "thumb";
+    track("blog_gallery_lightbox_navigate", {
+      slug,
+      direction,
+      target_index: index,
+    });
+    setActiveIndex(index);
+  };
 
   const gridClass =
     columns === 4
@@ -71,7 +103,7 @@ export function BlogGallery({
               <motion.button
                 key={img.src}
                 type="button"
-                onClick={() => setActiveIndex(i)}
+                onClick={() => openLightbox(i)}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -108,7 +140,7 @@ export function BlogGallery({
         images={images}
         activeIndex={activeIndex}
         onClose={() => setActiveIndex(null)}
-        onChange={setActiveIndex}
+        onChange={navigateLightbox}
       />
     </>
   );

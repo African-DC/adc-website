@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Linkedin } from "lucide-react";
+import { track } from "@/lib/analytics/track";
 
 type Member = {
+  slug: string;
   name: string;
   role: string;
   image: string;
@@ -13,18 +15,21 @@ type Member = {
 
 const team: Member[] = [
   {
+    slug: "marcel-djedje-li",
     name: "Marcel Djedje-li",
     role: "Chef du département développement",
     image: "/img/TEAM_ADC/marcel-djedjeli.png",
     linkedin: "https://www.linkedin.com/in/marcel-djedje-li-099490235/",
   },
   {
+    slug: "bede-abel-josias",
     name: "Bede Abel Josias",
     role: "Manager général · Transformation digitale",
     image: "/img/TEAM_ADC/BEDE Abel Josias Manager.webp",
     linkedin: "https://www.linkedin.com/in/abel-josias-bede-2372a0255/",
   },
   {
+    slug: "yablai-ruben-virgil",
     name: "Yablai Ruben Virgil",
     role: "Développeur frontend",
     image: "/img/TEAM_ADC/ruben-Photoroom.webp",
@@ -32,17 +37,20 @@ const team: Member[] = [
       "https://www.linkedin.com/in/yablai-ruben-virgil-yablai-b1657b1a9/",
   },
   {
+    slug: "issouf-ouedraogo",
     name: "Issouf Ouedraogo",
     role: "Développeur full-stack · Administrateur de base de données",
     image: "/img/TEAM_ADC/issouf-ouedraogo.jpg",
     linkedin: "https://www.linkedin.com/in/issouf-ouedraogo-riqa/",
   },
   {
+    slug: "hermann-kore",
     name: "Hermann Koré",
     role: "Commercial",
     image: "/img/TEAM_ADC/hermann-kore.webp",
   },
   {
+    slug: "meledje-bythia",
     name: "Meledje Bythia",
     role: "Assistante de direction",
     image: "/img/TEAM_ADC/MELEDJE BYTHIA Assiatnte de direction .webp",
@@ -138,6 +146,9 @@ export function TeamEditorial() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`LinkedIn ${member.name}`}
+                      onClick={() =>
+                        track("home_team_card_click", { member: member.slug })
+                      }
                       className="mt-1 inline-flex items-center justify-center h-8 w-8 rounded-full border border-neutral-200 text-neutral-500 hover:border-orange-500 hover:text-orange-600 transition-colors"
                     >
                       <Linkedin className="h-4 w-4" strokeWidth={1.5} />

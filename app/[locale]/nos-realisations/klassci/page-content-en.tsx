@@ -17,6 +17,9 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useLocale } from "next-intl";
+import { track } from "@/lib/analytics/track";
 
 const KLASSCI_URL = "https://klassci.com";
 
@@ -93,6 +96,13 @@ const features: Feature[] = [
 ];
 
 export default function KlassciCaseStudyContent() {
+  const rawLocale = useLocale();
+  const locale: "fr" | "en" = rawLocale === "en" ? "en" : "fr";
+
+  useEffect(() => {
+    track("case_study_view", { project: "klassci", locale });
+  }, [locale]);
+
   return (
     <div className={`bg-neutral-50 text-neutral-950`}>
       <ScrollProgress />
@@ -541,6 +551,13 @@ export default function KlassciCaseStudyContent() {
                 href={KLASSCI_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  track("case_study_cta_click", {
+                    project: "klassci",
+                    cta: "visit_klassci",
+                    destination: KLASSCI_URL,
+                  })
+                }
                 className="group block relative rounded-3xl overflow-hidden bg-gradient-to-br from-orange-500 via-orange-500 to-red-500 p-[1px]"
               >
                 <div className="relative rounded-3xl bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 px-8 md:px-16 py-16 md:py-24 overflow-hidden">
@@ -601,7 +618,16 @@ export default function KlassciCaseStudyContent() {
                 <span>See all case studies</span>
               </Link>
               <Button asChild variant="cta" size="cta">
-                <Link href="/contact">
+                <Link
+                  href="/contact"
+                  onClick={() =>
+                    track("case_study_cta_click", {
+                      project: "klassci",
+                      cta: "start_project",
+                      destination: "/contact",
+                    })
+                  }
+                >
                   <span>Work with ADC</span>
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>

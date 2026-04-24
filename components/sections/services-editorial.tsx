@@ -3,10 +3,12 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowUpRight, Globe, Code } from "lucide-react";
+import { track } from "@/lib/analytics/track";
 // Palette, Share icons kept on standby for services 03/04 if we reactivate them.
 
 type Service = {
   number: string;
+  slug: string;
   title: string;
   description: string;
   deliverables: string[];
@@ -16,6 +18,7 @@ type Service = {
 const services: Service[] = [
   {
     number: "01",
+    slug: "strategy",
     title: "Stratégie digitale",
     description:
       "Nous commençons par comprendre votre métier. Puis nous dessinons la stratégie digitale qui y répond vraiment.",
@@ -24,6 +27,7 @@ const services: Service[] = [
   },
   {
     number: "02",
+    slug: "web",
     title: "Développement web",
     description:
       "Sites, applications, plateformes multi-tenants. Un code propre, performant et maintenable sur la durée.",
@@ -98,6 +102,9 @@ export function ServicesEditorial() {
             </p>
             <Link
               href="/notre-expertise"
+              onClick={() =>
+                track("home_services_click", { service: "overview" })
+              }
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-neutral-900 hover:text-orange-600 transition-colors"
             >
               Voir le détail
@@ -115,6 +122,9 @@ export function ServicesEditorial() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
+              onClick={() =>
+                track("home_services_click", { service: service.slug })
+              }
               className="group relative border-t border-neutral-200 pt-8"
             >
               <div className="flex items-start justify-between gap-4 mb-6">

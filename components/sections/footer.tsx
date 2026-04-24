@@ -4,6 +4,7 @@ import { Facebook, Linkedin, Mail, Phone, MapPin, ArrowUpRight } from "lucide-re
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
+import { track } from "@/lib/analytics/track";
 
 const NAV_LINKS = [
   { key: "home", href: "/" },
@@ -62,6 +63,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
+                onClick={() => track("footer_social_click", { platform: "facebook" })}
                 className="inline-flex items-center justify-center h-10 w-10 rounded-full border border-white/10 text-white/70 hover:text-orange-400 hover:border-orange-400 transition-colors"
               >
                 <Facebook className="h-4 w-4" strokeWidth={1.5} />
@@ -71,6 +73,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
+                onClick={() => track("footer_social_click", { platform: "linkedin" })}
                 className="inline-flex items-center justify-center h-10 w-10 rounded-full border border-white/10 text-white/70 hover:text-orange-400 hover:border-orange-400 transition-colors"
               >
                 <Linkedin className="h-4 w-4" strokeWidth={1.5} />
@@ -88,6 +91,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
+                      onClick={() => track("footer_link_click", { destination: link.href, category: "nav" })}
                       className="text-sm text-white/80 hover:text-orange-400 transition-colors inline-flex items-center gap-2 group"
                     >
                       {tNav(link.key)}
@@ -106,6 +110,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
+                      onClick={() => track("footer_link_click", { destination: link.href, category: "project" })}
                       className="text-sm text-white/80 hover:text-orange-400 transition-colors inline-flex items-center gap-1.5 group"
                     >
                       {link.label}
@@ -139,12 +144,14 @@ export function Footer() {
                   <div className="flex flex-col gap-1">
                     <a
                       href="tel:+2252732797523"
+                      onClick={() => track("footer_link_click", { destination: "tel:+2252732797523", category: "contact" })}
                       className="hover:text-orange-400 transition-colors"
                     >
                       +225 27 32 797 523
                     </a>
                     <a
                       href="tel:+2250595459843"
+                      onClick={() => track("footer_link_click", { destination: "tel:+2250595459843", category: "contact" })}
                       className="hover:text-orange-400 transition-colors"
                     >
                       +225 05 95 45 98 43
@@ -158,6 +165,7 @@ export function Footer() {
                   />
                   <a
                     href="mailto:africandigitconsulting@gmail.com"
+                    onClick={() => track("footer_link_click", { destination: "mailto:africandigitconsulting@gmail.com", category: "contact" })}
                     className="hover:text-orange-400 transition-colors break-all"
                   >
                     africandigitconsulting@gmail.com
@@ -175,6 +183,7 @@ export function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  onClick={() => track("footer_link_click", { destination: link.href, category: "legal" })}
                   className="hover:text-orange-400 transition-colors"
                 >
                   {t(link.key)}
