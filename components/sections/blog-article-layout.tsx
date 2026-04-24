@@ -3,6 +3,7 @@
 import { Footer } from "@/components/sections/footer";
 import { NavbarDemo } from "@/components/sections/navbar-demo";
 import { PageHero } from "@/components/sections/page-hero";
+import { ShareButton } from "@/components/share/share-button";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -25,6 +26,7 @@ type BlogArticleLayoutProps = {
     href?: string;
     description?: string;
   };
+  shareText?: string;
   children: ReactNode;
 };
 
@@ -35,6 +37,7 @@ export function BlogArticleLayout({
   breadcrumbs,
   hero,
   cta,
+  shareText,
   children,
 }: BlogArticleLayoutProps) {
   return (
@@ -71,6 +74,25 @@ export function BlogArticleLayout({
         </section>
 
         {children}
+
+        <section className="py-12 md:py-16 border-t border-neutral-200">
+          <div className="max-w-3xl mx-auto px-6">
+            <div className="flex flex-col items-center gap-4 text-center">
+              <div className="inline-flex items-center gap-3 text-xs tracking-[0.22em] text-neutral-500 uppercase">
+                <span className="inline-block h-px w-10 bg-orange-500" />
+                Cet article vous a intéressé ?
+              </div>
+              <p className="max-w-lg text-neutral-600 leading-relaxed">
+                Partagez-le à celles et ceux qui peuvent en tirer quelque chose.
+                L'information utile circule par capillarité.
+              </p>
+              <ShareButton
+                title={title.replace(/\.$/, "")}
+                text={shareText ?? subtitle}
+              />
+            </div>
+          </div>
+        </section>
 
         <section className="py-20 md:py-28 border-t border-neutral-200">
           <div className="max-w-4xl mx-auto px-6 text-center">
