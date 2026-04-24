@@ -507,33 +507,76 @@ export default function KlassciCaseStudyPage() {
         </section>
 
         {/* ===================== HUMAN MOMENT ===================== */}
-        <section className="py-16">
+        <section className="py-20 md:py-28">
           <div className="max-w-7xl mx-auto px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="relative rounded-2xl overflow-hidden aspect-[16/9] md:aspect-[21/9]"
-            >
-              <Image
-                src="/img/projets/klassci/demo-utilisation.jpg"
-                alt="KLASSCI utilisé sur le terrain"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 1400px"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/70 via-neutral-950/20 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
-                <p
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
+              {/* Portrait vertical */}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="md:col-span-5"
+              >
+                <div className="relative mx-auto max-w-sm md:max-w-none">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-orange-500/10 to-transparent rounded-2xl -rotate-2" />
+                  <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-200 shadow-2xl shadow-neutral-900/15 border border-neutral-200">
+                    <Image
+                      src="/img/projets/klassci/md-portrait.png"
+                      alt="Fondateur African Digit Consulting"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 500px"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Quote */}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.15 }}
+                className="md:col-span-7"
+              >
+                <div className="mb-8 text-xs tracking-[0.18em] text-neutral-500 uppercase">
+                  <span className="inline-block h-px w-8 bg-orange-500 mr-3 align-middle" />
+                  Parole de fondateur
+                </div>
+
+                <span
+                  aria-hidden
                   style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="text-white text-2xl md:text-3xl italic font-light max-w-2xl leading-snug"
+                  className="block text-7xl md:text-8xl leading-none text-orange-500/80 mb-4 select-none"
                 >
-                  "On ne construit pas un outil pour les universités africaines
-                  sans passer du temps dans les universités africaines."
-                </p>
-              </div>
-            </motion.div>
+                  «
+                </span>
+
+                <blockquote
+                  style={{ fontFamily: "var(--font-fraunces)" }}
+                  className="text-3xl md:text-4xl lg:text-[2.75rem] italic font-light leading-[1.2] text-neutral-900 mb-10"
+                >
+                  On ne construit pas un outil pour les universités africaines
+                  sans passer du temps{" "}
+                  <span className="text-orange-600 not-italic font-medium">
+                    dans les universités africaines.
+                  </span>
+                </blockquote>
+
+                <figcaption className="flex items-center gap-4 text-sm">
+                  <span className="block h-px w-10 bg-neutral-900" />
+                  <span>
+                    <span className="block font-medium text-neutral-900">
+                      African Digit Consulting
+                    </span>
+                    <span className="block text-neutral-500 text-xs tracking-[0.12em] uppercase mt-1">
+                      Équipe produit KLASSCI · Abidjan
+                    </span>
+                  </span>
+                </figcaption>
+              </motion.div>
+            </div>
           </div>
         </section>
 
