@@ -99,9 +99,9 @@ export function TeamCards() {
   const team: TeamMember[] = [
     {
       name: "Marcel Djedje-li",
-      role: "Développeur Backend",
-      image: "/img/TEAM_ADC/marcel.webp",
-      bio: "Expert en développement de backend robustes et performants. Marcel possède une solide expérience dans la conception d'architectures système évolutives et sécurisées.",
+      role: "Chef du département développement",
+      image: "/img/TEAM_ADC/marcel-djedjeli.png",
+      bio: "Marcel dirige le département développement d'ADC. Il architecture les systèmes multi-tenants comme KLASSCI et veille à ce que chaque ligne de code serve un impact concret dans les communautés africaines.",
       social: {
         linkedin: "#",
         twitter: "#",

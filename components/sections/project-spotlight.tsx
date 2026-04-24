@@ -58,7 +58,7 @@ export function ProjectSpotlight() {
         >
           Un SaaS que nous avons construit,{" "}
           <em className="text-orange-400 font-normal">utilisé chaque jour</em>{" "}
-          par cinq grandes écoles africaines.
+          par quatre grandes écoles africaines.
         </motion.h2>
 
         {/* Showcase */}
@@ -97,7 +97,7 @@ export function ProjectSpotlight() {
                 </p>
 
                 <p className="text-neutral-400 leading-relaxed max-w-md">
-                  Cinq établissements en production, de la filière BTS jusqu'au
+                  Quatre établissements en production, de la filière BTS jusqu'au
                   doctorat. Planning, scolarité, finances, bulletins, paie.
                   Conçu, développé et maintenu par ADC.
                 </p>
@@ -105,7 +105,7 @@ export function ProjectSpotlight() {
                 {/* Stats */}
                 <div className="mt-10 grid grid-cols-3 gap-5 pt-8 border-t border-white/10 max-w-md">
                   {[
-                    { value: "5", label: "Écoles en prod" },
+                    { value: "4", label: "Écoles en prod" },
                     { value: "LMD", label: "Licence · Master · Doctorat" },
                     { value: "24/7", label: "Disponible" },
                   ].map((stat) => (
@@ -181,7 +181,6 @@ export function ProjectSpotlight() {
               "ESBTP Yamoussoukro",
               "ISLG Rostan",
               "Hetec",
-              "Presentation",
             ].map((tenant) => (
               <span key={tenant} className="font-medium">
                 {tenant}

@@ -241,7 +241,7 @@ export default function RealisationsPage() {
                       africaines.
                     </p>
                     <p className="text-neutral-600 max-w-md mb-10">
-                      Cinq grandes écoles en production. Planning, scolarité,
+                      Quatre grandes écoles en production. Planning, scolarité,
                       finances, bulletins, paie. Construit de bout en bout par
                       ADC.
                     </p>

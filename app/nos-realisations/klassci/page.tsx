@@ -34,11 +34,10 @@ const tenants = [
   "ESBTP Yamoussoukro",
   "ISLG Rostan",
   "Hetec",
-  "Presentation",
 ];
 
 const metrics = [
-  { value: "5", label: "Établissements en production" },
+  { value: "4", label: "Établissements en production" },
   { value: "3", label: "Cycles LMD couverts" },
   { value: "Temps réel", label: "Suivi financier" },
 ];
@@ -330,7 +329,7 @@ export default function KlassciCaseStudyPage() {
               <p>
                 Nous avons pris le temps de comprendre le métier en profondeur,
                 avec de vraies écoles partenaires dès le premier jour. Le
-                résultat est un SaaS multi-tenants qui sert aujourd'hui cinq
+                résultat est un SaaS multi-tenants qui sert aujourd'hui quatre
                 établissements en production, de la filière BTS jusqu'au
                 doctorat.
               </p>
@@ -462,7 +461,7 @@ export default function KlassciCaseStudyPage() {
                   style={{ fontFamily: "var(--font-fraunces)" }}
                   className="text-3xl md:text-4xl font-medium leading-tight mb-6"
                 >
-                  Cinq établissements en production, de l'Abidjan à
+                  Quatre établissements en production, d'Abidjan à
                   Yamoussoukro.
                 </motion.h2>
                 <motion.p
@@ -474,7 +473,7 @@ export default function KlassciCaseStudyPage() {
                 >
                   Chaque tenant a ses propres filières, ses règles de notation,
                   son année académique, sa grille tarifaire. Une base de code,
-                  cinq contextes bien réels.
+                  quatre contextes bien réels.
                 </motion.p>
               </div>
 
@@ -542,7 +541,7 @@ export default function KlassciCaseStudyPage() {
               >
                 <div className="mb-8 text-xs tracking-[0.18em] text-neutral-500 uppercase">
                   <span className="inline-block h-px w-8 bg-orange-500 mr-3 align-middle" />
-                  Parole de fondateur
+                  Parole du développeur en chef
                 </div>
 
                 <span
@@ -568,10 +567,10 @@ export default function KlassciCaseStudyPage() {
                   <span className="block h-px w-10 bg-neutral-900" />
                   <span>
                     <span className="block font-medium text-neutral-900">
-                      African Digit Consulting
+                      Marcel Djedje-li
                     </span>
                     <span className="block text-neutral-500 text-xs tracking-[0.12em] uppercase mt-1">
-                      Équipe produit KLASSCI · Abidjan
+                      Chef du département développement · African Digit Consulting
                     </span>
                   </span>
                 </figcaption>
