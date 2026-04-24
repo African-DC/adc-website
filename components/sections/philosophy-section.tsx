@@ -57,8 +57,7 @@ export function PhilosophySection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            style={{ fontFamily: "var(--font-fraunces)" }}
-            className="text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] text-neutral-950"
+            className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] text-neutral-950"
           >
             Trois convictions qui guident{" "}
             <em className="text-orange-500 font-normal">chaque ligne de code</em>{" "}
@@ -82,8 +81,7 @@ export function PhilosophySection() {
                 {/* Number + icon */}
                 <div className="flex items-center gap-4 mb-8">
                   <span
-                    style={{ fontFamily: "var(--font-fraunces)" }}
-                    className="text-5xl md:text-6xl italic font-light text-orange-500/80 leading-none"
+                    className="font-serif text-5xl md:text-6xl italic font-light text-orange-500/80 leading-none"
                   >
                     {pillar.number}
                   </span>
@@ -94,8 +92,7 @@ export function PhilosophySection() {
 
                 {/* Title */}
                 <h3
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="text-3xl md:text-[2rem] font-medium leading-tight text-neutral-950 mb-5"
+                  className="font-serif text-3xl md:text-[2rem] font-medium leading-tight text-neutral-950 mb-5"
                 >
                   {pillar.title}
                 </h3>

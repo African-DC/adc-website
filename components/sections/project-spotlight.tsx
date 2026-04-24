@@ -52,8 +52,7 @@ export function ProjectSpotlight() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          style={{ fontFamily: "var(--font-fraunces)" }}
-          className="text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.05] max-w-4xl mb-14 md:mb-20"
+          className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.05] max-w-4xl mb-14 md:mb-20"
         >
           Deux produits que nous construisons,{" "}
           <em className="text-orange-400 font-normal">
@@ -87,8 +86,7 @@ export function ProjectSpotlight() {
                       />
                     </div>
                     <h3
-                      style={{ fontFamily: "var(--font-fraunces)" }}
-                      className="text-3xl md:text-4xl font-semibold leading-none"
+                      className="font-serif text-3xl md:text-4xl font-semibold leading-none"
                     >
                       KLASSCI<span className="text-orange-400">.</span>
                     </h3>
@@ -105,8 +103,7 @@ export function ProjectSpotlight() {
                 {/* Tagline */}
                 <div>
                   <p
-                    style={{ fontFamily: "var(--font-fraunces)" }}
-                    className="text-xl md:text-2xl italic font-light text-white/85 leading-snug mb-4"
+                    className="font-serif text-xl md:text-2xl italic font-light text-white/85 leading-snug mb-4"
                   >
                     Le SaaS qui réinvente la gestion des universités africaines.
                   </p>
@@ -132,8 +129,7 @@ export function ProjectSpotlight() {
                   <div className="flex gap-6">
                     <div>
                       <div
-                        style={{ fontFamily: "var(--font-fraunces)" }}
-                        className="text-2xl font-semibold"
+                        className="font-serif text-2xl font-semibold"
                       >
                         4
                       </div>
@@ -143,8 +139,7 @@ export function ProjectSpotlight() {
                     </div>
                     <div>
                       <div
-                        style={{ fontFamily: "var(--font-fraunces)" }}
-                        className="text-2xl font-semibold"
+                        className="font-serif text-2xl font-semibold"
                       >
                         LMD
                       </div>
@@ -177,11 +172,8 @@ export function ProjectSpotlight() {
                 {/* Top — logo + status */}
                 <div className="flex items-start justify-between gap-4">
                   <h3
-                    style={{
-                      fontFamily: "var(--font-fraunces)",
-                      color: WOURI_GREEN_LIGHT,
-                    }}
-                    className="text-4xl md:text-5xl font-semibold leading-none"
+                    style={{ color: WOURI_GREEN_LIGHT }}
+                    className="font-serif text-4xl md:text-5xl font-semibold leading-none"
                   >
                     Wouri<span style={{ color: WOURI_GREEN }}>.</span>
                   </h3>
@@ -210,8 +202,7 @@ export function ProjectSpotlight() {
                 {/* Tagline */}
                 <div>
                   <p
-                    style={{ fontFamily: "var(--font-fraunces)" }}
-                    className="text-xl md:text-2xl italic font-light text-white/85 leading-snug mb-4"
+                    className="font-serif text-xl md:text-2xl italic font-light text-white/85 leading-snug mb-4"
                   >
                     L'agent IA qui aide les agriculteurs ivoiriens face au
                     changement climatique.
@@ -248,8 +239,7 @@ export function ProjectSpotlight() {
                   <div className="flex gap-6">
                     <div>
                       <div
-                        style={{ fontFamily: "var(--font-fraunces)" }}
-                        className="text-2xl font-semibold"
+                        className="font-serif text-2xl font-semibold"
                       >
                         4
                       </div>
@@ -259,8 +249,7 @@ export function ProjectSpotlight() {
                     </div>
                     <div>
                       <div
-                        style={{ fontFamily: "var(--font-fraunces)" }}
-                        className="text-2xl font-semibold"
+                        className="font-serif text-2xl font-semibold"
                       >
                         WA
                       </div>

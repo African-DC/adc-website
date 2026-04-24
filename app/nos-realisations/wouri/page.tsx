@@ -165,11 +165,8 @@ export default function WouriCaseStudyPage() {
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.15 }}
-                  style={{
-                    fontFamily: "var(--font-fraunces)",
-                    color: WOURI_GREEN,
-                  }}
-                  className="text-[clamp(4rem,13vw,11rem)] font-semibold leading-[0.9] tracking-tight mb-10"
+                  style={{ color: WOURI_GREEN }}
+                  className="font-serif text-[clamp(4rem,13vw,11rem)] font-semibold leading-[0.9] tracking-tight mb-10"
                 >
                   Wouri.
                 </motion.h1>
@@ -178,8 +175,7 @@ export default function WouriCaseStudyPage() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="text-2xl md:text-3xl italic font-light text-neutral-800 leading-snug mb-8 max-w-2xl"
+                  className="font-serif text-2xl md:text-3xl italic font-light text-neutral-800 leading-snug mb-8 max-w-2xl"
                 >
                   L'agent IA qui aide les agriculteurs ivoiriens à s'adapter au{" "}
                   <span
@@ -255,8 +251,7 @@ export default function WouriCaseStudyPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              style={{ fontFamily: "var(--font-fraunces)" }}
-              className="text-4xl md:text-5xl font-medium leading-tight mb-10 text-neutral-950"
+              className="font-serif text-4xl md:text-5xl font-medium leading-tight mb-10 text-neutral-950"
             >
               Les saisons{" "}
               <em style={{ color: WOURI_GREEN }}>ne ressemblent plus</em> à
@@ -314,8 +309,7 @@ export default function WouriCaseStudyPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              style={{ fontFamily: "var(--font-fraunces)" }}
-              className="text-4xl md:text-5xl font-medium max-w-3xl leading-tight text-neutral-950"
+              className="font-serif text-4xl md:text-5xl font-medium max-w-3xl leading-tight text-neutral-950"
             >
               Quatre principes de conception.
             </motion.h2>
@@ -333,11 +327,8 @@ export default function WouriCaseStudyPage() {
               >
                 <div className="flex items-center gap-4 mb-6">
                   <span
-                    style={{
-                      fontFamily: "var(--font-fraunces)",
-                      color: `${WOURI_GREEN}B3`,
-                    }}
-                    className="text-5xl italic font-light leading-none"
+                    style={{ color: `${WOURI_GREEN}B3` }}
+                    className="font-serif text-5xl italic font-light leading-none"
                   >
                     {feature.number}
                   </span>
@@ -349,8 +340,7 @@ export default function WouriCaseStudyPage() {
                   </div>
                 </div>
                 <h3
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="text-2xl md:text-3xl font-medium leading-tight mb-4 text-neutral-950"
+                  className="font-serif text-2xl md:text-3xl font-medium leading-tight mb-4 text-neutral-950"
                 >
                   {feature.title}
                 </h3>
@@ -389,8 +379,7 @@ export default function WouriCaseStudyPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: 0.1 }}
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="text-3xl md:text-4xl font-medium leading-tight mb-6 text-neutral-950"
+                  className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-6 text-neutral-950"
                 >
                   Parle-lui comme tu parlerais à un voisin.
                 </motion.h2>
@@ -422,11 +411,8 @@ export default function WouriCaseStudyPage() {
                 >
                   <div className="flex items-center gap-3 pb-4 mb-6 border-b border-neutral-100">
                     <div
-                      className="h-10 w-10 rounded-full flex items-center justify-center text-white font-semibold"
-                      style={{
-                        background: WOURI_GREEN,
-                        fontFamily: "var(--font-fraunces)",
-                      }}
+                      className="font-serif h-10 w-10 rounded-full flex items-center justify-center text-white font-semibold"
+                      style={{ background: WOURI_GREEN }}
                     >
                       W
                     </div>
@@ -512,8 +498,7 @@ export default function WouriCaseStudyPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: 0.1 }}
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="text-3xl md:text-4xl font-medium leading-tight mb-6 text-neutral-950"
+                  className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-6 text-neutral-950"
                 >
                   On ne touche pas un village si on ne parle pas sa langue.
                 </motion.h2>
@@ -612,8 +597,7 @@ export default function WouriCaseStudyPage() {
                         Rejoindre la beta
                       </div>
                       <h2
-                        style={{ fontFamily: "var(--font-fraunces)" }}
-                        className="text-white text-4xl md:text-6xl font-medium leading-[1] mb-5"
+                        className="font-serif text-white text-4xl md:text-6xl font-medium leading-[1] mb-5"
                       >
                         Travaillez avec nous
                         <br />

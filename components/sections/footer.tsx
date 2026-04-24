@@ -49,8 +49,7 @@ export function Footer() {
             </div>
 
             <h2
-              style={{ fontFamily: "var(--font-fraunces)" }}
-              className="text-3xl md:text-4xl font-medium leading-[1.15] max-w-md"
+              className="font-serif text-3xl md:text-4xl font-medium leading-[1.15] max-w-md"
             >
               Le digital au service{" "}
               <em className="text-orange-400 font-normal">des peuples.</em>

@@ -92,8 +92,7 @@ export function PageHero({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          style={{ fontFamily: "var(--font-fraunces)" }}
-          className="text-[clamp(2.5rem,6vw,5.25rem)] font-semibold leading-[1] tracking-tight text-neutral-950 max-w-4xl"
+          className="font-serif text-[clamp(2.5rem,6vw,5.25rem)] font-semibold leading-[1] tracking-tight text-neutral-950 max-w-4xl"
         >
           {title}
         </motion.h1>
@@ -104,8 +103,7 @@ export function PageHero({
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            style={{ fontFamily: "var(--font-fraunces)" }}
-            className="mt-6 md:mt-8 text-xl md:text-2xl italic font-light text-neutral-700 max-w-2xl leading-snug"
+            className="font-serif mt-6 md:mt-8 text-xl md:text-2xl italic font-light text-neutral-700 max-w-2xl leading-snug"
           >
             {subtitle}
           </motion.p>

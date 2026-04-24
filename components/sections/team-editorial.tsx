@@ -74,8 +74,7 @@ export function TeamEditorial() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              style={{ fontFamily: "var(--font-fraunces)" }}
-              className="text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] text-neutral-950"
+              className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] text-neutral-950"
             >
               Dix experts.{" "}
               <em className="text-orange-500 font-normal">Une boussole.</em>
@@ -125,8 +124,7 @@ export function TeamEditorial() {
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
                     <h3
-                      style={{ fontFamily: "var(--font-fraunces)" }}
-                      className="text-xl md:text-2xl font-medium text-neutral-950 leading-tight mb-1"
+                      className="font-serif text-xl md:text-2xl font-medium text-neutral-950 leading-tight mb-1"
                     >
                       {member.name}
                     </h3>

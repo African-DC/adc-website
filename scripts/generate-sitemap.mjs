@@ -26,7 +26,7 @@ const publicDir = path.join(rootDir, 'public');
 const pagesDir = path.join(rootDir, 'app');
 
 // URL de base du site (à adapter en production)
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.africadigitconsulting.com';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.africandigitconsulting.com';
 
 // Fonction pour éviter les chemins en double avec des slashes
 const normalizeURL = (url) => {

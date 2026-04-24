@@ -154,8 +154,7 @@ export default function KlassciCaseStudyPage() {
                     />
                   </div>
                   <h1
-                    style={{ fontFamily: "var(--font-fraunces)" }}
-                    className="text-[clamp(3rem,8vw,7rem)] font-semibold leading-[0.95] tracking-tight"
+                    className="font-serif text-[clamp(3rem,8vw,7rem)] font-semibold leading-[0.95] tracking-tight"
                   >
                     KLASSCI<span className="text-orange-500">.</span>
                   </h1>
@@ -165,8 +164,7 @@ export default function KlassciCaseStudyPage() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="text-2xl md:text-3xl italic font-light text-neutral-700 leading-snug mb-8 max-w-2xl"
+                  className="font-serif text-2xl md:text-3xl italic font-light text-neutral-700 leading-snug mb-8 max-w-2xl"
                 >
                   Le SaaS qui réinvente la gestion des{" "}
                   <span className="text-orange-600 not-italic font-medium">
@@ -261,8 +259,7 @@ export default function KlassciCaseStudyPage() {
                   className="text-center md:text-left"
                 >
                   <div
-                    style={{ fontFamily: "var(--font-fraunces)" }}
-                    className="text-5xl md:text-6xl font-semibold text-neutral-950 mb-2 leading-none"
+                    className="font-serif text-5xl md:text-6xl font-semibold text-neutral-950 mb-2 leading-none"
                   >
                     {metric.value}
                   </div>
@@ -294,8 +291,7 @@ export default function KlassciCaseStudyPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              style={{ fontFamily: "var(--font-fraunces)" }}
-              className="text-4xl md:text-5xl font-medium leading-tight mb-8"
+              className="font-serif text-4xl md:text-5xl font-medium leading-tight mb-8"
             >
               La plupart des écoles supérieures africaines gèrent toute leur
               scolarité dans des{" "}
@@ -346,8 +342,7 @@ export default function KlassciCaseStudyPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              style={{ fontFamily: "var(--font-fraunces)" }}
-              className="text-4xl md:text-5xl font-medium max-w-3xl leading-tight"
+              className="font-serif text-4xl md:text-5xl font-medium max-w-3xl leading-tight"
             >
               Six modules pensés pour le quotidien des équipes académiques.
             </motion.h2>
@@ -373,8 +368,7 @@ export default function KlassciCaseStudyPage() {
                   >
                     <div className="flex items-center gap-4 mb-6">
                       <span
-                        style={{ fontFamily: "var(--font-fraunces)" }}
-                        className="text-5xl italic font-light text-orange-500/80"
+                        className="font-serif text-5xl italic font-light text-orange-500/80"
                       >
                         {feature.number}
                       </span>
@@ -383,8 +377,7 @@ export default function KlassciCaseStudyPage() {
                       </div>
                     </div>
                     <h3
-                      style={{ fontFamily: "var(--font-fraunces)" }}
-                      className="text-3xl md:text-4xl font-medium leading-tight mb-5"
+                      className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-5"
                     >
                       {feature.title}
                     </h3>
@@ -449,8 +442,7 @@ export default function KlassciCaseStudyPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: 0.1 }}
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="text-3xl md:text-4xl font-medium leading-tight mb-6"
+                  className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-6"
                 >
                   Quatre établissements en production, d'Abidjan à
                   Yamoussoukro.
@@ -537,15 +529,13 @@ export default function KlassciCaseStudyPage() {
 
                 <span
                   aria-hidden
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="block text-7xl md:text-8xl leading-none text-orange-500/80 mb-4 select-none"
+                  className="font-serif block text-7xl md:text-8xl leading-none text-orange-500/80 mb-4 select-none"
                 >
                   «
                 </span>
 
                 <blockquote
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="text-3xl md:text-4xl lg:text-[2.75rem] italic font-light leading-[1.2] text-neutral-900 mb-10"
+                  className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] italic font-light leading-[1.2] text-neutral-900 mb-10"
                 >
                   On ne construit pas un outil pour les universités africaines
                   sans passer du temps{" "}
@@ -607,8 +597,7 @@ export default function KlassciCaseStudyPage() {
                         Explorez le produit
                       </div>
                       <h2
-                        style={{ fontFamily: "var(--font-fraunces)" }}
-                        className="text-white text-5xl md:text-7xl font-medium leading-[1] mb-4"
+                        className="font-serif text-white text-5xl md:text-7xl font-medium leading-[1] mb-4"
                       >
                         klassci
                         <span className="text-orange-400">.com</span>

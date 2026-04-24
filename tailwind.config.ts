@@ -12,6 +12,7 @@ const config: Config = {
     fontFamily: {
       sans: ["var(--font-poppins)", "system-ui", "sans-serif"],
       montserrat: ["var(--font-montserrat)", "system-ui", "sans-serif"],
+      serif: ["var(--font-fraunces)", "Georgia", "serif"],
     },
     extend: {
       colors: {

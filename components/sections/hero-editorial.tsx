@@ -63,8 +63,7 @@ export function HeroEditorial() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            style={{ fontFamily: "var(--font-fraunces)" }}
-            className="text-[clamp(2.25rem,6vw,5.75rem)] font-semibold leading-[1] tracking-tight text-neutral-950 max-w-5xl"
+            className="font-serif text-[clamp(2.25rem,6vw,5.75rem)] font-semibold leading-[1] tracking-tight text-neutral-950 max-w-5xl"
           >
             Des solutions digitales à fort impact{" "}
             <em className="text-orange-500 font-normal">social et humain.</em>
@@ -74,8 +73,7 @@ export function HeroEditorial() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            style={{ fontFamily: "var(--font-fraunces)" }}
-            className="mt-6 md:mt-8 text-xl md:text-2xl italic font-light text-neutral-700 max-w-xl"
+            className="font-serif mt-6 md:mt-8 text-xl md:text-2xl italic font-light text-neutral-700 max-w-xl"
           >
             Le digital au service des peuples.
           </motion.p>
@@ -126,8 +124,7 @@ export function HeroEditorial() {
                 </span>
                 <div>
                   <dt
-                    style={{ fontFamily: "var(--font-fraunces)" }}
-                    className="text-2xl md:text-4xl font-semibold text-neutral-950 leading-none mb-1 md:mb-2"
+                    className="font-serif text-2xl md:text-4xl font-semibold text-neutral-950 leading-none mb-1 md:mb-2"
                   >
                     {metric.value}
                   </dt>

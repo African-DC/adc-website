@@ -118,8 +118,7 @@ export default function ExpertisePage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
               <div className="lg:col-span-7">
                 <h2
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="text-3xl md:text-4xl lg:text-[2.75rem] font-medium leading-[1.15] text-neutral-950"
+                  className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] font-medium leading-[1.15] text-neutral-950"
                 >
                   Nous ne vendons pas des services à la pièce. Nous résolvons
                   des problèmes métier,{" "}
@@ -168,8 +167,7 @@ export default function ExpertisePage() {
                   >
                     <div className="flex items-center gap-4 mb-6">
                       <span
-                        style={{ fontFamily: "var(--font-fraunces)" }}
-                        className="text-5xl italic font-light text-orange-500/80 leading-none"
+                        className="font-serif text-5xl italic font-light text-orange-500/80 leading-none"
                       >
                         {exp.number}
                       </span>
@@ -179,14 +177,12 @@ export default function ExpertisePage() {
                     </div>
 
                     <h3
-                      style={{ fontFamily: "var(--font-fraunces)" }}
-                      className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-neutral-950 mb-6"
+                      className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-neutral-950 mb-6"
                     >
                       {exp.title}
                     </h3>
                     <p
-                      style={{ fontFamily: "var(--font-fraunces)" }}
-                      className="text-xl md:text-2xl italic font-light text-neutral-700 leading-snug mb-6 max-w-xl"
+                      className="font-serif text-xl md:text-2xl italic font-light text-neutral-700 leading-snug mb-6 max-w-xl"
                     >
                       {exp.tagline}
                     </p>
@@ -252,8 +248,7 @@ export default function ExpertisePage() {
                 Notre processus
               </div>
               <h2
-                style={{ fontFamily: "var(--font-fraunces)" }}
-                className="text-4xl md:text-5xl font-medium leading-[1.1] text-neutral-950"
+                className="font-serif text-4xl md:text-5xl font-medium leading-[1.1] text-neutral-950"
               >
                 Quatre étapes.{" "}
                 <em className="text-orange-500 font-normal">Zéro surprise.</em>
@@ -292,14 +287,12 @@ export default function ExpertisePage() {
                   className="relative border-t border-neutral-300 pt-6"
                 >
                   <span
-                    style={{ fontFamily: "var(--font-fraunces)" }}
-                    className="text-4xl italic font-light text-orange-500/80 leading-none block mb-4"
+                    className="font-serif text-4xl italic font-light text-orange-500/80 leading-none block mb-4"
                   >
                     {step.num}
                   </span>
                   <h3
-                    style={{ fontFamily: "var(--font-fraunces)" }}
-                    className="text-xl md:text-2xl font-medium text-neutral-950 mb-3"
+                    className="font-serif text-xl md:text-2xl font-medium text-neutral-950 mb-3"
                   >
                     {step.title}
                   </h3>
@@ -324,8 +317,7 @@ export default function ExpertisePage() {
               Un besoin précis ?
             </div>
             <h2
-              style={{ fontFamily: "var(--font-fraunces)" }}
-              className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-12"
+              className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-12"
             >
               Dites-nous ce que vous voulez construire,{" "}
               <em className="text-orange-400 font-normal">

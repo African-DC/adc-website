@@ -97,8 +97,7 @@ export default function AboutPage() {
                   Notre entreprise
                 </div>
                 <h2
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] text-neutral-950 mb-8"
+                  className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] text-neutral-950 mb-8"
                 >
                   Construire des technologies{" "}
                   <em className="text-orange-500 font-normal">
@@ -170,8 +169,7 @@ export default function AboutPage() {
                 Nos valeurs
               </div>
               <h2
-                style={{ fontFamily: "var(--font-fraunces)" }}
-                className="text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] text-neutral-950"
+                className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] text-neutral-950"
               >
                 Trois convictions,{" "}
                 <em className="text-orange-500 font-normal">
@@ -194,8 +192,7 @@ export default function AboutPage() {
                   >
                     <div className="flex items-center gap-4 mb-8">
                       <span
-                        style={{ fontFamily: "var(--font-fraunces)" }}
-                        className="text-5xl md:text-6xl italic font-light text-orange-500/80 leading-none"
+                        className="font-serif text-5xl md:text-6xl italic font-light text-orange-500/80 leading-none"
                       >
                         {pillar.number}
                       </span>
@@ -204,8 +201,7 @@ export default function AboutPage() {
                       </div>
                     </div>
                     <h3
-                      style={{ fontFamily: "var(--font-fraunces)" }}
-                      className="text-3xl md:text-[2rem] font-medium leading-tight text-neutral-950 mb-5"
+                      className="font-serif text-3xl md:text-[2rem] font-medium leading-tight text-neutral-950 mb-5"
                     >
                       {pillar.title}
                     </h3>
@@ -232,8 +228,7 @@ export default function AboutPage() {
                   Notre histoire
                 </div>
                 <h2
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] text-neutral-950"
+                  className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] text-neutral-950"
                 >
                   Huit ans plus tard,{" "}
                   <em className="text-orange-500 font-normal">
@@ -271,8 +266,7 @@ export default function AboutPage() {
               Envie d'en discuter ?
             </div>
             <h2
-              style={{ fontFamily: "var(--font-fraunces)" }}
-              className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-12 md:mb-14"
+              className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-12 md:mb-14"
             >
               Parlons de{" "}
               <em className="text-orange-400 font-normal">
@@ -358,8 +352,7 @@ function ScrollTimeline() {
             {/* Year (left 4 cols on desktop) */}
             <div className="md:col-span-4 md:text-right md:pr-14">
               <span
-                style={{ fontFamily: "var(--font-fraunces)" }}
-                className="block text-5xl md:text-[5rem] font-semibold text-orange-500/85 leading-none"
+                className="font-serif block text-5xl md:text-[5rem] font-semibold text-orange-500/85 leading-none"
               >
                 {item.year}
               </span>
@@ -371,8 +364,7 @@ function ScrollTimeline() {
             {/* Content (right 7 cols on desktop) */}
             <div className="md:col-span-7 mt-3 md:mt-0 md:pl-2">
               <h3
-                style={{ fontFamily: "var(--font-fraunces)" }}
-                className="text-2xl md:text-3xl font-medium text-neutral-950 mb-3 leading-tight"
+                className="font-serif text-2xl md:text-3xl font-medium text-neutral-950 mb-3 leading-tight"
               >
                 {item.title}
               </h3>

@@ -73,8 +73,7 @@ export function ServicesEditorial() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              style={{ fontFamily: "var(--font-fraunces)" }}
-              className="text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] text-neutral-950"
+              className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] text-neutral-950"
             >
               Quatre manières de{" "}
               <em className="text-orange-500 font-normal">vous accompagner</em>
@@ -118,8 +117,7 @@ export function ServicesEditorial() {
               <div className="flex items-start justify-between gap-4 mb-6">
                 <div className="flex items-center gap-4">
                   <span
-                    style={{ fontFamily: "var(--font-fraunces)" }}
-                    className="text-4xl italic font-light text-orange-500/80 leading-none"
+                    className="font-serif text-4xl italic font-light text-orange-500/80 leading-none"
                   >
                     {service.number}
                   </span>
@@ -130,8 +128,7 @@ export function ServicesEditorial() {
               </div>
 
               <h3
-                style={{ fontFamily: "var(--font-fraunces)" }}
-                className="text-3xl md:text-4xl font-medium leading-tight text-neutral-950 mb-4"
+                className="font-serif text-3xl md:text-4xl font-medium leading-tight text-neutral-950 mb-4"
               >
                 {service.title}
               </h3>

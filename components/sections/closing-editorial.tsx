@@ -45,8 +45,7 @@ export function ClosingEditorial() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          style={{ fontFamily: "var(--font-fraunces)" }}
-          className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] text-white mb-12 md:mb-16"
+          className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] text-white mb-12 md:mb-16"
         >
           Nous ne livrons pas des projets.
           <br />
@@ -65,14 +64,12 @@ export function ClosingEditorial() {
         >
           <span
             aria-hidden
-            style={{ fontFamily: "var(--font-fraunces)" }}
-            className="block text-7xl md:text-8xl italic leading-none text-orange-400/60 mb-2 select-none"
+            className="font-serif block text-7xl md:text-8xl italic leading-none text-orange-400/60 mb-2 select-none"
           >
             «
           </span>
           <p
-            style={{ fontFamily: "var(--font-fraunces)" }}
-            className="text-2xl md:text-3xl italic font-light text-white/90 leading-snug mb-8"
+            className="font-serif text-2xl md:text-3xl italic font-light text-white/90 leading-snug mb-8"
           >
             ADC a compris notre métier avant de nous proposer une solution
             technique. C'est rare, et c'est ce qui fait toute la différence

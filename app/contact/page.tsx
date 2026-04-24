@@ -138,8 +138,7 @@ export default function ContactPage() {
                 </div>
 
                 <h2
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="text-3xl md:text-4xl font-medium leading-tight text-neutral-950 mb-6"
+                  className="font-serif text-3xl md:text-4xl font-medium leading-tight text-neutral-950 mb-6"
                 >
                   Dites-nous{" "}
                   <em className="text-orange-500 font-normal">
@@ -255,8 +254,7 @@ export default function ContactPage() {
                         <CheckCircle2 className="h-7 w-7" strokeWidth={1.5} />
                       </div>
                       <h3
-                        style={{ fontFamily: "var(--font-fraunces)" }}
-                        className="text-3xl md:text-4xl font-medium text-neutral-950 leading-tight mb-4"
+                        className="font-serif text-3xl md:text-4xl font-medium text-neutral-950 leading-tight mb-4"
                       >
                         Message envoyé.
                       </h3>
@@ -282,8 +280,7 @@ export default function ContactPage() {
                     <>
                       <div className="mb-8">
                         <h3
-                          style={{ fontFamily: "var(--font-fraunces)" }}
-                          className="text-2xl md:text-3xl font-medium text-neutral-950 leading-tight mb-2"
+                          className="font-serif text-2xl md:text-3xl font-medium text-neutral-950 leading-tight mb-2"
                         >
                           Votre brief.
                         </h3>
@@ -488,8 +485,7 @@ export default function ContactPage() {
                   Nous rendre visite
                 </div>
                 <h2
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="text-3xl md:text-4xl font-medium leading-tight text-neutral-950 mb-4"
+                  className="font-serif text-3xl md:text-4xl font-medium leading-tight text-neutral-950 mb-4"
                 >
                   Grand-Bassam, Côte d'Ivoire.
                 </h2>
@@ -537,8 +533,7 @@ export default function ContactPage() {
                   Questions fréquentes
                 </div>
                 <h2
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-neutral-950"
+                  className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-neutral-950"
                 >
                   Ce qu'on nous demande{" "}
                   <em className="text-orange-500 font-normal">
@@ -561,8 +556,7 @@ export default function ContactPage() {
                       <details className="group py-6">
                         <summary className="flex items-start justify-between gap-6 cursor-pointer list-none">
                           <span
-                            style={{ fontFamily: "var(--font-fraunces)" }}
-                            className="text-lg md:text-xl font-medium text-neutral-950 pr-4"
+                            className="font-serif text-lg md:text-xl font-medium text-neutral-950 pr-4"
                           >
                             <span className="text-orange-500/80 italic mr-4 text-sm tabular-nums">
                               0{i + 1}

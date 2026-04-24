@@ -63,7 +63,7 @@ const articles: Article[] = [
       "ADC au Salon des opportunités publiques et privées de l'entrepreneur",
     excerpt:
       "Participation à la deuxième édition de ce rendez-vous qui réunit PME, institutions publiques et bailleurs autour de l'entrepreneuriat ivoirien.",
-    image: "/img/blog/salon-entrepreneur.jpg",
+    image: "/img/blog/salon-entrepreneur.webp",
     category: "Entrepreneuriat",
     date: "Mai 2024",
     href: "/blog/salon-opportunites-entrepreneur",
@@ -131,8 +131,7 @@ export default function BlogPage() {
                     <time>{featured.date}</time>
                   </div>
                   <h2
-                    style={{ fontFamily: "var(--font-fraunces)" }}
-                    className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-neutral-950 mb-5 group-hover:text-orange-600 transition-colors"
+                    className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-neutral-950 mb-5 group-hover:text-orange-600 transition-colors"
                   >
                     {featured.title}
                   </h2>
@@ -188,8 +187,7 @@ export default function BlogPage() {
                       <time>{article.date}</time>
                     </div>
                     <h3
-                      style={{ fontFamily: "var(--font-fraunces)" }}
-                      className="text-2xl md:text-3xl font-medium leading-tight text-neutral-950 mb-3 group-hover:text-orange-600 transition-colors"
+                      className="font-serif text-2xl md:text-3xl font-medium leading-tight text-neutral-950 mb-3 group-hover:text-orange-600 transition-colors"
                     >
                       {article.title}
                     </h3>
@@ -221,8 +219,7 @@ export default function BlogPage() {
                   Restez connecté
                 </div>
                 <h2
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                  className="text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.1] mb-4"
+                  className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.1] mb-4"
                 >
                   Une newsletter,{" "}
                   <em className="text-orange-400 font-normal">

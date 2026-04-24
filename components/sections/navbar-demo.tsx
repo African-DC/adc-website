@@ -158,8 +158,7 @@ export function NavbarDemo() {
                     >
                       <Link
                         href={link.href}
-                        style={{ fontFamily: "var(--font-fraunces)" }}
-                        className={`flex items-center justify-between py-4 border-b border-neutral-200 text-3xl md:text-4xl font-medium transition-colors ${
+                        className={`font-serif flex items-center justify-between py-4 border-b border-neutral-200 text-3xl md:text-4xl font-medium transition-colors ${
                           active
                             ? "text-orange-600"
                             : "text-neutral-950 hover:text-orange-600"
