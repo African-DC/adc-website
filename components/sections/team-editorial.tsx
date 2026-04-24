@@ -18,7 +18,7 @@ const team: Member[] = [
     slug: "marcel-djedje-li",
     name: "Marcel Djedje-li",
     role: "Chef du département développement",
-    image: "/img/TEAM_ADC/marcel.webp",
+    image: "/img/TEAM_ADC/marcel-djedjeli.webp",
     linkedin: "https://www.linkedin.com/in/marcel-djedje-li-099490235/",
   },
   {

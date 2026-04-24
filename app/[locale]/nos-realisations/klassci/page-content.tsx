@@ -483,7 +483,7 @@ export default function KlassciCaseStudyContent() {
                   <div className="absolute -inset-4 bg-gradient-to-br from-orange-500/10 to-transparent rounded-2xl -rotate-2" />
                   <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-200 shadow-2xl shadow-neutral-900/15 border border-neutral-200">
                     <Image
-                      src="/img/TEAM_ADC/marcel-djedjeli.png"
+                      src="/img/TEAM_ADC/marcel-djedjeli.webp"
                       alt="Marcel Djedje-li"
                       fill
                       className="object-cover"
