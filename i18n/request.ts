@@ -11,5 +11,21 @@ export default getRequestConfig(async ({ requestLocale }) => {
   return {
     locale,
     messages: (await import(`../messages/${locale}.json`)).default,
+    onError(error) {
+      if (error.code === "MISSING_MESSAGE") {
+        if (process.env.NODE_ENV !== "production") {
+          console.warn("[next-intl] missing message:", error.message);
+        }
+        return;
+      }
+      throw error;
+    },
+    getMessageFallback({ key, namespace }) {
+      const fullKey = namespace ? `${namespace}.${key}` : key;
+      if (process.env.NODE_ENV !== "production") {
+        return `[${fullKey}]`;
+      }
+      return key;
+    },
   };
 });
