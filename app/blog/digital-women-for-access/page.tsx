@@ -18,7 +18,7 @@ export default function DigitalWomenArticlePage() {
         },
       ]}
       hero={{
-        src: "/img/blog/digital-women.webp",
+        src: "/img/blog/digital-women/1.webp",
         alt: "Première édition Digital Women for Access",
       }}
       cta={{
@@ -102,9 +102,8 @@ export default function DigitalWomenArticlePage() {
             <span className="inline-block h-px w-10 bg-orange-500 mr-3 align-middle" />
             Galerie · Digital Women for Access
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
             {[
-              { src: "/img/blog/digital-women/1.webp", alt: "Session Digital Women for Access" },
               { src: "/img/blog/digital-women/2.webp", alt: "Atelier Digital Women for Access" },
               { src: "/img/blog/digital-women/3.webp", alt: "Prise de parole Digital Women for Access" },
               { src: "/img/blog/digital-women/4.webp", alt: "Intervention Digital Women for Access" },

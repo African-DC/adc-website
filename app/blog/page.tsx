@@ -62,7 +62,7 @@ const articles: Article[] = [
     title: "Digital Women for Access : première édition à Abidjan",
     excerpt:
       "Initiative portée par ADC pour rendre le numérique plus accessible aux femmes ivoiriennes. Formation, mise en réseau, acculturation digitale.",
-    image: "/img/blog/digital-women.webp",
+    image: "/img/blog/digital-women/1.webp",
     category: "Initiatives",
     date: "Juin 2024",
     href: "/blog/digital-women-for-access",
@@ -72,7 +72,7 @@ const articles: Article[] = [
       "ADC au Salon des opportunités publiques et privées de l'entrepreneur",
     excerpt:
       "Participation à la deuxième édition de ce rendez-vous qui réunit PME, institutions publiques et bailleurs autour de l'entrepreneuriat ivoirien.",
-    image: "/img/blog/salon-entrepreneur.webp",
+    image: "/img/blog/salon-entrepreneur/1.webp",
     category: "Entrepreneuriat",
     date: "Mai 2024",
     href: "/blog/salon-opportunites-entrepreneur",

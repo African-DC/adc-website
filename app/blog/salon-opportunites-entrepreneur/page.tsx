@@ -18,8 +18,8 @@ export default function SalonEntrepreneurArticlePage() {
         },
       ]}
       hero={{
-        src: "/img/blog/salon-entrepreneur.webp",
-        alt: "Équipe ADC au salon de l'entrepreneur",
+        src: "/img/blog/salon-entrepreneur/1.webp",
+        alt: "Équipe ADC au Salon des opportunités publiques et privées de l'entrepreneur",
       }}
       cta={{
         title: "Vous êtes entrepreneur et vous cherchez à digitaliser ?",
@@ -98,9 +98,8 @@ export default function SalonEntrepreneurArticlePage() {
             <span className="inline-block h-px w-10 bg-orange-500 mr-3 align-middle" />
             Galerie · Salon de l'entrepreneur
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {[
-              { src: "/img/blog/salon-entrepreneur/1.webp", alt: "Stand ADC au salon de l'entrepreneur" },
               { src: "/img/blog/salon-entrepreneur/2.webp", alt: "Échanges avec les visiteurs" },
               { src: "/img/blog/salon-entrepreneur/3.webp", alt: "Présentation de nos solutions" },
             ].map((img, i) => (
