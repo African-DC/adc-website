@@ -5,10 +5,11 @@ import { NavbarDemo } from "@/components/sections/navbar-demo";
 import { PageHero } from "@/components/sections/page-hero";
 import { Button } from "@/components/ui/button";
 import ScrollProgress from "@/components/ui/scroll-progress";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Lightbulb, Users, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 
 const historyItems = [
   {
@@ -141,13 +142,19 @@ export default function AboutPage() {
                     style={{ transform: "rotate(1.5deg)" }}
                   >
                     <Image
-                      src="/img/TEAM_ADC/marcel-djedjeli.png"
-                      alt="Équipe African Digit Consulting"
+                      src="/img/TEAM_ADC/BEDE Abel Josias Manager.webp"
+                      alt="Bede Abel Josias, Manager général ADC"
                       fill
                       className="object-cover"
                       sizes="(max-width: 1024px) 100vw, 500px"
                     />
                   </div>
+                  <figcaption className="mt-6 text-sm text-neutral-500 max-w-xs">
+                    <span className="block font-medium text-neutral-900 mb-1">
+                      Bede Abel Josias
+                    </span>
+                    Manager général, fondateur · Avec ADC depuis 2016
+                  </figcaption>
                 </div>
               </motion.div>
             </div>
@@ -248,43 +255,7 @@ export default function AboutPage() {
               </motion.p>
             </div>
 
-            {/* Timeline */}
-            <ol className="relative border-l-2 border-neutral-200 ml-4 md:ml-0 md:border-l-0">
-              {historyItems.map((item, i) => (
-                <motion.li
-                  key={item.year}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="relative pl-8 md:pl-0 py-8 md:py-10 md:grid md:grid-cols-12 md:gap-10 md:items-start border-t border-neutral-200 first:border-t-0 md:border-t"
-                >
-                  <span
-                    aria-hidden
-                    className="absolute left-[-9px] top-10 md:hidden h-4 w-4 rounded-full bg-orange-500 border-4 border-white"
-                  />
-                  <div className="md:col-span-3">
-                    <span
-                      style={{ fontFamily: "var(--font-fraunces)" }}
-                      className="text-5xl md:text-6xl font-semibold text-orange-500/80"
-                    >
-                      {item.year}
-                    </span>
-                  </div>
-                  <div className="md:col-span-9 mt-3 md:mt-0">
-                    <h3
-                      style={{ fontFamily: "var(--font-fraunces)" }}
-                      className="text-2xl md:text-3xl font-medium text-neutral-950 mb-3"
-                    >
-                      {item.title}
-                    </h3>
-                    <p className="text-neutral-600 leading-relaxed max-w-2xl">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.li>
-              ))}
-            </ol>
+            <ScrollTimeline />
           </div>
         </section>
 
@@ -330,5 +301,88 @@ export default function AboutPage() {
 
       <Footer />
     </>
+  );
+}
+
+function ScrollTimeline() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 65%", "end 35%"],
+  });
+
+  const lineScaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const dotTop = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const dotOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.05, 0.95, 1],
+    [0, 1, 1, 0]
+  );
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative md:pl-[25%] pl-10 md:pl-0 md:grid md:grid-cols-12"
+    >
+      {/* Rail (track + progress) — fixed to the left on mobile, centered on a col on desktop */}
+      <div
+        aria-hidden
+        className="absolute md:col-span-1 md:col-start-5 top-0 bottom-0 left-4 md:left-auto w-px md:w-[2px] pointer-events-none"
+        style={{ transform: "translateX(-50%)" }}
+      >
+        {/* Static grey rail */}
+        <div className="absolute inset-0 bg-neutral-200" />
+        {/* Progressive orange line */}
+        <motion.div
+          className="absolute inset-x-0 top-0 origin-top bg-orange-500"
+          style={{ scaleY: lineScaleY, height: "100%" }}
+        />
+        {/* Animated dot */}
+        <motion.div
+          className="absolute -left-[7px] md:-left-[8px] h-4 w-4 md:h-5 md:w-5 rounded-full bg-orange-500 border-[3px] md:border-4 border-white shadow-[0_0_0_3px_rgba(249,115,22,0.22)]"
+          style={{ top: dotTop, opacity: dotOpacity, translateY: "-50%" }}
+        />
+      </div>
+
+      {/* Items */}
+      <ol className="md:col-span-12 md:grid md:grid-cols-12 md:gap-10 space-y-14 md:space-y-0">
+        {historyItems.map((item, i) => (
+          <motion.li
+            key={item.year}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: i * 0.08 }}
+            className="relative md:col-span-12 md:grid md:grid-cols-12 md:gap-10 md:items-baseline md:py-8 first:md:pt-0 last:md:pb-0"
+          >
+            {/* Year (left 4 cols on desktop) */}
+            <div className="md:col-span-4 md:text-right md:pr-14">
+              <span
+                style={{ fontFamily: "var(--font-fraunces)" }}
+                className="block text-5xl md:text-[5rem] font-semibold text-orange-500/85 leading-none"
+              >
+                {item.year}
+              </span>
+            </div>
+
+            {/* Spacer col for rail (col 5) */}
+            <div className="hidden md:block md:col-span-1" />
+
+            {/* Content (right 7 cols on desktop) */}
+            <div className="md:col-span-7 mt-3 md:mt-0 md:pl-2">
+              <h3
+                style={{ fontFamily: "var(--font-fraunces)" }}
+                className="text-2xl md:text-3xl font-medium text-neutral-950 mb-3 leading-tight"
+              >
+                {item.title}
+              </h3>
+              <p className="text-neutral-600 leading-relaxed max-w-xl">
+                {item.description}
+              </p>
+            </div>
+          </motion.li>
+        ))}
+      </ol>
+    </div>
   );
 }
