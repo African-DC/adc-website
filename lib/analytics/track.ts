@@ -6,7 +6,6 @@ export function track<N extends AnalyticsEventName>(
   props: EventProps<N>,
 ): void {
   if (typeof window === "undefined") return;
-  if (!posthog.__loaded) return;
   posthog.capture(name, props);
 }
 

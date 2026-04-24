@@ -12,16 +12,20 @@ const POSTHOG_HOST =
 const POSTHOG_DISABLED =
   process.env.NEXT_PUBLIC_DISABLE_ANALYTICS === "true";
 
-let didInit = false;
+function shouldOptOut(): boolean {
+  if (typeof window === "undefined") return true;
+  if (window.navigator.doNotTrack === "1") return true;
+  if (new URLSearchParams(window.location.search).has("noanalytics")) return true;
+  return false;
+}
 
-function ensureInit() {
-  if (didInit) return;
-  if (typeof window === "undefined") return;
-  if (!POSTHOG_KEY) return;
-  if (POSTHOG_DISABLED) return;
-  if (window.navigator.doNotTrack === "1") return;
-  if (new URLSearchParams(window.location.search).has("noanalytics")) return;
-
+if (
+  typeof window !== "undefined" &&
+  POSTHOG_KEY &&
+  !POSTHOG_DISABLED &&
+  !posthog.__loaded &&
+  !shouldOptOut()
+) {
   posthog.init(POSTHOG_KEY, {
     api_host: POSTHOG_HOST,
     person_profiles: "identified_only",
@@ -33,13 +37,7 @@ function ensureInit() {
     },
     persistence: "localStorage+cookie",
     cookie_name: "ph_adc",
-    loaded: (ph) => {
-      if (process.env.NODE_ENV === "development") {
-        ph.debug(false);
-      }
-    },
   });
-  didInit = true;
 }
 
 function PostHogPageviewTracker() {
@@ -50,7 +48,6 @@ function PostHogPageviewTracker() {
   useEffect(() => {
     if (!pathname) return;
     if (typeof window === "undefined") return;
-    if (!posthog.__loaded) return;
 
     const url = pathname + (searchParams?.toString() ? `?${searchParams}` : "");
     posthog.capture("$pageview", {
@@ -64,10 +61,6 @@ function PostHogPageviewTracker() {
 }
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    ensureInit();
-  }, []);
-
   if (!POSTHOG_KEY || POSTHOG_DISABLED) {
     return <>{children}</>;
   }
