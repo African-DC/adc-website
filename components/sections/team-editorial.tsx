@@ -31,21 +31,15 @@ const team: Member[] = [
     linkedin: "#",
   },
   {
-    name: "N'guessan Arvigne",
-    role: "Responsable développement web",
-    image: "/img/TEAM_ADC/Arvigne-N_guessan.webp",
+    name: "Issouf Ouedraogo",
+    role: "Développeur full-stack · Administrateur de base de données",
+    image: "/img/TEAM_ADC/issouf-ouedraogo.jpg",
     linkedin: "#",
   },
   {
     name: "Meledje Bythia",
     role: "Assistante de direction",
     image: "/img/TEAM_ADC/MELEDJE BYTHIA Assiatnte de direction .webp",
-    linkedin: "#",
-  },
-  {
-    name: "Siloue Joël",
-    role: "Graphiste",
-    image: "/img/TEAM_ADC/SiloueJoel.webp",
     linkedin: "#",
   },
 ];
