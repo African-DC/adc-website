@@ -217,16 +217,56 @@ export default function BlogPage() {
 }
 
 function NewsletterForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
-  if (submitted) {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      const formData = new FormData();
+      formData.append("email", email);
+      formData.append(
+        "access_key",
+        process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY || ""
+      );
+      formData.append("subject", "Nouvelle inscription newsletter ADC");
+      formData.append("from_website", "Site ADC - Newsletter");
+      formData.append(
+        "message",
+        `Nouvelle inscription a la newsletter ADC: ${email}`
+      );
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("success");
+        setEmail("");
+      } else {
+        throw new Error(data.message || "Erreur");
+      }
+    } catch (err) {
+      console.error("Newsletter subscription error:", err);
+      setStatus("error");
+    }
+  };
+
+  if (status === "success") {
     return (
       <div className="lg:col-span-5 border border-white/15 rounded-2xl p-6 bg-white/5">
         <p className="text-sm text-orange-300 tracking-wider uppercase mb-2">
           Merci !
         </p>
         <p className="text-white/80 leading-relaxed">
-          Votre inscription sera bientôt active. Surveillez votre boîte mail.
+          Votre inscription est bien enregistrée. Vous recevrez notre
+          prochaine édition dans votre boîte.
         </p>
       </div>
     );
@@ -235,10 +275,7 @@ function NewsletterForm() {
   return (
     <form
       className="lg:col-span-5 flex flex-col gap-3"
-      onSubmit={(e) => {
-        e.preventDefault();
-        setSubmitted(true);
-      }}
+      onSubmit={handleSubmit}
     >
       <label htmlFor="newsletter-email" className="sr-only">
         Votre adresse email
@@ -247,13 +284,42 @@ function NewsletterForm() {
         id="newsletter-email"
         type="email"
         required
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
         placeholder="votre@email.com"
-        className="h-12 px-4 rounded-full bg-white/5 border border-white/15 text-white placeholder:text-neutral-500 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-400/30 transition-colors"
+        disabled={status === "loading"}
+        className="h-12 px-4 rounded-full bg-white/5 border border-white/15 text-white placeholder:text-neutral-500 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-400/30 transition-colors disabled:opacity-60"
       />
-      <Button type="submit" variant="cta" size="cta">
-        <span>S'abonner</span>
-        <ArrowUpRight className="h-4 w-4" />
+      <Button
+        type="submit"
+        variant="cta"
+        size="cta"
+        disabled={status === "loading"}
+      >
+        {status === "loading" ? (
+          <>
+            <span className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            <span>Inscription…</span>
+          </>
+        ) : (
+          <>
+            <span>S'abonner</span>
+            <ArrowUpRight className="h-4 w-4" />
+          </>
+        )}
       </Button>
+      {status === "error" && (
+        <p className="text-sm text-red-300 mt-1">
+          Une erreur s'est produite. Réessayez ou écrivez-nous à{" "}
+          <a
+            href="mailto:klassci@africandigitconsulting.com"
+            className="underline"
+          >
+            klassci@africandigitconsulting.com
+          </a>
+          .
+        </p>
+      )}
     </form>
   );
 }
