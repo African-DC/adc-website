@@ -4,7 +4,6 @@ import { routing } from "@/i18n/routing";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { useLocale, useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
 import { useTransition } from "react";
 
 type LanguageSwitcherProps = {
@@ -20,15 +19,15 @@ export function LanguageSwitcher({
   const currentLocale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
 
   const switchTo = (nextLocale: string) => {
     if (nextLocale === currentLocale || isPending) return;
-    const queryString = searchParams.toString();
-    const target = (queryString ? `${pathname}?${queryString}` : pathname) as Parameters<typeof router.replace>[0];
     startTransition(() => {
-      router.replace(target, { locale: nextLocale });
+      router.replace(
+        pathname as Parameters<typeof router.replace>[0],
+        { locale: nextLocale },
+      );
     });
   };
 
