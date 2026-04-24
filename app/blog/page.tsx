@@ -50,6 +50,15 @@ const articles: Article[] = [
     href: "/blog/digigreen-acceleration-wouri",
   },
   {
+    title: "AKAWABA KLASSCI : présentation officielle de notre solution de gestion scolaire",
+    excerpt:
+      "Le 20 juin 2025, ADC a dévoilé KLASSCI devant le Ministère de l'Éducation nationale, la GIZ, Côte d'Ivoire Export et Impact'Lab UNESCO. Retour sur un lancement qui a marqué un tournant.",
+    image: "/img/blog/akwaba-klassci/1.webp",
+    category: "Lancement",
+    date: "20 juin 2025",
+    href: "/blog/akwaba-klassci",
+  },
+  {
     title: "Digital Women for Access : première édition à Abidjan",
     excerpt:
       "Initiative portée par ADC pour rendre le numérique plus accessible aux femmes ivoiriennes. Formation, mise en réseau, acculturation digitale.",
