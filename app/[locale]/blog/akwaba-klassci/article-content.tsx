@@ -1,8 +1,8 @@
 "use client";
 
 import { BlogArticleLayout } from "@/components/sections/blog-article-layout";
+import { BlogGallery } from "@/components/gallery/blog-gallery";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const partners = [
   "Ministère de l'Éducation Nationale",
@@ -171,34 +171,7 @@ export default function AkwabaKlassciArticlePage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-neutral-50 border-t border-neutral-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-10 text-xs tracking-[0.22em] text-neutral-600 uppercase">
-            <span className="inline-block h-px w-10 bg-orange-500 mr-3 align-middle" />
-            Galerie · AKAWABA KLASSCI
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-            {gallery.map((img, i) => (
-              <motion.div
-                key={img.src}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="relative aspect-[4/5] rounded-xl overflow-hidden bg-neutral-100"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BlogGallery eyebrow="Galerie · AKAWABA KLASSCI" images={gallery} />
     </BlogArticleLayout>
   );
 }

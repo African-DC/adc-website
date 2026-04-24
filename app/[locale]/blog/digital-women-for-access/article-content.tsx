@@ -1,8 +1,7 @@
 "use client";
 
 import { BlogArticleLayout } from "@/components/sections/blog-article-layout";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import { BlogGallery } from "@/components/gallery/blog-gallery";
 
 export default function DigitalWomenArticlePage() {
   return (
@@ -96,39 +95,15 @@ export default function DigitalWomenArticlePage() {
         </div>
       </article>
 
-      <section className="py-16 md:py-20 bg-neutral-50 border-t border-neutral-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-10 text-xs tracking-[0.22em] text-neutral-600 uppercase">
-            <span className="inline-block h-px w-10 bg-orange-500 mr-3 align-middle" />
-            Galerie · Digital Women for Access
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-            {[
-              { src: "/img/blog/digital-women/2.webp", alt: "Atelier Digital Women for Access" },
-              { src: "/img/blog/digital-women/3.webp", alt: "Prise de parole Digital Women for Access" },
-              { src: "/img/blog/digital-women/4.webp", alt: "Intervention Digital Women for Access" },
-              { src: "/img/blog/digital-women/5.webp", alt: "Participantes Digital Women for Access" },
-            ].map((img, i) => (
-              <motion.div
-                key={img.src}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="relative aspect-[4/5] rounded-xl overflow-hidden bg-neutral-100"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BlogGallery
+        eyebrow="Galerie · Digital Women for Access"
+        images={[
+          { src: "/img/blog/digital-women/2.webp", alt: "Atelier Digital Women for Access" },
+          { src: "/img/blog/digital-women/3.webp", alt: "Prise de parole Digital Women for Access" },
+          { src: "/img/blog/digital-women/4.webp", alt: "Intervention Digital Women for Access" },
+          { src: "/img/blog/digital-women/5.webp", alt: "Participantes Digital Women for Access" },
+        ]}
+      />
     </BlogArticleLayout>
   );
 }

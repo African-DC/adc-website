@@ -1,8 +1,7 @@
 "use client";
 
 import { BlogArticleLayout } from "@/components/sections/blog-article-layout";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import { BlogGallery } from "@/components/gallery/blog-gallery";
 
 export default function OrangeBusinessArticlePage() {
   return (
@@ -155,46 +154,21 @@ export default function OrangeBusinessArticlePage() {
         </div>
       </article>
 
-      <section className="py-16 md:py-20 bg-neutral-50 border-t border-neutral-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-10 text-xs tracking-[0.22em] text-neutral-600 uppercase">
-            <span className="inline-block h-px w-10 bg-orange-500 mr-3 align-middle" />
-            Sur place · Orange Village
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="relative aspect-[4/3] rounded-xl overflow-hidden bg-neutral-100"
-            >
-              <Image
-                src="/img/blog/orange-village-hero.jpg"
-                alt="Stand ADC Orange Village"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="relative aspect-[4/3] rounded-xl overflow-hidden bg-neutral-100"
-            >
-              <Image
-                src="/img/blog/orange-village-2.jpg"
-                alt="Échanges avec les partenaires"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <BlogGallery
+        eyebrow="Sur place · Orange Village"
+        columns={2}
+        aspect="landscape"
+        images={[
+          {
+            src: "/img/blog/orange-village-hero.jpg",
+            alt: "Stand ADC Orange Village",
+          },
+          {
+            src: "/img/blog/orange-village-2.jpg",
+            alt: "Échanges avec les partenaires",
+          },
+        ]}
+      />
     </BlogArticleLayout>
   );
 }

@@ -1,8 +1,7 @@
 "use client";
 
 import { BlogArticleLayout } from "@/components/sections/blog-article-layout";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import { BlogGallery } from "@/components/gallery/blog-gallery";
 
 export default function SalonEntrepreneurArticlePageEn() {
   return (
@@ -87,37 +86,15 @@ export default function SalonEntrepreneurArticlePageEn() {
         </div>
       </article>
 
-      <section className="py-16 md:py-20 bg-neutral-50 border-t border-neutral-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-10 text-xs tracking-[0.22em] text-neutral-600 uppercase">
-            <span className="inline-block h-px w-10 bg-orange-500 mr-3 align-middle" />
-            Gallery · Entrepreneur fair
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            {[
-              { src: "/img/blog/salon-entrepreneur/2.webp", alt: "Exchanges with visitors" },
-              { src: "/img/blog/salon-entrepreneur/3.webp", alt: "Presentation of our solutions" },
-            ].map((img, i) => (
-              <motion.div
-                key={img.src}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative aspect-[4/3] rounded-xl overflow-hidden bg-neutral-100"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BlogGallery
+        eyebrow="Gallery · Entrepreneur fair"
+        columns={2}
+        aspect="landscape"
+        images={[
+          { src: "/img/blog/salon-entrepreneur/2.webp", alt: "Exchanges with visitors" },
+          { src: "/img/blog/salon-entrepreneur/3.webp", alt: "Presentation of our solutions" },
+        ]}
+      />
     </BlogArticleLayout>
   );
 }
