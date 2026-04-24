@@ -72,7 +72,7 @@ const articles: Article[] = [
     title: "Webinar : une vision pour l'Afrique numérique",
     excerpt:
       "Notre équipe partage sa lecture des défis et des opportunités du digital en Afrique francophone : souveraineté, IA, transformation réelle.",
-    image: "/img/blog/webinar-afrique.jpg",
+    image: "/img/blog/webinar-afrique-affiche.webp",
     category: "Vision",
     date: "Mars 2024",
     href: "/blog/webinar-afrique-numerique",

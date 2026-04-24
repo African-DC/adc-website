@@ -16,8 +16,8 @@ export default function WebinarAfriqueArticlePage() {
         },
       ]}
       hero={{
-        src: "/img/blog/webinar-afrique.jpg",
-        alt: "Webinar ADC sur l'Afrique numérique",
+        src: "/img/blog/webinar-afrique-affiche.webp",
+        alt: "Affiche officielle du webinar ADC sur l'Afrique numérique",
       }}
       cta={{
         title: "Envie de poursuivre la conversation ?",

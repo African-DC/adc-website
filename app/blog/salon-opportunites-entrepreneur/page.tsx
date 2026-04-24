@@ -1,6 +1,8 @@
 "use client";
 
 import { BlogArticleLayout } from "@/components/sections/blog-article-layout";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function SalonEntrepreneurArticlePage() {
   return (
@@ -89,6 +91,39 @@ export default function SalonEntrepreneurArticlePage() {
           </p>
         </div>
       </article>
+
+      <section className="py-16 md:py-20 bg-neutral-50 border-t border-neutral-200">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-10 text-xs tracking-[0.22em] text-neutral-600 uppercase">
+            <span className="inline-block h-px w-10 bg-orange-500 mr-3 align-middle" />
+            Galerie · Salon de l'entrepreneur
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            {[
+              { src: "/img/blog/salon-entrepreneur/1.webp", alt: "Stand ADC au salon de l'entrepreneur" },
+              { src: "/img/blog/salon-entrepreneur/2.webp", alt: "Échanges avec les visiteurs" },
+              { src: "/img/blog/salon-entrepreneur/3.webp", alt: "Présentation de nos solutions" },
+            ].map((img, i) => (
+              <motion.div
+                key={img.src}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="relative aspect-[4/3] rounded-xl overflow-hidden bg-neutral-100"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </BlogArticleLayout>
   );
 }
