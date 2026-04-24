@@ -95,7 +95,7 @@ export default function ExpertisePage() {
       <NavbarDemo />
 
       <PageHero
-        title="Notre expertise : concevoir le web qui tient dans la durée."
+        title="Notre expertise : concevoir des solutions qui tiennent dans la durée."
         subtitle="Une discipline simple : commencer par comprendre votre métier avant de proposer une ligne de code."
         eyebrow="Notre expertise"
         breadcrumbs={[{ label: "Notre expertise", href: "/notre-expertise" }]}
