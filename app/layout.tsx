@@ -58,7 +58,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://www.africadigitconsulting.com"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.africandigitconsulting.com",
+  ),
   alternates: {
     canonical: "/",
   },
@@ -66,7 +68,7 @@ export const metadata: Metadata = {
     title: "ADC - Des solutions digitales à fort impact social et humain",
     description:
       "African Digit Consulting conçoit des solutions digitales utiles, durables et adaptées aux réalités locales africaines. Le digital au service des peuples.",
-    url: "https://www.africadigitconsulting.com",
+    url: "https://www.africandigitconsulting.com",
     siteName: "African Digit Consulting",
     locale: "fr_FR",
     type: "website",

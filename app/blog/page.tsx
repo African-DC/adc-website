@@ -5,88 +5,14 @@ import { NavbarDemo } from "@/components/sections/navbar-demo";
 import { PageHero } from "@/components/sections/page-hero";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import { Button } from "@/components/ui/button";
+import { getAllArticles, getArticleHref } from "@/lib/blog";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-type Article = {
-  title: string;
-  excerpt: string;
-  image: string;
-  category: string;
-  date: string;
-  href: string;
-};
-
-const articles: Article[] = [
-  {
-    title:
-      "ADC au SIADE 2026 : deux IA africaines à l'épreuve de la souveraineté technologique",
-    excerpt:
-      "Retour sur notre participation à la 2e édition du Salon International de l'IA, de la Défense et de l'Espace, où nous avons présenté KLASSCI et WOURI.",
-    image: "/img/blog/siade-hero.jpg",
-    category: "Événements",
-    date: "21 avril 2026",
-    href: "/blog/siade-2026-abidjan",
-  },
-  {
-    title: "KLASSCI à l'honneur chez Orange Business",
-    excerpt:
-      "Présentation de notre CRM éducatif lors du lancement de l'offre Internet Pro illimité, au siège Orange Village d'Abidjan.",
-    image: "/img/blog/orange-village-hero.jpg",
-    category: "Partenariats",
-    date: "26 mars 2026",
-    href: "/blog/klassci-orange-business-village",
-  },
-  {
-    title: "ADC retenue en phase d'accélération du programme DigiGreen",
-    excerpt:
-      "Une opportunité majeure pour WOURI, notre agent IA dédié aux agriculteurs ivoiriens face au changement climatique. Partenaires : Orange, GIZ, Union européenne.",
-    image: "/img/blog/digigreen-hero.jpg",
-    category: "Accélération",
-    date: "17 avril 2026",
-    href: "/blog/digigreen-acceleration-wouri",
-  },
-  {
-    title: "AKAWABA KLASSCI : présentation officielle de notre solution de gestion scolaire",
-    excerpt:
-      "Le 20 juin 2025, ADC a dévoilé KLASSCI devant le Ministère de l'Éducation nationale, la GIZ, Côte d'Ivoire Export et Impact'Lab UNESCO. Retour sur un lancement qui a marqué un tournant.",
-    image: "/img/blog/akwaba-klassci/1.webp",
-    category: "Lancement",
-    date: "20 juin 2025",
-    href: "/blog/akwaba-klassci",
-  },
-  {
-    title: "Digital Women for Access : première édition à Abidjan",
-    excerpt:
-      "Initiative portée par ADC pour rendre le numérique plus accessible aux femmes ivoiriennes. Formation, mise en réseau, acculturation digitale.",
-    image: "/img/blog/digital-women/1.webp",
-    category: "Initiatives",
-    date: "Juin 2024",
-    href: "/blog/digital-women-for-access",
-  },
-  {
-    title:
-      "ADC au Salon des opportunités publiques et privées de l'entrepreneur",
-    excerpt:
-      "Participation à la deuxième édition de ce rendez-vous qui réunit PME, institutions publiques et bailleurs autour de l'entrepreneuriat ivoirien.",
-    image: "/img/blog/salon-entrepreneur/1.webp",
-    category: "Entrepreneuriat",
-    date: "Mai 2024",
-    href: "/blog/salon-opportunites-entrepreneur",
-  },
-  {
-    title: "Webinar : une vision pour l'Afrique numérique",
-    excerpt:
-      "Notre équipe partage sa lecture des défis et des opportunités du digital en Afrique francophone : souveraineté, IA, transformation réelle.",
-    image: "/img/blog/webinar-afrique-affiche.webp",
-    category: "Vision",
-    date: "Mars 2024",
-    href: "/blog/webinar-afrique-numerique",
-  },
-];
+const articles = getAllArticles();
 
 export default function BlogPage() {
   const [featured, ...rest] = articles;
@@ -119,13 +45,13 @@ export default function BlogPage() {
               transition={{ duration: 0.6 }}
             >
               <Link
-                href={featured.href}
+                href={getArticleHref(featured.slug)}
                 className="group grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center"
               >
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-neutral-100 order-1 lg:order-2">
                   <Image
-                    src={featured.image}
-                    alt={featured.title}
+                    src={featured.hero.src}
+                    alt={featured.hero.alt}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     sizes="(max-width: 1024px) 100vw, 600px"
@@ -137,7 +63,9 @@ export default function BlogPage() {
                       {featured.category}
                     </span>
                     <span>·</span>
-                    <time>{featured.date}</time>
+                    <time dateTime={featured.publishedAt}>
+                      {featured.publishedAtDisplay}
+                    </time>
                   </div>
                   <h2
                     className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-neutral-950 mb-5 group-hover:text-orange-600 transition-colors"
@@ -168,7 +96,7 @@ export default function BlogPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-stretch">
               {rest.map((article, i) => (
                 <motion.article
-                  key={article.href}
+                  key={article.slug}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
@@ -176,13 +104,13 @@ export default function BlogPage() {
                   className="h-full"
                 >
                   <Link
-                    href={article.href}
+                    href={getArticleHref(article.slug)}
                     className="group flex flex-col h-full"
                   >
                     <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-neutral-100 mb-6">
                       <Image
-                        src={article.image}
-                        alt={article.title}
+                        src={article.hero.src}
+                        alt={article.hero.alt}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -193,7 +121,9 @@ export default function BlogPage() {
                         {article.category}
                       </span>
                       <span>·</span>
-                      <time>{article.date}</time>
+                      <time dateTime={article.publishedAt}>
+                        {article.publishedAtDisplay}
+                      </time>
                     </div>
                     <h3
                       className="font-serif text-2xl md:text-3xl font-medium leading-tight text-neutral-950 mb-3 group-hover:text-orange-600 transition-colors"
