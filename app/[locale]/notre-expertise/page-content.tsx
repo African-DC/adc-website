@@ -3,7 +3,7 @@
 import { Footer } from "@/components/sections/footer";
 import { NavbarDemo } from "@/components/sections/navbar-demo";
 import { PageHero } from "@/components/sections/page-hero";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   ArrowUpRight,
   Check,
@@ -119,7 +119,7 @@ export default function ExpertisePageContent() {
                   .
                 </h2>
               </div>
-              <motion.p
+              <m.p
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -131,7 +131,7 @@ export default function ExpertisePageContent() {
                 pensée pour durer. Notre métier : livrer des plateformes
                 web solides, mobile-first, pensées pour le contexte
                 africain.
-              </motion.p>
+              </m.p>
             </div>
           </div>
         </section>
@@ -148,7 +148,7 @@ export default function ExpertisePageContent() {
                   className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start border-t border-neutral-200 pt-16 md:pt-20"
                 >
                   {/* Left — text */}
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -192,10 +192,10 @@ export default function ExpertisePageContent() {
                         </li>
                       ))}
                     </ul>
-                  </motion.div>
+                  </m.div>
 
                   {/* Right — features */}
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -224,7 +224,7 @@ export default function ExpertisePageContent() {
                         ))}
                       </ul>
                     </div>
-                  </motion.div>
+                  </m.div>
                 </article>
               );
             })}
@@ -270,7 +270,7 @@ export default function ExpertisePageContent() {
                   text: "Mise en ligne, formation des équipes, maintenance et évolutions continues.",
                 },
               ].map((step, i) => (
-                <motion.div
+                <m.div
                   key={step.num}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -291,7 +291,7 @@ export default function ExpertisePageContent() {
                   <p className="text-sm text-neutral-600 leading-relaxed">
                     {step.text}
                   </p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>

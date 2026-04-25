@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import { ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
@@ -45,7 +45,7 @@ export function PageHero({
 
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="flex items-start justify-between gap-6 mb-10">
-          <motion.nav
+          <m.nav
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
@@ -75,22 +75,22 @@ export function PageHero({
                 )}
               </div>
             ))}
-          </motion.nav>
+          </m.nav>
 
           {actions ? (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.15 }}
               className="flex-shrink-0"
             >
               {actions}
-            </motion.div>
+            </m.div>
           ) : null}
         </div>
 
         {eyebrow && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -98,27 +98,27 @@ export function PageHero({
           >
             <span className="inline-block h-px w-10 bg-orange-500" />
             {eyebrow}
-          </motion.div>
+          </m.div>
         )}
 
-        <motion.h1
+        <m.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
           className="font-serif text-[clamp(2rem,5vw,4.25rem)] font-semibold leading-[1.05] tracking-tight text-neutral-950 max-w-4xl"
         >
           {title}
-        </motion.h1>
+        </m.h1>
 
         {subtitle && (
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="font-serif mt-6 md:mt-8 text-lg md:text-xl italic font-light text-neutral-700 max-w-2xl leading-snug"
           >
             {subtitle}
-          </motion.p>
+          </m.p>
         )}
       </div>
     </section>

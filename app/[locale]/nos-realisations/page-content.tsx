@@ -3,7 +3,7 @@
 import { Footer } from "@/components/sections/footer";
 import { NavbarDemo } from "@/components/sections/navbar-demo";
 import { PageHero } from "@/components/sections/page-hero";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
 import { ExternalLink, Tag, EyeIcon, ArrowUpRight } from "lucide-react";
@@ -185,7 +185,7 @@ export default function RealisationsPageContent() {
         {/* Projets vedettes — KLASSCI + Wouri */}
         <section className="relative pt-16 pb-20 md:pt-20 md:pb-24">
           <div className="max-w-7xl mx-auto px-4">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -194,7 +194,7 @@ export default function RealisationsPageContent() {
             >
               <span className="inline-block h-px w-8 bg-orange-500" />
               Projets vedettes
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
             <Link
@@ -349,7 +349,7 @@ export default function RealisationsPageContent() {
 
             {/* Filtres de catégories */}
             <div className="mb-12">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -368,17 +368,17 @@ export default function RealisationsPageContent() {
                     {category}
                   </button>
                 ))}
-              </motion.div>
+              </m.div>
             </div>
 
             {/* Grille de projets */}
-            <motion.div
+            <m.div
               layout
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               <AnimatePresence>
                 {filteredProjects.map((project) => (
-                  <motion.div
+                  <m.div
                     key={project.id}
                     layout
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -398,7 +398,7 @@ export default function RealisationsPageContent() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                           <div className="p-6 w-full">
-                            <motion.div
+                            <m.div
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               transition={{ duration: 0.3, delay: 0.1 }}
@@ -410,7 +410,7 @@ export default function RealisationsPageContent() {
                               <span className="px-2 py-1 bg-orange-500/20 backdrop-blur-sm rounded text-xs text-white">
                                 {project.category}
                               </span>
-                            </motion.div>
+                            </m.div>
                           </div>
                         </div>
 
@@ -447,10 +447,10 @@ export default function RealisationsPageContent() {
                         </div>
                       </div>
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
               </AnimatePresence>
-            </motion.div>
+            </m.div>
 
             {/* Message si aucun projet */}
             {filteredProjects.length === 0 && (
@@ -483,7 +483,7 @@ export default function RealisationsPageContent() {
           />
 
           <div className="relative max-w-5xl mx-auto px-6 text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -492,9 +492,9 @@ export default function RealisationsPageContent() {
             >
               <span className="inline-block h-px w-10 bg-orange-400" />
               Et votre projet ?
-            </motion.div>
+            </m.div>
 
-            <motion.h2
+            <m.h2
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -506,9 +506,9 @@ export default function RealisationsPageContent() {
                 ce sont vos idées d'hier
               </em>
               .
-            </motion.h2>
+            </m.h2>
 
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -517,9 +517,9 @@ export default function RealisationsPageContent() {
             >
               Dites-nous ce que vous voulez construire. On commence par
               écouter, on continue par livrer.
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -539,7 +539,7 @@ export default function RealisationsPageContent() {
                 Voir notre expertise
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       </main>
@@ -547,14 +547,14 @@ export default function RealisationsPageContent() {
       {/* Modal de projet */}
       <AnimatePresence>
         {isModalOpen && selectedProject && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
             onClick={closeProjectModal}
           >
-            <motion.div
+            <m.div
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
@@ -644,8 +644,8 @@ export default function RealisationsPageContent() {
                   </div>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         )}
       </AnimatePresence>
 

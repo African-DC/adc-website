@@ -4,7 +4,7 @@ import { Footer } from "@/components/sections/footer";
 import { NavbarDemo } from "@/components/sections/navbar-demo";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   ArrowUpRight,
   ArrowLeft,
@@ -113,7 +113,7 @@ export default function KlassciCaseStudyContent() {
         <section className="relative pt-32 pb-16 md:pt-40 md:pb-24">
           <div className="max-w-7xl mx-auto px-6">
             {/* Back link */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
@@ -126,12 +126,12 @@ export default function KlassciCaseStudyContent() {
                 <ArrowLeft className="h-4 w-4" />
                 <span>All case studies</span>
               </Link>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
               {/* Left column — editorial text */}
               <div className="lg:col-span-7">
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
@@ -139,9 +139,9 @@ export default function KlassciCaseStudyContent() {
                 >
                   <span className="h-px w-8 bg-orange-500" />
                   <span>Case study No. 01 · Flagship project</span>
-                </motion.div>
+                </m.div>
 
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.15 }}
@@ -161,9 +161,9 @@ export default function KlassciCaseStudyContent() {
                   >
                     KLASSCI<span className="text-orange-500">.</span>
                   </h1>
-                </motion.div>
+                </m.div>
 
-                <motion.p
+                <m.p
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
@@ -174,9 +174,9 @@ export default function KlassciCaseStudyContent() {
                     African higher education
                   </span>
                   .
-                </motion.p>
+                </m.p>
 
-                <motion.p
+                <m.p
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.45 }}
@@ -186,10 +186,10 @@ export default function KlassciCaseStudyContent() {
                   designed for higher education institutions that want to move
                   beyond Excel and run their academic operations like a true
                   modern SaaS.
-                </motion.p>
+                </m.p>
 
                 {/* Metadata strip */}
-                <motion.dl
+                <m.dl
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.6 }}
@@ -210,11 +210,11 @@ export default function KlassciCaseStudyContent() {
                       </dd>
                     </div>
                   ))}
-                </motion.dl>
+                </m.dl>
               </div>
 
               {/* Right column — hero screenshot, tilted */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 40, rotate: 0 }}
                 animate={{ opacity: 1, y: 0, rotate: 1.5 }}
                 transition={{ duration: 0.9, delay: 0.4, ease: "easeOut" }}
@@ -243,7 +243,7 @@ export default function KlassciCaseStudyContent() {
                   </span>
                   Live at klassci.com
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </section>
@@ -253,7 +253,7 @@ export default function KlassciCaseStudyContent() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
               {metrics.map((metric, i) => (
-                <motion.div
+                <m.div
                   key={metric.label}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -269,7 +269,7 @@ export default function KlassciCaseStudyContent() {
                   <div className="text-sm text-neutral-500 tracking-wide">
                     {metric.label}
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -278,7 +278,7 @@ export default function KlassciCaseStudyContent() {
         {/* ===================== VIDEO PRESENTATION ===================== */}
         <section className="py-20 md:py-24 bg-neutral-950 text-white">
           <div className="max-w-5xl mx-auto px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -287,8 +287,8 @@ export default function KlassciCaseStudyContent() {
             >
               <span className="inline-block h-px w-10 bg-orange-400 mr-3 align-middle" />
               Product video
-            </motion.div>
-            <motion.h2
+            </m.div>
+            <m.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -297,8 +297,8 @@ export default function KlassciCaseStudyContent() {
             >
               One minute to understand{" "}
               <em className="text-orange-400 font-normal">what KLASSCI changes</em>.
-            </motion.h2>
-            <motion.div
+            </m.h2>
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -314,14 +314,14 @@ export default function KlassciCaseStudyContent() {
                 <source src="/videos/klassci-presentation.mp4" type="video/mp4" />
                 Your browser does not support video playback.
               </video>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* ===================== PROBLEM / CONTEXT ===================== */}
         <section className="py-24 md:py-32">
           <div className="max-w-4xl mx-auto px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -330,9 +330,9 @@ export default function KlassciCaseStudyContent() {
             >
               <span className="inline-block h-px w-8 bg-orange-500 mr-3 align-middle" />
               The context
-            </motion.div>
+            </m.div>
 
-            <motion.h2
+            <m.h2
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -342,9 +342,9 @@ export default function KlassciCaseStudyContent() {
               Most African institutions still run their entire academic year on{" "}
               <em className="text-orange-600">scattered Excel files</em>.
               We built the alternative.
-            </motion.h2>
+            </m.h2>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -363,14 +363,14 @@ export default function KlassciCaseStudyContent() {
                 multi-tenant SaaS now running ten institutions in production,
                 covering every level from primary school to doctorate programs.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* ===================== FEATURES ===================== */}
         <section className="relative pb-24 md:pb-32">
           <div className="max-w-7xl mx-auto px-6 mb-16 md:mb-24">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -379,8 +379,8 @@ export default function KlassciCaseStudyContent() {
             >
               <span className="inline-block h-px w-8 bg-orange-500 mr-3 align-middle" />
               What we built
-            </motion.div>
-            <motion.h2
+            </m.div>
+            <m.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -388,7 +388,7 @@ export default function KlassciCaseStudyContent() {
               className="font-serif text-4xl md:text-5xl font-medium max-w-3xl leading-tight"
             >
               Six modules built around the daily work of academic teams.
-            </motion.h2>
+            </m.h2>
           </div>
 
           <div className="max-w-7xl mx-auto px-6 space-y-32 md:space-y-40">
@@ -400,7 +400,7 @@ export default function KlassciCaseStudyContent() {
                   className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
                 >
                   {/* Text side */}
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -427,10 +427,10 @@ export default function KlassciCaseStudyContent() {
                     <p className="text-lg text-neutral-600 leading-relaxed">
                       {feature.description}
                     </p>
-                  </motion.div>
+                  </m.div>
 
                   {/* Image side */}
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, y: 32 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -458,7 +458,7 @@ export default function KlassciCaseStudyContent() {
                         />
                       </div>
                     </div>
-                  </motion.div>
+                  </m.div>
                 </article>
               );
             })}
@@ -470,7 +470,7 @@ export default function KlassciCaseStudyContent() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
               {/* Portrait vertical */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -489,10 +489,10 @@ export default function KlassciCaseStudyContent() {
                     />
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
 
               {/* Quote */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -532,7 +532,7 @@ export default function KlassciCaseStudyContent() {
                     </span>
                   </span>
                 </figcaption>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </section>
@@ -540,7 +540,7 @@ export default function KlassciCaseStudyContent() {
         {/* ===================== CTA DEEPLINK ===================== */}
         <section className="py-24 md:py-32">
           <div className="max-w-5xl mx-auto px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -606,7 +606,7 @@ export default function KlassciCaseStudyContent() {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </m.div>
 
             {/* Secondary links */}
             <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm">

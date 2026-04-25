@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { m, useScroll, useSpring } from "framer-motion";
 
 interface ScrollProgressProps {
   className?: string;
@@ -17,7 +17,7 @@ export default function ScrollProgress({ className }: ScrollProgressProps) {
   });
 
   return (
-    <motion.div
+    <m.div
       aria-hidden
       className={cn(
         "hidden md:block fixed inset-x-0 top-0 z-[1000] h-1 origin-left bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600",

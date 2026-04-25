@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
@@ -37,7 +37,7 @@ export function ProjectSpotlight() {
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Eyebrow */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -46,9 +46,9 @@ export function ProjectSpotlight() {
         >
           <span className="inline-block h-px w-10 bg-orange-400" />
           Projets vedettes · Études de cas
-        </motion.div>
+        </m.div>
 
-        <motion.h2
+        <m.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -59,12 +59,12 @@ export function ProjectSpotlight() {
           <em className="text-orange-400 font-normal">
             utilisés sur le terrain.
           </em>
-        </motion.h2>
+        </m.h2>
 
         {/* 2-col projects grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
           {/* ============ KLASSCI CARD ============ */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -159,10 +159,10 @@ export function ProjectSpotlight() {
                 </div>
               </div>
             </Link>
-          </motion.div>
+          </m.div>
 
           {/* ============ WOURI CARD ============ */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -277,7 +277,7 @@ export function ProjectSpotlight() {
                 </div>
               </div>
             </Link>
-          </motion.div>
+          </m.div>
         </div>
 
       </div>

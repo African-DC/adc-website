@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect } from "react";
@@ -52,7 +52,7 @@ export function ImageLightbox({
   return (
     <AnimatePresence>
       {isOpen && activeIndex !== null ? (
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -101,7 +101,7 @@ export function ImageLightbox({
             ) : null}
 
             <AnimatePresence mode="wait" initial={false}>
-              <motion.div
+              <m.div
                 key={activeIndex}
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -130,7 +130,7 @@ export function ImageLightbox({
                 <p className="text-white/70 text-sm md:text-base text-center max-w-2xl px-4 font-serif italic">
                   {images[activeIndex].alt}
                 </p>
-              </motion.div>
+              </m.div>
             </AnimatePresence>
 
             {images.length > 1 ? (
@@ -183,7 +183,7 @@ export function ImageLightbox({
               </div>
             </div>
           ) : null}
-        </motion.div>
+        </m.div>
       ) : null}
     </AnimatePresence>
   );

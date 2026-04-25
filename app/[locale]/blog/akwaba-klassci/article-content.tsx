@@ -2,7 +2,7 @@
 
 import { BlogArticleLayout } from "@/components/sections/blog-article-layout";
 import { BlogGallery } from "@/components/gallery/blog-gallery";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 const partners = [
   "Ministère de l'Éducation Nationale",
@@ -148,7 +148,7 @@ export default function AkwabaKlassciArticlePage() {
             <span className="inline-block h-px w-10 bg-orange-500 mr-3 align-middle" />
             Vlog · La journée en 1 min 20
           </div>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -164,7 +164,7 @@ export default function AkwabaKlassciArticlePage() {
               <source src="/videos/akwaba-klassci-vlog.mp4" type="video/mp4" />
               Votre navigateur ne prend pas en charge la lecture vidéo.
             </video>
-          </motion.div>
+          </m.div>
           <p className="mt-6 text-sm text-neutral-500 text-center">
             Retour en images sur la présentation officielle du 20 juin 2025.
           </p>

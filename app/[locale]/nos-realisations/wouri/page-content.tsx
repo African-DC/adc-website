@@ -4,7 +4,7 @@ import { Footer } from "@/components/sections/footer";
 import { NavbarDemo } from "@/components/sections/navbar-demo";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   ArrowUpRight,
   ArrowLeft,
@@ -114,7 +114,7 @@ export default function WouriCaseStudyContent() {
           />
 
           <div className="relative max-w-7xl mx-auto px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
@@ -127,12 +127,12 @@ export default function WouriCaseStudyContent() {
                 <ArrowLeft className="h-4 w-4" />
                 <span>Toutes les réalisations</span>
               </Link>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
               <div className="lg:col-span-8">
                 {/* Eyebrow + Beta */}
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
@@ -168,10 +168,10 @@ export default function WouriCaseStudyContent() {
                     </span>
                     En beta
                   </span>
-                </motion.div>
+                </m.div>
 
                 {/* Wordmark Wouri */}
-                <motion.h1
+                <m.h1
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.15 }}
@@ -179,9 +179,9 @@ export default function WouriCaseStudyContent() {
                   className="font-serif text-[clamp(4rem,13vw,11rem)] font-semibold leading-[0.9] tracking-tight mb-10"
                 >
                   WOURI.
-                </motion.h1>
+                </m.h1>
 
-                <motion.p
+                <m.p
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
@@ -195,9 +195,9 @@ export default function WouriCaseStudyContent() {
                     changement climatique
                   </span>
                   .
-                </motion.p>
+                </m.p>
 
-                <motion.p
+                <m.p
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.45 }}
@@ -206,11 +206,11 @@ export default function WouriCaseStudyContent() {
                   WOURI s'installe là où les agriculteurs sont déjà.
                   Sur WhatsApp. Dans leur langue. Avec des conseils concrets
                   pour des saisons qui ne ressemblent plus à celles d'avant.
-                </motion.p>
+                </m.p>
               </div>
 
               {/* Right — metadata */}
-              <motion.dl
+              <m.dl
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.5 }}
@@ -231,7 +231,7 @@ export default function WouriCaseStudyContent() {
                     </dd>
                   </div>
                 ))}
-              </motion.dl>
+              </m.dl>
             </div>
           </div>
         </section>
@@ -242,7 +242,7 @@ export default function WouriCaseStudyContent() {
           style={{ borderColor: `${WOURI_GREEN}20` }}
         >
           <div className="max-w-4xl mx-auto px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -254,9 +254,9 @@ export default function WouriCaseStudyContent() {
                 style={{ background: WOURI_GREEN }}
               />
               Le problème
-            </motion.div>
+            </m.div>
 
-            <motion.h2
+            <m.h2
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -266,9 +266,9 @@ export default function WouriCaseStudyContent() {
               Les saisons{" "}
               <em style={{ color: WOURI_GREEN }}>ne ressemblent plus</em> à
               celles que connaissaient nos aînés.
-            </motion.h2>
+            </m.h2>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -294,14 +294,14 @@ export default function WouriCaseStudyContent() {
                 moyens d'atteindre chaque village. Les agriculteurs, eux, ont
                 tous un téléphone. Et sur ce téléphone, ils ont WhatsApp.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* ===================== FEATURES ===================== */}
         <section className="py-24 md:py-32">
           <div className="max-w-7xl mx-auto px-6 mb-16 md:mb-20">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -313,8 +313,8 @@ export default function WouriCaseStudyContent() {
                 style={{ background: WOURI_GREEN }}
               />
               La solution
-            </motion.div>
-            <motion.h2
+            </m.div>
+            <m.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -322,12 +322,12 @@ export default function WouriCaseStudyContent() {
               className="font-serif text-4xl md:text-5xl font-medium max-w-3xl leading-tight text-neutral-950"
             >
               Quatre principes de conception.
-            </motion.h2>
+            </m.h2>
           </div>
 
           <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 md:gap-y-20">
             {features.map((feature, i) => (
-              <motion.article
+              <m.article
                 key={feature.number}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -357,7 +357,7 @@ export default function WouriCaseStudyContent() {
                 <p className="text-lg text-neutral-600 leading-relaxed">
                   {feature.description}
                 </p>
-              </motion.article>
+              </m.article>
             ))}
           </div>
         </section>
@@ -371,7 +371,7 @@ export default function WouriCaseStudyContent() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               {/* Left — copy */}
               <div className="lg:col-span-5 lg:sticky lg:top-32">
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -383,8 +383,8 @@ export default function WouriCaseStudyContent() {
                     style={{ background: WOURI_GREEN }}
                   />
                   Dans la conversation
-                </motion.div>
-                <motion.h2
+                </m.div>
+                <m.h2
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -392,8 +392,8 @@ export default function WouriCaseStudyContent() {
                   className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-6 text-neutral-950"
                 >
                   Parle-lui comme tu parlerais à un voisin.
-                </motion.h2>
-                <motion.p
+                </m.h2>
+                <m.p
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -404,11 +404,11 @@ export default function WouriCaseStudyContent() {
                   parlées en Côte d'Ivoire. Les questions peuvent être écrites
                   ou vocales. Les réponses aussi. Aucun formulaire, aucun
                   bouton à apprendre.
-                </motion.p>
+                </m.p>
               </div>
 
               {/* Right — mock conversation */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -438,7 +438,7 @@ export default function WouriCaseStudyContent() {
 
                   <div className="space-y-4">
                     {sampleConversation.map((msg, i) => (
-                      <motion.div
+                      <m.div
                         key={i}
                         initial={{ opacity: 0, y: 12 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -471,7 +471,7 @@ export default function WouriCaseStudyContent() {
                             {msg.label}
                           </div>
                         </div>
-                      </motion.div>
+                      </m.div>
                     ))}
                   </div>
 
@@ -480,7 +480,7 @@ export default function WouriCaseStudyContent() {
                     avec un panel d'agriculteurs partenaires.
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </section>
@@ -490,7 +490,7 @@ export default function WouriCaseStudyContent() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
               <div className="lg:col-span-5">
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -502,8 +502,8 @@ export default function WouriCaseStudyContent() {
                     style={{ background: WOURI_GREEN }}
                   />
                   Les langues locales
-                </motion.div>
-                <motion.h2
+                </m.div>
+                <m.h2
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -511,8 +511,8 @@ export default function WouriCaseStudyContent() {
                   className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-6 text-neutral-950"
                 >
                   On ne touche pas un village si on ne parle pas sa langue.
-                </motion.h2>
-                <motion.p
+                </m.h2>
+                <m.p
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -523,7 +523,7 @@ export default function WouriCaseStudyContent() {
                   commençons par les plus parlées, avec un modèle fine-tuné
                   spécifiquement pour comprendre les tournures
                   agricoles et les métaphores locales.
-                </motion.p>
+                </m.p>
               </div>
 
               <ul className="lg:col-span-7 divide-y divide-neutral-200 border-t border-b border-neutral-200">
@@ -534,7 +534,7 @@ export default function WouriCaseStudyContent() {
                   { name: "Bété", status: "Beta" },
                   { name: "Attié · Agni · Sénoufo", status: "Bientôt" },
                 ].map((lang, i) => (
-                  <motion.li
+                  <m.li
                     key={lang.name}
                     initial={{ opacity: 0, x: 12 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -561,7 +561,7 @@ export default function WouriCaseStudyContent() {
                     >
                       {lang.status}
                     </span>
-                  </motion.li>
+                  </m.li>
                 ))}
               </ul>
             </div>
@@ -571,7 +571,7 @@ export default function WouriCaseStudyContent() {
         {/* ===================== CTA BETA ===================== */}
         <section className="py-24 md:py-32">
           <div className="max-w-5xl mx-auto px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -646,7 +646,7 @@ export default function WouriCaseStudyContent() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
             <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm">
               <Link

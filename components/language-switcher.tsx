@@ -4,7 +4,7 @@ import { routing, type AppLocale } from "@/i18n/routing";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { track } from "@/lib/analytics/track";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { Check, Globe } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useId, useRef, useState, useTransition } from "react";
@@ -110,7 +110,7 @@ export function LanguageSwitcher({
 
       <AnimatePresence>
         {open ? (
-          <motion.ul
+          <m.ul
             id={menuId}
             role="listbox"
             aria-label={t("aria")}
@@ -158,7 +158,7 @@ export function LanguageSwitcher({
                 </li>
               );
             })}
-          </motion.ul>
+          </m.ul>
         ) : null}
       </AnimatePresence>
     </div>

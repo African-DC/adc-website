@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Lightbulb, Users, MapPin } from "lucide-react";
 
 const pillars = [
@@ -41,7 +41,7 @@ export function PhilosophySection() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="max-w-3xl mb-20 md:mb-28">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -50,9 +50,9 @@ export function PhilosophySection() {
           >
             <span className="inline-block h-px w-10 bg-orange-500" />
             Our philosophy
-          </motion.div>
+          </m.div>
 
-          <motion.h2
+          <m.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -62,7 +62,7 @@ export function PhilosophySection() {
             Three convictions that shape{" "}
             <em className="text-orange-500 font-normal">every line of code</em>{" "}
             we write.
-          </motion.h2>
+          </m.h2>
         </div>
 
         {/* Pillars */}
@@ -70,7 +70,7 @@ export function PhilosophySection() {
           {pillars.map((pillar, i) => {
             const Icon = pillar.icon;
             return (
-              <motion.article
+              <m.article
                 key={pillar.number}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -112,7 +112,7 @@ export function PhilosophySection() {
                   aria-hidden
                   className="block mt-8 h-px w-full bg-neutral-200"
                 />
-              </motion.article>
+              </m.article>
             );
           })}
         </div>

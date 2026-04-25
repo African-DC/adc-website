@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { track } from "@/lib/analytics/track";
 import type { ShareChannel } from "@/lib/analytics/events";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Check, Copy, Link2, Mail, Share2, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
@@ -234,7 +234,7 @@ export function ShareButton({
 
       <AnimatePresence>
         {open ? (
-          <motion.div
+          <m.div
             id={menuId}
             role="menu"
             aria-label={t("shareMenuLabel")}
@@ -320,7 +320,7 @@ export function ShareButton({
                 </div>
               </li>
             </ul>
-          </motion.div>
+          </m.div>
         ) : null}
       </AnimatePresence>
     </div>

@@ -5,7 +5,7 @@ import { NavbarDemo } from "@/components/sections/navbar-demo";
 import { PageHero } from "@/components/sections/page-hero";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   Mail,
   MapPin,
@@ -157,7 +157,7 @@ export default function ContactPageContent() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
               {/* Left — editorial contact info */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -281,10 +281,10 @@ export default function ContactPageContent() {
                     </div>
                   </div>
                 </dl>
-              </motion.div>
+              </m.div>
 
               {/* Right — form */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -520,7 +520,7 @@ export default function ContactPageContent() {
                     </>
                   )}
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </section>
@@ -596,7 +596,7 @@ export default function ContactPageContent() {
               <div className="lg:col-span-7">
                 <ul className="divide-y divide-neutral-200 border-t border-b border-neutral-200">
                   {faqs.map((item, i) => (
-                    <motion.li
+                    <m.li
                       key={item.q}
                       initial={{ opacity: 0, y: 12 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -630,7 +630,7 @@ export default function ContactPageContent() {
                           {item.a}
                         </p>
                       </details>
-                    </motion.li>
+                    </m.li>
                   ))}
                 </ul>
               </div>

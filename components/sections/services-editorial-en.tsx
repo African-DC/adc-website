@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight, Globe, Code } from "lucide-react";
 import { track } from "@/lib/analytics/track";
@@ -64,7 +64,7 @@ export function ServicesEditorial() {
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-20 md:mb-28 items-end">
           <div className="lg:col-span-7">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -73,9 +73,9 @@ export function ServicesEditorial() {
             >
               <span className="inline-block h-px w-10 bg-orange-500" />
               Our expertise
-            </motion.div>
+            </m.div>
 
-            <motion.h2
+            <m.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -85,10 +85,10 @@ export function ServicesEditorial() {
               Two ways to{" "}
               <em className="text-orange-500 font-normal">work with us</em>
               . One philosophy.
-            </motion.h2>
+            </m.h2>
           </div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -109,13 +109,13 @@ export function ServicesEditorial() {
               See the details
               <ArrowUpRight className="h-4 w-4" />
             </Link>
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Services grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 md:gap-y-20">
           {services.map((service, i) => (
-            <motion.article
+            <m.article
               key={service.number}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -158,7 +158,7 @@ export function ServicesEditorial() {
                   </li>
                 ))}
               </ul>
-            </motion.article>
+            </m.article>
           ))}
         </div>
       </div>

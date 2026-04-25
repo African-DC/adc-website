@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -29,7 +29,7 @@ export function ClosingEditorial() {
 
       <div className="relative max-w-5xl mx-auto px-6 text-center">
         {/* Eyebrow */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -38,10 +38,10 @@ export function ClosingEditorial() {
         >
           <span className="inline-block h-px w-10 bg-orange-400" />
           Une agence proche de vous, orientée résultats
-        </motion.div>
+        </m.div>
 
         {/* Big statement */}
-        <motion.h2
+        <m.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -53,10 +53,10 @@ export function ClosingEditorial() {
           <em className="text-orange-400 font-normal">
             Nous livrons des résultats.
           </em>
-        </motion.h2>
+        </m.h2>
 
         {/* Testimonial quote */}
-        <motion.blockquote
+        <m.blockquote
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -87,10 +87,10 @@ export function ClosingEditorial() {
               </span>
             </span>
           </footer>
-        </motion.blockquote>
+        </m.blockquote>
 
         {/* CTA */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -124,7 +124,7 @@ export function ClosingEditorial() {
             Voir nos études de cas
             <ArrowUpRight className="h-4 w-4" />
           </Link>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

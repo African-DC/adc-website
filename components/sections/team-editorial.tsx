@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Image from "next/image";
 import { Linkedin } from "lucide-react";
 import { track } from "@/lib/analytics/track";
@@ -66,7 +66,7 @@ export function TeamEditorial() {
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-20 md:mb-24 items-end">
           <div className="lg:col-span-7">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -75,9 +75,9 @@ export function TeamEditorial() {
             >
               <span className="inline-block h-px w-10 bg-orange-500" />
               Notre équipe
-            </motion.div>
+            </m.div>
 
-            <motion.h2
+            <m.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -86,10 +86,10 @@ export function TeamEditorial() {
             >
               Dix experts.{" "}
               <em className="text-orange-500 font-normal">Une boussole.</em>
-            </motion.h2>
+            </m.h2>
           </div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -101,13 +101,13 @@ export function TeamEditorial() {
               basée dans le Sud-Comoé, qui croit que la technologie la plus utile est
               celle qui sait rester simple.
             </p>
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Team grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-8 gap-y-14 md:gap-y-20">
           {team.map((member, i) => (
-            <motion.figure
+            <m.figure
               key={member.name}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -156,7 +156,7 @@ export function TeamEditorial() {
                   )}
                 </div>
               </figcaption>
-            </motion.figure>
+            </m.figure>
           ))}
         </div>
       </div>

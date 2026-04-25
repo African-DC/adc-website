@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { getAllArticles, getArticleHref, localize } from "@/lib/blog";
 import { track } from "@/lib/analytics/track";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
@@ -42,7 +42,7 @@ export default function BlogPage() {
               {t("featuredLabel")}
             </div>
 
-            <motion.article
+            <m.article
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -89,7 +89,7 @@ export default function BlogPage() {
                   </span>
                 </div>
               </Link>
-            </motion.article>
+            </m.article>
           </div>
         </section>
 
@@ -102,7 +102,7 @@ export default function BlogPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-stretch">
               {rest.map((article, i) => (
-                <motion.article
+                <m.article
                   key={article.slug}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -150,7 +150,7 @@ export default function BlogPage() {
                       <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                     </span>
                   </Link>
-                </motion.article>
+                </m.article>
               ))}
             </div>
           </div>

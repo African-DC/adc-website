@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { track } from "@/lib/analytics/track";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Maximize2 } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -100,7 +100,7 @@ export function BlogGallery({
           ) : null}
           <div className={cn("grid", gridClass)}>
             {images.map((img, i) => (
-              <motion.button
+              <m.button
                 key={img.src}
                 type="button"
                 onClick={() => openLightbox(i)}
@@ -130,7 +130,7 @@ export function BlogGallery({
                     />
                   </div>
                 </div>
-              </motion.button>
+              </m.button>
             ))}
           </div>
         </div>

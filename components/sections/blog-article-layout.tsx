@@ -8,7 +8,7 @@ import ScrollProgress from "@/components/ui/scroll-progress";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { track } from "@/lib/analytics/track";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
@@ -70,7 +70,7 @@ export function BlogArticleLayout({
       <main className="overflow-hidden bg-white">
         <section className="py-8 md:py-12">
           <div className="max-w-5xl mx-auto px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -84,7 +84,7 @@ export function BlogArticleLayout({
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 1024px"
               />
-            </motion.div>
+            </m.div>
           </div>
         </section>
 

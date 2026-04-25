@@ -5,7 +5,7 @@ import { NavbarDemo } from "@/components/sections/navbar-demo";
 import { PageHero } from "@/components/sections/page-hero";
 import { Button } from "@/components/ui/button";
 import ScrollProgress from "@/components/ui/scroll-progress";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Lightbulb, Users, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -85,7 +85,7 @@ export default function AboutArticlePageEn() {
         <section className="py-24 md:py-32 border-t border-neutral-200">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -125,9 +125,9 @@ export default function AboutArticlePageEn() {
                     change.
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -155,7 +155,7 @@ export default function AboutArticlePageEn() {
                     General Manager, Founder · With ADC since 2023
                   </figcaption>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </section>
@@ -183,7 +183,7 @@ export default function AboutArticlePageEn() {
               {pillars.map((pillar, i) => {
                 const Icon = pillar.icon;
                 return (
-                  <motion.article
+                  <m.article
                     key={pillar.number}
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -211,7 +211,7 @@ export default function AboutArticlePageEn() {
                     <p className="text-[15px] text-neutral-500 leading-relaxed">
                       {pillar.detail}
                     </p>
-                  </motion.article>
+                  </m.article>
                 );
               })}
             </div>
@@ -237,7 +237,7 @@ export default function AboutArticlePageEn() {
                   : what actually works?
                 </h2>
               </div>
-              <motion.p
+              <m.p
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -247,7 +247,7 @@ export default function AboutArticlePageEn() {
                 Tools come and go, frameworks move on. What stays: the
                 discipline of shipping things that are useful, solid, and
                 delivered on time.
-              </motion.p>
+              </m.p>
             </div>
 
             <ScrollTimeline />
@@ -327,12 +327,12 @@ function ScrollTimeline() {
         {/* Static grey rail */}
         <div className="absolute inset-0 bg-neutral-200" />
         {/* Progressive orange line */}
-        <motion.div
+        <m.div
           className="absolute inset-x-0 top-0 origin-top bg-orange-500"
           style={{ scaleY: lineScaleY, height: "100%" }}
         />
         {/* Animated dot */}
-        <motion.div
+        <m.div
           className="absolute -left-[7px] md:-left-[8px] h-4 w-4 md:h-5 md:w-5 rounded-full bg-orange-500 border-[3px] md:border-4 border-white shadow-[0_0_0_3px_rgba(249,115,22,0.22)]"
           style={{ top: dotTop, opacity: dotOpacity, translateY: "-50%" }}
         />
@@ -341,7 +341,7 @@ function ScrollTimeline() {
       {/* Items */}
       <ol className="md:col-span-12 md:grid md:grid-cols-12 md:gap-10 space-y-14 md:space-y-0">
         {historyItems.map((item, i) => (
-          <motion.li
+          <m.li
             key={item.year}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -372,7 +372,7 @@ function ScrollTimeline() {
                 {item.description}
               </p>
             </div>
-          </motion.li>
+          </m.li>
         ))}
       </ol>
     </div>

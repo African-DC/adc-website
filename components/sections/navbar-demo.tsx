@@ -7,7 +7,7 @@ import { LanguageSwitcher } from "@/components/language-switcher";
 import { track } from "@/lib/analytics/track";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
   { key: "home", href: "/" },
@@ -97,7 +97,7 @@ export function NavbarDemo() {
                   >
                     {t(link.key)}
                     {active && (
-                      <motion.span
+                      <m.span
                         layoutId="nav-underline"
                         transition={{
                           type: "spring",
@@ -162,7 +162,7 @@ export function NavbarDemo() {
       {/* Mobile full-screen menu */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -178,7 +178,7 @@ export function NavbarDemo() {
                 {NAV_LINKS.map((link, i) => {
                   const active = isActive(link.href);
                   return (
-                    <motion.li
+                    <m.li
                       key={link.href}
                       initial={{ opacity: 0, y: 14 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -204,12 +204,12 @@ export function NavbarDemo() {
                           strokeWidth={1.5}
                         />
                       </Link>
-                    </motion.li>
+                    </m.li>
                   );
                 })}
               </ul>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.4 }}
@@ -239,9 +239,9 @@ export function NavbarDemo() {
                   <br />
                   africandigitconsulting@gmail.com
                 </p>
-              </motion.div>
+              </m.div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>
