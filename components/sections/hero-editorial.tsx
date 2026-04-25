@@ -101,20 +101,16 @@ export function HeroEditorial() {
         <div className="max-w-7xl mx-auto px-6 w-full mt-14 md:mt-16 pt-8 border-t border-neutral-300/70">
           <dl className="grid grid-cols-3 gap-6 md:gap-12">
             {metrics.map((metric, i) => (
-              <div key={metric.label} className="flex items-start gap-3 md:gap-4">
-                <span className="text-[10px] md:text-xs text-neutral-400 tabular-nums tracking-wider mt-1 md:mt-2">
-                  0{i + 1}
-                </span>
-                <div>
-                  <dt
-                    className="font-serif text-2xl md:text-4xl font-semibold text-neutral-950 leading-none mb-1 md:mb-2"
-                  >
-                    {metric.value}
-                  </dt>
-                  <dd className="text-[10px] md:text-xs tracking-[0.1em] uppercase text-neutral-500">
-                    {metric.label}
-                  </dd>
-                </div>
+              <div key={metric.label}>
+                <dt className="font-serif text-2xl md:text-4xl font-semibold text-neutral-950 leading-none mb-1 md:mb-2">
+                  <span aria-hidden className="block text-[10px] md:text-xs text-neutral-500 tabular-nums tracking-wider mb-2 font-sans font-normal">
+                    0{i + 1}
+                  </span>
+                  {metric.value}
+                </dt>
+                <dd className="text-[10px] md:text-xs tracking-[0.1em] uppercase text-neutral-600">
+                  {metric.label}
+                </dd>
               </div>
             ))}
           </dl>

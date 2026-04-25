@@ -83,7 +83,7 @@ export function Footer() {
 
           <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-10">
             <div>
-              <h3 className="text-xs tracking-[0.18em] uppercase text-neutral-500 mb-6">
+              <h3 className="text-xs tracking-[0.18em] uppercase text-neutral-400 mb-6">
                 {t("navigation")}
               </h3>
               <ul className="space-y-3">
@@ -102,7 +102,7 @@ export function Footer() {
             </div>
 
             <div>
-              <h3 className="text-xs tracking-[0.18em] uppercase text-neutral-500 mb-6">
+              <h3 className="text-xs tracking-[0.18em] uppercase text-neutral-400 mb-6">
                 {t("featuredProjects")}
               </h3>
               <ul className="space-y-3">
@@ -125,7 +125,7 @@ export function Footer() {
             </div>
 
             <div>
-              <h3 className="text-xs tracking-[0.18em] uppercase text-neutral-500 mb-6">
+              <h3 className="text-xs tracking-[0.18em] uppercase text-neutral-400 mb-6">
                 {t("contact")}
               </h3>
               <ul className="space-y-4">
@@ -176,7 +176,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-neutral-500">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-neutral-400">
           <p>{t("copyright", { year: new Date().getFullYear() })}</p>
           <ul className="flex flex-wrap gap-6">
             {LEGAL_LINKS.map((link) => (
