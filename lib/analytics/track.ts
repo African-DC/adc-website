@@ -1,12 +1,25 @@
-import posthog from "posthog-js";
 import type { AnalyticsEventName, EventProps } from "./events";
+
+type QueuedEvent = [string, Record<string, unknown>];
+
+declare global {
+  interface Window {
+    __phAdc?: { capture: (name: string, props: Record<string, unknown>) => void };
+    __phAdcQueue?: QueuedEvent[];
+  }
+}
 
 export function track<N extends AnalyticsEventName>(
   name: N,
   props: EventProps<N>,
 ): void {
   if (typeof window === "undefined") return;
-  posthog.capture(name, props);
+  const ph = window.__phAdc;
+  if (ph) {
+    ph.capture(name, props as Record<string, unknown>);
+    return;
+  }
+  (window.__phAdcQueue ||= []).push([name, props as Record<string, unknown>]);
 }
 
 export function bucketMessageLength(length: number): "<50" | "50-200" | "200+" {
