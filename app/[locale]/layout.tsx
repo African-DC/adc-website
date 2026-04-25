@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Montserrat, Poppins } from "next/font/google";
+import { Fraunces, Poppins } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -10,15 +10,6 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ReactNode } from "react";
 import "../globals.css";
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-montserrat",
-  preload: true,
-  fallback: ["system-ui", "Arial", "sans-serif"],
-  adjustFontFallback: true,
-});
 
 const poppins = Poppins({
   weight: ["400", "500", "600"],
@@ -146,7 +137,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   return (
     <html
       lang={locale}
-      className={`${montserrat.variable} ${poppins.variable} ${fraunces.variable}`}
+      className={`${poppins.variable} ${fraunces.variable}`}
     >
       <body>
         <NextIntlClientProvider>

@@ -33,6 +33,12 @@ if (
       dom_event_allowlist: ["click", "submit"],
       element_allowlist: ["a", "button"],
     },
+    disable_surveys: true,
+    disable_session_recording: true,
+    capture_exceptions: false,
+    advanced_disable_decide: false,
+    advanced_disable_feature_flags: true,
+    advanced_disable_feature_flags_on_first_load: true,
     persistence: "localStorage+cookie",
     cookie_name: "ph_adc",
   });

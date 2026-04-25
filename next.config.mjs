@@ -10,14 +10,8 @@ const nextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "africandigitconsulting.com",
-      },
-      {
-        protocol: "https",
-        hostname: "www.africandigitconsulting.com",
-      },
+      { protocol: "https", hostname: "africandigitconsulting.com" },
+      { protocol: "https", hostname: "www.africandigitconsulting.com" },
     ],
   },
 
@@ -30,10 +24,6 @@ const nextConfig = {
     optimizePackageImports: ["framer-motion", "lucide-react", "next-intl"],
   },
 
-  trailingSlash: true,
-
-  skipTrailingSlashRedirect: true,
-
   async rewrites() {
     return [
       {
@@ -45,12 +35,31 @@ const nextConfig = {
         destination: "https://us-assets.i.posthog.com/array/:path*",
       },
       {
-        source: "/ingest/decide",
-        destination: "https://us.i.posthog.com/decide",
-      },
-      {
         source: "/ingest/:path*",
         destination: "https://us.i.posthog.com/:path*",
+      },
+    ];
+  },
+
+  async headers() {
+    return [
+      {
+        source: "/_next/static/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/img/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
       },
     ];
   },
