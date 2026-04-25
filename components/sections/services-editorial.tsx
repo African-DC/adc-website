@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowUpRight, Globe, Code } from "lucide-react";
 import { track } from "@/lib/analytics/track";
 // Palette, Share icons kept on standby for services 03/04 if we reactivate them.
