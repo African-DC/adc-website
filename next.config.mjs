@@ -22,7 +22,6 @@ const nextConfig = {
 
   experimental: {
     optimizePackageImports: ["framer-motion", "lucide-react", "next-intl"],
-    optimizeCss: true,
   },
 
   async rewrites() {
