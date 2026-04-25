@@ -27,8 +27,9 @@ function PostHogPageView() {
 
   useEffect(() => {
     if (!pathname || !ph) return;
-    const qs = searchParams?.toString();
-    const url = pathname + (qs ? `?${qs}` : "");
+    let url = window.origin + pathname;
+    const search = searchParams?.toString();
+    if (search) url += `?${search}`;
     ph.capture("$pageview", {
       $current_url: url,
       locale,
@@ -48,20 +49,13 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
     posthog.init(POSTHOG_KEY, {
       api_host: POSTHOG_HOST,
       ui_host: "https://us.posthog.com",
-      person_profiles: "identified_only",
       capture_pageview: false,
       capture_pageleave: true,
-      autocapture: {
-        dom_event_allowlist: ["click", "submit"],
-        element_allowlist: ["a", "button"],
+      loaded: (ph) => {
+        if (typeof window !== "undefined") {
+          (window as unknown as { __phAdc?: typeof ph }).__phAdc = ph;
+        }
       },
-      disable_surveys: true,
-      disable_session_recording: true,
-      capture_exceptions: false,
-      advanced_disable_feature_flags: true,
-      advanced_disable_feature_flags_on_first_load: true,
-      persistence: "localStorage+cookie",
-      cookie_name: "ph_adc",
     });
   }, []);
 
