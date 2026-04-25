@@ -70,7 +70,7 @@ export function NavbarDemo() {
                 width={180}
                 height={180}
                 className="h-full w-auto object-contain"
-                priority
+                fetchPriority="high"
               />
             </div>
           </Link>
