@@ -195,9 +195,9 @@ export default function ContactPageContentEn() {
                         Address
                       </dt>
                       <dd className="text-neutral-900">
-                        Siti Dia, Grand-Bassam Monckey-ville
+                        Maison Mak — Coworking Space
                         <br />
-                        Côte d'Ivoire
+                        667M+G5, Grand-Bassam, Côte d&apos;Ivoire
                       </dd>
                     </div>
                   </div>
@@ -537,12 +537,11 @@ export default function ContactPageContentEn() {
                   Grand-Bassam, Côte d'Ivoire.
                 </h2>
                 <p className="text-neutral-600 leading-relaxed mb-6">
-                  Our office is in Siti Dia, Grand-Bassam Monckey-ville. A
-                  coffee is waiting for you. Would you rather we come to you?
-                  We can do that too.
+                  We&apos;re based at <strong className="text-neutral-900 font-medium">Maison Mak</strong>, a coworking space in Grand-Bassam.
+                  A coffee is waiting for you. Would you rather we come to you? We can do that too.
                 </p>
                 <a
-                  href="https://goo.gl/maps/1ysQxe7F1X9qiZC76"
+                  href="https://www.google.com/maps/place/Maison+Mak+Espace+de+Coworking/@5.2137994,-3.7670359,17z/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 hover:text-orange-600 transition-colors"
@@ -555,7 +554,7 @@ export default function ContactPageContentEn() {
 
               <div className="lg:col-span-7 relative rounded-2xl overflow-hidden border border-neutral-200 aspect-[16/10] md:aspect-[16/9]">
                 <iframe
-                  src="https://www.google.com/maps?q=Grand-Bassam+Monckey-ville,+C%C3%B4te+d'Ivoire&output=embed"
+                  src="https://maps.google.com/maps?q=Maison+Mak+Espace+de+Coworking&ll=5.2137994,-3.7670359&z=17&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

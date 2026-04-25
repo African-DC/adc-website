@@ -187,15 +187,18 @@ async function createInsight(payload) {
 }
 
 (async () => {
-  const results = [];
-  for (const insight of insights) {
-    const r = await createInsight(insight);
+  const results = await Promise.all(
+    insights.map(async (insight) => {
+      const r = await createInsight(insight);
+      return { name: insight.name, ...r };
+    }),
+  );
+  for (const r of results) {
     if (r.ok) {
-      console.log(`✓ ${insight.name} → id=${r.id} (${r.short_id})`);
+      console.log(`✓ ${r.name} → id=${r.id} (${r.short_id})`);
     } else {
-      console.log(`✗ ${insight.name} → ${r.status}: ${r.body}`);
+      console.log(`✗ ${r.name} → ${r.status}: ${r.body}`);
     }
-    results.push({ name: insight.name, ...r });
   }
   const ok = results.filter((r) => r.ok).length;
   console.log(`\n${ok}/${results.length} insights created on dashboard ${DASHBOARD_ID}`);
