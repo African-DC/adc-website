@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { PostHogProvider } from "@/components/analytics/posthog-provider";
+import { MotionConfigProvider } from "@/components/motion-config-provider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ReactNode } from "react";
@@ -149,7 +150,9 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
     >
       <body>
         <NextIntlClientProvider>
-          <PostHogProvider>{children}</PostHogProvider>
+          <MotionConfigProvider>
+            <PostHogProvider>{children}</PostHogProvider>
+          </MotionConfigProvider>
         </NextIntlClientProvider>
         <SpeedInsights />
         <Analytics />

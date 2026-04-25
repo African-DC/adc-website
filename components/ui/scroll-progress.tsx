@@ -18,8 +18,9 @@ export default function ScrollProgress({ className }: ScrollProgressProps) {
 
   return (
     <motion.div
+      aria-hidden
       className={cn(
-        "fixed inset-x-0 top-0 z-[1000] h-1 origin-left bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600",
+        "hidden md:block fixed inset-x-0 top-0 z-[1000] h-1 origin-left bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600",
         className
       )}
       style={{
