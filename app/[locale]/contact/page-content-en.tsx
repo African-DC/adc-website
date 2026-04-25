@@ -541,7 +541,7 @@ export default function ContactPageContentEn() {
                   A coffee is waiting for you. Would you rather we come to you? We can do that too.
                 </p>
                 <a
-                  href="https://www.google.com/maps/place/Maison+Mak+Espace+de+Coworking/@5.2137994,-3.7670359,17z/"
+                  href="https://www.google.com/maps/dir/?api=1&destination=Maison+Mak+Espace+de+Coworking%2C+Grand-Bassam%2C+C%C3%B4te+d%27Ivoire"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 hover:text-orange-600 transition-colors"
