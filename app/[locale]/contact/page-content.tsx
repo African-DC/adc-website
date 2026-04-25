@@ -196,9 +196,9 @@ export default function ContactPageContent() {
                         Adresse
                       </dt>
                       <dd className="text-neutral-900">
-                        Maison Mak — Espace de Coworking
+                        Siti Dia, Grand-Bassam Monckey-ville
                         <br />
-                        667M+G5, Grand-Bassam, Côte d&apos;Ivoire
+                        Côte d&apos;Ivoire
                       </dd>
                     </div>
                   </div>
@@ -540,8 +540,9 @@ export default function ContactPageContent() {
                   Grand-Bassam, Côte d'Ivoire.
                 </h2>
                 <p className="text-neutral-600 leading-relaxed mb-6">
-                  Nous sommes basés à <strong className="text-neutral-900 font-medium">Maison Mak</strong>, un espace de coworking à Grand-Bassam.
-                  Un café vous attend. Préférez-vous qu&apos;on passe chez vous ? On peut aussi.
+                  Notre bureau est à Siti Dia, Grand-Bassam Monckey-ville. Un café
+                  vous attend. Préférez-vous qu&apos;on passe chez vous ? On peut
+                  aussi.
                 </p>
                 <a
                   href="https://www.google.com/maps/dir/?api=1&destination=Maison+Mak+Espace+de+Coworking%2C+Grand-Bassam%2C+C%C3%B4te+d%27Ivoire"

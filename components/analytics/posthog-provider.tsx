@@ -3,12 +3,9 @@
 import { usePathname, useSearchParams } from "next/navigation";
 import { useLocale } from "next-intl";
 import posthog from "posthog-js";
-import { PostHogProvider as Provider } from "posthog-js/react";
 import { Suspense, useEffect } from "react";
 
 const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY;
-const POSTHOG_HOST =
-  process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com";
 const POSTHOG_DISABLED =
   process.env.NEXT_PUBLIC_DISABLE_ANALYTICS === "true";
 
@@ -27,7 +24,8 @@ if (
   !shouldOptOut()
 ) {
   posthog.init(POSTHOG_KEY, {
-    api_host: POSTHOG_HOST,
+    api_host: "/ingest",
+    ui_host: "https://us.posthog.com",
     person_profiles: "identified_only",
     capture_pageview: false,
     capture_pageleave: true,
@@ -48,8 +46,8 @@ function PostHogPageviewTracker() {
   useEffect(() => {
     if (!pathname) return;
     if (typeof window === "undefined") return;
-
-    const url = pathname + (searchParams?.toString() ? `?${searchParams}` : "");
+    const qs = searchParams?.toString();
+    const url = pathname + (qs ? `?${qs}` : "");
     posthog.capture("$pageview", {
       $current_url: url,
       locale,
@@ -66,11 +64,11 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <Provider client={posthog}>
+    <>
       <Suspense fallback={null}>
         <PostHogPageviewTracker />
       </Suspense>
       {children}
-    </Provider>
+    </>
   );
 }
