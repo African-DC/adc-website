@@ -17,8 +17,8 @@ export default function DigitalWomenArticlePage() {
         },
       ]}
       hero={{
-        src: "/img/blog/digital-women/1.webp",
-        alt: "Première édition Digital Women for Access",
+        src: "/img/blog/digital-women/cover.webp",
+        alt: "Affiche Meeting'UP — Impact'Lab UNESCO et programme Digit Access for Women, vendredi 19 avril 2024 à Cocody Mermoz",
       }}
       cta={{
         title: "Vous portez une initiative digitale inclusive ?",

@@ -188,10 +188,10 @@ export const blogArticles: BlogArticle[] = [
     },
     category: { fr: "Initiatives", en: "Initiatives" },
     hero: {
-      src: "/img/blog/digital-women/1.webp",
+      src: "/img/blog/digital-women/cover.webp",
       alt: {
-        fr: "Première édition Digital Women for Access",
-        en: "First edition of Digital Women for Access",
+        fr: "Affiche Meeting'UP — Impact'Lab UNESCO et programme Digit Access for Women, vendredi 19 avril 2024 à Cocody Mermoz, avec S.E. Catherine Brooker (Ambassadrice de Grande-Bretagne) et Dr. Laurence Brouche (Directrice de l'Institut français du numérique)",
+        en: "Meeting'UP poster — Impact'Lab UNESCO and Digit Access for Women programme, Friday 19 April 2024 at Cocody Mermoz, with H.E. Catherine Brooker (UK Ambassador) and Dr. Laurence Brouche (Director of the French Digital Institute)",
       },
     },
     author: DEFAULT_AUTHOR,

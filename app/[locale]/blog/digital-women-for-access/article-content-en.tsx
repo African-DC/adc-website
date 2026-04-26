@@ -17,8 +17,8 @@ export default function DigitalWomenArticlePageEn() {
         },
       ]}
       hero={{
-        src: "/img/blog/digital-women/1.webp",
-        alt: "First edition of Digital Women for Access",
+        src: "/img/blog/digital-women/cover.webp",
+        alt: "Meeting'UP poster — Impact'Lab UNESCO and Digit Access for Women programme, Friday 19 April 2024 at Cocody Mermoz",
       }}
       cta={{
         title: "Do you lead an inclusive digital initiative?",
