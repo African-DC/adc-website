@@ -79,15 +79,15 @@ export function ProjectSpotlight() {
             >
               <div className="p-8 md:p-10 flex flex-col h-full gap-8">
                 {/* Top — wordmark + status */}
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-3">
                   <h3
                     style={{ color: "#fbbf91" }}
-                    className="font-serif text-4xl md:text-5xl font-semibold leading-none"
+                    className="font-serif text-3xl md:text-4xl font-semibold leading-none"
                   >
                     AKWABA<span style={{ color: "#E8590C" }}>.</span>
                   </h3>
                   <span
-                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide uppercase"
+                    className="inline-flex shrink-0 whitespace-nowrap items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide uppercase"
                     style={{
                       background: "#E8590C20",
                       border: "1px solid #E8590C50",
@@ -180,7 +180,7 @@ export function ProjectSpotlight() {
             >
               <div className="p-8 md:p-10 flex flex-col h-full gap-8">
                 {/* Top — logo + status */}
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-3">
                   <div className="flex items-center gap-3">
                     <div className="relative h-12 w-12 rounded-xl bg-white shadow-lg p-1.5 flex-shrink-0">
                       <Image
@@ -196,7 +196,7 @@ export function ProjectSpotlight() {
                       KLASSCI<span className="text-orange-400">.</span>
                     </h3>
                   </div>
-                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide uppercase bg-orange-500/10 border border-orange-500/30 text-orange-300">
+                  <span className="inline-flex shrink-0 whitespace-nowrap items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide uppercase bg-orange-500/10 border border-orange-500/30 text-orange-300">
                     <span className="relative flex h-1.5 w-1.5" aria-hidden>
                       <span className="absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75 animate-ping" />
                       <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-orange-400" />
@@ -278,15 +278,15 @@ export function ProjectSpotlight() {
             >
               <div className="p-8 md:p-10 flex flex-col h-full gap-8">
                 {/* Top — logo + status */}
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-3">
                   <h3
                     style={{ color: WOURI_GREEN_LIGHT }}
-                    className="font-serif text-4xl md:text-5xl font-semibold leading-none"
+                    className="font-serif text-3xl md:text-4xl font-semibold leading-none"
                   >
                     WOURI<span style={{ color: WOURI_GREEN }}>.</span>
                   </h3>
                   <span
-                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide uppercase"
+                    className="inline-flex shrink-0 whitespace-nowrap items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide uppercase"
                     style={{
                       background: `${WOURI_GREEN}20`,
                       border: `1px solid ${WOURI_GREEN}50`,
