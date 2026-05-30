@@ -7,7 +7,7 @@ export type ShareChannel =
   | "email"
   | "copy";
 
-export type CaseStudyProject = "klassci" | "wouri";
+export type CaseStudyProject = "klassci" | "wouri" | "akwaba";
 
 export type AnalyticsEvent =
   | { name: "nav_click"; props: { item: string; location: "desktop" | "mobile_drawer" } }

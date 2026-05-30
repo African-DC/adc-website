@@ -13,12 +13,14 @@ export async function generateMetadata({
   const { locale } = await params;
   const isEn = locale === "en";
 
-  const title = isEn ? "Our work — ADC" : "Nos réalisations — ADC";
+  const title = isEn
+    ? "AKWABA — Premium AI assistant for the Ivorian diaspora"
+    : "AKWABA — Assistant IA premium pour la diaspora ivoirienne";
   const description = isEn
-    ? "Our projects: AKWABA (AI assistant for the Ivorian diaspora), KLASSCI (academic management for higher education) and WOURI (agritech AI on WhatsApp)."
-    : "Nos projets : AKWABA (assistant IA pour la diaspora ivoirienne), KLASSCI (gestion académique pour l'enseignement supérieur) et WOURI (IA agritech sur WhatsApp).";
+    ? "AKWABA guides the Ivorian diaspora through consular procedures and investment, on Web and WhatsApp, in French and local languages. In production."
+    : "AKWABA accompagne la diaspora ivoirienne dans ses démarches consulaires et son envie d'investir, sur le Web et WhatsApp, en français et en langues locales. En production.";
 
-  const canonical = `${SITE_URL}/${locale}/nos-realisations`;
+  const canonical = `${SITE_URL}/${locale}/nos-realisations/akwaba`;
 
   return {
     title,
@@ -26,9 +28,9 @@ export async function generateMetadata({
     alternates: {
       canonical,
       languages: {
-        fr: `${SITE_URL}/fr/nos-realisations`,
-        en: `${SITE_URL}/en/nos-realisations`,
-        "x-default": `${SITE_URL}/fr/nos-realisations`,
+        fr: `${SITE_URL}/fr/nos-realisations/akwaba`,
+        en: `${SITE_URL}/en/nos-realisations/akwaba`,
+        "x-default": `${SITE_URL}/fr/nos-realisations/akwaba`,
       },
     },
     openGraph: {

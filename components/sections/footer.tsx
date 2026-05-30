@@ -16,6 +16,7 @@ const NAV_LINKS = [
 ] as const;
 
 const PROJECT_LINKS = [
+  { label: "AKWABA", href: "/nos-realisations/akwaba" },
   { label: "KLASSCI", href: "/nos-realisations/klassci" },
   { label: "WOURI", href: "/nos-realisations/wouri" },
 ] as const;

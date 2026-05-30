@@ -196,7 +196,69 @@ export default function RealisationsPageContent() {
               Projets vedettes
             </m.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+            {/* AKWABA card */}
+            <Link
+              href="/nos-realisations/akwaba"
+              className="group block relative rounded-2xl md:rounded-3xl overflow-hidden border border-neutral-200 bg-white shadow-xl shadow-neutral-900/5 hover:shadow-2xl transition-all duration-500"
+            >
+              <div className="p-8 md:p-10 flex flex-col gap-7 h-full">
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="text-4xl md:text-5xl font-bold leading-none" style={{ color: "#E8590C" }}>
+                    AKWABA<span className="text-neutral-900">.</span>
+                  </h3>
+                  <span
+                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wide"
+                    style={{ background: "#E8590C10", border: "1px solid #E8590C30", color: "#E8590C" }}
+                  >
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ background: "#E8590C" }} />
+                      <span className="relative inline-flex rounded-full h-1.5 w-1.5" style={{ background: "#E8590C" }} />
+                    </span>
+                    En production
+                  </span>
+                </div>
+
+                <div>
+                  <p className="text-xl md:text-2xl italic font-light text-neutral-700 leading-snug mb-3">
+                    L'assistant IA qui accueille la diaspora ivoirienne.
+                  </p>
+                  <p className="text-sm text-neutral-500 leading-relaxed">
+                    Démarches consulaires et investissement. Sur le Web et WhatsApp, en français et en langues locales.
+                  </p>
+                </div>
+
+                <div
+                  className="relative rounded-xl p-4 min-h-[200px] space-y-2.5 flex-1 flex flex-col justify-center"
+                  style={{ background: "#E8590C06", border: "1px solid #E8590C1f" }}
+                >
+                  <div className="flex justify-end">
+                    <div className="max-w-[85%] rounded-2xl rounded-tr-sm bg-white border border-neutral-200 px-3.5 py-2 text-[13px] text-neutral-700">
+                      Comment renouveler mon passeport depuis Paris ?
+                    </div>
+                  </div>
+                  <div className="flex justify-start">
+                    <div className="max-w-[85%] rounded-2xl rounded-tl-sm px-3.5 py-2 text-[13px] text-white" style={{ background: "#E8590C" }}>
+                      Akwaba. Voici les pièces à prévoir et votre consulat de rattachement.
+                    </div>
+                  </div>
+                  <div className="flex justify-end">
+                    <div className="max-w-[85%] rounded-2xl rounded-tr-sm bg-white border border-neutral-200 px-3.5 py-2 text-[13px] text-neutral-700">
+                      Un agent demande un paiement Mobile Money, fiable ?
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between pt-4 border-t border-neutral-100 text-sm">
+                  <span className="text-neutral-500">Diaspora · IA · Web & WhatsApp</span>
+                  <span className="inline-flex items-center gap-2 font-medium text-neutral-900 transition-colors">
+                    Étude de cas
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </span>
+                </div>
+              </div>
+            </Link>
+
             <Link
               href="/nos-realisations/klassci"
               className="group block relative rounded-2xl md:rounded-3xl overflow-hidden border border-neutral-200 bg-white shadow-xl shadow-neutral-900/5 hover:shadow-2xl hover:shadow-neutral-900/10 transition-all duration-500"

@@ -55,20 +55,121 @@ export function ProjectSpotlight() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.05] max-w-4xl mb-14 md:mb-20"
         >
-          Deux produits que nous construisons,{" "}
+          Trois produits que nous construisons,{" "}
           <em className="text-orange-400 font-normal">
             utilisés sur le terrain.
           </em>
         </m.h2>
 
-        {/* 2-col projects grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-          {/* ============ KLASSCI CARD ============ */}
+        {/* 3-col projects grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {/* ============ AKWABA CARD ============ */}
           <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
+          >
+            <Link
+              href="/nos-realisations/akwaba"
+              onClick={() =>
+                track("home_project_click", { project: "akwaba" })
+              }
+              className="group block relative rounded-2xl md:rounded-3xl overflow-hidden border border-white/10 hover:border-[#E8590C]/60 bg-white/[0.02] backdrop-blur-sm transition-all duration-500 h-full"
+            >
+              <div className="p-8 md:p-10 flex flex-col h-full gap-8">
+                {/* Top — wordmark + status */}
+                <div className="flex items-start justify-between gap-4">
+                  <h3
+                    style={{ color: "#fbbf91" }}
+                    className="font-serif text-4xl md:text-5xl font-semibold leading-none"
+                  >
+                    AKWABA<span style={{ color: "#E8590C" }}>.</span>
+                  </h3>
+                  <span
+                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide uppercase"
+                    style={{
+                      background: "#E8590C20",
+                      border: "1px solid #E8590C50",
+                      color: "#fbbf91",
+                    }}
+                  >
+                    <span className="relative flex h-1.5 w-1.5" aria-hidden>
+                      <span
+                        className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
+                        style={{ background: "#fbbf91" }}
+                      />
+                      <span
+                        className="relative inline-flex rounded-full h-1.5 w-1.5"
+                        style={{ background: "#fbbf91" }}
+                      />
+                    </span>
+                    En production
+                  </span>
+                </div>
+
+                {/* Tagline */}
+                <div>
+                  <p className="font-serif text-xl md:text-2xl italic font-light text-white/85 leading-snug mb-4">
+                    L'assistant IA qui accueille la diaspora ivoirienne.
+                  </p>
+                  <p className="text-sm text-neutral-400 leading-relaxed">
+                    Démarches consulaires et investissement. Sur le Web et
+                    WhatsApp, en français et en langues locales.
+                  </p>
+                </div>
+
+                {/* Mini conversation visual */}
+                <div
+                  className="relative flex-1 min-h-[180px] rounded-xl border p-5 space-y-3 bg-neutral-900/60"
+                  style={{ borderColor: "#E8590C30" }}
+                >
+                  <div className="flex justify-end">
+                    <div className="max-w-[85%] rounded-2xl rounded-tr-sm bg-neutral-800 px-4 py-2 text-[13px] text-neutral-200">
+                      Comment renouveler mon passeport depuis Paris ?
+                    </div>
+                  </div>
+                  <div className="flex justify-start">
+                    <div
+                      className="max-w-[85%] rounded-2xl rounded-tl-sm px-4 py-2 text-[13px] text-white"
+                      style={{ background: "#E8590C" }}
+                    >
+                      Akwaba. Voici les pièces à prévoir et votre consulat.
+                    </div>
+                  </div>
+                </div>
+
+                {/* Stats + CTA */}
+                <div className="flex items-end justify-between gap-4 pt-4 border-t border-white/10">
+                  <div className="flex gap-6">
+                    <div>
+                      <div className="font-serif text-2xl font-semibold">2</div>
+                      <div className="text-[10px] tracking-[0.1em] uppercase text-neutral-500">
+                        Verticales
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-serif text-2xl font-semibold">IA</div>
+                      <div className="text-[10px] tracking-[0.1em] uppercase text-neutral-500">
+                        Multi-modèles
+                      </div>
+                    </div>
+                  </div>
+                  <span className="inline-flex items-center gap-2 text-sm font-medium text-white transition-colors">
+                    Étude de cas
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </m.div>
+
+          {/* ============ KLASSCI CARD ============ */}
+          <m.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
           >
             <Link
               href="/nos-realisations/klassci"
@@ -166,7 +267,7 @@ export function ProjectSpotlight() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
           >
             <Link
               href="/nos-realisations/wouri"
