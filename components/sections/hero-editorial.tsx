@@ -25,46 +25,26 @@ export function HeroEditorial() {
     <section className="relative flex h-[100svh] flex-col overflow-hidden bg-neutral-950 pt-24 pb-5 text-white md:pt-28 md:pb-7">
       <div aria-hidden className="absolute inset-0">
         {heroImages.map((src, index) => (
-          <div
+          <Image
             key={src}
-            className="home-hero-slide absolute inset-0 opacity-0"
+            src={src}
+            alt=""
+            fill
+            priority={index === 0}
+            className="home-hero-slide object-cover opacity-0"
+            sizes="100vw"
             style={{ animationDelay: `${index * 6}s` }}
-          >
-            <Image
-              src={src}
-              alt=""
-              fill
-              priority={index === 0}
-              className="scale-110 object-cover opacity-35 blur-lg"
-              sizes="100vw"
-            />
-            <Image
-              src={src}
-              alt=""
-              fill
-              priority={index === 0}
-              className="object-contain"
-              sizes="100vw"
-            />
-          </div>
+          />
         ))}
       </div>
-      <div aria-hidden className="absolute inset-0 bg-neutral-950/36" />
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-gradient-to-r from-neutral-950/92 via-neutral-950/70 to-neutral-950/44"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(10,10,10,0.5),rgba(10,10,10,0.12)_42%,rgba(10,10,10,0.72))]"
-      />
+      <div aria-hidden className="absolute inset-0 bg-black/20" />
 
       <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col justify-between px-6">
         <div className="flex flex-wrap items-center justify-end gap-6 border-b border-white/20 pb-5">
           <span className="inline-flex items-center gap-3 text-xs tracking-[0.22em] text-white/75 uppercase">
-              <span className="inline-block h-px w-10 bg-orange-500" />
-              Basée dans le Sud-Comoé · Depuis 2023
-            </span>
+            <span className="inline-block h-px w-10 bg-orange-500" />
+            Basée dans le Sud-Comoé · Depuis 2023
+          </span>
         </div>
 
         <div className="max-w-4xl">
