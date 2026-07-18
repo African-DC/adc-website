@@ -22,61 +22,63 @@ const heroImages = [
 
 export function HeroEditorial() {
   return (
-    <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-neutral-950 pt-28 pb-12 text-white md:pt-32 md:pb-12">
+    <section className="relative flex h-[100svh] flex-col overflow-hidden bg-neutral-950 pt-24 pb-5 text-white md:pt-28 md:pb-7">
       <div aria-hidden className="absolute inset-0">
         {heroImages.map((src, index) => (
-          <Image
+          <div
             key={src}
-            src={src}
-            alt=""
-            fill
-            priority={index === 0}
-            className="home-hero-slide object-cover opacity-0"
-            sizes="100vw"
+            className="home-hero-slide absolute inset-0 opacity-0"
             style={{ animationDelay: `${index * 6}s` }}
-          />
+          >
+            <Image
+              src={src}
+              alt=""
+              fill
+              priority={index === 0}
+              className="scale-110 object-cover opacity-35 blur-lg"
+              sizes="100vw"
+            />
+            <Image
+              src={src}
+              alt=""
+              fill
+              priority={index === 0}
+              className="object-contain"
+              sizes="100vw"
+            />
+          </div>
         ))}
       </div>
-      <div aria-hidden className="absolute inset-0 bg-neutral-950/30" />
+      <div aria-hidden className="absolute inset-0 bg-neutral-950/36" />
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-r from-neutral-950/90 via-neutral-950/68 to-neutral-950/36"
+        className="absolute inset-0 bg-gradient-to-r from-neutral-950/92 via-neutral-950/70 to-neutral-950/44"
       />
       <div
         aria-hidden
-        className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(10,10,10,0.45),rgba(10,10,10,0.12)_42%,rgba(10,10,10,0.64))]"
+        className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(10,10,10,0.5),rgba(10,10,10,0.12)_42%,rgba(10,10,10,0.72))]"
       />
 
-      <div className="relative z-10 flex flex-1 flex-col">
-        <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6">
-          <div className="mb-10 flex flex-wrap items-center justify-between gap-6 border-b border-white/20 pb-8 md:mb-14">
-            <div className="relative h-16 w-auto rounded-lg bg-white/95 px-4 py-3 shadow-[0_20px_70px_rgba(0,0,0,0.28)] md:h-20">
-              <Image
-                src="/img/adc-logo.png"
-                alt="African Digit Consulting"
-                width={320}
-                height={320}
-                className="h-full w-auto object-contain"
-                priority
-              />
-            </div>
-            <span className="inline-flex items-center gap-3 text-xs tracking-[0.22em] text-white/75 uppercase">
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col justify-between px-6">
+        <div className="flex flex-wrap items-center justify-end gap-6 border-b border-white/20 pb-5">
+          <span className="inline-flex items-center gap-3 text-xs tracking-[0.22em] text-white/75 uppercase">
               <span className="inline-block h-px w-10 bg-orange-500" />
               Basée dans le Sud-Comoé · Depuis 2023
             </span>
-          </div>
+        </div>
 
-          <h1 className="max-w-5xl font-serif text-5xl leading-[1] font-semibold text-white md:text-7xl lg:text-8xl">
+        <div className="max-w-4xl">
+          <h1 className="font-serif text-4xl font-semibold leading-[1.04] text-white sm:text-5xl md:text-6xl lg:text-7xl">
             Des solutions digitales à fort impact{" "}
             <em className="font-normal text-orange-500">social et humain.</em>
           </h1>
 
-          <p className="mt-6 max-w-xl font-serif text-xl font-light text-white/82 italic md:mt-8 md:text-2xl">
+          <p className="mt-4 max-w-xl font-serif text-lg font-light text-white/82 italic md:mt-6 md:text-2xl">
             Le digital au service des peuples.
           </p>
 
-          <div className="mt-10 grid grid-cols-1 items-start gap-8 md:mt-12 md:grid-cols-2 md:gap-12">
-            <p className="max-w-md text-base leading-relaxed text-white/76 md:text-lg">
+          <div className="mt-6 grid grid-cols-1 items-start gap-5 md:mt-8 md:grid-cols-2 md:gap-10">
+            <p className="max-w-md text-sm leading-relaxed text-white/76 md:text-base lg:text-lg">
               African Digit Consulting conçoit des solutions digitales utiles,
               durables et adaptées aux réalités locales des communautés
               africaines.
@@ -114,11 +116,11 @@ export function HeroEditorial() {
           </div>
         </div>
 
-        <div className="mx-auto mt-14 w-full max-w-7xl border-t border-white/20 px-6 pt-8 md:mt-16">
-          <dl className="grid grid-cols-3 gap-6 md:gap-12">
+        <div className="border-t border-white/20 pt-4 md:pt-5">
+          <dl className="grid grid-cols-3 gap-4 md:gap-12">
             {metrics.map((metric, i) => (
               <div key={metric.label}>
-                <dt className="mb-1 font-serif text-2xl leading-none font-semibold text-white md:mb-2 md:text-4xl">
+                <dt className="mb-1 font-serif text-xl leading-none font-semibold text-white md:mb-2 md:text-3xl lg:text-4xl">
                   <span
                     aria-hidden
                     className="mb-2 block font-sans text-[10px] font-normal tracking-wider text-white/45 tabular-nums md:text-xs"

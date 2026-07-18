@@ -46,6 +46,7 @@ export function NavbarDemo() {
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname?.startsWith(href);
+  const isOverHomeHero = pathname === "/" && !scrolled;
 
   return (
     <>
@@ -90,9 +91,13 @@ export function NavbarDemo() {
                       })
                     }
                     className={`relative inline-flex items-center h-11 px-4 text-sm font-medium transition-colors ${
-                      active
-                        ? "text-neutral-950"
-                        : "text-neutral-600 hover:text-neutral-950"
+                      isOverHomeHero
+                        ? active
+                          ? "text-white"
+                          : "text-white/70 hover:text-white"
+                        : active
+                          ? "text-neutral-950"
+                          : "text-neutral-600 hover:text-neutral-950"
                     }`}
                   >
                     {t(link.key)}
@@ -115,7 +120,10 @@ export function NavbarDemo() {
 
           {/* Right: Language + CTA + mobile toggle */}
           <div className="flex items-center gap-4">
-            <LanguageSwitcher className="hidden md:inline-flex" />
+            <LanguageSwitcher
+              className="hidden md:inline-flex"
+              variant={isOverHomeHero ? "inverted" : "default"}
+            />
 
             <Link
               href="/contact"
