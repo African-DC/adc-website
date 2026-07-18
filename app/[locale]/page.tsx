@@ -9,6 +9,7 @@ import { ServicesEditorial } from "@/components/sections/services-editorial";
 import { ProjectSpotlight } from "@/components/sections/project-spotlight";
 import { TeamEditorial } from "@/components/sections/team-editorial";
 import { ClosingEditorial } from "@/components/sections/closing-editorial";
+import { TrustedClientsSection } from "@/components/sections/trusted-clients";
 import { HeroEditorial as HeroEditorialEn } from "@/components/sections/hero-editorial-en";
 import { PhilosophySection as PhilosophySectionEn } from "@/components/sections/philosophy-section-en";
 import { ServicesEditorial as ServicesEditorialEn } from "@/components/sections/services-editorial-en";
@@ -86,6 +87,7 @@ export default async function Home({ params }: { params: Params }) {
       {isEn ? (
         <>
           <HeroEditorialEn />
+          <TrustedClientsSection locale="en" />
           <PhilosophySectionEn />
           <ServicesEditorialEn />
           <ProjectSpotlightEn />
@@ -95,6 +97,7 @@ export default async function Home({ params }: { params: Params }) {
       ) : (
         <>
           <HeroEditorial />
+          <TrustedClientsSection locale="fr" />
           <PhilosophySection />
           <ServicesEditorial />
           <ProjectSpotlight />

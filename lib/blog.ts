@@ -38,6 +38,74 @@ export const BLOG_AUTHORS = {
 
 export const blogArticles: BlogArticle[] = [
   {
+    slug: "performance-collaboration-innovation-equipe",
+    title: {
+      fr: "Performance, collaboration et innovation : le rythme d'une équipe qui progresse",
+      en: "Performance, Collaboration and Innovation: The Rhythm of a Team Moving Forward",
+    },
+    subtitle: {
+      fr: "Retour sur une session de travail consacrée à l'amélioration continue, à la coordination d'équipe et à la construction de solutions digitales plus solides.",
+      en: "A look back at a working session focused on continuous improvement, team coordination and building stronger digital solutions.",
+    },
+    excerpt: {
+      fr: "Chaque fin de semaine est une occasion de mesurer les avancées, d'aligner l'équipe et de préparer les prochaines étapes avec plus de précision.",
+      en: "Every weekend is an opportunity to measure progress, align the team and prepare the next steps with greater precision.",
+    },
+    category: { fr: "Événements", en: "Events" },
+    hero: {
+      src: "/img/blog/performance-collaboration-innovation-equipe/1.webp",
+      alt: {
+        fr: "Équipe ADC réunie autour d'une séance de suivi de performance",
+        en: "ADC team gathered for a performance review session",
+      },
+    },
+    author: DEFAULT_AUTHOR,
+    publishedAt: "2026-06-26",
+    publishedAtDisplay: { fr: "26 juin 2026", en: "June 26, 2026" },
+    keywords: [
+      "performance",
+      "collaboration",
+      "innovation",
+      "transformation digitale",
+      "startup Afrique",
+      "African Digit Consulting",
+    ],
+  },
+  {
+    slug: "conseil-national-tourisme-ia",
+    title: {
+      fr: "Tourisme 2030 : l'IA au service de la performance hôtelière et touristique",
+      en: "Tourism 2030: AI Serving Hospitality and Tourism Performance",
+    },
+    subtitle: {
+      fr: "Abel Josias BEDE a pris part à la Rentrée Solennelle et 1ère Session du Conseil National du Tourisme pour partager une vision de l'IA appliquée au tourisme ivoirien.",
+      en: "Abel Josias BEDE joined the formal opening and first session of the National Tourism Council to share a vision of AI applied to Ivorian tourism.",
+    },
+    excerpt: {
+      fr: "Données, automatisation intelligente et expériences voyageurs personnalisées : trois leviers pour renforcer la compétitivité du tourisme ivoirien.",
+      en: "Data, intelligent automation and personalised traveller experiences: three levers to strengthen the competitiveness of Ivorian tourism.",
+    },
+    category: { fr: "Événements", en: "Events" },
+    hero: {
+      src: "/img/blog/conseil-national-tourisme-ia/1.webp",
+      alt: {
+        fr: "Abel Josias BEDE intervient comme panéliste au Conseil National du Tourisme",
+        en: "Abel Josias BEDE speaking as a panelist at the National Tourism Council",
+      },
+    },
+    author: DEFAULT_AUTHOR,
+    publishedAt: "2026-06-23",
+    publishedAtDisplay: { fr: "23 juin 2026", en: "June 23, 2026" },
+    keywords: [
+      "Conseil National du Tourisme",
+      "Tourisme 2030",
+      "intelligence artificielle",
+      "hospitality",
+      "transformation digitale",
+      "Côte d'Ivoire",
+    ],
+  },
+  {
     slug: "siade-2026-abidjan",
     title: {
       fr: "ADC au SIADE 2026 : deux IA africaines à l'épreuve de la souveraineté technologique",

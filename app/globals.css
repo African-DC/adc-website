@@ -17,6 +17,45 @@
   }
 }
 
+@keyframes home-hero-fade {
+  0%,
+  17% {
+    opacity: 1;
+  }
+  23%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes trusted-logo-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.home-hero-slide {
+  animation: home-hero-fade 30s infinite;
+}
+
+.trusted-logo-marquee {
+  animation: trusted-logo-marquee 38s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero-slide,
+  .trusted-logo-marquee {
+    animation: none;
+  }
+
+  .home-hero-slide:first-child {
+    opacity: 1;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
