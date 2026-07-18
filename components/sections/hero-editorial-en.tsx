@@ -37,7 +37,7 @@ export function HeroEditorial() {
           />
         ))}
       </div>
-      <div aria-hidden className="absolute inset-0 bg-black/20" />
+      <div aria-hidden className="absolute inset-0 bg-black/30" />
 
       <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col justify-between px-6">
         <div className="flex flex-wrap items-center justify-end gap-6 border-b border-white/20 pb-5">
