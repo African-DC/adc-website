@@ -2,6 +2,8 @@
 
 import { BlogArticleLayout } from "@/components/sections/blog-article-layout";
 import { BlogGallery } from "@/components/gallery/blog-gallery";
+import { Link } from "@/i18n/navigation";
+import { ArrowRight } from "lucide-react";
 
 export default function WouriActionClimatiqueArticlePage() {
   return (
@@ -66,6 +68,25 @@ export default function WouriActionClimatiqueArticlePage() {
             dans sa langue, WOURI comprend le contexte, consulte des sources
             encadrées, puis restitue une réponse claire avec les bons garde-fous.
           </p>
+
+          <aside className="flex flex-col gap-4 border-y border-neutral-200 py-6 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-sm font-semibold text-neutral-950">
+                Vous découvrez WOURI ?
+              </p>
+              <p className="mt-1 text-base text-neutral-600">
+                Son rôle, son fonctionnement et ses garde-fous sont détaillés
+                dans notre cas d'étude.
+              </p>
+            </div>
+            <Link
+              href="/nos-realisations/wouri"
+              className="inline-flex min-h-11 shrink-0 items-center gap-2 font-semibold text-orange-600 transition-colors hover:text-orange-700"
+            >
+              Découvrir WOURI
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+          </aside>
 
           <blockquote className="my-10 border-l-2 border-orange-500 pl-6 font-serif text-2xl leading-snug font-light text-neutral-900 italic md:pl-8 md:text-3xl">
             WOURI n'invente ni la météo ni la science agronomique. Il orchestre,

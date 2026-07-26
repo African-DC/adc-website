@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { track } from "@/lib/analytics/track";
+import { SHOW_AKWABA } from "@/lib/site-features";
 
 const WOURI_GREEN = "#1a5d3a";
 const WOURI_GREEN_LIGHT = "#a7d7b5";
@@ -55,16 +56,20 @@ export function ProjectSpotlight() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.05] max-w-4xl mb-14 md:mb-20"
         >
-          Three products we're building,{" "}
+          {SHOW_AKWABA ? "Three products" : "Two products"} we're building,{" "}
           <em className="text-orange-400 font-normal">
             used in the field.
           </em>
         </m.h2>
 
-        {/* 3-col projects grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {/* ============ AKWABA CARD ============ */}
-          <m.div
+        <div
+          className={`grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 ${
+            SHOW_AKWABA ? "lg:grid-cols-3" : "lg:grid-cols-2"
+          }`}
+        >
+          {/* Restore the complete AKWABA card through SHOW_AKWABA. */}
+          {SHOW_AKWABA && (
+            <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -162,7 +167,8 @@ export function ProjectSpotlight() {
                 </div>
               </div>
             </Link>
-          </m.div>
+            </m.div>
+          )}
 
           {/* ============ KLASSCI CARD ============ */}
           <m.div
@@ -303,7 +309,7 @@ export function ProjectSpotlight() {
                         style={{ background: WOURI_GREEN_LIGHT }}
                       />
                     </span>
-                    In beta
+                    Functional version
                   </span>
                 </div>
 
@@ -312,11 +318,12 @@ export function ProjectSpotlight() {
                   <p
                     className="font-serif text-xl md:text-2xl italic font-light text-white/85 leading-snug mb-4"
                   >
-                    The AI agent helping Ivorian farmers weather climate change.
+                    The voice-first interface making agricultural and climate
+                    expertise accessible.
                   </p>
                   <p className="text-sm text-neutral-400 leading-relaxed">
-                    On WhatsApp. In local languages. Practical advice for
-                    seasons that no longer hold.
+                    Voice or text questions, validated sources and traceable
+                    answers across multiple channels.
                   </p>
                 </div>
 
@@ -351,17 +358,17 @@ export function ProjectSpotlight() {
                         4
                       </div>
                       <div className="text-[10px] tracking-[0.1em] uppercase text-neutral-500">
-                        Languages
+                        Channels
                       </div>
                     </div>
                     <div>
                       <div
                         className="font-serif text-2xl font-semibold"
                       >
-                        WA
+                        Voice
                       </div>
                       <div className="text-[10px] tracking-[0.1em] uppercase text-neutral-500">
-                        WhatsApp
+                        Interface
                       </div>
                     </div>
                   </div>

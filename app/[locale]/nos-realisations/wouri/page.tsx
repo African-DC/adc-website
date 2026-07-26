@@ -14,11 +14,11 @@ export async function generateMetadata({
   const isEn = locale === "en";
 
   const title = isEn
-    ? "WOURI — Agritech AI for farmers"
-    : "WOURI — IA agritech pour les agriculteurs ivoiriens";
+    ? "WOURI — Voice-first agricultural and climate interface"
+    : "WOURI — Interface vocale agricole et climatique";
   const description = isEn
-    ? "WOURI is a WhatsApp AI agent helping Ivorian farmers face climate change, in Baoulé, Dioula and French. Built with DigiGreen."
-    : "WOURI est un agent IA sur WhatsApp qui aide les agriculteurs ivoiriens face au changement climatique, en baoulé, dioula et français. Conçu avec DigiGreen.";
+    ? "WOURI makes agricultural and climate expertise easier to access through voice, local context, validated sources and traceable answers."
+    : "WOURI rend l'expertise agricole et climatique plus accessible grâce à la voix, au contexte local, à des sources validées et à des réponses traçables.";
 
   const canonical = `${SITE_URL}/${locale}/nos-realisations/wouri`;
 

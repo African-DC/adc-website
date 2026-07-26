@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
+import { SHOW_AKWABA } from "@/lib/site-features";
 import ContentFr from "./page-content";
 import ContentEn from "./page-content-en";
 
@@ -10,6 +12,10 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
+  if (!SHOW_AKWABA) {
+    return { robots: { index: false, follow: false } };
+  }
+
   const { locale } = await params;
   const isEn = locale === "en";
 
@@ -54,6 +60,9 @@ export default async function Page({
 }: {
   params: Promise<{ locale: string }>;
 }) {
+  // Keep the complete case study in place while preventing public access.
+  if (!SHOW_AKWABA) notFound();
+
   const { locale } = await params;
   setRequestLocale(locale);
 

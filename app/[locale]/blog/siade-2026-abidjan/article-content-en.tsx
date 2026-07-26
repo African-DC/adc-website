@@ -124,7 +124,7 @@ export default function SiadeArticlePageEn() {
             Both products share the same philosophy: to create useful
             technologies designed for our realities. One transforms academic
             management, the other makes climate expertise accessible to
-            small rural producers. Both are now in production or in beta on
+            small rural producers. Both are now in production or being consolidated on
             Ivorian soil.
           </p>
 

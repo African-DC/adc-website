@@ -131,7 +131,7 @@ export default function SiadeArticlePage() {
             technologies utiles, pensées pour nos réalités. L'un
             transforme la gestion académique, l'autre rend l'expertise
             climatique accessible aux petits producteurs ruraux. Tous deux
-            sont aujourd'hui en production ou en beta sur le territoire
+            sont aujourd'hui en production ou en consolidation sur le territoire
             ivoirien.
           </p>
 

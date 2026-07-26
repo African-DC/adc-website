@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { track } from "@/lib/analytics/track";
+import { SHOW_AKWABA } from "@/lib/site-features";
 
 const NAV_LINKS = [
   { key: "home", href: "/" },
@@ -16,7 +17,10 @@ const NAV_LINKS = [
 ] as const;
 
 const PROJECT_LINKS = [
-  { label: "AKWABA", href: "/nos-realisations/akwaba" },
+  // The link is preserved and restored by the central visibility switch.
+  ...(SHOW_AKWABA
+    ? [{ label: "AKWABA", href: "/nos-realisations/akwaba" } as const]
+    : []),
   { label: "KLASSCI", href: "/nos-realisations/klassci" },
   { label: "WOURI", href: "/nos-realisations/wouri" },
 ] as const;

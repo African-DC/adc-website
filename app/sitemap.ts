@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllArticles, SITE_URL } from "@/lib/blog";
 import { routing } from "@/i18n/routing";
+import { SHOW_AKWABA } from "@/lib/site-features";
 
 type Locale = (typeof routing.locales)[number];
 
@@ -19,7 +20,16 @@ const STATIC_PATHS: ReadonlyArray<{
   { path: "/a-propos", priority: 0.8, changeFrequency: "monthly" },
   { path: "/notre-expertise", priority: 0.9, changeFrequency: "monthly" },
   { path: "/nos-realisations", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/nos-realisations/akwaba", priority: 0.8, changeFrequency: "monthly" },
+  // Restore this route through SHOW_AKWABA when the project is public again.
+  ...(SHOW_AKWABA
+    ? [
+        {
+          path: "/nos-realisations/akwaba",
+          priority: 0.8,
+          changeFrequency: "monthly" as const,
+        },
+      ]
+    : []),
   { path: "/nos-realisations/klassci", priority: 0.8, changeFrequency: "monthly" },
   { path: "/nos-realisations/wouri", priority: 0.8, changeFrequency: "monthly" },
   { path: "/blog", priority: 0.9, changeFrequency: "weekly" },

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { track } from "@/lib/analytics/track";
+import { SHOW_AKWABA } from "@/lib/site-features";
 
 const WOURI_GREEN = "#1a5d3a";
 const WOURI_GREEN_LIGHT = "#a7d7b5";
@@ -55,16 +56,20 @@ export function ProjectSpotlight() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.05] max-w-4xl mb-14 md:mb-20"
         >
-          Trois produits que nous construisons,{" "}
+          {SHOW_AKWABA ? "Trois produits" : "Deux produits"} que nous construisons,{" "}
           <em className="text-orange-400 font-normal">
             utilisés sur le terrain.
           </em>
         </m.h2>
 
-        {/* 3-col projects grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {/* ============ AKWABA CARD ============ */}
-          <m.div
+        <div
+          className={`grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 ${
+            SHOW_AKWABA ? "lg:grid-cols-3" : "lg:grid-cols-2"
+          }`}
+        >
+          {/* Restore the complete AKWABA card through SHOW_AKWABA. */}
+          {SHOW_AKWABA && (
+            <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -162,7 +167,8 @@ export function ProjectSpotlight() {
                 </div>
               </div>
             </Link>
-          </m.div>
+            </m.div>
+          )}
 
           {/* ============ KLASSCI CARD ============ */}
           <m.div
@@ -303,7 +309,7 @@ export function ProjectSpotlight() {
                         style={{ background: WOURI_GREEN_LIGHT }}
                       />
                     </span>
-                    En beta
+                    Version fonctionnelle
                   </span>
                 </div>
 
@@ -312,12 +318,12 @@ export function ProjectSpotlight() {
                   <p
                     className="font-serif text-xl md:text-2xl italic font-light text-white/85 leading-snug mb-4"
                   >
-                    L'agent IA qui aide les agriculteurs ivoiriens face au
-                    changement climatique.
+                    L'interface vocale qui rend l'expertise agricole et
+                    climatique accessible.
                   </p>
                   <p className="text-sm text-neutral-400 leading-relaxed">
-                    Sur WhatsApp. Dans les langues locales. Des conseils
-                    concrets pour des saisons qui changent.
+                    Questions vocales ou textuelles, sources validées et
+                    réponses traçables sur plusieurs canaux.
                   </p>
                 </div>
 
@@ -352,17 +358,17 @@ export function ProjectSpotlight() {
                         4
                       </div>
                       <div className="text-[10px] tracking-[0.1em] uppercase text-neutral-500">
-                        Langues
+                        Canaux
                       </div>
                     </div>
                     <div>
                       <div
                         className="font-serif text-2xl font-semibold"
                       >
-                        WA
+                        Voix
                       </div>
                       <div className="text-[10px] tracking-[0.1em] uppercase text-neutral-500">
-                        WhatsApp
+                        Interface
                       </div>
                     </div>
                   </div>

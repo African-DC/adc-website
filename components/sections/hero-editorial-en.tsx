@@ -16,7 +16,7 @@ const heroImages = [
 
 export function HeroEditorial() {
   return (
-    <section className="relative flex h-[100svh] flex-col overflow-hidden bg-neutral-950 pt-24 pb-5 text-white md:pt-28 md:pb-7">
+    <section className="home-hero-shell relative flex h-[100svh] flex-col overflow-hidden bg-neutral-950 pt-24 pb-6 text-white sm:pb-8 md:pt-28 md:pb-10">
       <div aria-hidden className="absolute inset-0">
         {heroImages.map((src, index) => (
           <Image
@@ -34,34 +34,34 @@ export function HeroEditorial() {
       </div>
       <div aria-hidden className="absolute inset-0 bg-black/30" />
 
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col justify-between px-6">
-        <div className="flex flex-wrap items-center justify-end gap-6 border-b border-white/20 pb-5">
+      <div className="home-hero-inner relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col justify-between px-5 sm:px-6 md:px-8 xl:px-10">
+        <div className="home-hero-topline flex flex-wrap items-center justify-end gap-6 border-b border-white/20 pb-4 sm:pb-5">
           <span className="inline-flex items-center gap-3 text-xs tracking-[0.22em] text-white/75 uppercase">
             <span className="inline-block h-px w-10 bg-orange-500" />
             Based in Sud-Comoé · Since 2023
           </span>
         </div>
 
-        <div className="max-w-5xl pb-3 md:pb-8">
-          <h1 className="font-serif text-4xl font-semibold leading-[1.02] text-white sm:text-5xl md:text-6xl lg:text-7xl">
+        <div className="home-hero-content w-full max-w-6xl pb-1 sm:pb-2">
+          <h1 className="home-hero-title max-w-5xl font-serif text-4xl font-semibold leading-[1.02] text-white sm:text-5xl md:text-6xl lg:text-7xl">
             Digital solutions with real{" "}
             <em className="font-normal text-orange-500">
               social and human impact.
             </em>
           </h1>
 
-          <p className="mt-3 max-w-xl font-serif text-lg font-light text-white/82 italic md:mt-4 md:text-2xl">
+          <p className="home-hero-signature mt-3 max-w-xl font-serif text-lg font-light text-white/82 italic md:mt-4 md:text-2xl">
             Digital in service of people.
           </p>
 
-          <div className="mt-4 grid grid-cols-1 items-start gap-5 md:mt-5 md:grid-cols-[minmax(0,0.9fr)_minmax(320px,0.7fr)] md:gap-10 lg:gap-16">
-            <p className="max-w-lg text-sm leading-[1.08] text-white/78 md:text-base lg:text-lg">
+          <div className="home-hero-bottom-grid mt-5 grid grid-cols-1 items-end gap-5 sm:gap-6 md:mt-6 md:grid-cols-[minmax(0,0.9fr)_minmax(320px,0.7fr)] md:gap-10 lg:gap-14">
+            <p className="home-hero-support max-w-lg text-sm leading-[1.2] text-white/80 md:text-base md:leading-[1.15] lg:text-lg">
               African Digit Consulting builds digital solutions that are
               useful, durable, and grounded in the real lives of African
               communities.
             </p>
 
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 md:justify-end md:pt-1 lg:translate-x-6">
+            <div className="home-hero-actions flex flex-wrap items-center gap-x-6 gap-y-4 md:justify-end lg:translate-x-4">
               <Button asChild variant="cta" size="cta">
                 <Link
                   href="/contact"

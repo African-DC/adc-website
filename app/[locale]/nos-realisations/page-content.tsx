@@ -10,6 +10,7 @@ import { ExternalLink, Tag, EyeIcon, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import Link from "next/link";
+import { SHOW_AKWABA } from "@/lib/site-features";
 
 // Définition des catégories
 const categories = [
@@ -196,9 +197,14 @@ export default function RealisationsPageContent() {
               Projets vedettes
             </m.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
-            {/* AKWABA card */}
-            <Link
+            <div
+              className={`grid grid-cols-1 gap-6 md:gap-8 ${
+                SHOW_AKWABA ? "lg:grid-cols-3" : "lg:grid-cols-2"
+              }`}
+            >
+            {/* Restore the complete AKWABA card through SHOW_AKWABA. */}
+            {SHOW_AKWABA && (
+              <Link
               href="/nos-realisations/akwaba"
               className="group block relative rounded-2xl md:rounded-3xl overflow-hidden border border-neutral-200 bg-white shadow-xl shadow-neutral-900/5 hover:shadow-2xl transition-all duration-500"
             >
@@ -257,7 +263,8 @@ export default function RealisationsPageContent() {
                   </span>
                 </div>
               </div>
-            </Link>
+              </Link>
+            )}
 
             <Link
               href="/nos-realisations/klassci"
@@ -342,16 +349,16 @@ export default function RealisationsPageContent() {
                       <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ background: "#1a5d3a" }} />
                       <span className="relative inline-flex rounded-full h-1.5 w-1.5" style={{ background: "#1a5d3a" }} />
                     </span>
-                    En beta
+                    Version fonctionnelle
                   </span>
                 </div>
 
                 <div>
                   <p className="text-xl md:text-2xl italic font-light text-neutral-700 leading-snug mb-3">
-                    L'agent IA qui aide les agriculteurs ivoiriens face au changement climatique.
+                    L'interface vocale qui rend l'expertise agricole et climatique accessible.
                   </p>
                   <p className="text-sm text-neutral-500 leading-relaxed">
-                    Sur WhatsApp. Dans les langues locales. Des conseils concrets pour des saisons qui changent.
+                    Questions vocales ou textuelles, sources validées et réponses traçables sur plusieurs canaux.
                   </p>
                 </div>
 
@@ -377,7 +384,7 @@ export default function RealisationsPageContent() {
                 </div>
 
                 <div className="flex items-center justify-between pt-4 border-t border-neutral-100 text-sm">
-                  <span className="text-neutral-500">Agritech · Climate-tech · WhatsApp</span>
+                  <span className="text-neutral-500">Agritech · Climate-tech · Multicanal</span>
                   <span className="inline-flex items-center gap-2 font-medium text-neutral-900 transition-colors">
                     Étude de cas
                     <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />

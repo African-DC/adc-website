@@ -33,55 +33,54 @@ const features: Feature[] = [
   {
     number: "01",
     icon: <MessagesSquare className="h-5 w-5" />,
-    title: "Accessible via WhatsApp",
+    title: "Dialogue vocal et multicanal",
     description:
-      "Pas d'application à télécharger, pas de compte à créer. L'agriculteur discute avec WOURI comme avec un contact WhatsApp, sur le téléphone qu'il a déjà.",
+      "Le producteur pose une question par note vocale ou par texte. WhatsApp est le premier canal ciblé, aux côtés du web, du mobile et du centre d'appel.",
   },
   {
     number: "02",
     icon: <Languages className="h-5 w-5" />,
-    title: "Langues locales ivoiriennes",
+    title: "Contexte agricole compris",
     description:
-      "Baoulé, Dioula, Bété, et évidemment français. WOURI répond dans la langue dans laquelle l'agriculteur lui parle, par message texte ou par vocal.",
+      "WOURI identifie la langue, la culture, la zone, le stade et l'intention afin de replacer chaque demande dans son contexte utile.",
   },
   {
     number: "03",
     icon: <CloudRain className="h-5 w-5" />,
-    title: "Conseils climat en temps réel",
+    title: "Sources validées et traçables",
     description:
-      "Quand semer, quand irriguer, quelles variétés choisir face aux saisons changeantes. Des réponses adaptées à la région et au type de culture.",
+      "Les réponses s'appuient sur des connaissances encadrées et des données datées. La source, la zone et le niveau de confiance restent visibles.",
   },
   {
     number: "04",
     icon: <Sprout className="h-5 w-5" />,
-    title: "Pensé pour le terrain",
+    title: "Garde-fous et relais humain",
     description:
-      "Connexion intermittente, messages vocaux, temps de réponse court. Chaque contrainte du monde agricole ivoirien a guidé la conception.",
+      "Une demande critique, incertaine ou insuffisamment documentée est signalée et peut être orientée vers un agent ou un expert identifié.",
   },
 ];
 
 const sampleConversation = [
   {
     from: "farmer",
-    label: "Agriculteur · Yamoussoukro",
-    text: "Bonjour. Les pluies tardent cette année. Je dois planter mon maïs bientôt ou attendre ?",
+    label: "Message vocal · Producteur",
+    text: "La pluie est annoncée dans ma zone. Est-ce que je peux traiter mon champ aujourd'hui ?",
   },
   {
     from: "wouri",
     label: "WOURI",
     text:
-      "Bonjour. Dans ta zone, les prévisions donnent des pluies fiables à partir de la semaine prochaine. Je te conseille d'attendre 6 à 8 jours avant de semer. En attendant, prépare le sol et vérifie tes semences.",
+      "Une pluie est probable dans les prochaines heures. Évitez l'application avant l'averse. Source météo datée et fiche agronomique validée. Confiance : élevée.",
   },
   {
     from: "farmer",
-    label: "Agriculteur · Yamoussoukro",
-    text: "N'mɔ m'aba kaban ? (Je peux commencer à planter ?)",
+    label: "Producteur",
+    text: "Je préfère vérifier avec un agent avant de décider.",
   },
   {
     from: "wouri",
     label: "WOURI",
-    text:
-      "Ɛlɛ, kɛ ka wulu ka taa ba 6 ni 8 tile waati la. Ji be na kɔ wula kɔ. (Non, attends 6 à 8 jours. Les pluies arrivent bien après.)",
+    text: "Je peux transmettre la demande avec la source, la date et le contexte déjà renseignés.",
   },
 ];
 
@@ -131,7 +130,7 @@ export default function WouriCaseStudyContent() {
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
               <div className="lg:col-span-8">
-                {/* Eyebrow + Beta */}
+                {/* Eyebrow + status */}
                 <m.div
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -166,7 +165,7 @@ export default function WouriCaseStudyContent() {
                         style={{ background: WOURI_GREEN }}
                       />
                     </span>
-                    En beta
+                    Version en consolidation
                   </span>
                 </m.div>
 
@@ -187,12 +186,12 @@ export default function WouriCaseStudyContent() {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="font-serif text-2xl md:text-3xl italic font-light text-neutral-800 leading-snug mb-8 max-w-2xl"
                 >
-                  L'agent IA qui aide les agriculteurs ivoiriens à s'adapter au{" "}
+                  L'interface vocale qui rend l'expertise agricole et climatique{" "}
                   <span
                     className="not-italic font-medium"
                     style={{ color: WOURI_GREEN }}
                   >
-                    changement climatique
+                    accessible dans la bonne langue
                   </span>
                   .
                 </m.p>
@@ -203,9 +202,9 @@ export default function WouriCaseStudyContent() {
                   transition={{ duration: 0.6, delay: 0.45 }}
                   className="text-lg text-neutral-600 leading-relaxed max-w-xl"
                 >
-                  WOURI s'installe là où les agriculteurs sont déjà.
-                  Sur WhatsApp. Dans leur langue. Avec des conseils concrets
-                  pour des saisons qui ne ressemblent plus à celles d'avant.
+                  Le producteur pose une question par la voix. WOURI comprend le
+                  contexte, consulte des sources validées et restitue une réponse
+                  simple, traçable et adaptée.
                 </m.p>
               </div>
 
@@ -217,10 +216,10 @@ export default function WouriCaseStudyContent() {
                 className="lg:col-span-4 lg:pl-10 lg:border-l border-neutral-200 space-y-6"
               >
                 {[
-                  { label: "Canal", value: "WhatsApp" },
+                  { label: "Canaux cibles", value: "WhatsApp · Web · Mobile · Appel" },
                   { label: "Secteur", value: "Agritech · Climate-tech" },
-                  { label: "Langues", value: "Français · Baoulé · Dioula · Bété" },
-                  { label: "Statut", value: "Beta privée · Côte d'Ivoire" },
+                  { label: "Langues", value: "Français · Dioula en test · Baoulé en préparation" },
+                  { label: "Statut", value: "Version fonctionnelle · Démonstration interne" },
                 ].map((item) => (
                   <div key={item.label} className="flex flex-col gap-1 pb-5 border-b border-neutral-200 last:border-b-0 last:pb-0">
                     <dt className="text-[10px] tracking-[0.18em] uppercase text-neutral-400">
@@ -263,9 +262,8 @@ export default function WouriCaseStudyContent() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="font-serif text-4xl md:text-5xl font-medium leading-tight mb-10 text-neutral-950"
             >
-              Les saisons{" "}
-              <em style={{ color: WOURI_GREEN }}>ne ressemblent plus</em> à
-              celles que connaissaient nos aînés.
+              L'information existe, mais elle n'arrive pas toujours{" "}
+              <em style={{ color: WOURI_GREEN }}>au bon format.</em>
             </m.h2>
 
             <m.div
@@ -276,23 +274,21 @@ export default function WouriCaseStudyContent() {
               className="prose prose-lg prose-neutral max-w-none text-neutral-700 space-y-5"
             >
               <p>
-                La Côte d'Ivoire est agricole avant tout. Cacao, café, hévéa,
-                anacarde, cultures vivrières. Des millions de personnes vivent
-                des décisions qu'elles prennent chaque semaine : quand semer,
-                quand traiter, quelle variété choisir, comment protéger la
-                récolte.
+                Une information peut être exacte sans être directement utile.
+                Trop tardive, trop générale, uniquement écrite ou inaccessible
+                dans la langue du producteur, elle ne produit pas toujours
+                l'action attendue.
               </p>
               <p>
-                Ces décisions s'appuyaient sur un calendrier qui a longtemps
-                été stable. Ce calendrier est en train de disparaître. Les
-                pluies arrivent plus tard, s'arrêtent plus tôt, ou tombent
-                trop fort d'un coup. Les parasites se déplacent. Les
-                rendements baissent.
+                Le défi combine langue, contexte, rapidité, confiance et
+                traçabilité. Une alerte ou une recommandation perd une grande
+                partie de sa valeur lorsqu'elle arrive sans date, sans zone ou
+                sans possibilité de demander un humain.
               </p>
               <p>
-                Les services agricoles publics existent, mais ils n'ont pas les
-                moyens d'atteindre chaque village. Les agriculteurs, eux, ont
-                tous un téléphone. Et sur ce téléphone, ils ont WhatsApp.
+                WOURI vise ce point de jonction : relier la question du terrain
+                à des sources encadrées, puis restituer une réponse compréhensible
+                sans confondre l'interface avec l'autorité scientifique.
               </p>
             </m.div>
           </div>
@@ -323,6 +319,17 @@ export default function WouriCaseStudyContent() {
             >
               Quatre principes de conception.
             </m.h2>
+            <m.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-6 max-w-3xl text-lg leading-relaxed text-neutral-600"
+            >
+              WOURI n&apos;invente ni la météo ni la science agronomique. Il
+              orchestre, explique et distribue l&apos;information utile, puis
+              oriente vers un humain lorsque la situation l&apos;exige.
+            </m.p>
           </div>
 
           <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 md:gap-y-20">
@@ -400,10 +407,10 @@ export default function WouriCaseStudyContent() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="text-neutral-700 leading-relaxed"
                 >
-                  WOURI comprend le français et les principales langues
-                  parlées en Côte d'Ivoire. Les questions peuvent être écrites
-                  ou vocales. Les réponses aussi. Aucun formulaire, aucun
-                  bouton à apprendre.
+                  WOURI reçoit une question vocale ou écrite, identifie son
+                  contexte, consulte les sources autorisées et restitue une
+                  réponse simple par texte ou audio. Les cas critiques ou
+                  incertains sont orientés vers un humain.
                 </m.p>
               </div>
 
@@ -476,8 +483,9 @@ export default function WouriCaseStudyContent() {
                   </div>
 
                   <p className="text-[11px] text-neutral-400 mt-6 italic">
-                    Exemple illustratif. WOURI est actuellement en beta privée
-                    avec un panel d'agriculteurs partenaires.
+                    Exemple illustratif de la démonstration interne. La
+                    validation scientifique, linguistique et terrain constitue
+                    la prochaine étape.
                   </p>
                 </div>
               </m.div>
@@ -510,7 +518,7 @@ export default function WouriCaseStudyContent() {
                   transition={{ duration: 0.7, delay: 0.1 }}
                   className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-6 text-neutral-950"
                 >
-                  On ne touche pas un village si on ne parle pas sa langue.
+                  Rendre l'expertise accessible dans la bonne langue.
                 </m.h2>
                 <m.p
                   initial={{ opacity: 0, y: 16 }}
@@ -519,20 +527,19 @@ export default function WouriCaseStudyContent() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="text-neutral-600 leading-relaxed"
                 >
-                  La Côte d'Ivoire compte plus de 60 langues locales. Nous
-                  commençons par les plus parlées, avec un modèle fine-tuné
-                  spécifiquement pour comprendre les tournures
-                  agricoles et les métaphores locales.
+                  WOURI est conçu pour comprendre et restituer des informations
+                  en français et en langues locales. Le Dioula est testé en
+                  interne ; les autres langues avancent avec des locuteurs
+                  natifs et une validation métier progressive.
                 </m.p>
               </div>
 
               <ul className="lg:col-span-7 divide-y divide-neutral-200 border-t border-b border-neutral-200">
                 {[
-                  { name: "Français", status: "Disponible" },
-                  { name: "Baoulé", status: "Disponible" },
-                  { name: "Dioula", status: "Disponible" },
-                  { name: "Bété", status: "Beta" },
-                  { name: "Attié · Agni · Sénoufo", status: "Bientôt" },
+                  { name: "Français", status: "Interface disponible" },
+                  { name: "Dioula", status: "Test interne" },
+                  { name: "Baoulé", status: "Base de traduction" },
+                  { name: "Autres langues locales", status: "Trajectoire" },
                 ].map((lang, i) => (
                   <m.li
                     key={lang.name}
@@ -568,7 +575,7 @@ export default function WouriCaseStudyContent() {
           </div>
         </section>
 
-        {/* ===================== CTA BETA ===================== */}
+        {/* ===================== CTA NEXT STEP ===================== */}
         <section className="py-24 md:py-32">
           <div className="max-w-5xl mx-auto px-6">
             <m.div
@@ -604,7 +611,7 @@ export default function WouriCaseStudyContent() {
                           className="h-px w-10"
                           style={{ background: "#a7d7b5" }}
                         />
-                        Rejoindre la beta
+                        Construire la prochaine étape
                       </div>
                       <h2
                         className="font-serif text-white text-4xl md:text-6xl font-medium leading-[1] mb-5"
@@ -616,9 +623,9 @@ export default function WouriCaseStudyContent() {
                         </em>
                       </h2>
                       <p className="text-neutral-400 text-lg max-w-md">
-                        Coopératives, ONG, services agricoles, chercheurs.
-                        WOURI ouvre progressivement sa beta. Contactez-nous pour
-                        en discuter.
+                        Coopératives, chercheurs, services agricoles et
+                        climatiques. Échangeons sur les usages, les sources et
+                        les conditions d'une expérimentation responsable.
                       </p>
                     </div>
 
@@ -631,7 +638,7 @@ export default function WouriCaseStudyContent() {
                         onClick={() =>
                           track("case_study_cta_click", {
                             project: "wouri",
-                            cta: "join_beta",
+                            cta: "continue_development",
                             destination: "/contact",
                           })
                         }

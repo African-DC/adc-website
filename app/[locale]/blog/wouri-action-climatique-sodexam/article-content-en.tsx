@@ -2,6 +2,8 @@
 
 import { BlogArticleLayout } from "@/components/sections/blog-article-layout";
 import { BlogGallery } from "@/components/gallery/blog-gallery";
+import { Link } from "@/i18n/navigation";
+import { ArrowRight } from "lucide-react";
 
 export default function WouriActionClimatiqueArticlePageEn() {
   return (
@@ -66,6 +68,25 @@ export default function WouriActionClimatiqueArticlePageEn() {
             WOURI understands the context, consults controlled sources and
             returns a clear answer with the right safeguards.
           </p>
+
+          <aside className="flex flex-col gap-4 border-y border-neutral-200 py-6 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-sm font-semibold text-neutral-950">
+                New to WOURI?
+              </p>
+              <p className="mt-1 text-base text-neutral-600">
+                Its role, workflow and safeguards are explained in our full
+                case study.
+              </p>
+            </div>
+            <Link
+              href="/nos-realisations/wouri"
+              className="inline-flex min-h-11 shrink-0 items-center gap-2 font-semibold text-orange-600 transition-colors hover:text-orange-700"
+            >
+              Discover WOURI
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+          </aside>
 
           <blockquote className="my-10 border-l-2 border-orange-500 pl-6 font-serif text-2xl leading-snug font-light text-neutral-900 italic md:pl-8 md:text-3xl">
             WOURI does not invent the weather or agronomic science. It

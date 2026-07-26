@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { SHOW_AKWABA } from "@/lib/site-features";
 import ContentFr from "./page-content";
 import ContentEn from "./page-content-en";
 
@@ -15,8 +16,12 @@ export async function generateMetadata({
 
   const title = isEn ? "Our work — ADC" : "Nos réalisations — ADC";
   const description = isEn
-    ? "Our projects: AKWABA (AI assistant for the Ivorian diaspora), KLASSCI (academic management for higher education) and WOURI (agritech AI on WhatsApp)."
-    : "Nos projets : AKWABA (assistant IA pour la diaspora ivoirienne), KLASSCI (gestion académique pour l'enseignement supérieur) et WOURI (IA agritech sur WhatsApp).";
+    ? SHOW_AKWABA
+      ? "Our projects: AKWABA (AI assistant for the Ivorian diaspora), KLASSCI (academic management for higher education) and WOURI (multichannel voice interface for agriculture and climate)."
+      : "Our projects: KLASSCI (academic management for higher education) and WOURI (multichannel voice interface for agriculture and climate)."
+    : SHOW_AKWABA
+      ? "Nos projets : AKWABA (assistant IA pour la diaspora ivoirienne), KLASSCI (gestion académique pour l'enseignement supérieur) et WOURI (interface vocale multicanale pour l'agriculture et le climat)."
+      : "Nos projets : KLASSCI (gestion académique pour l'enseignement supérieur) et WOURI (interface vocale multicanale pour l'agriculture et le climat).";
 
   const canonical = `${SITE_URL}/${locale}/nos-realisations`;
 
