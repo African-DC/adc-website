@@ -7,11 +7,11 @@ import { Button } from "@/components/ui/button";
 import { track } from "@/lib/analytics/track";
 
 const heroImages = [
-  "/img/home-hero/performance-equipe.webp",
+  "/img/home-hero/orange-village-stand.webp",
   "/img/home-hero/siade-demonstration.webp",
   "/img/home-hero/akwaba-klassci-evenement.webp",
-  "/img/home-hero/tourisme-ia-salle.webp",
-  "/img/home-hero/session-travail.webp",
+  "/img/home-hero/akwaba-klassci-portrait.webp",
+  "/img/home-hero/akwaba-klassci-echange.webp",
 ];
 
 export function HeroEditorial() {
@@ -25,6 +25,7 @@ export function HeroEditorial() {
             alt=""
             fill
             priority={index === 0}
+            quality={95}
             className="home-hero-slide object-cover opacity-0"
             sizes="100vw"
             style={{ animationDelay: `${index * 6}s` }}
