@@ -6,18 +6,12 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { track } from "@/lib/analytics/track";
 
-const metrics = [
-  { value: "2023", label: "Founded" },
-  { value: "10+", label: "Digital experts" },
-  { value: "50+", label: "Projects delivered" },
-];
-
 const heroImages = [
-  "/img/home-hero/atelier-partenaires.webp",
-  "/img/home-hero/presentation-solution.webp",
+  "/img/home-hero/performance-equipe.webp",
+  "/img/home-hero/siade-demonstration.webp",
+  "/img/home-hero/akwaba-klassci-evenement.webp",
+  "/img/home-hero/tourisme-ia-salle.webp",
   "/img/home-hero/session-travail.webp",
-  "/img/home-hero/demonstration-produit.webp",
-  "/img/home-hero/reunion-strategie.webp",
 ];
 
 export function HeroEditorial() {
@@ -47,26 +41,26 @@ export function HeroEditorial() {
           </span>
         </div>
 
-        <div className="max-w-4xl">
-          <h1 className="font-serif text-4xl font-semibold leading-[1.04] text-white sm:text-5xl md:text-6xl lg:text-7xl">
+        <div className="max-w-5xl pb-3 md:pb-8">
+          <h1 className="font-serif text-4xl font-semibold leading-[1.02] text-white sm:text-5xl md:text-6xl lg:text-7xl">
             Digital solutions with real{" "}
             <em className="font-normal text-orange-500">
               social and human impact.
             </em>
           </h1>
 
-          <p className="mt-4 max-w-xl font-serif text-lg font-light text-white/82 italic md:mt-6 md:text-2xl">
+          <p className="mt-3 max-w-xl font-serif text-lg font-light text-white/82 italic md:mt-4 md:text-2xl">
             Digital in service of people.
           </p>
 
-          <div className="mt-6 grid grid-cols-1 items-start gap-5 md:mt-8 md:grid-cols-2 md:gap-10">
-            <p className="max-w-md text-sm leading-relaxed text-white/76 md:text-base lg:text-lg">
+          <div className="mt-4 grid grid-cols-1 items-start gap-5 md:mt-5 md:grid-cols-[minmax(0,0.9fr)_minmax(320px,0.7fr)] md:gap-10 lg:gap-16">
+            <p className="max-w-lg text-sm leading-[1.08] text-white/78 md:text-base lg:text-lg">
               African Digit Consulting builds digital solutions that are
               useful, durable, and grounded in the real lives of African
               communities.
             </p>
 
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 md:justify-end">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 md:justify-end md:pt-1 lg:translate-x-6">
               <Button asChild variant="cta" size="cta">
                 <Link
                   href="/contact"
@@ -96,27 +90,6 @@ export function HeroEditorial() {
               </Link>
             </div>
           </div>
-        </div>
-
-        <div className="border-t border-white/20 pt-4 md:pt-5">
-          <dl className="grid grid-cols-3 gap-4 md:gap-12">
-            {metrics.map((metric, i) => (
-              <div key={metric.label}>
-                <dt className="mb-1 font-serif text-xl leading-none font-semibold text-white md:mb-2 md:text-3xl lg:text-4xl">
-                  <span
-                    aria-hidden
-                    className="mb-2 block font-sans text-[10px] font-normal tracking-wider text-white/45 tabular-nums md:text-xs"
-                  >
-                    0{i + 1}
-                  </span>
-                  {metric.value}
-                </dt>
-                <dd className="text-[10px] tracking-[0.1em] text-white/65 uppercase md:text-xs">
-                  {metric.label}
-                </dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </div>
     </section>

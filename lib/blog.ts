@@ -140,6 +140,40 @@ export const blogArticles: BlogArticle[] = [
     ],
   },
   {
+    slug: "wouri-action-climatique-sodexam",
+    title: {
+      fr: "WOURI et l'action climatique : une rencontre de travail à la SODEXAM",
+      en: "WOURI and Climate Action: A Working Session at SODEXAM",
+    },
+    subtitle: {
+      fr: "Retour sur une rencontre professionnelle consacrée à WOURI, notre interface vocale et multilingue pensée pour rapprocher les services climatiques des producteurs.",
+      en: "A look back at a professional meeting focused on WOURI, our voice-first multilingual interface designed to bring climate services closer to producers.",
+    },
+    excerpt: {
+      fr: "ADC a été reçue à la SODEXAM pour présenter WOURI et échanger sur le dernier kilomètre de l'information météo et climatique.",
+      en: "ADC was received at SODEXAM to present WOURI and discuss the last mile of weather and climate information.",
+    },
+    category: { fr: "Événements", en: "Events" },
+    hero: {
+      src: "/img/blog/wouri-action-climatique-sodexam/hero.webp",
+      alt: {
+        fr: "Photo de groupe lors d'une rencontre de travail à la SODEXAM autour de l'action climatique",
+        en: "Group photo during a working session at SODEXAM on climate action",
+      },
+    },
+    author: DEFAULT_AUTHOR,
+    publishedAt: "2026-07-26",
+    publishedAtDisplay: { fr: "26 juillet 2026", en: "July 26, 2026" },
+    keywords: [
+      "WOURI",
+      "SODEXAM",
+      "action climatique",
+      "météo",
+      "agritech",
+      "Côte d'Ivoire",
+    ],
+  },
+  {
     slug: "klassci-orange-business-village",
     title: {
       fr: "KLASSCI à l'honneur chez Orange Business",
