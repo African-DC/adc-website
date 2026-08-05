@@ -1,6 +1,7 @@
 "use client";
 
 import { BlogArticleLayout } from "@/components/sections/blog-article-layout";
+import { BlogGallery } from "@/components/gallery/blog-gallery";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 
@@ -157,6 +158,18 @@ export default function AdcAndyCostaAveloArticlePage() {
           </p>
         </div>
       </article>
+
+      <BlogGallery
+        eyebrow="Galerie · La rencontre"
+        columns={2}
+        aspect="portrait"
+        images={[
+          {
+            src: "/img/blog/adc-andy-costa-application-avelo/hero.webp",
+            alt: "L'équipe d'African Digit Consulting aux côtés d'Andy Costa, reconnaissable à son casque vert, lors de leur rencontre à Abidjan",
+          },
+        ]}
+      />
     </BlogArticleLayout>
   );
 }

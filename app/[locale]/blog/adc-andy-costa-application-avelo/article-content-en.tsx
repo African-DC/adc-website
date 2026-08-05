@@ -1,6 +1,7 @@
 "use client";
 
 import { BlogArticleLayout } from "@/components/sections/blog-article-layout";
+import { BlogGallery } from "@/components/gallery/blog-gallery";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 
@@ -151,6 +152,18 @@ export default function AdcAndyCostaAveloArticlePageEn() {
           </p>
         </div>
       </article>
+
+      <BlogGallery
+        eyebrow="Gallery · The meeting"
+        columns={2}
+        aspect="portrait"
+        images={[
+          {
+            src: "/img/blog/adc-andy-costa-application-avelo/hero.webp",
+            alt: "The African Digit Consulting team with Andy Costa, recognisable by his green helmet, during their meeting in Abidjan",
+          },
+        ]}
+      />
     </BlogArticleLayout>
   );
 }
