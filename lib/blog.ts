@@ -65,8 +65,8 @@ export const blogArticles: BlogArticle[] = [
       },
     },
     author: DEFAULT_AUTHOR,
-    publishedAt: "2026-08-05",
-    publishedAtDisplay: { fr: "5 août 2026", en: "August 5, 2026" },
+    publishedAt: "2026-07-31",
+    publishedAtDisplay: { fr: "31 juillet 2026", en: "July 31, 2026" },
     keywords: [
       "AVELO",
       "Andy Costa",
