@@ -40,6 +40,45 @@ export const BLOG_AUTHORS = {
 
 export const blogArticles: BlogArticle[] = [
   {
+    slug: "adc-andy-costa-application-avelo",
+    title: {
+      fr: "ADC rencontre Andy Costa : de WOURI à l'application AVELO",
+      en: "ADC Meets Andy Costa: From WOURI to the AVELO App",
+    },
+    subtitle: {
+      fr: "À l'occasion d'une rencontre avec l'éco-entrepreneur Andy Costa, ADC a présenté sa vision de l'innovation à impact et posé les premières bases d'une collaboration autour de l'application AVELO.",
+      en: "During a meeting with eco-entrepreneur Andy Costa, ADC shared its vision of impact-driven innovation and laid the first foundations for a collaboration around the AVELO app.",
+    },
+    excerpt: {
+      fr: "African Digit Consulting rencontre Andy Costa et pose les bases de la conception d'AVELO, une application de gestion de flotte au service de la mobilité verte.",
+      en: "African Digit Consulting meets Andy Costa and lays the groundwork for AVELO, a fleet-management app serving green mobility.",
+    },
+    category: {
+      fr: "Rencontres & nouveaux projets",
+      en: "Meetings & New Projects",
+    },
+    hero: {
+      src: "/img/blog/adc-andy-costa-application-avelo/hero.webp",
+      alt: {
+        fr: "L'équipe d'African Digit Consulting aux côtés d'Andy Costa, reconnaissable à son casque vert, lors de leur rencontre à Abidjan",
+        en: "The African Digit Consulting team with Andy Costa, recognisable by his green helmet, during their meeting in Abidjan",
+      },
+    },
+    author: DEFAULT_AUTHOR,
+    publishedAt: "2026-08-05",
+    publishedAtDisplay: { fr: "5 août 2026", en: "August 5, 2026" },
+    keywords: [
+      "AVELO",
+      "Andy Costa",
+      "MyDream For Africa",
+      "mobilité verte",
+      "WOURI",
+      "gestion de flotte",
+      "Parc national du Banco",
+      "African Digit Consulting",
+    ],
+  },
+  {
     slug: "safe-9-abidjan-prix-entrepreneuriat",
     title: {
       fr: "SAFE 9 : ADC distinguée pour son engagement auprès de la jeunesse entrepreneuriale africaine",
