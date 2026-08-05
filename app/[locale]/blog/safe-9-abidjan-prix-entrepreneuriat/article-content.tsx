@@ -21,7 +21,7 @@ export default function Safe9ArticlePage() {
       ]}
       hero={{
         src: "/img/blog/safe-9-abidjan-prix-entrepreneuriat/hero.webp",
-        alt: "African Digit Consulting reçoit le trophée du SAFE 9 aux côtés de Robert Brazza, à Abidjan",
+        alt: "Abel Josias BEDE, directeur général d'ADC, avec le trophée du SAFE 9 aux côtés de Robert Brazza, à Abidjan",
       }}
       cta={{
         title: "Vous portez un projet à impact pour la jeunesse ou l'éducation ?",
@@ -169,7 +169,7 @@ export default function Safe9ArticlePage() {
         images={[
           {
             src: "/img/blog/safe-9-abidjan-prix-entrepreneuriat/1.webp",
-            alt: "Abel Josias BEDE, directeur général d'ADC, avec le trophée du SAFE 9 aux côtés de Robert Brazza",
+            alt: "Photo de groupe avec le trophée du SAFE 9, aux côtés de Robert Brazza, à Abidjan",
           },
           {
             src: "/img/blog/safe-9-abidjan-prix-entrepreneuriat/2.webp",
