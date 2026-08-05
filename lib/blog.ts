@@ -40,6 +40,40 @@ export const BLOG_AUTHORS = {
 
 export const blogArticles: BlogArticle[] = [
   {
+    slug: "equipe-adc-velo-mobilite-douce",
+    title: {
+      fr: "Le numérique à l'épreuve du terrain : l'équipe ADC enfourche le vélo",
+      en: "Digital Tested Against the Field: The ADC Team Takes to the Bike",
+    },
+    subtitle: {
+      fr: "Une initiative interne où notre équipe troque l'écran pour le guidon, le temps d'éprouver par elle-même la mobilité douce à Abidjan.",
+      en: "An internal initiative where our team swaps the screen for handlebars, to experience soft mobility in Abidjan first-hand.",
+    },
+    excerpt: {
+      fr: "Casques vissés, trois membres de l'équipe ADC ont pris le guidon dans Abidjan. Une initiative interne qui dit beaucoup de notre façon de concevoir des solutions numériques.",
+      en: "Helmets on, three members of the ADC team took to the streets of Abidjan by bike — an internal initiative that says a lot about how we design digital solutions.",
+    },
+    category: { fr: "Initiatives", en: "Initiatives" },
+    hero: {
+      src: "/img/blog/equipe-adc-velo-mobilite-douce/hero.webp",
+      alt: {
+        fr: "Trois membres de l'équipe African Digit Consulting à vélo, casque sur la tête, à Abidjan",
+        en: "Three members of the African Digit Consulting team on bikes, helmets on, in Abidjan",
+      },
+    },
+    author: DEFAULT_AUTHOR,
+    publishedAt: "2026-08-05",
+    publishedAtDisplay: { fr: "5 août 2026", en: "August 5, 2026" },
+    keywords: [
+      "mobilité douce",
+      "vélo",
+      "Abidjan",
+      "culture d'équipe",
+      "conception centrée usage",
+      "African Digit Consulting",
+    ],
+  },
+  {
     slug: "adc-andy-costa-application-avelo",
     title: {
       fr: "ADC rencontre Andy Costa : de WOURI à l'application AVELO",
