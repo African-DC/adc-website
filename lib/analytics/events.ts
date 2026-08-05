@@ -18,6 +18,8 @@ export type AnalyticsEvent =
   | { name: "home_project_click"; props: { project: CaseStudyProject } }
   | { name: "home_services_click"; props: { service: string } }
   | { name: "home_team_card_click"; props: { member: string } }
+  | { name: "home_recent_article_click"; props: { slug: string; position: number } }
+  | { name: "home_recent_events_view_all"; props: Record<string, never> }
 
   | { name: "blog_article_card_click"; props: { slug: string; position: "featured" | "list"; list_index?: number } }
   | { name: "blog_article_view"; props: { slug: string; locale: "fr" | "en"; category: string } }

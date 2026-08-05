@@ -40,6 +40,41 @@ export const BLOG_AUTHORS = {
 
 export const blogArticles: BlogArticle[] = [
   {
+    slug: "safe-9-abidjan-prix-entrepreneuriat",
+    title: {
+      fr: "SAFE 9 : ADC distinguée pour son engagement auprès de la jeunesse entrepreneuriale africaine",
+      en: "SAFE 9: ADC Recognised for Its Commitment to Africa's Young Entrepreneurs",
+    },
+    subtitle: {
+      fr: "Au Salon Africain de l'Entrepreneuriat, African Digit Consulting a reçu un trophée saluant son engagement pour la promotion de l'entrepreneuriat auprès de la jeunesse en Afrique.",
+      en: "At the African Entrepreneurship Salon, African Digit Consulting received an award recognising its commitment to promoting entrepreneurship among Africa's youth.",
+    },
+    excerpt: {
+      fr: "À Abidjan, lors de la 9e édition du SAFE placée sous le signe de la transformation numérique, ADC a été distinguée pour son engagement auprès des jeunes entrepreneurs.",
+      en: "In Abidjan, at the 9th edition of SAFE dedicated to digital transformation, ADC was recognised for its commitment to young entrepreneurs.",
+    },
+    category: { fr: "Distinctions", en: "Awards" },
+    hero: {
+      src: "/img/blog/safe-9-abidjan-prix-entrepreneuriat/hero.webp",
+      alt: {
+        fr: "African Digit Consulting reçoit le trophée du SAFE 9 aux côtés de Robert Brazza, à Abidjan",
+        en: "African Digit Consulting receives the SAFE 9 award alongside Robert Brazza, in Abidjan",
+      },
+    },
+    author: DEFAULT_AUTHOR,
+    publishedAt: "2026-07-31",
+    publishedAtDisplay: { fr: "31 juillet 2026", en: "July 31, 2026" },
+    keywords: [
+      "SAFE 9",
+      "Salon Africain de l'Entrepreneuriat",
+      "entrepreneuriat jeunesse",
+      "transformation numérique",
+      "Abidjan",
+      "Côte d'Ivoire",
+      "African Digit Consulting",
+    ],
+  },
+  {
     slug: "performance-collaboration-innovation-equipe",
     title: {
       fr: "Performance, collaboration et innovation : le rythme d'une équipe qui progresse",
