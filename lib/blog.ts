@@ -18,7 +18,13 @@ export type BlogArticle = {
   subtitle: LocalizedString;
   excerpt: LocalizedString;
   category: LocalizedString;
-  hero: { src: string; alt: LocalizedString };
+  /**
+   * `position` maps to CSS object-position and is used everywhere the hero is
+   * shown: article page, /blog cards and the home "recent events" section.
+   * Portrait photos are cropped hard by those wide frames and need a value like
+   * "50% 20%" to keep faces in view. Omit it for landscape photos.
+   */
+  hero: { src: string; alt: LocalizedString; position?: string };
   author: BlogAuthor;
   publishedAt: string;
   publishedAtDisplay: LocalizedString;
@@ -97,6 +103,7 @@ export const blogArticles: BlogArticle[] = [
         fr: "L'équipe d'African Digit Consulting aux côtés d'Andy Costa, reconnaissable à son casque vert, lors de leur rencontre à Abidjan",
         en: "The African Digit Consulting team with Andy Costa, recognisable by his green helmet, during their meeting in Abidjan",
       },
+      position: "50% 15%",
     },
     author: DEFAULT_AUTHOR,
     publishedAt: "2026-07-31",
@@ -133,6 +140,7 @@ export const blogArticles: BlogArticle[] = [
         fr: "Abel Josias BEDE, directeur général d'ADC, avec le trophée du SAFE 9 aux côtés de Robert Brazza, à Abidjan",
         en: "Abel Josias BEDE, managing director of ADC, holding the SAFE 9 award alongside Robert Brazza, in Abidjan",
       },
+      position: "50% 20%",
     },
     author: DEFAULT_AUTHOR,
     publishedAt: "2026-07-31",

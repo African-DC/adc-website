@@ -63,6 +63,11 @@ export default function BlogPage() {
                     src={featured.hero.src}
                     alt={localize(featured.hero.alt, locale)}
                     fill
+                    style={
+                      featured.hero.position
+                        ? { objectPosition: featured.hero.position }
+                        : undefined
+                    }
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     sizes="(max-width: 1024px) 100vw, 600px"
                   />
@@ -126,6 +131,11 @@ export default function BlogPage() {
                         src={article.hero.src}
                         alt={localize(article.hero.alt, locale)}
                         fill
+                        style={
+                          article.hero.position
+                            ? { objectPosition: article.hero.position }
+                            : undefined
+                        }
                         className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
