@@ -128,8 +128,8 @@ export default function EquipeAdcVeloArticlePageEn() {
 
       <BlogGallery
         eyebrow="Gallery · Soft mobility"
-        columns={2}
-        aspect="landscape"
+        columns={4}
+        aspect="portrait"
         images={[
           {
             src: "/img/blog/equipe-adc-velo-mobilite-douce/1.webp",
@@ -138,6 +138,14 @@ export default function EquipeAdcVeloArticlePageEn() {
           {
             src: "/img/blog/equipe-adc-velo-mobilite-douce/2.webp",
             alt: "Wide view of the ADC team cycling in Abidjan at the end of the day",
+          },
+          {
+            src: "/img/blog/equipe-adc-velo-mobilite-douce/3.webp",
+            alt: "Two members of the ADC team in the saddle, helmets on, during the ride",
+          },
+          {
+            src: "/img/blog/equipe-adc-velo-mobilite-douce/4.webp",
+            alt: "Close-up of an ADC team member on a bike, helmet on and smiling, at the end of the day",
           },
         ]}
       />
