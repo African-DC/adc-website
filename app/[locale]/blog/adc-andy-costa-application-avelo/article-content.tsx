@@ -20,6 +20,7 @@ export default function AdcAndyCostaAveloArticlePage() {
       hero={{
         src: "/img/blog/adc-andy-costa-application-avelo/hero.webp",
         alt: "L'équipe d'African Digit Consulting aux côtés d'Andy Costa, reconnaissable à son casque vert, lors de leur rencontre à Abidjan",
+        position: "50% 15%",
       }}
       cta={{
         title: "Vous portez un projet à impact environnemental ou social ?",
