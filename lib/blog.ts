@@ -57,8 +57,8 @@ export const blogArticles: BlogArticle[] = [
     hero: {
       src: "/img/blog/safe-9-abidjan-prix-entrepreneuriat/hero.webp",
       alt: {
-        fr: "African Digit Consulting reçoit le trophée du SAFE 9 aux côtés de Robert Brazza, à Abidjan",
-        en: "African Digit Consulting receives the SAFE 9 award alongside Robert Brazza, in Abidjan",
+        fr: "Abel Josias BEDE, directeur général d'ADC, avec le trophée du SAFE 9 aux côtés de Robert Brazza, à Abidjan",
+        en: "Abel Josias BEDE, managing director of ADC, holding the SAFE 9 award alongside Robert Brazza, in Abidjan",
       },
     },
     author: DEFAULT_AUTHOR,

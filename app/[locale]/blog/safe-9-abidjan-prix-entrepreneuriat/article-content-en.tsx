@@ -21,7 +21,7 @@ export default function Safe9ArticlePageEn() {
       ]}
       hero={{
         src: "/img/blog/safe-9-abidjan-prix-entrepreneuriat/hero.webp",
-        alt: "African Digit Consulting receives the SAFE 9 award alongside Robert Brazza, in Abidjan",
+        alt: "Abel Josias BEDE, managing director of ADC, holding the SAFE 9 award alongside Robert Brazza, in Abidjan",
       }}
       cta={{
         title: "Building an impact project for youth or education?",
@@ -165,7 +165,7 @@ export default function Safe9ArticlePageEn() {
         images={[
           {
             src: "/img/blog/safe-9-abidjan-prix-entrepreneuriat/1.webp",
-            alt: "Abel Josias BEDE, managing director of ADC, holding the SAFE 9 award alongside Robert Brazza",
+            alt: "Group photo with the SAFE 9 award, alongside Robert Brazza, in Abidjan",
           },
           {
             src: "/img/blog/safe-9-abidjan-prix-entrepreneuriat/2.webp",
