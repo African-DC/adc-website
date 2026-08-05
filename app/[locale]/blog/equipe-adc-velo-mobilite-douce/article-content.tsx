@@ -131,8 +131,8 @@ export default function EquipeAdcVeloArticlePage() {
 
       <BlogGallery
         eyebrow="Galerie · Mobilité douce"
-        columns={2}
-        aspect="landscape"
+        columns={4}
+        aspect="portrait"
         images={[
           {
             src: "/img/blog/equipe-adc-velo-mobilite-douce/1.webp",
@@ -141,6 +141,14 @@ export default function EquipeAdcVeloArticlePage() {
           {
             src: "/img/blog/equipe-adc-velo-mobilite-douce/2.webp",
             alt: "Vue large de l'équipe ADC à vélo dans Abidjan en fin de journée",
+          },
+          {
+            src: "/img/blog/equipe-adc-velo-mobilite-douce/3.webp",
+            alt: "Deux membres de l'équipe ADC en selle, casque sur la tête, pendant la sortie",
+          },
+          {
+            src: "/img/blog/equipe-adc-velo-mobilite-douce/4.webp",
+            alt: "Gros plan sur un membre de l'équipe ADC à vélo, casque et sourire, en fin de journée",
           },
         ]}
       />
