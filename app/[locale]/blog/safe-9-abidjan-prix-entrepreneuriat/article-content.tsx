@@ -22,6 +22,7 @@ export default function Safe9ArticlePage() {
       hero={{
         src: "/img/blog/safe-9-abidjan-prix-entrepreneuriat/hero.webp",
         alt: "Abel Josias BEDE, directeur général d'ADC, avec le trophée du SAFE 9 aux côtés de Robert Brazza, à Abidjan",
+        position: "50% 20%",
       }}
       cta={{
         title: "Vous portez un projet à impact pour la jeunesse ou l'éducation ?",

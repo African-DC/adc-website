@@ -22,7 +22,12 @@ type BlogArticleLayoutProps = {
   subtitle: string;
   eyebrow: string;
   breadcrumbs: Breadcrumb[];
-  hero: { src: string; alt: string };
+  /**
+   * `position` maps to CSS object-position. Portrait photos are cropped hard by
+   * the wide hero frame, so they need a value like "50% 20%" to keep faces in
+   * view. Omit it for landscape photos: the default centre crop suits them.
+   */
+  hero: { src: string; alt: string; position?: string };
   cta: {
     title: string;
     label: string;
@@ -82,6 +87,7 @@ export function BlogArticleLayout({
                 fill
                 priority
                 className="object-cover"
+                style={hero.position ? { objectPosition: hero.position } : undefined}
                 sizes="(max-width: 1024px) 100vw, 1024px"
               />
             </m.div>

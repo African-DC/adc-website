@@ -22,6 +22,7 @@ export default function Safe9ArticlePageEn() {
       hero={{
         src: "/img/blog/safe-9-abidjan-prix-entrepreneuriat/hero.webp",
         alt: "Abel Josias BEDE, managing director of ADC, holding the SAFE 9 award alongside Robert Brazza, in Abidjan",
+        position: "50% 20%",
       }}
       cta={{
         title: "Building an impact project for youth or education?",
