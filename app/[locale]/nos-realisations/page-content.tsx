@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import Link from "next/link";
 import { SHOW_AKWABA } from "@/lib/site-features";
+import { ProjectLogo } from "@/components/ui/project-logo";
 
 // Définition des catégories
 const categories = [
@@ -273,14 +274,7 @@ export default function RealisationsPageContent() {
               <div className="p-8 md:p-10 flex flex-col gap-7 h-full">
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <div className="relative h-12 w-12 rounded-xl bg-white border border-neutral-200 shadow-sm p-1.5 flex-shrink-0">
-                      <Image
-                        src="/img/projets/klassci/logo-klassci.png"
-                        alt="Logo KLASSCI"
-                        fill
-                        className="object-contain p-1"
-                      />
-                    </div>
+                    <ProjectLogo src="/img/projets/klassci/logo-klassci.png" variant="card" />
                     <h3 className="text-3xl md:text-4xl font-bold leading-none">
                       KLASSCI<span className="text-orange-500">.</span>
                     </h3>
@@ -338,9 +332,12 @@ export default function RealisationsPageContent() {
             >
               <div className="p-8 md:p-10 flex flex-col gap-7 h-full">
                 <div className="flex items-center justify-between gap-3">
-                  <h3 className="text-4xl md:text-5xl font-bold leading-none" style={{ color: "#1a5d3a" }}>
-                    WOURI<span className="text-neutral-900">.</span>
-                  </h3>
+                  <div className="flex items-center gap-3">
+                    <ProjectLogo src="/img/projets/wouri/logo-wouri.png" variant="card" />
+                    <h3 className="text-3xl md:text-4xl font-bold leading-none" style={{ color: "#1a5d3a" }}>
+                      WOURI<span className="text-neutral-900">.</span>
+                    </h3>
+                  </div>
                   <span
                     className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wide"
                     style={{ background: "#1a5d3a10", border: "1px solid #1a5d3a30", color: "#1a5d3a" }}

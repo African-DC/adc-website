@@ -20,6 +20,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useLocale } from "next-intl";
 import { track } from "@/lib/analytics/track";
+import { ProjectLogo } from "@/components/ui/project-logo";
 
 const KLASSCI_URL = "https://klassci.com";
 
@@ -147,15 +148,7 @@ export default function KlassciCaseStudyContent() {
                   transition={{ duration: 0.7, delay: 0.15 }}
                   className="flex items-center gap-5 md:gap-7 mb-8"
                 >
-                  <div className="relative h-20 w-20 md:h-24 md:w-24 rounded-2xl bg-white border border-neutral-200 shadow-sm p-2 flex-shrink-0">
-                    <Image
-                      src="/img/projets/klassci/logo-klassci.png"
-                      alt="Logo KLASSCI"
-                      fill
-                      className="object-contain p-2"
-                      priority
-                    />
-                  </div>
+                  <ProjectLogo src="/img/projets/klassci/logo-klassci.png" variant="hero" priority />
                   <h1
                     className="font-serif text-[clamp(3rem,8vw,7rem)] font-semibold leading-[0.95] tracking-tight"
                   >

@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { track } from "@/lib/analytics/track";
 import { SHOW_AKWABA } from "@/lib/site-features";
+import { ProjectLogo } from "@/components/ui/project-logo";
 
 const WOURI_GREEN = "#1a5d3a";
 const WOURI_GREEN_LIGHT = "#a7d7b5";
@@ -188,14 +189,7 @@ export function ProjectSpotlight() {
                 {/* Top — logo + status */}
                 <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-3">
                   <div className="flex items-center gap-3">
-                    <div className="relative h-12 w-12 rounded-xl bg-white shadow-lg p-1.5 flex-shrink-0">
-                      <Image
-                        src="/img/projets/klassci/logo-klassci.png"
-                        alt="KLASSCI logo"
-                        fill
-                        className="object-contain p-1"
-                      />
-                    </div>
+                    <ProjectLogo src="/img/projets/klassci/logo-klassci.png" variant="cardDark" />
                     <h3
                       className="font-serif text-3xl md:text-4xl font-semibold leading-none"
                     >
@@ -285,12 +279,15 @@ export function ProjectSpotlight() {
               <div className="p-8 md:p-10 flex flex-col h-full gap-8">
                 {/* Top — logo + status */}
                 <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-3">
-                  <h3
-                    style={{ color: WOURI_GREEN_LIGHT }}
-                    className="font-serif text-3xl md:text-4xl font-semibold leading-none"
-                  >
-                    WOURI<span style={{ color: WOURI_GREEN }}>.</span>
-                  </h3>
+                  <div className="flex items-center gap-3">
+                    <ProjectLogo src="/img/projets/wouri/logo-wouri.png" variant="cardDark" />
+                    <h3
+                      style={{ color: WOURI_GREEN_LIGHT }}
+                      className="font-serif text-3xl md:text-4xl font-semibold leading-none"
+                    >
+                      WOURI<span style={{ color: WOURI_GREEN }}>.</span>
+                    </h3>
+                  </div>
                   <span
                     className="inline-flex shrink-0 whitespace-nowrap items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide uppercase"
                     style={{

@@ -18,6 +18,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useLocale } from "next-intl";
 import { track } from "@/lib/analytics/track";
+import { ProjectLogo } from "@/components/ui/project-logo";
 
 // Wouri brand green (deep forest, sophisticated)
 const WOURI_GREEN = "#1a5d3a";
@@ -170,15 +171,20 @@ export default function WouriCaseStudyContent() {
                 </m.div>
 
                 {/* Wordmark Wouri */}
-                <m.h1
+                <m.div
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.15 }}
-                  style={{ color: WOURI_GREEN }}
-                  className="font-serif text-[clamp(4rem,13vw,11rem)] font-semibold leading-[0.9] tracking-tight mb-10"
+                  className="flex items-center gap-5 md:gap-7 mb-10"
                 >
-                  WOURI.
-                </m.h1>
+                  <ProjectLogo src="/img/projets/wouri/logo-wouri.png" variant="hero" priority />
+                  <h1
+                    style={{ color: WOURI_GREEN }}
+                    className="font-serif text-[clamp(3rem,8vw,7rem)] font-semibold leading-[0.95] tracking-tight"
+                  >
+                    WOURI.
+                  </h1>
+                </m.div>
 
                 <m.p
                   initial={{ opacity: 0, y: 16 }}
