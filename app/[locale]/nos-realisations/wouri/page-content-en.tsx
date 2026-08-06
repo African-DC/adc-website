@@ -166,7 +166,7 @@ export default function WouriCaseStudyContent() {
                         style={{ background: WOURI_GREEN }}
                       />
                     </span>
-                    Functional version in consolidation
+                    In consolidation
                   </span>
                 </m.div>
 
@@ -225,7 +225,7 @@ export default function WouriCaseStudyContent() {
                   { label: "Target channels", value: "WhatsApp · Web · Mobile · Calls" },
                   { label: "Sector", value: "Agritech · Climate-tech" },
                   { label: "Languages", value: "French · Dioula in test · Baoulé in preparation" },
-                  { label: "Status", value: "Functional version · Internal demonstration" },
+                  { label: "Status", value: "In consolidation · Internal demonstration" },
                 ].map((item) => (
                   <div key={item.label} className="flex flex-col gap-1 pb-5 border-b border-neutral-200 last:border-b-0 last:pb-0">
                     <dt className="text-[10px] tracking-[0.18em] uppercase text-neutral-400">

@@ -225,7 +225,7 @@ export default function WouriCaseStudyContent() {
                   { label: "Canaux cibles", value: "WhatsApp · Web · Mobile · Appel" },
                   { label: "Secteur", value: "Agritech · Climate-tech" },
                   { label: "Langues", value: "Français · Dioula en test · Baoulé en préparation" },
-                  { label: "Statut", value: "Version fonctionnelle · Démonstration interne" },
+                  { label: "Statut", value: "Version en consolidation · Démonstration interne" },
                 ].map((item) => (
                   <div key={item.label} className="flex flex-col gap-1 pb-5 border-b border-neutral-200 last:border-b-0 last:pb-0">
                     <dt className="text-[10px] tracking-[0.18em] uppercase text-neutral-400">

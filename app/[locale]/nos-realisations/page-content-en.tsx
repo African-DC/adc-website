@@ -346,7 +346,7 @@ export default function RealisationsPageContent() {
                       <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ background: "#1a5d3a" }} />
                       <span className="relative inline-flex rounded-full h-1.5 w-1.5" style={{ background: "#1a5d3a" }} />
                     </span>
-                    Functional version
+                    In consolidation
                   </span>
                 </div>
 

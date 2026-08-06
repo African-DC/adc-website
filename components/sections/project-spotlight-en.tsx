@@ -306,7 +306,7 @@ export function ProjectSpotlight() {
                         style={{ background: WOURI_GREEN_LIGHT }}
                       />
                     </span>
-                    Functional version
+                    In consolidation
                   </span>
                 </div>
 
