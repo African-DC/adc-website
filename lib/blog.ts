@@ -1,5 +1,3 @@
-import { SHOW_AKWABA } from "@/lib/site-features";
-
 export type BlogLocale = "fr" | "en";
 
 export type LocalizedString = {
@@ -492,21 +490,14 @@ export const blogArticles: BlogArticle[] = [
 ];
 
 export function getAllArticles(): BlogArticle[] {
-  return blogArticles.filter(isArticlePublic).sort(
+  return [...blogArticles].sort(
     (a, b) =>
       new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
   );
 }
 
 export function getArticleBySlug(slug: string): BlogArticle | undefined {
-  return blogArticles.find(
-    (article) => article.slug === slug && isArticlePublic(article),
-  );
-}
-
-function isArticlePublic(article: BlogArticle): boolean {
-  // The article stays in the catalog so restoring AKWABA only requires one flag.
-  return SHOW_AKWABA || article.slug !== "akwaba-klassci";
+  return blogArticles.find((article) => article.slug === slug);
 }
 
 export function getArticleUrl(slug: string, locale: BlogLocale = "fr"): string {
