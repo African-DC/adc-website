@@ -19,7 +19,7 @@ Ajouter un article = **5 fichiers de code**. Tout le reste se propage seul.
 | 2 | `app/[locale]/blog/<slug>/page.tsx` | Route + metadata + JSON-LD + bascule FR/EN (~37 l., identique à chaque fois, seul `SLUG` change) |
 | 3 | `app/[locale]/blog/<slug>/article-content.tsx` | **Corps FR** |
 | 4 | `app/[locale]/blog/<slug>/article-content-en.tsx` | **Corps EN** (miroir fidèle) |
-| 5 | `app/[locale]/blog/<slug>/opengraph-image.tsx` | Image OG générée (14 l., template partagé) |
+| 5 | `app/[locale]/blog/<slug>/opengraph-image.tsx` | Image de partage générée (14 l., gabarit `lib/og-template.tsx`) : titre + **photo du hero**, recadrée avec le même `position` |
 | — | `public/img/blog/<slug>/` | `hero.webp`, `1.webp`, `2.webp`… |
 
 **Propagation automatique, rien à toucher** : la page `/blog` (tri par `publishedAt` décroissant — le plus récent devient l'article à la une), la section « Actualités » de l'accueil, `sitemap.ts`, les balises SEO/OpenGraph/Twitter, le JSON-LD `BlogPosting`, les hreflang FR/EN.
@@ -60,6 +60,12 @@ Valeurs de référence : `50% 20%` (deux personnes), `50% 15%` (groupe de quatre
 ### 2. Rotation EXIF
 
 Les photos de téléphone portent souvent `orientation=6`. Sans traitement, elles s'affichent **couchées**. Toujours appliquer `ImageOps.exif_transpose()` à la conversion.
+
+### Image de partage (OG)
+
+Rien à préparer : `lib/og-template.tsx` lit le `hero.src` du catalogue dans `public/`, le convertit (le moteur ne lit pas le WebP) et le recadre avec `hero.position`. Un `position` juste sur l'article l'est donc aussi sur le partage. Vérifier le rendu sur `/blog/<slug>/opengraph-image` et `/en/blog/<slug>/opengraph-image`.
+
+Le socle commun des images de partage de tout le site (pages, études de cas, articles) vit dans `lib/og/`.
 
 ### 3. Conversion et poids
 

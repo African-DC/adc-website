@@ -1,12 +1,19 @@
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
-import { ImageResponse } from "next/og";
 import type { ReactNode } from "react";
-import { loadGoogleFont } from "@/lib/og-template";
 import type { BlogLocale } from "@/lib/blog";
+import {
+  Frame,
+  Lead,
+  OG_CONTENT_TYPE,
+  OG_SIZE,
+  StatusPill,
+  assetUri,
+  displayUrl,
+  renderOg,
+  type OgTheme,
+} from "@/lib/og/kit";
 
-export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+export const size = OG_SIZE;
+export const contentType = OG_CONTENT_TYPE;
 
 /**
  * Images de partage des études de cas.
@@ -21,11 +28,11 @@ type Localized = Record<BlogLocale, string>;
 
 type Bubble = { from: "user" | "bot"; label: Localized; text: Localized; voice?: boolean };
 
-type CaseStudy = {
+export type CaseStudy = {
   name: string;
   path: string;
   logo?: AssetKey;
-  theme: { bg: string; glow: string; accent: string; soft: string };
+  theme: OgTheme;
   tagline: Localized;
   facts: { label: Localized; value: Localized }[];
   status: { label: Localized; live: boolean };
@@ -34,11 +41,11 @@ type CaseStudy = {
     | { kind: "chat"; bubbles: Bubble[]; footnote: Localized };
 };
 
-const CASE_STUDIES: Record<string, CaseStudy> = {
+export const CASE_STUDIES: Record<string, CaseStudy> = {
   klassci: {
     name: "KLASSCI",
     path: "klassci",
-    logo: "klassciLogo",
+    logo: "klassci-logo.png",
     theme: { bg: "#06122a", glow: "#0453cb", accent: "#5e91de", soft: "rgba(94,145,222,0.16)" },
     tagline: {
       fr: "Le CRM éducatif de l'enseignement supérieur : parcours LMD, finances en temps réel, bulletins, paie.",
@@ -52,7 +59,7 @@ const CASE_STUDIES: Record<string, CaseStudy> = {
     status: { label: { fr: "En production", en: "In production" }, live: true },
     visual: {
       kind: "screenshot",
-      src: "klassciDashboard",
+      src: "klassci-dashboard.jpg",
       badge: { value: "10", label: { fr: "établissements en production", en: "institutions in production" } },
     },
   },
@@ -96,7 +103,7 @@ const CASE_STUDIES: Record<string, CaseStudy> = {
   wouri: {
     name: "WOURI",
     path: "wouri",
-    logo: "wouriLogo",
+    logo: "wouri-logo.png",
     theme: { bg: "#0c2418", glow: "#4a8f63", accent: "#a7d7b5", soft: "rgba(167,215,181,0.14)" },
     tagline: {
       fr: "L'interface vocale agricole et climatique : la voix, le contexte local et des sources validées.",
@@ -140,27 +147,9 @@ export function caseStudyAlt(slug: string, locale: BlogLocale): string {
   return study ? `${study.name} — ${kind} · African Digit Consulting` : "African Digit Consulting";
 }
 
-/**
- * Chemins littéraux, un par fichier : le traçage des fichiers de Next ne suit
- * que les chemins qu'il peut lire tels quels. Un chemin construit à partir
- * d'une variable laisserait l'image hors de la fonction déployée.
- */
-const ASSETS = {
-  adc: () => readFile(join(process.cwd(), "assets/og/adc-logo.png")),
-  klassciLogo: () => readFile(join(process.cwd(), "assets/og/klassci-logo.png")),
-  klassciDashboard: () => readFile(join(process.cwd(), "assets/og/klassci-dashboard.jpg")),
-  wouriLogo: () => readFile(join(process.cwd(), "assets/og/wouri-logo.png")),
-} as const;
+type AssetKey = "klassci-logo.png" | "klassci-dashboard.jpg" | "wouri-logo.png";
 
-type AssetKey = keyof typeof ASSETS;
-
-async function asDataUri(key: AssetKey): Promise<string> {
-  const buffer = await ASSETS[key]();
-  const mime = key === "klassciDashboard" ? "image/jpeg" : "image/png";
-  return `data:${mime};base64,${buffer.toString("base64")}`;
-}
-
-function Plate({ src, size: box }: { src: string; size: number }) {
+export function Plate({ src, size: box }: { src: string; size: number }) {
   return (
     <div
       style={{
@@ -180,7 +169,7 @@ function Plate({ src, size: box }: { src: string; size: number }) {
   );
 }
 
-function Monogram({ name, theme }: { name: string; theme: CaseStudy["theme"] }) {
+export function Monogram({ name, theme }: { name: string; theme: CaseStudy["theme"] }) {
   return (
     <div
       style={{
@@ -262,7 +251,7 @@ function Screenshot({
           alignItems: "center",
           gap: 14,
           position: "absolute",
-          left: -34,
+          left: -20,
           bottom: -28,
           padding: "14px 22px",
           borderRadius: 16,
@@ -394,18 +383,13 @@ export async function createCaseStudyOgImage(slug: string, locale: BlogLocale = 
   const study = CASE_STUDIES[slug];
   if (!study) throw new Error(`Unknown case study: ${slug}`);
 
-  const [fraunces, poppins, poppinsRegular, adcLogo, productLogo, screenshot] = await Promise.all([
-    loadGoogleFont("Fraunces", 600),
-    loadGoogleFont("Poppins", 500),
-    loadGoogleFont("Poppins", 400),
-    asDataUri("adc"),
-    study.logo ? asDataUri(study.logo) : Promise.resolve(null),
-    study.visual.kind === "screenshot" ? asDataUri(study.visual.src) : Promise.resolve(null),
+  const [adcLogo, productLogo, screenshot] = await Promise.all([
+    assetUri("adc-logo.png"),
+    study.logo ? assetUri(study.logo) : Promise.resolve(null),
+    study.visual.kind === "screenshot" ? assetUri(study.visual.src) : Promise.resolve(null),
   ]);
 
   const { theme } = study;
-  const eyebrow = locale === "en" ? "Case study" : "Étude de cas";
-  const url = `africandigitconsulting.com/${locale === "en" ? "en/" : ""}nos-realisations/${study.path}`;
 
   let visual: ReactNode;
   if (study.visual.kind === "screenshot" && screenshot) {
@@ -414,187 +398,49 @@ export async function createCaseStudyOgImage(slug: string, locale: BlogLocale = 
     visual = <Chat study={study} locale={locale} />;
   }
 
-  return new ImageResponse(
-    (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          position: "relative",
-          background: theme.bg,
-          fontFamily: "Poppins",
-          color: "#ffffff",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            top: -260,
-            right: -160,
-            width: 760,
-            height: 760,
-            borderRadius: "50%",
-            background: `radial-gradient(circle, ${theme.glow}88 0%, ${theme.glow}00 68%)`,
-            display: "flex",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: -200,
-            left: -160,
-            width: 480,
-            height: 480,
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(255,148,43,0.16) 0%, rgba(255,148,43,0) 70%)",
-            display: "flex",
-          }}
-        />
-
-        <div
-          style={{
-            position: "relative",
-            display: "flex",
-            flexDirection: "column",
-            width: "100%",
-            height: "100%",
-            padding: "44px 60px 36px",
-          }}
-        >
-          {/* Signature ADC + nature de la page */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-              <div style={{ display: "flex", padding: "8px 14px", borderRadius: 12, background: "#ffffff" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={adcLogo} width={112} height={54} alt="" />
-              </div>
-              <div style={{ display: "flex", width: 34, height: 2, background: "#ff942b" }} />
-              <div
-                style={{
-                  display: "flex",
-                  fontSize: 17,
-                  letterSpacing: "0.22em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.78)",
-                }}
-              >
-                {eyebrow}
-              </div>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 10,
-                padding: "8px 18px",
-                borderRadius: 999,
-                border: "1px solid rgba(255,255,255,0.18)",
-                background: "rgba(255,255,255,0.06)",
-                fontSize: 16,
-                color: "rgba(255,255,255,0.88)",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  width: 10,
-                  height: 10,
-                  borderRadius: 5,
-                  background: study.status.live ? "#22c55e" : "#ff942b",
-                }}
-              />
-              {study.status.label[locale]}
-            </div>
-          </div>
-
-          {/* Contenu : identité du produit à gauche, preuve à droite */}
-          <div style={{ display: "flex", flex: 1, alignItems: "center", justifyContent: "space-between" }}>
-            <div style={{ display: "flex", flexDirection: "column", width: 500, gap: 24 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
-                {productLogo ? <Plate src={productLogo} size={84} /> : <Monogram name={study.name} theme={theme} />}
-                <div
-                  style={{
-                    display: "flex",
-                    fontFamily: "Fraunces",
-                    fontSize: 72,
-                    letterSpacing: "-0.02em",
-                    lineHeight: 1,
-                  }}
-                >
-                  {study.name}
-                </div>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  fontFamily: "Poppins Regular",
-                  fontSize: 25,
-                  lineHeight: 1.42,
-                  color: "rgba(255,255,255,0.86)",
-                }}
-              >
-                {study.tagline[locale]}
-              </div>
-              <div style={{ display: "flex", gap: 10 }}>
-                {study.facts.map((f) => (
-                  <div
-                    key={f.label.fr}
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "center",
-                      gap: 3,
-                      height: 62,
-                      padding: "0 14px",
-                      borderRadius: 12,
-                      background: theme.soft,
-                      border: `1px solid ${theme.soft}`,
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        fontSize: 11,
-                        letterSpacing: "0.16em",
-                        textTransform: "uppercase",
-                        color: theme.accent,
-                      }}
-                    >
-                      {f.label[locale]}
-                    </div>
-                    <div style={{ display: "flex", fontSize: 15, color: "#ffffff" }}>{f.value[locale]}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div style={{ display: "flex", paddingRight: 6 }}>{visual}</div>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              paddingTop: 18,
-              borderTop: "1px solid rgba(255,255,255,0.12)",
-              fontSize: 16,
-              color: "rgba(255,255,255,0.55)",
-            }}
-          >
-            <div style={{ display: "flex" }}>African Digit Consulting</div>
-            <div style={{ display: "flex", letterSpacing: "0.04em" }}>{url}</div>
+  return renderOg(
+    <Frame
+      theme={theme}
+      adcLogo={adcLogo}
+      eyebrow={locale === "en" ? "Case study" : "Étude de cas"}
+      headerRight={
+        <StatusPill label={study.status.label[locale]} color={study.status.live ? "#22c55e" : "#ff942b"} />
+      }
+      url={displayUrl(`nos-realisations/${study.path}`, locale)}
+    >
+      <div style={{ display: "flex", flexDirection: "column", width: 500, gap: 24 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
+          {productLogo ? <Plate src={productLogo} size={84} /> : <Monogram name={study.name} theme={theme} />}
+          <div style={{ display: "flex", fontFamily: "Fraunces", fontSize: 72, letterSpacing: "-0.02em", lineHeight: 1 }}>
+            {study.name}
           </div>
         </div>
+        <Lead>{study.tagline[locale]}</Lead>
+        <div style={{ display: "flex", gap: 10 }}>
+          {study.facts.map((f) => (
+            <div
+              key={f.label.fr}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                gap: 3,
+                height: 62,
+                padding: "0 14px",
+                borderRadius: 12,
+                background: theme.soft,
+                border: `1px solid ${theme.soft}`,
+              }}
+            >
+              <div style={{ display: "flex", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: theme.accent }}>
+                {f.label[locale]}
+              </div>
+              <div style={{ display: "flex", fontSize: 15, color: "#ffffff" }}>{f.value[locale]}</div>
+            </div>
+          ))}
+        </div>
       </div>
-    ),
-    {
-      ...size,
-      fonts: [
-        { name: "Fraunces", data: fraunces, style: "normal", weight: 600 },
-        { name: "Poppins", data: poppins, style: "normal", weight: 500 },
-        { name: "Poppins Regular", data: poppinsRegular, style: "normal", weight: 400 },
-      ],
-    },
+      <div style={{ display: "flex", paddingRight: 6 }}>{visual}</div>
+    </Frame>,
   );
 }

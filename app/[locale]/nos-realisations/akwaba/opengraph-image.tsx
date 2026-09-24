@@ -1,7 +1,7 @@
 import { toBlogLocale } from "@/lib/blog";
-import { caseStudyAlt, createCaseStudyOgImage } from "@/lib/case-study-og";
+import { caseStudyAlt, createCaseStudyOgImage } from "@/lib/og/case-study";
 
-export { size, contentType } from "@/lib/case-study-og";
+export { size, contentType } from "@/lib/og/case-study";
 
 export const alt = caseStudyAlt("akwaba", "fr");
 
