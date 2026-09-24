@@ -23,7 +23,7 @@ export async function generateMetadata({
       ? "Nos projets : AKWABA (assistant IA pour la diaspora ivoirienne), KLASSCI (gestion académique pour l'enseignement supérieur) et WOURI (interface vocale multicanale pour l'agriculture et le climat)."
       : "Nos projets : KLASSCI (gestion académique pour l'enseignement supérieur) et WOURI (interface vocale multicanale pour l'agriculture et le climat).";
 
-  const canonical = `${SITE_URL}/${locale}/nos-realisations`;
+  const canonical = `${SITE_URL}${isEn ? "/en" : ""}/nos-realisations`;
 
   return {
     title,
@@ -31,9 +31,9 @@ export async function generateMetadata({
     alternates: {
       canonical,
       languages: {
-        fr: `${SITE_URL}/fr/nos-realisations`,
+        fr: `${SITE_URL}/nos-realisations`,
         en: `${SITE_URL}/en/nos-realisations`,
-        "x-default": `${SITE_URL}/fr/nos-realisations`,
+        "x-default": `${SITE_URL}/nos-realisations`,
       },
     },
     openGraph: {

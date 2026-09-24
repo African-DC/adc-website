@@ -26,7 +26,7 @@ export async function generateMetadata({
     ? "AKWABA guides the Ivorian diaspora through consular procedures and investment, on Web and WhatsApp, in French and local languages. In production."
     : "AKWABA accompagne la diaspora ivoirienne dans ses démarches consulaires et son envie d'investir, sur le Web et WhatsApp, en français et en langues locales. En production.";
 
-  const canonical = `${SITE_URL}/${locale}/nos-realisations/akwaba`;
+  const canonical = `${SITE_URL}${isEn ? "/en" : ""}/nos-realisations/akwaba`;
 
   return {
     title,
@@ -34,9 +34,9 @@ export async function generateMetadata({
     alternates: {
       canonical,
       languages: {
-        fr: `${SITE_URL}/fr/nos-realisations/akwaba`,
+        fr: `${SITE_URL}/nos-realisations/akwaba`,
         en: `${SITE_URL}/en/nos-realisations/akwaba`,
-        "x-default": `${SITE_URL}/fr/nos-realisations/akwaba`,
+        "x-default": `${SITE_URL}/nos-realisations/akwaba`,
       },
     },
     openGraph: {

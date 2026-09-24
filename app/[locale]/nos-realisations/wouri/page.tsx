@@ -20,7 +20,7 @@ export async function generateMetadata({
     ? "WOURI makes agricultural and climate expertise easier to access through voice, local context, validated sources and traceable answers."
     : "WOURI rend l'expertise agricole et climatique plus accessible grâce à la voix, au contexte local, à des sources validées et à des réponses traçables.";
 
-  const canonical = `${SITE_URL}/${locale}/nos-realisations/wouri`;
+  const canonical = `${SITE_URL}${isEn ? "/en" : ""}/nos-realisations/wouri`;
 
   return {
     title,
@@ -28,9 +28,9 @@ export async function generateMetadata({
     alternates: {
       canonical,
       languages: {
-        fr: `${SITE_URL}/fr/nos-realisations/wouri`,
+        fr: `${SITE_URL}/nos-realisations/wouri`,
         en: `${SITE_URL}/en/nos-realisations/wouri`,
-        "x-default": `${SITE_URL}/fr/nos-realisations/wouri`,
+        "x-default": `${SITE_URL}/nos-realisations/wouri`,
       },
     },
     openGraph: {
