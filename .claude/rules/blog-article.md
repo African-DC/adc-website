@@ -61,11 +61,17 @@ Valeurs de référence : `50% 20%` (deux personnes), `50% 15%` (groupe de quatre
 
 Les photos de téléphone portent souvent `orientation=6`. Sans traitement, elles s'affichent **couchées**. Toujours appliquer `ImageOps.exif_transpose()` à la conversion.
 
-### Image de partage (OG)
+### Image de partage (OG) — à vérifier pour chaque article
 
-Rien à préparer : `lib/og-template.tsx` lit le `hero.src` du catalogue dans `public/`, le convertit (le moteur ne lit pas le WebP) et le recadre avec `hero.position`. Un `position` juste sur l'article l'est donc aussi sur le partage. Vérifier le rendu sur `/blog/<slug>/opengraph-image` et `/en/blog/<slug>/opengraph-image`.
+C'est l'image qui s'affiche quand l'article est partagé sur WhatsApp, LinkedIn, Facebook ou X. Elle est **générée automatiquement** par `lib/og-template.tsx` : le titre, la catégorie et la date à gauche, la **photo du hero** à droite. Il n'y a rien à dessiner, mais trois conditions à respecter.
 
-Le socle commun des images de partage de tout le site (pages, études de cas, articles) vit dans `lib/og/`.
+1. **Créer le fichier `opengraph-image.tsx`** de l'article (fichier n° 5 du tableau). Sans lui, le partage **n'a aucune image** : `lib/blog-metadata.ts` annonce en dur `/blog/<slug>/opengraph-image`, et cette adresse renvoie alors une 404. Copier celui d'un article existant et changer seulement le slug.
+2. **Mettre le hero dans `public/img/blog/`.** Seul ce dossier est embarqué dans la fonction qui génère l'image (`outputFileTracingIncludes` dans `next.config.mjs`). Un hero rangé ailleurs marche en local et **tombe en erreur 500 en production**. Le WebP, le JPEG et le PNG sont tous acceptés : la conversion est automatique.
+3. **Le cadrage suit `hero.position`.** Le partage est rogné en portrait (500 × 630), donc une photo **paysage** perd ses côtés, et une photo **portrait** sans `position` coupe les têtes. Le `position` renseigné dans `lib/blog.ts` sert à la fois au site et au partage. Pour un hero de type **affiche** (texte, logos), vérifier que le rognage ne coupe pas l'essentiel. Sinon, choisir plutôt une photo de l'événement comme hero.
+
+Les titres s'adaptent seuls jusqu'à ~90 caractères. Au-delà, raccourcir le titre plutôt que retoucher le gabarit. Une catégorie longue tient sur une ligne.
+
+Le socle commun des images de partage du site (pages, études de cas, articles) vit dans `lib/og/`. Il ne faut **jamais** écrire un gabarit d'image propre à un article.
 
 ### 3. Conversion et poids
 
@@ -104,6 +110,18 @@ npx next start -p 3111
 #   viewports 390x844, 820x1180, 1440x900
 ```
 
+**Image de partage** : l'ouvrir en FR et en EN, et la regarder avant de livrer.
+
+```bash
+curl -s -o /tmp/og-fr.png -w "%{http_code}\n" http://localhost:3111/blog/<slug>/opengraph-image      # 200 attendu
+curl -s -o /tmp/og-en.png -w "%{http_code}\n" http://localhost:3111/en/blog/<slug>/opengraph-image   # 200 attendu
+curl -s http://localhost:3111/blog/<slug> | grep -o '<meta property="og:image"[^>]*>'                  # doit pointer vers /blog/<slug>/opengraph-image
+```
+
+Contrôler à l'œil : les visages sont entiers, le titre n'est pas tronqué, la photo est bien celle de l'article.
+
+⚠️ Avant de relancer `next start` après une build, arrêter l'ancien serveur (`pkill -f "next-serve[r]"`). Sinon le port reste occupé et l'on regarde **l'ancienne version** sans s'en rendre compte.
+
 ⚠️ Les captures `fullPage` ne déclenchent pas le lazy-loading des images : scroller puis capturer l'élément visé.
 
 ## Anti-patterns à BLOQUER
@@ -118,6 +136,10 @@ npx next start -p 3111
 8. ❌ Article deux fois plus long que les existants, avec listes à rallonge
 9. ❌ Images > 400 Ko
 10. ❌ Conclure « c'est bon » sans avoir regardé le rendu réel dans un navigateur
+11. ❌ Oublier `opengraph-image.tsx` : l'`og:image` pointe vers une 404, l'article se partage sans image
+12. ❌ Hero hors de `public/img/blog/` : l'image de partage tombe en 500 en production
+13. ❌ Livrer sans avoir ouvert `/blog/<slug>/opengraph-image` (FR et EN)
+14. ❌ Écrire un gabarit d'image de partage propre à un article au lieu d'utiliser `lib/og-template.tsx`
 
 ## Voir aussi
 
@@ -125,3 +147,5 @@ npx next start -p 3111
 - `lib/blog.ts` — catalogue et types
 - `components/sections/blog-article-layout.tsx` — gabarit d'article (prop `hero.position`)
 - `components/gallery/blog-gallery.tsx` — galerie et lightbox
+- `.claude/rules/og-images.md` — images de partage de tout le site
+- `lib/og-template.tsx` — gabarit de l'image de partage des articles
