@@ -20,7 +20,7 @@ export async function generateMetadata({
     ? "KLASSCI is a multi-tenant SaaS for higher education: LMD pathways, real-time finance, report cards, payroll. 10 institutions in production."
     : "KLASSCI est un SaaS multi-tenants pour l'enseignement supérieur : parcours LMD, finances temps réel, bulletins, paie. 10 établissements en production.";
 
-  const canonical = `${SITE_URL}/${locale}/nos-realisations/klassci`;
+  const canonical = `${SITE_URL}${isEn ? "/en" : ""}/nos-realisations/klassci`;
 
   return {
     title,
@@ -28,9 +28,9 @@ export async function generateMetadata({
     alternates: {
       canonical,
       languages: {
-        fr: `${SITE_URL}/fr/nos-realisations/klassci`,
+        fr: `${SITE_URL}/nos-realisations/klassci`,
         en: `${SITE_URL}/en/nos-realisations/klassci`,
-        "x-default": `${SITE_URL}/fr/nos-realisations/klassci`,
+        "x-default": `${SITE_URL}/nos-realisations/klassci`,
       },
     },
     openGraph: {
