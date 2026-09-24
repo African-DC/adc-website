@@ -22,6 +22,13 @@ const nextConfig = {
 
   experimental: {
     optimizePackageImports: ["framer-motion", "lucide-react", "next-intl"],
+    // Images de partage (lib/og) : visuels et photos lus sur disque au rendu.
+    // Sans ces lignes, Vercel ne les embarque pas dans les fonctions.
+    outputFileTracingIncludes: {
+      "/[locale]/opengraph-image": ["./assets/og/**/*"],
+      "/[locale]/*/opengraph-image": ["./assets/og/**/*", "./public/img/blog/**/*"],
+      "/[locale]/*/*/opengraph-image": ["./assets/og/**/*", "./public/img/blog/**/*"],
+    },
   },
 
   async headers() {

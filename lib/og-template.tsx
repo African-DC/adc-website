@@ -1,240 +1,141 @@
-import { ImageResponse } from "next/og";
 import { getArticleBySlug, localize, type BlogLocale } from "@/lib/blog";
+import {
+  ADC_ORANGE,
+  ADC_THEME,
+  Footer,
+  Glows,
+  Header,
+  OG_CONTENT_TYPE,
+  OG_SIZE,
+  assetUri,
+  displayUrl,
+  photoUri,
+  renderOg,
+} from "@/lib/og/kit";
+
+/**
+ * Image de partage d'un article : le titre à gauche, la photo de l'article à
+ * droite, recadrée avec le même `hero.position` que sur le site pour que les
+ * visages restent dans le cadre.
+ */
 
 export const alt = "African Digit Consulting — Blog";
-export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+export const size = OG_SIZE;
+export const contentType = OG_CONTENT_TYPE;
 
-async function loadGoogleFont(
-  family: string,
-  weight: number,
-): Promise<ArrayBuffer> {
-  const url = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(
-    family,
-  )}:wght@${weight}&display=swap`;
-  const css = await fetch(url, {
-    headers: {
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-    },
-  }).then((res) => res.text());
+const PHOTO_WIDTH = 500;
 
-  const match = css.match(
-    /src:\s*url\((https:[^)]+?)\)\s*format\('(?:opentype|truetype)'\)/,
-  );
-  if (!match) {
-    throw new Error(`Could not resolve TTF URL for ${family} ${weight}`);
-  }
-  const fontRes = await fetch(match[1]);
-  if (!fontRes.ok) {
-    throw new Error(`Failed to fetch font ${family} ${weight}`);
-  }
-  return fontRes.arrayBuffer();
+function titleSize(title: string): number {
+  if (title.length > 80) return 42;
+  if (title.length > 60) return 48;
+  if (title.length > 40) return 54;
+  return 60;
 }
 
-export async function createBlogOgImage(
-  slug: string,
-  locale: BlogLocale = "fr",
-) {
+export async function createBlogOgImage(slug: string, locale: BlogLocale = "fr") {
   const article = getArticleBySlug(slug);
   const title = article ? localize(article.title, locale) : "African Digit Consulting";
   const category = article ? localize(article.category, locale) : "Blog";
   const date = article ? localize(article.publishedAtDisplay, locale) : "";
   const author = article?.author.name ?? "African Digit Consulting";
 
-  const [frauncesBold, poppinsMedium] = await Promise.all([
-    loadGoogleFont("Fraunces", 600),
-    loadGoogleFont("Poppins", 500),
+  const [adcLogo, photo] = await Promise.all([
+    assetUri("adc-logo.png"),
+    article
+      ? photoUri(article.hero.src, PHOTO_WIDTH, OG_SIZE.height, article.hero.position)
+      : Promise.resolve(null),
   ]);
 
-  return new ImageResponse(
-    (
+  return renderOg(
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        position: "relative",
+        background: ADC_THEME.bg,
+        fontFamily: "Poppins",
+        color: "#ffffff",
+      }}
+    >
+      <Glows theme={ADC_THEME} />
+
+      {photo ? (
+        <div style={{ position: "absolute", top: 0, right: 0, display: "flex", width: PHOTO_WIDTH, height: "100%" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={photo} width={PHOTO_WIDTH} height={OG_SIZE.height} alt="" />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: 220,
+              height: OG_SIZE.height,
+              display: "flex",
+              backgroundImage: "linear-gradient(to right, rgba(11,10,9,1), rgba(11,10,9,0.6), rgba(11,10,9,0))",
+            }}
+          />
+        </div>
+      ) : null}
+
       <div
         style={{
-          width: "100%",
-          height: "100%",
+          position: "relative",
           display: "flex",
           flexDirection: "column",
-          background: "#0a0a0a",
-          fontFamily: "Poppins",
-          position: "relative",
-          color: "#ffffff",
+          width: photo ? 1200 - PHOTO_WIDTH + 30 : "100%",
+          height: "100%",
+          padding: "44px 70px 36px 60px",
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            top: -220,
-            right: -180,
-            width: 620,
-            height: 620,
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, rgba(255,148,43,0.45) 0%, rgba(255,148,43,0) 70%)",
-            display: "flex",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: -140,
-            left: -120,
-            width: 420,
-            height: 420,
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, rgba(255,148,43,0.18) 0%, rgba(255,148,43,0) 70%)",
-            display: "flex",
-          }}
-        />
+        <Header adcLogo={adcLogo} eyebrow="Blog" />
 
-        <div
-          style={{
-            position: "relative",
-            display: "flex",
-            flexDirection: "column",
-            padding: "72px 80px",
-            height: "100%",
-            justifyContent: "space-between",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-            <div
-              style={{
-                display: "flex",
-                fontFamily: "Fraunces",
-                fontSize: 44,
-                fontWeight: 600,
-                letterSpacing: "-0.02em",
-                color: "#ffffff",
-              }}
-            >
-              ADC
-            </div>
-            <div
-              style={{
-                display: "flex",
-                width: 40,
-                height: 2,
-                background: "#ff942b",
-              }}
-            />
-            <div
-              style={{
-                display: "flex",
-                fontSize: 18,
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.75)",
-              }}
-            >
-              African Digit Consulting
-            </div>
-          </div>
-
+        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", flex: 1, gap: 22 }}>
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
-              gap: 28,
-              maxWidth: 1040,
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 16,
-                fontSize: 20,
-                color: "#ff942b",
-                textTransform: "uppercase",
-                letterSpacing: "0.22em",
-                fontWeight: 500,
-              }}
-            >
-              <span>{category}</span>
-              {date ? (
-                <>
-                  <span
-                    style={{
-                      display: "flex",
-                      width: 4,
-                      height: 4,
-                      borderRadius: "50%",
-                      background: "rgba(255,148,43,0.6)",
-                    }}
-                  />
-                  <span style={{ color: "rgba(255,255,255,0.65)" }}>
-                    {date}
-                  </span>
-                </>
-              ) : null}
-            </div>
-            <div
-              style={{
-                display: "flex",
-                fontFamily: "Fraunces",
-                fontSize: 64,
-                fontWeight: 600,
-                lineHeight: 1.1,
-                letterSpacing: "-0.015em",
-                color: "#ffffff",
-              }}
-            >
-              {title}
-            </div>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
               alignItems: "center",
-              paddingTop: 28,
-              borderTop: "1px solid rgba(255,255,255,0.12)",
+              gap: 14,
+              fontSize: 16,
+              letterSpacing: "0.14em",
+              whiteSpace: "nowrap",
+              textTransform: "uppercase",
             }}
           >
             <div
               style={{
                 display: "flex",
-                fontSize: 20,
-                color: "rgba(255,255,255,0.82)",
-                fontWeight: 500,
+                flexShrink: 0,
+                padding: "6px 14px",
+                borderRadius: 999,
+                background: "rgba(255,148,43,0.16)",
+                border: "1px solid rgba(255,148,43,0.4)",
+                color: ADC_ORANGE,
               }}
             >
-              {author}
+              {category}
             </div>
-            <div
-              style={{
-                display: "flex",
-                fontSize: 18,
-                color: "rgba(255,255,255,0.55)",
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-              }}
-            >
-              africandigitconsulting.com
-            </div>
+            {date ? <div style={{ display: "flex", flexShrink: 0, color: "rgba(255,255,255,0.62)" }}>{date}</div> : null}
+          </div>
+          <div
+            style={{
+              display: "flex",
+              fontFamily: "Fraunces",
+              fontSize: titleSize(title),
+              lineHeight: 1.1,
+              letterSpacing: "-0.015em",
+            }}
+          >
+            {title}
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 19, color: "rgba(255,255,255,0.8)" }}>
+            <div style={{ display: "flex", width: 28, height: 2, background: ADC_ORANGE }} />
+            {author}
           </div>
         </div>
+
+        <Footer url={displayUrl("blog", locale)} />
       </div>
-    ),
-    {
-      ...size,
-      fonts: [
-        {
-          name: "Fraunces",
-          data: frauncesBold,
-          style: "normal",
-          weight: 600,
-        },
-        {
-          name: "Poppins",
-          data: poppinsMedium,
-          style: "normal",
-          weight: 500,
-        },
-      ],
-    },
+    </div>,
   );
 }
