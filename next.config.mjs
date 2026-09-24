@@ -22,6 +22,10 @@ const nextConfig = {
 
   experimental: {
     optimizePackageImports: ["framer-motion", "lucide-react", "next-intl"],
+    // Images de partage des études de cas : lues sur disque au rendu.
+    outputFileTracingIncludes: {
+      "/[locale]/nos-realisations/*/opengraph-image": ["./assets/og/**/*"],
+    },
   },
 
   async headers() {

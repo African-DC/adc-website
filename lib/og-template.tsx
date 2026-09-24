@@ -5,7 +5,7 @@ export const alt = "African Digit Consulting — Blog";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-async function loadGoogleFont(
+export async function loadGoogleFont(
   family: string,
   weight: number,
 ): Promise<ArrayBuffer> {
