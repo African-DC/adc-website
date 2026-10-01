@@ -12,7 +12,7 @@ import { ReactNode } from "react";
 import "../globals.css";
 
 const poppins = Poppins({
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
   variable: "--font-poppins",
@@ -23,7 +23,7 @@ const poppins = Poppins({
 
 const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["500", "600"],
+  // Variable font: every weight the headings use (500 to 700) is real, not synthesized.
   style: ["normal", "italic"],
   display: "swap",
   variable: "--font-fraunces",

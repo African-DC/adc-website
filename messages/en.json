@@ -78,5 +78,15 @@
     "title": "This page will soon be available in English.",
     "description": "We are finalising the translation. In the meantime, the French version remains accessible.",
     "cta": "View in French"
+  },
+  "notFound": {
+    "eyebrow": "Error 404",
+    "title": "This page doesn't exist,",
+    "titleEm": "or no longer does.",
+    "lead": "The address may be mistyped, or the page has moved. Here are the most useful paths.",
+    "home": "Back to home",
+    "work": "Our work",
+    "blog": "The journal",
+    "contact": "Write to us"
   }
 }

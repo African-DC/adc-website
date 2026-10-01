@@ -21,8 +21,8 @@ export async function generateMetadata({
 
   const title = isEn ? "About — ADC" : "À propos — ADC";
   const description = isEn
-    ? "Our story, our principles, our team. African Digit Consulting builds useful digital products from Abidjan, for Africa."
-    : "Notre histoire, nos piliers, notre équipe. African Digit Consulting construit le digital utile depuis Abidjan.";
+    ? "Our story, our principles, our team. African Digit Consulting builds useful digital products from Grand-Bassam, for Africa."
+    : "Notre histoire, nos piliers, notre équipe. African Digit Consulting construit le digital utile depuis Grand-Bassam.";
 
   return {
     title,

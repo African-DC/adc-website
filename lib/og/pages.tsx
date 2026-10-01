@@ -190,7 +190,7 @@ async function about(locale: BlogLocale) {
       <>
         <TextColumn width={480}>
           <Title size={56}>
-            {t({ fr: "Le digital utile, construit depuis Abidjan", en: "Useful digital, built from Abidjan" }, locale)}
+            {t({ fr: "Le digital utile, construit depuis Grand-Bassam", en: "Useful digital, built from Grand-Bassam" }, locale)}
           </Title>
           <Lead size={23}>
             {t({ fr: "Notre histoire, nos piliers, notre équipe.", en: "Our story, our principles, our team." }, locale)}

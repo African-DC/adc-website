@@ -1,6 +1,6 @@
 "use client";
 
-import { Facebook, Linkedin, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Facebook, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
@@ -72,16 +72,6 @@ export function Footer() {
                 className="inline-flex items-center justify-center h-10 w-10 rounded-full border border-white/10 text-white/70 hover:text-orange-400 hover:border-orange-400 transition-colors"
               >
                 <Facebook className="h-4 w-4" strokeWidth={1.5} />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/klassci/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                onClick={() => track("footer_social_click", { platform: "linkedin" })}
-                className="inline-flex items-center justify-center h-10 w-10 rounded-full border border-white/10 text-white/70 hover:text-orange-400 hover:border-orange-400 transition-colors"
-              >
-                <Linkedin className="h-4 w-4" strokeWidth={1.5} />
               </a>
             </div>
           </div>

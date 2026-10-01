@@ -9,7 +9,7 @@ import Image from "next/image";
 import { ExternalLink, Tag, EyeIcon, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ScrollProgress from "@/components/ui/scroll-progress";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { SHOW_AKWABA } from "@/lib/site-features";
 import { ProjectLogo } from "@/components/ui/project-logo";
 

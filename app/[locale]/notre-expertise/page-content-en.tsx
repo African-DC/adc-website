@@ -10,7 +10,7 @@ import {
   Code,
 } from "lucide-react";
 // BarChart, PenTool icons kept on standby for expertises 02/03 if we reactivate them.
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import { track } from "@/lib/analytics/track";
