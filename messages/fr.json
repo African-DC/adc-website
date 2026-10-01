@@ -78,5 +78,15 @@
     "title": "Cette page est bientôt disponible en anglais.",
     "description": "Nous finalisons la traduction. En attendant, la version française reste accessible.",
     "cta": "Voir en français"
+  },
+  "notFound": {
+    "eyebrow": "Erreur 404",
+    "title": "Cette page n'existe pas,",
+    "titleEm": "ou plus.",
+    "lead": "L'adresse est peut-être mal saisie, ou la page a été déplacée. Voici les chemins les plus utiles.",
+    "home": "Retour à l'accueil",
+    "work": "Nos réalisations",
+    "blog": "Le journal",
+    "contact": "Nous écrire"
   }
 }

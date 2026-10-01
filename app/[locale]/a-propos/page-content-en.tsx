@@ -8,7 +8,7 @@ import ScrollProgress from "@/components/ui/scroll-progress";
 import { m, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Lightbulb, Users, MapPin } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useRef } from "react";
 
 const historyItems = [

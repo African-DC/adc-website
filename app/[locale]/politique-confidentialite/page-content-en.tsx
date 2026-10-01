@@ -2,7 +2,7 @@ import { Footer } from "@/components/sections/footer";
 import { NavbarDemo } from "@/components/sections/navbar-demo";
 import { PageHero } from "@/components/sections/page-hero";
 import ScrollProgress from "@/components/ui/scroll-progress";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 export default function PolitiqueConfidentialiteContentEn() {
   return (
@@ -176,7 +176,14 @@ export default function PolitiqueConfidentialiteContentEn() {
                     submissions.
                   </li>
                   <li>
-                    <strong>Vercel</strong>: website hosting and delivery.
+                    <strong>Vercel</strong>: website hosting and delivery, and
+                    cookieless audience and performance measurement (Vercel
+                    Analytics, Speed Insights).
+                  </li>
+                  <li>
+                    <strong>PostHog</strong>: audience measurement (page views,
+                    clicks on the main links). Data is processed on servers located
+                    in the United States.
                   </li>
                 </ul>
                 <p>
@@ -220,10 +227,17 @@ export default function PolitiqueConfidentialiteContentEn() {
                   9. Cookies
                 </h2>
                 <p>
-                  We only use cookies that are strictly necessary for the
-                  proper functioning of the website (technical session). No
-                  advertising cookies or third-party tracking cookies are
-                  placed without your consent.
+                  The site sets no advertising cookies. To understand how it is
+                  used, we rely on the PostHog audience measurement tool, which
+                  stores an anonymous identifier in a cookie and in your
+                  browser&apos;s local storage. It does not collect your name or
+                  email address.
+                </p>
+                <p>
+                  This measurement is turned off when your browser sends a Do Not
+                  Track signal. You can also delete this data at any time from your
+                  browser settings. Vercel Analytics and Speed Insights set no
+                  cookies.
                 </p>
               </section>
 
@@ -273,7 +287,7 @@ export default function PolitiqueConfidentialiteContentEn() {
                   <li>
                     Through our{" "}
                     <Link
-                      href="/en/contact"
+                      href="/contact"
                       className="text-orange-600 hover:underline"
                     >
                       contact form
@@ -284,7 +298,7 @@ export default function PolitiqueConfidentialiteContentEn() {
               </section>
 
               <div className="pt-8 border-t border-gray-200 text-sm text-gray-500">
-                Last updated: 24 April 2026
+                Last updated: 1 October 2026
               </div>
             </div>
           </div>

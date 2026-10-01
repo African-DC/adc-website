@@ -15,7 +15,7 @@ import {
   CalendarClock,
   Navigation,
 } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useRef, useState } from "react";
 import { track, bucketMessageLength } from "@/lib/analytics/track";
 
@@ -147,7 +147,7 @@ export default function ContactPageContentEn() {
       <PageHero
         title="Let's talk about your project."
         subtitle="A brief, a coffee, a call. We reply within 48 hours."
-        eyebrow="Contact · Abidjan"
+        eyebrow="Contact · Grand-Bassam"
         breadcrumbs={[{ label: "Contact", href: "/contact" }]}
       />
 
@@ -505,7 +505,7 @@ export default function ContactPageContentEn() {
                           <p className="mt-4 text-xs text-neutral-500">
                             By submitting this form, you agree to our{" "}
                             <Link
-                              href="/en/politique-confidentialite"
+                              href="/politique-confidentialite"
                               className="text-orange-600 hover:underline"
                             >
                               privacy policy

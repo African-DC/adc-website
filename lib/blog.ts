@@ -360,8 +360,8 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "akwaba-klassci",
     title: {
-      fr: "AKAWABA KLASSCI : présentation officielle de notre solution de gestion scolaire",
-      en: "AKAWABA KLASSCI: Official Launch of Our School Management Solution",
+      fr: "AKWABA KLASSCI : présentation officielle de notre solution de gestion scolaire",
+      en: "AKWABA KLASSCI: Official Launch of Our School Management Solution",
     },
     subtitle: {
       fr: "Le 20 juin 2025, ADC a dévoilé KLASSCI devant le Ministère de l'Éducation nationale, la GIZ, Côte d'Ivoire Export et Impact'Lab UNESCO. Retour sur un lancement qui a marqué un tournant.",
@@ -375,8 +375,8 @@ export const blogArticles: BlogArticle[] = [
     hero: {
       src: "/img/blog/akwaba-klassci/1.webp",
       alt: {
-        fr: "Événement AKAWABA KLASSCI : présentation officielle",
-        en: "AKAWABA KLASSCI event: official launch",
+        fr: "Événement AKWABA KLASSCI : présentation officielle",
+        en: "AKWABA KLASSCI event: official launch",
       },
     },
     author: DEFAULT_AUTHOR,

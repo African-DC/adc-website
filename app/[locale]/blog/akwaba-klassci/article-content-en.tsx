@@ -23,12 +23,12 @@ const features = [
 ];
 
 const gallery = [
-  { src: "/img/blog/akwaba-klassci/1.webp", alt: "AKAWABA KLASSCI presentation" },
+  { src: "/img/blog/akwaba-klassci/1.webp", alt: "AKWABA KLASSCI presentation" },
   { src: "/img/blog/akwaba-klassci/2.webp", alt: "ADC team at the KLASSCI launch" },
   { src: "/img/blog/akwaba-klassci/3.webp", alt: "Institutional partners present" },
   { src: "/img/blog/akwaba-klassci/4.webp", alt: "Exchanges with guests" },
   { src: "/img/blog/akwaba-klassci/5.webp", alt: "KLASSCI platform demonstration" },
-  { src: "/img/blog/akwaba-klassci/6.webp", alt: "Symbolic handover at the AKAWABA KLASSCI event" },
+  { src: "/img/blog/akwaba-klassci/6.webp", alt: "Symbolic handover at the AKWABA KLASSCI event" },
   { src: "/img/blog/akwaba-klassci/7.webp", alt: "Discussion between education sector players" },
   { src: "/img/blog/akwaba-klassci/8.webp", alt: "Official KLASSCI presentation moment" },
 ];
@@ -36,16 +36,16 @@ const gallery = [
 export default function AkwabaKlassciArticlePageEn() {
   return (
     <BlogArticleLayout
-      title="AKAWABA KLASSCI: official launch of our school management solution."
+      title="AKWABA KLASSCI: official launch of our school management solution."
       subtitle="On June 20, 2025, ADC officially introduced KLASSCI to the Ministry of National Education, GIZ, Côte d'Ivoire Export and Impact'Lab UNESCO."
       eyebrow="Blog · Launch · June 20, 2025"
       breadcrumbs={[
         { label: "Blog", href: "/blog" },
-        { label: "AKAWABA KLASSCI", href: "/blog/akwaba-klassci" },
+        { label: "AKWABA KLASSCI", href: "/blog/akwaba-klassci" },
       ]}
       hero={{
         src: "/img/blog/akwaba-klassci/1.webp",
-        alt: "AKAWABA KLASSCI event: official launch",
+        alt: "AKWABA KLASSCI event: official launch",
       }}
       cta={{
         title: "Do you lead an educational institution?",
@@ -58,7 +58,7 @@ export default function AkwabaKlassciArticlePageEn() {
       <article className="py-12 md:py-16">
         <div className="max-w-3xl mx-auto px-6 space-y-8 text-neutral-800 text-lg leading-relaxed">
           <p className="font-serif text-2xl md:text-3xl italic font-light text-neutral-900 leading-snug">
-            AKAWABA. &ldquo;Welcome&rdquo; in Akan. It&apos;s the word we chose
+            AKWABA. &ldquo;Welcome&rdquo; in Akan. It&apos;s the word we chose
             to tell Ivorian education stakeholders that KLASSCI is here,
             ready to serve their schools.
           </p>
@@ -126,7 +126,7 @@ export default function AkwabaKlassciArticlePageEn() {
           </h2>
 
           <p>
-            AKAWABA KLASSCI was not an endpoint but a starting point.
+            AKWABA KLASSCI was not an endpoint but a starting point.
             Feedback from the Ministry, GIZ, Impact&apos;Lab UNESCO and the
             entrepreneurs present fed the iterations of the following
             months. Today, KLASSCI runs in ten Ivorian institutions, from
@@ -171,7 +171,7 @@ export default function AkwabaKlassciArticlePageEn() {
         </div>
       </section>
 
-      <BlogGallery eyebrow="Gallery · AKAWABA KLASSCI" images={gallery} />
+      <BlogGallery eyebrow="Gallery · AKWABA KLASSCI" images={gallery} />
     </BlogArticleLayout>
   );
 }

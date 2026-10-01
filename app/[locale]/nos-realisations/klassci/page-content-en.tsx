@@ -16,7 +16,7 @@ import {
   BarChart3,
 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useEffect } from "react";
 import { useLocale } from "next-intl";
 import { track } from "@/lib/analytics/track";

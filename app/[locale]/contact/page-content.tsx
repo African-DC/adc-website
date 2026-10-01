@@ -15,7 +15,7 @@ import {
   CalendarClock,
   Navigation,
 } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useRef, useState } from "react";
 import { track, bucketMessageLength } from "@/lib/analytics/track";
 
@@ -147,7 +147,7 @@ export default function ContactPageContent() {
       <PageHero
         title="Parlons de votre projet."
         subtitle="Un brief, un café, un appel. Nous répondons sous 48h."
-        eyebrow="Contact · Abidjan"
+        eyebrow="Contact · Grand-Bassam"
         breadcrumbs={[{ label: "Contact", href: "/contact" }]}
       />
 

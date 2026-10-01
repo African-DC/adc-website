@@ -2,7 +2,7 @@ import { Footer } from "@/components/sections/footer";
 import { NavbarDemo } from "@/components/sections/navbar-demo";
 import { PageHero } from "@/components/sections/page-hero";
 import ScrollProgress from "@/components/ui/scroll-progress";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 export default function PolitiqueConfidentialiteContent() {
   return (
@@ -179,7 +179,14 @@ export default function PolitiqueConfidentialiteContent() {
                     formulaire de contact.
                   </li>
                   <li>
-                    <strong>Vercel</strong> : hébergement et diffusion du site.
+                    <strong>Vercel</strong> : hébergement et diffusion du site,
+                    mesure d'audience et de performance sans cookie (Vercel
+                    Analytics, Speed Insights).
+                  </li>
+                  <li>
+                    <strong>PostHog</strong> : mesure d'audience (pages vues,
+                    clics sur les liens principaux). Les données sont traitées
+                    sur des serveurs situés aux États-Unis.
                   </li>
                 </ul>
                 <p>
@@ -223,10 +230,17 @@ export default function PolitiqueConfidentialiteContent() {
                   9. Cookies
                 </h2>
                 <p>
-                  Nous utilisons uniquement des cookies strictement nécessaires
-                  au bon fonctionnement du site (session technique). Aucun
-                  cookie publicitaire ni cookie de suivi tiers n'est déposé
-                  sans votre accord.
+                  Le site ne dépose aucun cookie publicitaire. Pour comprendre
+                  comment il est utilisé, nous employons l'outil de mesure
+                  d'audience PostHog, qui enregistre un identifiant anonyme dans un
+                  cookie et dans le stockage local de votre navigateur. Il ne
+                  collecte ni votre nom, ni votre adresse email.
+                </p>
+                <p>
+                  Cette mesure est désactivée si votre navigateur envoie le signal
+                  « Ne pas me pister » (Do Not Track). Vous pouvez aussi supprimer
+                  ces données à tout moment depuis les réglages de votre navigateur.
+                  Vercel Analytics et Speed Insights, eux, ne déposent aucun cookie.
                 </p>
               </section>
 
@@ -289,7 +303,7 @@ export default function PolitiqueConfidentialiteContent() {
               </section>
 
               <div className="pt-8 border-t border-gray-200 text-sm text-gray-500">
-                Dernière mise à jour : 24 avril 2026
+                Dernière mise à jour : 1er octobre 2026
               </div>
             </div>
           </div>

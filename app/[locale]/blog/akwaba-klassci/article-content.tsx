@@ -23,12 +23,12 @@ const features = [
 ];
 
 const gallery = [
-  { src: "/img/blog/akwaba-klassci/1.webp", alt: "Présentation AKAWABA KLASSCI" },
+  { src: "/img/blog/akwaba-klassci/1.webp", alt: "Présentation AKWABA KLASSCI" },
   { src: "/img/blog/akwaba-klassci/2.webp", alt: "Équipe ADC lors du lancement KLASSCI" },
   { src: "/img/blog/akwaba-klassci/3.webp", alt: "Partenaires institutionnels présents" },
   { src: "/img/blog/akwaba-klassci/4.webp", alt: "Échanges avec les invités" },
   { src: "/img/blog/akwaba-klassci/5.webp", alt: "Démonstration de la plateforme KLASSCI" },
-  { src: "/img/blog/akwaba-klassci/6.webp", alt: "Remise symbolique lors de l'événement AKAWABA KLASSCI" },
+  { src: "/img/blog/akwaba-klassci/6.webp", alt: "Remise symbolique lors de l'événement AKWABA KLASSCI" },
   { src: "/img/blog/akwaba-klassci/7.webp", alt: "Discussion entre acteurs du secteur éducatif" },
   { src: "/img/blog/akwaba-klassci/8.webp", alt: "Moment de présentation officielle KLASSCI" },
 ];
@@ -36,16 +36,16 @@ const gallery = [
 export default function AkwabaKlassciArticlePage() {
   return (
     <BlogArticleLayout
-      title="AKAWABA KLASSCI : présentation officielle de notre solution de gestion scolaire."
+      title="AKWABA KLASSCI : présentation officielle de notre solution de gestion scolaire."
       subtitle="Le 20 juin 2025, ADC a officiellement présenté KLASSCI devant le ministère de l'Éducation nationale, la GIZ, Côte d'Ivoire Export et Impact'Lab UNESCO."
       eyebrow="Blog · Lancement · 20 juin 2025"
       breadcrumbs={[
         { label: "Blog", href: "/blog" },
-        { label: "AKAWABA KLASSCI", href: "/blog/akwaba-klassci" },
+        { label: "AKWABA KLASSCI", href: "/blog/akwaba-klassci" },
       ]}
       hero={{
         src: "/img/blog/akwaba-klassci/1.webp",
-        alt: "Événement AKAWABA KLASSCI : présentation officielle",
+        alt: "Événement AKWABA KLASSCI : présentation officielle",
       }}
       cta={{
         title: "Vous dirigez un établissement scolaire ?",
@@ -58,7 +58,7 @@ export default function AkwabaKlassciArticlePage() {
       <article className="py-12 md:py-16">
         <div className="max-w-3xl mx-auto px-6 space-y-8 text-neutral-800 text-lg leading-relaxed">
           <p className="font-serif text-2xl md:text-3xl italic font-light text-neutral-900 leading-snug">
-            AKAWABA. « Bienvenue » en akan. C'est le mot que nous avons
+            AKWABA. « Bienvenue » en akan. C'est le mot que nous avons
             choisi pour dire aux acteurs de l'éducation ivoirienne que
             KLASSCI est là, prêt à servir leurs écoles.
           </p>
@@ -127,7 +127,7 @@ export default function AkwabaKlassciArticlePage() {
           </h2>
 
           <p>
-            AKAWABA KLASSCI n'était pas une fin de parcours mais un point
+            AKWABA KLASSCI n'était pas une fin de parcours mais un point
             de départ. Les retours du ministère, de la GIZ, d'Impact'Lab
             UNESCO et des entrepreneurs présents ont alimenté les
             itérations des mois qui ont suivi. Aujourd'hui, KLASSCI tourne
@@ -171,7 +171,7 @@ export default function AkwabaKlassciArticlePage() {
         </div>
       </section>
 
-      <BlogGallery eyebrow="Galerie · AKAWABA KLASSCI" images={gallery} />
+      <BlogGallery eyebrow="Galerie · AKWABA KLASSCI" images={gallery} />
     </BlogArticleLayout>
   );
 }
