@@ -44,6 +44,89 @@ export const BLOG_AUTHORS = {
 
 export const blogArticles: BlogArticle[] = [
   {
+    slug: "klassci-paes-2026-cdc-ci-capital",
+    title: {
+      fr: "PAES 2026 : ADC et KLASSCI préparent leur prochaine étape",
+      en: "PAES 2026: ADC and KLASSCI Prepare Their Next Step"
+    },
+    subtitle: {
+      fr: "Une semaine de préparation à l’investissement avec CDC-CI Capital, l’Agence Emploi Jeunes et Plug and Play Tech Center.",
+      en: "A week of investment readiness with CDC-CI Capital, Agence Emploi Jeunes and Plug and Play Tech Center."
+    },
+    excerpt: {
+      fr: "Après la formation intensive du 19 au 23 octobre et le pitch final du 24 octobre, ADC figure parmi les dix lauréates du PAES 2026 avec KLASSCI.",
+      en: "Following intensive training on October 19–23 and the final pitch on October 24, ADC is among the ten PAES 2026 winners with KLASSCI."
+    },
+    category: {
+      fr: "Accélération",
+      en: "Acceleration"
+    },
+    hero: {
+      src: "/img/blog/klassci-paes-2026-cdc-ci-capital/hero.jpg",
+      alt: {
+        fr: "Support de formation Plug and Play lors de la semaine PAES 2026 — CDC-CI Capital",
+        en: "Plug and Play training material during the PAES 2026 week — CDC-CI Capital"
+      }
+    },
+    author: DEFAULT_AUTHOR,
+    publishedAt: "2026-10-26",
+    publishedAtDisplay: {
+      fr: "26 octobre 2026",
+      en: "October 26, 2026"
+    },
+    keywords: [
+      "KLASSCI",
+      "PAES 2026",
+      "CDC-CI Capital",
+      "Agence Emploi Jeunes",
+      "Plug and Play",
+      "investissement",
+      "African Digit Consulting"
+    ]
+  },
+  {
+    slug: "wouri-tests-terrain-bodokro",
+    title: {
+      fr: "À Bodokro, WOURI se construit avec les populations",
+      en: "In Bodokro, WOURI Is Being Built with Local Communities"
+    },
+    subtitle: {
+      fr: "Une délégation de l’équipe WOURI est allée à la rencontre des populations pour présenter le projet, tester la solution et écouter leurs attentes.",
+      en: "A WOURI team delegation met local communities to introduce the project, test the solution and listen to their expectations."
+    },
+    excerpt: {
+      fr: "Présentation, tests sur le terrain et retours des populations : la rencontre de Bodokro nourrit le développement de WOURI et les perspectives de collaboration avec la SODEXAM.",
+      en: "Presentations, field tests and community feedback: the Bodokro visit informs WOURI’s development and prospects for collaboration with SODEXAM."
+    },
+    category: {
+      fr: "Terrain & innovation",
+      en: "Fieldwork & Innovation"
+    },
+    hero: {
+    position: "50% 12%",
+      src: "/img/blog/wouri-tests-terrain-bodokro/hero.webp",
+      alt: {
+        fr: "Participants à la rencontre WOURI de Bodokro — image extraite des vidéos de terrain",
+        en: "Participants at the WOURI meeting in Bodokro — still from the field videos"
+      }
+    },
+    author: DEFAULT_AUTHOR,
+    publishedAt: "2026-10-26",
+    publishedAtDisplay: {
+      fr: "26 octobre 2026",
+      en: "October 26, 2026"
+    },
+    keywords: [
+      "WOURI",
+      "Bodokro",
+      "tests terrain",
+      "agriculture",
+      "SODEXAM",
+      "météorologie",
+      "African Digit Consulting"
+    ]
+  },
+  {
     slug: "equipe-adc-velo-mobilite-douce",
     title: {
       fr: "Le numérique à l'épreuve du terrain : l'équipe ADC enfourche le vélo",
