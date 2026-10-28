@@ -46,27 +46,27 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "klassci-paes-2026-cdc-ci-capital",
     title: {
-      fr: "PAES 2026 : ADC et KLASSCI préparent leur prochaine étape",
-      en: "PAES 2026: ADC and KLASSCI Prepare Their Next Step"
+      fr: "KLASSCI parmi les 10 startups lauréates du PAES 2026",
+      en: "KLASSCI Among the 10 Winning Startups of PAES 2026"
     },
     subtitle: {
-      fr: "Une semaine de préparation à l’investissement avec CDC-CI Capital, l’Agence Emploi Jeunes et Plug and Play Tech Center.",
-      en: "A week of investment readiness with CDC-CI Capital, Agence Emploi Jeunes and Plug and Play Tech Center."
+      fr: "Après le pitch final à la CGECI, ADC et KLASSCI sont retenues pour l’immersion au Maroc en décembre 2026. Une reconnaissance qui engage la suite.",
+      en: "Following the final pitch at CGECI, ADC and KLASSCI have been selected for the Morocco immersion in December 2026. A recognition that comes with responsibility."
     },
     excerpt: {
-      fr: "Après la formation intensive du 19 au 23 octobre et le pitch final du 24 octobre, ADC figure parmi les dix lauréates du PAES 2026 avec KLASSCI.",
-      en: "Following intensive training on October 19–23 and the final pitch on October 24, ADC is among the ten PAES 2026 winners with KLASSCI."
+      fr: "KLASSCI figure parmi les dix lauréates du PAES 2026. Retour sur le pitch porté par Marcel Djedje-li et Abel Josias Bede, les enseignements de la semaine et la prochaine étape au Maroc.",
+      en: "KLASSCI is among the ten PAES 2026 winners. A look at the pitch delivered by Marcel Djedje-li and Abel Josias Bede, the week’s lessons and the next step in Morocco."
     },
     category: {
-      fr: "Accélération",
-      en: "Acceleration"
+      fr: "Distinctions",
+      en: "Awards"
     },
     hero: {
-    position: "50% 25%",
+    position: "50% 75%",
       src: "/img/blog/klassci-paes-2026-cdc-ci-capital/hero.webp",
       alt: {
-        fr: "Participants au PAES 2026 échangeant dans la salle de formation",
-        en: "PAES 2026 participants talking in the training room"
+        fr: "Présentation de KLASSCI devant le jury du PAES 2026, avec sa traction affichée à l’écran",
+        en: "KLASSCI presented to the PAES 2026 jury, with its traction shown on screen"
       }
     },
     author: DEFAULT_AUTHOR,
